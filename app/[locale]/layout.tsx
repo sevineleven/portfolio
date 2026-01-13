@@ -50,6 +50,7 @@ export async function generateMetadata({
       url: currentUrl,
       siteName: "Portfolio - Sevin Park",
       images: [
+        absoluteImageUrl, // 카카오톡 호환을 위해 문자열 형식으로
         {
           url: absoluteImageUrl,
           width: 1200,

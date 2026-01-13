@@ -22,10 +22,12 @@ export default function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // locale이 없으면 기본 locale로 리다이렉트
+  // locale이 없으면 기본 locale로 rewrite (리디렉션 대신)
+  // 카카오톡 크롤러는 리디렉션을 따라가면서 메타 태그를 읽을 수 있지만,
+  // rewrite를 사용하면 더 안정적
   const locale = defaultLocale;
   request.nextUrl.pathname = `/${locale}${pathname}`;
-  return NextResponse.redirect(request.nextUrl);
+  return NextResponse.rewrite(request.nextUrl);
 }
 
 export const config = {
