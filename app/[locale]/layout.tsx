@@ -76,6 +76,12 @@ export async function generateMetadata({
     },
     other: {
       "mobile-web-app-capable": "yes",
+      // 카카오톡 호환을 위한 명시적 Open Graph 메타 태그
+      "og:url": currentUrl,
+      "og:site_name": "Portfolio - Sevin Park",
+      "og:image:width": "1200",
+      "og:image:height": "1200",
+      "og:image:type": "image/png",
     },
     // 카카오톡 호환을 위한 추가 메타데이터
     alternates: {
@@ -108,9 +114,25 @@ export default async function RootLayout({
   params,
 }: RootLayoutProps) {
   const { locale } = await params;
+  const baseUrl = getBaseUrl();
+  const ogImageUrl = `${baseUrl}/portfolio_thumbnail.png`;
+  const currentUrl = `${baseUrl}/${locale}`;
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        {/* 카카오톡 호환을 위한 명시적 Open Graph 메타 태그 */}
+        <meta property="og:url" content={currentUrl} />
+        <meta property="og:title" content="Portfolio - Sevin Park" />
+        <meta property="og:description" content="Backend Developer Portfolio" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="1200" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:site_name" content="Portfolio - Sevin Park" />
+        <meta property="og:locale" content={locale === 'ko' ? 'ko_KR' : 'en_US'} />
+      </head>
       <body
         className={`${geistMono.variable} antialiased`}
       >
