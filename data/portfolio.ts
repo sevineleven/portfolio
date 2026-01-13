@@ -31,13 +31,13 @@ export const personalInfo = {
   github: "https://github.com/sevin98",
   linkedin: "https://linkedin.com/in/%EC%84%B8%EB%B9%88-%EB%B0%95-481206367",
   email: "psv980817@naver.com",
-  profileImage: "/jerry.jpg",
+  profileImage: "/sevin.jpg",
 };
 
 export const proofStrip = {
   role: "Backend Developer",
   mainStack: "Spring Boot, Java, MySQL",
-  experience: "1+ Year", // 2025.01부터 시작
+  experience: "1+ Years", // 2025.01부터 시작
 };
 
 export const about = {

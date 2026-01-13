@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../globals.css";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
@@ -56,6 +57,7 @@ export default async function RootLayout({
         >
           {children}
           <LanguageSwitcher />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
