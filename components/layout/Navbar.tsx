@@ -129,13 +129,13 @@ export default function Navbar({ locale }: NavbarProps) {
           >
             Portfolio
           </Link>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 md:gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={(e) => handleNavClick(e, item.id)}
-                className={`text-sm font-medium transition-all duration-150 ${
+                className={`text-xs md:text-sm font-medium transition-all duration-150 ${
                   activeSection === item.id
                     ? "text-black dark:text-white"
                     : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
