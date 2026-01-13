@@ -13,15 +13,15 @@ const geistMono = Geist_Mono({
 
 // 절대 URL을 위한 base URL 생성
 function getBaseUrl() {
-  // 프로덕션에서는 환경 변수나 도메인 사용, 로컬에서는 localhost
-  if (process.env.NEXT_PUBLIC_SITE_URL) {
-    return process.env.NEXT_PUBLIC_SITE_URL;
+  // 개발 환경에서는 localhost 사용
+  if (process.env.NODE_ENV === 'development') {
+    return process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000';
   }
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
-  }
-  // 기본값 (도메인 연결 후 자동으로 Vercel이 설정)
-  return "https://sevin.dev";
+  // 프로덕션에서는 무조건 실제 도메인 사용 (카카오톡 등 소셜 미디어는 실제 도메인 필요)
+  // NEXT_PUBLIC_SITE_URL이 설정되어 있으면 사용, 아니면 기본 도메인
+  return process.env.NEXT_PUBLIC_SITE_URL || "https://sevin.dev";
 }
 
 export async function generateMetadata({
