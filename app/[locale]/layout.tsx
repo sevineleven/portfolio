@@ -31,7 +31,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const baseUrl = getBaseUrl();
-  // 절대 URL로 이미지 경로 생성 (프로토콜 포함)
+  // 절대 URL로 이미지 경로 생성 (프로토콜 포함, 명시적으로 문자열로)
   const ogImageUrl = `${baseUrl}/portfolio_thumbnail.png`;
   const currentUrl = `${baseUrl}/${locale}`;
 
@@ -46,10 +46,11 @@ export async function generateMetadata({
       siteName: "Portfolio - Sevin Park",
       images: [
         {
-          url: ogImageUrl, // 절대 URL
+          url: ogImageUrl,
           width: 1200,
           height: 1200,
           alt: "Sevin Park",
+          type: "image/png",
         },
       ],
       type: "website",
@@ -59,7 +60,14 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: "Portfolio - Sevin Park",
       description: "Backend Developer Portfolio",
-      images: [ogImageUrl], // 절대 URL
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 1200,
+          alt: "Sevin Park",
+        },
+      ],
     },
     other: {
       "mobile-web-app-capable": "yes",
