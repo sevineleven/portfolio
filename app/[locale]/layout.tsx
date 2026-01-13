@@ -35,6 +35,11 @@ export async function generateMetadata({
   const ogImageUrl = `${baseUrl}/portfolio_thumbnail.png`;
   const currentUrl = `${baseUrl}/${locale}`;
 
+  // 이미지 URL을 명시적으로 절대 URL로 설정 (카카오톡 크롤링 대응)
+  const absoluteImageUrl = ogImageUrl.startsWith('http') 
+    ? ogImageUrl 
+    : `${baseUrl}${ogImageUrl.startsWith('/') ? '' : '/'}${ogImageUrl}`;
+
   return {
     metadataBase: new URL(baseUrl),
     title: "Portfolio - Sevin Park",
@@ -46,7 +51,7 @@ export async function generateMetadata({
       siteName: "Portfolio - Sevin Park",
       images: [
         {
-          url: ogImageUrl,
+          url: absoluteImageUrl,
           width: 1200,
           height: 1200,
           alt: "Sevin Park",
@@ -62,7 +67,7 @@ export async function generateMetadata({
       description: "Backend Developer Portfolio",
       images: [
         {
-          url: ogImageUrl,
+          url: absoluteImageUrl,
           width: 1200,
           height: 1200,
           alt: "Sevin Park",
@@ -71,6 +76,10 @@ export async function generateMetadata({
     },
     other: {
       "mobile-web-app-capable": "yes",
+    },
+    // 카카오톡 호환을 위한 추가 메타데이터
+    alternates: {
+      canonical: currentUrl,
     },
   };
 }
