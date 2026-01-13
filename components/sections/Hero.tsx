@@ -28,18 +28,9 @@ export default function Hero({ locale }: HeroProps) {
               <h2 className="mb-4 text-lg md:text-xl font-medium text-gray-700 dark:!text-gray-300 [text-shadow:none!important]">
                 {t("hero.role") || personalInfo.role}
               </h2>
-              <div className="flex items-center gap-2 flex-wrap">
-                <p className="text-sm text-gray-600 dark:!text-gray-400 [text-shadow:none!important]">
-                  {personalInfo.email}
-                </p>
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200"
-                  aria-label="Send email"
-                >
-                  <span className="text-sm">✉️</span>
-                </a>
-              </div>
+              <p className="text-sm text-gray-600 dark:!text-gray-400 [text-shadow:none!important]">
+                {personalInfo.email}
+              </p>
             </div>
             {/* 모바일에서 사진을 이름 옆에 배치 */}
             <div className="md:hidden flex-shrink-0">
