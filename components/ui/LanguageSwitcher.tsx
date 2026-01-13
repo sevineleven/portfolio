@@ -63,27 +63,32 @@ export default function LanguageSwitcher() {
     }
   };
 
-  const shareToKakao = () => {
-    const fullUrl = encodeURIComponent(window.location.href);
-    const title = encodeURIComponent('Portfolio - Sevin Park');
-    const description = encodeURIComponent('Backend Developer Portfolio');
+  const sharePage = async () => {
+    const fullUrl = window.location.href;
+    const title = 'Portfolio - Sevin Park';
+    const description = 'Backend Developer Portfolio';
     
-    // 카카오톡 공유하기 링크 (모바일에서 카카오톡 앱 열림)
-    const kakaoUrl = `https://sharer.kakao.com/talk/friends/picker/link?url=${fullUrl}&text=${title}%20-%20${description}`;
+    // Web Share API 사용 (모바일에서 네이티브 공유 메뉴 열림)
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: title,
+          text: description,
+          url: fullUrl,
+        });
+        setShareMenuOpen(false);
+        return;
+      } catch (err) {
+        // 사용자가 공유를 취소한 경우
+        if ((err as Error).name !== 'AbortError') {
+          console.error('Share failed:', err);
+        }
+        return;
+      }
+    }
     
-    // 새 창에서 열기 (팝업 차단 가능성 있음)
-    const width = 600;
-    const height = 700;
-    const left = window.screen.width / 2 - width / 2;
-    const top = window.screen.height / 2 - height / 2;
-    
-    window.open(
-      kakaoUrl,
-      'kakao-share',
-      `width=${width},height=${height},left=${left},top=${top},toolbar=no,menubar=no,scrollbars=yes,resizable=yes`
-    );
-    
-    setShareMenuOpen(false);
+    // Web Share API를 지원하지 않는 경우 URL 복사
+    await copyUrl();
   };
 
   return (
@@ -164,23 +169,27 @@ export default function LanguageSwitcher() {
                 <span>URL 복사</span>
               </button>
               <button
-                onClick={shareToKakao}
+                onClick={sharePage}
                 className="flex items-center gap-3 px-4 py-2.5 rounded-md hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors text-sm font-medium text-gray-700 dark:text-gray-200"
-                aria-label="Share to KakaoTalk"
+                aria-label="Share page"
               >
                 <svg
-                  width="20"
-                  height="20"
+                  xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5"
                 >
-                  <path
-                    d="M12 3C7.03 3 3 6.16 3 10.17c0 2.28 1.51 4.3 3.78 5.53L6 21l5.71-3.78c.42.04.85.07 1.29.07 4.97 0 9-3.16 9-7.17C22 6.16 17.97 3 12 3z"
-                    fill="#3C1E1E"
-                  />
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
                 </svg>
-                <span>카카오톡</span>
+                <span>공유하기</span>
               </button>
             </div>
             {/* 오버레이 (클릭 시 닫기) */}
