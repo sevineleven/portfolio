@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Locale } from "@/i18n";
@@ -21,13 +21,16 @@ export default function Navbar({ locale }: NavbarProps) {
     setMounted(true);
   }, []);
 
-  const navItems = [
-    { id: "about", label: t("nav.about") || "About" },
-    { id: "experience", label: t("nav.experience") || "Experience" },
-    { id: "projects", label: t("nav.projects") || "Projects" },
-    { id: "skills", label: t("nav.skills") || "Skills" },
-    { id: "contact", label: t("nav.contact") || "Contact" },
-  ];
+  const navItems = useMemo(
+    () => [
+      { id: "hero", label: t("nav.about") || "About" },
+      { id: "experience", label: t("nav.experience") || "Experience" },
+      { id: "projects", label: t("nav.projects") || "Projects" },
+      { id: "skills", label: t("nav.skills") || "Skills" },
+      { id: "contact", label: t("nav.contact") || "Contact" },
+    ],
+    [t]
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,22 +67,51 @@ export default function Navbar({ locale }: NavbarProps) {
     handleScroll(); // Initial check
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [navItems]);
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     id: string
   ) => {
     e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80; // Navbar height offset
-      const elementPosition = element.offsetTop - offset;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      });
+    
+    // 현재 경로 확인
+    const currentPath = window.location.pathname;
+    const isMainPage = currentPath === `/${locale}` || currentPath === `/${locale}/`;
+    
+    // 메인 페이지가 아닌 경우 메인 페이지로 이동 후 스크롤
+    if (!isMainPage) {
+      window.location.href = `/${locale}#${id}`;
+      return;
     }
+    
+    // 요소를 찾을 때까지 시도 (동적 렌더링 대응)
+    const findAndScroll = () => {
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 80; // Navbar height offset
+        const elementPosition = element.offsetTop - offset;
+        window.scrollTo({
+          top: Math.max(0, elementPosition),
+          behavior: "smooth",
+        });
+      } else {
+        // 요소를 찾지 못한 경우 약간의 지연 후 재시도
+        setTimeout(() => {
+          const retryElement = document.getElementById(id);
+          if (retryElement) {
+            const offset = 80;
+            const elementPosition = retryElement.offsetTop - offset;
+            window.scrollTo({
+              top: Math.max(0, elementPosition),
+              behavior: "smooth",
+            });
+          }
+        }, 100);
+      }
+    };
+    
+    findAndScroll();
   };
 
   return (
@@ -91,12 +123,9 @@ export default function Navbar({ locale }: NavbarProps) {
       <div className="mx-auto max-w-[1040px] px-6">
         <div className="flex h-16 items-center justify-between">
           <Link
-            href={`/${locale}#hero`}
+            href={`#hero`}
+            onClick={(e) => handleNavClick(e, "hero")}
             className="text-lg font-semibold text-gray-900 dark:text-white"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick(e, "hero");
-            }}
           >
             Portfolio
           </Link>
@@ -117,7 +146,7 @@ export default function Navbar({ locale }: NavbarProps) {
             ))}
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="rounded-lg p-2 text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-white dark:hover:bg-slate-700 dark:hover:text-white"
+              className="rounded-md p-2 text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-white dark:hover:bg-slate-700 dark:hover:text-white"
               aria-label="Toggle theme"
             >
               {mounted && theme === "dark" ? (
