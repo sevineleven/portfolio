@@ -5,9 +5,29 @@ export const personalInfo = {
   name: "박세빈",
   nameEn: "Sevin Park",
   role: "Backend Developer",
-  bio: "유학을 통해 다양한 문화와 환경에 빠르게 적응하는 능력을 키웠습니다. 이 경험을 바탕으로 새로운 환경이나 기술에 대한 두려움보다 호기심과 열정을 가지고 적극적으로 도전하는 태도를 갖추게 되었습니다.\n\n개발자로서 문서화를 매우 중요하게 생각합니다. 체계적인 개발 프로세스와 명확한 문서화를 통해 유지보수 가능한 시스템을 만들며, 코드 품질 검사 도구 등을 적극적으로 활용해 원칙에 어긋나지 않고 누가봐도 이해하기 쉬운 코드를 추구합니다.",
+  bio: "유학을 통해 다양한 문화와 환경에 빠르게 적응하는 능력을 키웠습니다. 이 경험을 바탕으로 새로운 환경이나 기술에 대한 두려움보다 호기심과 열정을 가지고 적극적으로 도전하는 태도를 갖추게 되었습니다.",
   bioEn:
-    "Through studying abroad, I developed the ability to quickly adapt to diverse cultures and environments. Based on this experience, I approach new environments and technologies with curiosity and passion rather than fear, actively taking on challenges.\n\nAs a developer, I place great importance on documentation. I build maintainable systems through systematic development processes and clear documentation, and actively utilize code quality tools to pursue code that adheres to principles and is easily understandable to anyone.",
+    "Through studying abroad, I developed the ability to quickly adapt to diverse cultures and environments. Based on this experience, I approach new environments and technologies with curiosity and passion rather than fear, actively taking on challenges.",
+  philosophy: [
+    {
+      title: "도전을 두려워하지 않습니다.",
+      titleEn: "I don't fear challenges.",
+      description: "새로운 환경이나 기술에 대한 두려움보다 호기심과 열정을 가지고 적극적으로 도전합니다. 유학을 통해 다양한 문화와 환경에 빠르게 적응하는 능력을 키웠으며, 이를 개발에 접목하여 지속적으로 성장하고 있습니다.",
+      descriptionEn: "I approach new environments and technologies with curiosity and passion rather than fear, actively taking on challenges. Through studying abroad, I developed the ability to quickly adapt to diverse cultures and environments, and I apply this to development for continuous growth.",
+    },
+    {
+      title: "문서화를 중요시합니다.",
+      titleEn: "I value documentation.",
+      description: "체계적인 개발 프로세스와 명확한 문서화를 통해 유지보수 가능한 시스템을 만듭니다. 코드 품질 검사 도구 등을 적극적으로 활용해 원칙에 어긋나지 않고 누가봐도 이해하기 쉬운 코드를 추구합니다.",
+      descriptionEn: "I build maintainable systems through systematic development processes and clear documentation. I actively utilize code quality tools to pursue code that adheres to principles and is easily understandable to anyone.",
+    },
+    {
+      title: "사용자를 생각합니다.",
+      titleEn: "I think about users.",
+      description: "안정적이고 확장 가능한 백엔드 시스템을 구축하여 최종 사용자에게 원활한 서비스를 제공하는 것을 목표로 합니다. 서버 성능과 안정성을 우선시하며, 지속적인 모니터링과 개선을 통해 사용자 경험을 향상시킵니다.",
+      descriptionEn: "My goal is to provide seamless services to end users by building stable and scalable backend systems. I prioritize server performance and stability, and continuously improve user experience through ongoing monitoring and optimization.",
+    },
+  ],
   github: "https://github.com/sevin98",
   linkedin: "https://linkedin.com/in/%EC%84%B8%EB%B9%88-%EB%B0%95-481206367",
   email: "psv980817@naver.com",
@@ -122,13 +142,22 @@ export const experiences = [
       "삼성 청년 SW 아카데미(SSAFY) 11기 수료. 체계적인 소프트웨어 개발 교육 과정을 통해 백엔드 개발 역량을 습득했습니다.",
     descriptionEn:
       "Completed SSAFY 11th comprehensive software development education program.",
-    award: {
-      title: "프로젝트 우수상 (1위)",
-      titleEn: "Project Excellence Award (1st Place)",
-      organization: "삼성전자 주식회사",
-      organizationEn: "Samsung Electronics",
-      date: "Oct 2024",
-    },
+    award: [
+      {
+        title: "프로젝트 우수상 (1위)",
+        titleEn: "Project Excellence Award (1st Place)",
+        organization: "삼성전자 주식회사",
+        organizationEn: "Samsung Electronics",
+        date: "Oct 2024",
+      },
+      {
+        title: "삼성 SW 알고리즘 역량 테스트 A+ 취득",
+        titleEn: "Samsung SW Algorithm Proficiency Test A+",
+        organization: "삼성전자 주식회사",
+        organizationEn: "Samsung Electronics",
+        date: "May 2024",
+      },
+    ],
   },
 ];
 
@@ -240,7 +269,7 @@ export const projects = [
     ],
     architectureImages: [
       {
-        url: "https://private-user-images.githubusercontent.com/117634128/534489508-53fb617f-f0b1-4b78-938c-fbc163765170.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjgyMDc1MzgsIm5iZiI6MTc2ODIwNzIzOCwicGF0aCI6Ii8xMTc2MzQxMjgvNTM0NDg5NTA4LTUzZmI2MTdmLWYwYjEtNGI3OC05MzhjLWZiYzE2Mzc2NTE3MC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTEyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDExMlQwODQwMzhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kZTgwNThlNDcyMjVmMTM4YWQ1MWI4ZTI0ZmYxMTkzMmYyZGU0OWI4NWMzMTU1ODEyMWZjYTk1OTUwNzMxOTRkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.MC0cTirtphrBf4kcgsn6YVADrdpeepz4hs3RvQ7gtjw",
+        url: "/racoon-architecture-1.png",
         title: "클라이언트-서버 상호작용 아키텍처",
         titleEn: "Client-Server Interaction Architecture",
         description:
@@ -249,7 +278,7 @@ export const projects = [
           "Client-server communication flow from room entry to game start: Initial authentication and token issuance via HTTP, real-time game state synchronization via STOMP over WebSocket",
       },
       {
-        url: "https://private-user-images.githubusercontent.com/117634128/534489539-853de40a-d771-462d-a483-92e1c9f1e536.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjgyMDc1MzgsIm5iZiI6MTc2ODIwNzIzOCwicGF0aCI6Ii8xMTc2MzQxMjgvNTM0NDg5NTM5LTg1M2RlNDBhLWQ3NzEtNDYyZC1hNDgzLTkyZTFjOWYxZTUzNi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTEyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDExMlQwODQwMzhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mZjA4ODg5NTZiOGQ1YjJmNjEzYjIwMWFlZGVkMWIwN2VkYjE0MmFlMTEwNDM0Y2I4MTgyMmUzYmRkYjZkNTBiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.ADo4Rk2evf4WklfVXixLrK1YNDKrGYpLkGKzVfc3ZUA",
+        url: "/racoon-architecture-2.png",
         title: "게임 플로우 아키텍처",
         titleEn: "Game Flow Architecture",
         description:
@@ -260,17 +289,17 @@ export const projects = [
     ],
     retrospection: {
       whatWorkedWell:
-        "동시성 제어와 클라이언트의 일관된 환경 제공 등 서버적인 측면에서는 성공적인 경험과 도전을 할 수 있었습니다. Server-Authority 모델을 통해 모든 게임 로직을 서버에서 중앙 집중식으로 관리함으로써, 여러 클라이언트가 동시에 요청을 보내도 일관된 게임 상태를 유지할 수 있었습니다. 또한 이벤트 기반 브로드캐스팅과 선택적 메시지 전송을 통해 네트워크 부하를 최소화하고 p95 Latency 50ms를 달성할 수 있었습니다.\n\n한 프로젝트 안에서 랜덤성 알고리즘(팀 배정, 아이템 효과 우선순위), 상태 머신(게임 라이프사이클), 토큰 기반 인증, 비동기 처리 등 다양한 기술과 개념을 실제로 구현해볼 수 있어서 값진 학습 경험이었습니다.",
+        "Server-Authority 모델을 통한 중앙 집중식 게임 로직 관리로 여러 클라이언트가 동시에 요청해도 일관된 게임 상태를 유지할 수 있었습니다. 이벤트 기반 브로드캐스팅과 선택적 메시지 전송을 통해 네트워크 부하를 최소화하고 p95 Latency 50ms를 달성했습니다.\n\n랜덤성 알고리즘, 상태 머신, 토큰 기반 인증, 비동기 처리 등 다양한 기술을 한 프로젝트 안에서 실제로 구현해볼 수 있어서 값진 학습 경험이었습니다.",
       whatWorkedWellEn:
-        "In terms of server-side aspects such as concurrency control and providing a consistent client environment, we had successful experiences and challenges. Through the Server-Authority model, by managing all game logic centrally on the server, we could maintain consistent game states even when multiple clients sent requests simultaneously. Additionally, through event-based broadcasting and selective message delivery, we minimized network load and achieved p95 latency of 50ms.\n\nIt was a valuable learning experience to be able to implement various technologies and concepts within a single project, including randomness algorithms (team assignment, item effect priority), state machines (game lifecycle), token-based authentication, and asynchronous processing.",
+        "Centralized game logic management through the Server-Authority model maintained consistent game states even when multiple clients sent simultaneous requests. Achieved p95 latency of 50ms by minimizing network load through event-based broadcasting and selective message delivery.\n\nIt was a valuable learning experience to implement various technologies including randomness algorithms, state machines, token-based authentication, and asynchronous processing within a single project.",
       areasForImprovement:
-        "개발 컨텐츠 자체의 희소성과 차별성에 대해서는 좀 더 깊이 생각해보지 못했습니다.\n\n기술적 구현과 성능 최적화에 집중하는 과정에서, 게임 플레이 메커니즘의 독창성이나 사용자 경험의 차별화에 대한 고민이 부족했던 것 같습니다.\n\n향후 프로젝트에서는 기술적 완성도와 함께 사용자에게 제공하는 가치와 경험의 차별화에도 더 많은 시간을 할애해야 할 것 같습니다.",
+        "기술적 구현과 성능 최적화에 집중하는 과정에서 게임 플레이 메커니즘의 독창성이나 사용자 경험의 차별화에 대한 고민이 부족했습니다.\n\n게임의 핵심 재미 요소와 차별화 포인트를 초기에 명확히 정의하지 못했고, 프로젝트 초반부터 사용자 테스트와 피드백을 수집하는 프로세스가 부재했습니다.",
       areasForImprovementEn:
-        "We didn't think deeply enough about the scarcity and differentiation of the development content itself.\n\nIn the process of focusing on technical implementation and performance optimization, we lacked consideration for the originality of game play mechanisms or differentiation of user experience.\n\nIn future projects, we should allocate more time to differentiating the value and experience provided to users, along with technical completeness.",
+        "In the process of focusing on technical implementation and performance optimization, we lacked consideration for the originality of gameplay mechanisms or differentiation of user experience.\n\nWe failed to clearly define the core fun elements and differentiation points of the game early on, and lacked a process to collect user testing and feedback from the beginning of the project.",
       lessonsLearned:
-        "실시간 멀티플레이어 시스템에서는 서버가 단일 진실 소스(Single Source of Truth)가 되어야 한다는 것을 몸소 경험했습니다.\n\n또한, 네트워크 효율성을 위해 불필요한 데이터 전송을 최소화하고, 필요한 정보만 선별적으로 브로드캐스트하는 것이 중요하다는 것을 깨달았습니다.\n\n프로젝트 초기부터 아키텍처를 명확히 설계하고, 플로우차트를 통해 클라이언트-서버 간 상호작용을 문서화한 것이 개발 과정에서 큰 도움이 되었습니다.",
+        "게임 기획 단계에서 '왜 이 게임이 재미있을까?'라는 질문을 던지고, 경쟁사 분석과 게임플레이 루프 설계에 더 많은 시간을 투자하겠습니다.\n\n기술 스택 선택 전에 게임의 핵심 재미 요소를 먼저 정의하고, 그에 맞는 최적의 기술을 선택하는 '게임플레이 중심 개발 방법론'을 적용해보고 싶습니다.\n\n프로토타입 단계에서부터 지인들과 함께 플레이테스트를 진행하고, '재미'를 정량적으로 측정할 수 있는 지표를 도입하여 지속적으로 개선하는 사이클을 만들겠습니다.",
       lessonsLearnedEn:
-        "We personally experienced that in real-time multiplayer systems, the server must be the single source of truth.\n\nWe also learned that it's important to minimize unnecessary data transmission for network efficiency and selectively broadcast only necessary information.\n\nClearly designing the architecture from the beginning and documenting client-server interactions through flowcharts greatly helped during the development process.",
+        "In the game planning stage, I will ask 'Why would this game be fun?' and invest more time in competitor analysis and gameplay loop design.\n\nBefore selecting the tech stack, I would like to apply a 'gameplay-centered development methodology' that first defines the core fun elements and then selects optimal technology accordingly.\n\nI will conduct playtests with acquaintances from the prototype stage and create a continuous improvement cycle by introducing metrics to quantitatively measure 'fun'.",
     },
     roleDetails: [
       "Server-authority 모델 도입으로 한 게임을 같이 즐기는 클라이언트들의 요청을 서버에서 통제하여 일관된 환경 유지",
@@ -534,17 +563,17 @@ export const projects = [
     ],
     retrospection: {
       whatWorkedWell:
-        "3-tier 아키텍처를 명확히 구분하여 각 레이어의 책임을 분리함으로써 유지보수성과 확장성을 크게 향상시킬 수 있었습니다. 전역 예외 처리 핸들러를 구현하여 일관된 에러 응답 형식을 제공하고, 개발 및 디버깅 효율성을 높였습니다. 또한 Spring Security를 활용한 인증/인가 시스템을 구축하여 보안성 있는 API를 설계할 수 있었습니다.\n\n공연 계약의 복잡한 비즈니스 로직(뮤지션 승인 대기, 승인 완료, 계약 확정 등 다양한 상태 전이)을 상태 패턴과 전략 패턴을 활용하여 깔끔하게 구현할 수 있었고, 스마트 컨트랙트와 백엔드의 연동을 통해 블록체인 기술을 실제 서비스에 적용해볼 수 있는 경험이었습니다.",
+        "3-tier 아키텍처로 각 레이어의 책임을 명확히 분리하여 유지보수성과 확장성을 크게 향상시킬 수 있었습니다. 전역 예외 처리 핸들러와 Spring Security를 활용한 보안 시스템으로 안정적인 API를 설계했습니다.\n\n공연 계약의 복잡한 비즈니스 로직을 상태 패턴과 전략 패턴으로 깔끔하게 구현했고, 스마트 컨트랙트와 백엔드 연동을 통해 블록체인 기술을 실제 서비스에 적용해볼 수 있었습니다.",
       whatWorkedWellEn:
-        "By clearly distinguishing 3-tier architecture and separating responsibilities of each layer, we significantly improved maintainability and scalability. Implementing a global exception handler provided consistent error response formats and increased development and debugging efficiency. Additionally, building an authentication/authorization system using Spring Security enabled us to design secure APIs.\n\nWe could cleanly implement complex business logic for concert contracts (various state transitions such as waiting for musician approval, approval completion, contract confirmation) using state and strategy patterns, and gained experience applying blockchain technology to actual services through integration of smart contracts and backend.",
+        "Clearly separating responsibilities through 3-tier architecture significantly improved maintainability and scalability. Designed stable APIs with a global exception handler and security system using Spring Security.\n\nCleanly implemented complex business logic for concert contracts using state and strategy patterns, and gained experience applying blockchain technology to actual services through smart contract and backend integration.",
       areasForImprovement:
-        "프로젝트 초기 단계에서 블록체인 트랜잭션 처리에 대한 충분한 고민이 부족했습니다.\n\n블록체인 네트워크의 지연 시간과 가스 비용 등 실제 운영 환경에서의 제약사항을 더 깊이 고려하지 못했습니다.\n\n또한 스마트 컨트랙트와 백엔드 간의 데이터 동기화 문제나 트랜잭션 실패 시 롤백 처리 등에 대한 대응 방안을 더 체계적으로 설계했어야 했을 것 같습니다.",
+        "프로젝트 초기 단계에서 블록체인 트랜잭션 처리에 대한 충분한 조사가 부족했습니다.\n\n블록체인 네트워크의 지연 시간, 가스 비용, 트랜잭션 처리 시간 등 실제 운영 환경의 제약사항을 깊이 고려하지 못했고, 스마트 컨트랙트와 백엔드 간의 데이터 동기화 문제나 트랜잭션 실패 시 롤백 처리에 대한 대응 방안을 체계적으로 설계하지 못했습니다.",
       areasForImprovementEn:
-        "We lacked sufficient consideration for blockchain transaction processing in the early stages of the project.\n\nWe didn't deeply consider real-world operational constraints such as blockchain network latency and gas costs.\n\nAdditionally, we should have more systematically designed solutions for data synchronization issues between smart contracts and backend, or rollback handling when transactions fail.",
+        "We lacked sufficient investigation into blockchain transaction processing in the early stages of the project.\n\nWe didn't deeply consider real-world operational constraints such as blockchain network latency, gas costs, and transaction processing times, and failed to systematically design solutions for data synchronization issues between smart contracts and backend or rollback handling for failed transactions.",
       lessonsLearned:
-        "엔터프라이즈급 애플리케이션에서는 아키텍처 설계와 예외 처리 전략이 매우 중요하다는 것을 배웠습니다.\n\n전역 예외 처리 핸들러를 통해 일관된 에러 응답을 제공하고, 적절한 HTTP 상태 코드와 에러 메시지를 설계함으로써 클라이언트 개발자와의 협업 효율성을 높일 수 있었습니다.\n\n또한 복잡한 비즈니스 로직은 디자인 패턴을 적절히 활용하여 가독성과 유지보수성을 높일 수 있다는 것을 경험했습니다.\n\n블록체인 기술을 실제 서비스에 도입할 때는 네트워크 특성과 비용 구조를 충분히 고려해야 한다는 점도 중요한 교훈이었습니다.",
+        "블록체인 도입 전에 실제 운영 환경에서의 성능 벤치마크를 진행하고, 다양한 블록체인 네트워크(이더리움, 폴리곤 등)의 특성을 비교 분석하여 프로젝트에 최적화된 네트워크를 선택하는 프로세스를 도입하겠습니다.\n\n스마트 컨트랙트를 배포하기 전에 테스트넷에서 충분한 부하 테스트를 진행하고, 가스 최적화 기법을 적용하여 운영 비용을 사전에 예측하는 분석을 수행하겠습니다.\n\n블록체인 특성상 발생할 수 있는 불확실성을 고려하여, 비블록체인 대안 솔루션도 함께 검토하고 하이브리드 아키텍처를 설계하는 방법을 시도해보고 싶습니다.",
       lessonsLearnedEn:
-        "We learned that architecture design and exception handling strategies are very important in enterprise-level applications.\n\nBy providing consistent error responses through a global exception handler and designing appropriate HTTP status codes and error messages, we could improve collaboration efficiency with frontend developers.\n\nWe also experienced that complex business logic can be improved in readability and maintainability by appropriately utilizing design patterns.\n\nAnother important lesson was that when introducing blockchain technology to actual services, we must sufficiently consider network characteristics and cost structures.",
+        "Before introducing blockchain, I will conduct performance benchmarks in real operational environments and introduce a process to compare and analyze characteristics of various blockchain networks (Ethereum, Polygon, etc.) to select the network optimized for the project.\n\nBefore deploying smart contracts, I will conduct sufficient load testing on testnets and perform analysis to predict operational costs by applying gas optimization techniques.\n\nConsidering the uncertainty that can arise from blockchain characteristics, I would like to try reviewing non-blockchain alternative solutions together and designing a hybrid architecture.",
     },
     roleDetails: [
       "3-tier 아키텍처 설계 및 핵심 비즈니스 로직 구현",
@@ -647,6 +676,179 @@ export const projects = [
           "관객이 관람한 공연을 기념할 수 있도록 NFT 포토카드를 제작할 수 있으며, 최애 밴드의 싸인을 포함시켜 개인화된 추억을 만들어갈 수 있습니다. IPFS 분산 저장소를 활용하여 영구적으로 저장됩니다.",
         descriptionEn:
           "Allows audiences to create NFT photocards to commemorate concerts they attended, and can include their favorite band's signature to create personalized memories. Stored permanently using IPFS distributed storage.",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "DreamsComeTrue",
+    titleEn: "DreamsComeTrue",
+    description:
+      "사용자의 꿈 데이터를 생성형 AI를 통해 숏폼 영상으로 시각화하는 서비스. 꿈을 재미있게 기록하고, 기억하고 싶을 때 기억할 수 있으며, 꿈을 재현할 수 있는 창의적인 플랫폼입니다.",
+    descriptionEn:
+      "A service that visualizes users' dream data as short-form videos using generative AI. A creative platform that allows users to record dreams in an entertaining way, remember them when desired, and recreate dreams.",
+    projectOrigin: "삼성 청년 SW 아카데미 11기 자율 프로젝트",
+    projectOriginEn: "Samsung Software Academy For Youth 11th Autonomous Project",
+    tags: [
+      "Spring Boot",
+      "Java",
+      "Docker",
+      "RabbitMQ",
+      "ChatGPT",
+      "LUMA AI",
+      "Midjourney",
+      "MySQL",
+      "Redis",
+    ],
+    image: null,
+    images: [],
+    githubUrl: null,
+    liveUrl: null,
+    period: "2024.10 - 2024.11",
+    teamSize: null,
+    myRole: "Backend Developer",
+    overview:
+      "사용자의 꿈을 생성형 AI를 활용하여 숏폼 영상으로 변환하는 창의적인 서비스입니다. 단순한 꿈 기록을 넘어서, 사용자가 꿈을 재미있게 경험하고, 기억하고 싶을 때 언제든지 되돌아볼 수 있으며, 꿈의 분위기와 감성을 시각적으로 재현할 수 있는 독특한 경험을 제공합니다.\n\n이 프로젝트에서는 **생성형 AI 파이프라인 구축**을 핵심 목표로 삼았습니다. ChatGPT를 활용한 꿈 데이터 분석 및 씬 분리, Midjourney를 통한 이미지 생성, LUMA AI를 활용한 영상 생성 등 다양한 생성형 AI 서비스를 통합하여 완성도 높은 숏폼 영상을 자동으로 제작합니다. **RabbitMQ를 통한 메시지 큐 기반 비동기 처리 아키텍처**를 구축하여 생성형 AI 서비스의 긴 처리 시간과 불안정한 응답을 효율적으로 관리하고, 여러 AI 서비스 간의 복잡한 호출 체인을 안정적으로 처리합니다.\n\n백엔드 개발자로서 **Spring Boot 기반 마이크로서비스 아키텍처 설계**, **Docker를 활용한 컨테이너화 및 오케스트레이션**, **생성형 AI 서비스와 Spring 서버 간의 안정적인 연동 시스템 구축**, **JWT 기반 인증 및 소셜 로그인(Google, Kakao) 시스템 구현** 등을 담당했습니다. 특히 RabbitMQ를 통한 이벤트 기반 아키텍처로 생성형 AI의 비동기적 특성을 효율적으로 처리하고, 실패한 작업에 대한 재시도 메커니즘과 상태 추적 시스템을 구현하여 신뢰성 있는 서비스를 구축했습니다.",
+    overviewEn:
+      "A creative service that transforms users' dreams into short-form videos using generative AI. Beyond simple dream recording, it provides a unique experience where users can enjoy their dreams in an entertaining way, revisit them whenever they want to remember, and visually recreate the atmosphere and emotions of their dreams.\n\nThis project focused on **building a generative AI pipeline** as its core objective. It integrates various generative AI services such as ChatGPT for dream data analysis and scene separation, Midjourney for image generation, and LUMA AI for video generation to automatically produce high-quality short-form videos. Built a **message queue-based asynchronous processing architecture using RabbitMQ** to efficiently manage the long processing times and unstable responses of generative AI services, and reliably handle complex call chains between multiple AI services.\n\nAs a backend developer, I was responsible for **designing a Spring Boot-based microservices architecture**, **containerization and orchestration using Docker**, **building a stable integration system between generative AI services and Spring server**, and **implementing JWT-based authentication and social login (Google, Kakao) systems**. Particularly, by implementing an event-based architecture through RabbitMQ, I efficiently handled the asynchronous nature of generative AI, and built a reliable service with retry mechanisms and status tracking systems for failed tasks.",
+    technologyReasons: [
+      {
+        technology: "Spring Boot",
+        reason:
+          "엔터프라이즈급 애플리케이션 개발을 위한 검증된 프레임워크로, RESTful API 개발과 마이크로서비스 아키텍처 구현에 적합합니다. Spring Security를 통한 인증/인가 시스템과 Spring Data JPA를 통한 데이터 영속성 관리를 효율적으로 수행할 수 있습니다.",
+        reasonEn:
+          "A proven framework for enterprise-level application development, suitable for RESTful API development and microservices architecture implementation. Efficiently handles authentication/authorization systems through Spring Security and data persistence management through Spring Data JPA.",
+      },
+      {
+        technology: "RabbitMQ",
+        reason:
+          "생성형 AI 서비스들의 긴 처리 시간과 복잡한 호출 체인을 관리하기 위해 메시지 큐 기반 비동기 처리 아키텍처를 구축했습니다. RabbitMQ를 통해 여러 AI 서비스(ChatGPT, Midjourney, LUMA AI) 간의 작업을 큐에 담아 순차적으로 처리하고, 실패한 작업에 대한 재시도 메커니즘과 데드레터 큐를 활용한 에러 처리를 구현했습니다. 이를 통해 생성형 AI의 불안정한 응답 시간과 오류를 효과적으로 관리하고, 시스템의 안정성과 신뢰성을 높였습니다.",
+        reasonEn:
+          "Built a message queue-based asynchronous processing architecture to manage the long processing times and complex call chains of generative AI services. Through RabbitMQ, we queued tasks between multiple AI services (ChatGPT, Midjourney, LUMA AI) for sequential processing, and implemented retry mechanisms for failed tasks and error handling using dead letter queues. This effectively managed the unstable response times and errors of generative AI, improving system stability and reliability.",
+      },
+      {
+        technology: "Docker",
+        reason:
+          "마이크로서비스 아키텍처의 각 컴포넌트를 컨테이너화하여 개발 환경과 운영 환경의 일관성을 보장하고, 독립적인 스케일링과 배포가 가능하도록 했습니다. Docker Compose를 활용하여 로컬 개발 환경을 구성하고, 각 서비스(Spring Boot 서버, RabbitMQ, MySQL, Redis)를 컨테이너로 실행하여 의존성 관리와 배포 프로세스를 단순화했습니다.",
+        reasonEn:
+          "Containerized each component of the microservices architecture to ensure consistency between development and production environments, enabling independent scaling and deployment. Used Docker Compose to configure local development environments and run each service (Spring Boot server, RabbitMQ, MySQL, Redis) as containers, simplifying dependency management and deployment processes.",
+      },
+      {
+        technology: "생성형 AI 파이프라인 (ChatGPT, Midjourney, LUMA AI)",
+        reason:
+          "ChatGPT API를 활용하여 사용자가 입력한 꿈 데이터를 분석하고 씬으로 분리하며, 적절한 배경음악을 선택하는 역할을 수행합니다. Midjourney를 통해 꿈의 분위기와 내용을 시각화한 이미지를 생성하고, LUMA AI를 통해 최종적으로 숏폼 영상을 생성합니다. 각 AI 서비스의 API를 안정적으로 호출하고, 응답을 처리하며, 실패 시 재시도 로직을 구현하여 완성도 높은 결과물을 생성합니다.",
+        reasonEn:
+          "Utilizes ChatGPT API to analyze user-input dream data, separate it into scenes, and select appropriate background music. Generates images visualizing the atmosphere and content of dreams through Midjourney, and finally creates short-form videos through LUMA AI. Stably calls each AI service's API, processes responses, and implements retry logic for failures to produce high-quality results.",
+      },
+    ],
+    architectureImages: [],
+    retrospection: {
+      whatWorkedWell:
+        "RabbitMQ를 활용한 메시지 큐 기반 아키텍처로 생성형 AI의 긴 처리 시간과 불안정한 응답을 효과적으로 관리할 수 있었습니다. 실패한 작업에 대한 재시도 메커니즘을 구현하여 시스템 안정성을 크게 향상시켰습니다.\n\nDocker 컨테이너화로 개발과 운영 환경의 일관성을 유지했고, Spring Boot 마이크로서비스 아키텍처로 각 컴포넌트의 책임을 명확히 분리하여 유지보수성을 높였습니다.",
+      whatWorkedWellEn:
+        "The message queue-based architecture using RabbitMQ effectively managed the long processing times and unstable responses of generative AI. Significantly improved system stability by implementing retry mechanisms for failed tasks.\n\nMaintained consistency between development and production environments through Docker containerization, and improved maintainability by clearly separating component responsibilities through Spring Boot microservices architecture.",
+      areasForImprovement:
+        "생성형 AI 서비스의 비용 관리와 최적화에 대한 전략이 부족했습니다. API 호출 비용이 높은 서비스들을 사용하면서 불필요한 재시도나 중복 호출을 최소화하는 전략을 세밀하게 설계하지 못했습니다.\n\n영상 생성 시간이 오래 걸리는 문제에 대한 실시간 피드백이나 진행 상황 표시 기능이 없어 사용자 경험이 좋지 않았습니다.",
+      areasForImprovementEn:
+        "We lacked strategies for cost management and optimization of generative AI services. While using services with high API call costs, we failed to carefully design strategies to minimize unnecessary retries or duplicate calls.\n\nThe lack of real-time feedback or progress indicators for the long video generation time resulted in a poor user experience.",
+      lessonsLearned:
+        "생성형 AI 서비스 도입 전에 다양한 모델과 서비스 제공업체의 가격 구조를 비교 분석하고, 품질 대비 비용 효율이 가장 높은 조합을 찾는 리서치를 먼저 수행하겠습니다.\n\n사용자가 영상을 생성하는 동안 대기 시간을 활용할 수 있도록, 꿈 해석이나 감정 분석 같은 추가 기능을 제공하거나, 다른 사용자들이 생성한 영상을 탐색할 수 있는 기능을 구현하여 대기 시간을 경험의 일부로 전환하는 방법을 시도해보고 싶습니다.\n\n생성형 AI의 응답 품질을 체계적으로 개선하기 위해, 프롬프트 버전 관리 시스템을 도입하고 각 프롬프트별 결과물의 품질을 평가하는 체계를 만들어 지속적으로 최적화하는 프로세스를 구축하겠습니다.",
+      lessonsLearnedEn:
+        "Before introducing generative AI services, I will first conduct research comparing price structures of various models and service providers to find the most cost-effective combination in terms of quality.\n\nTo convert wait time into part of the experience, I would like to try providing additional features like dream interpretation or emotion analysis during video generation, or implementing functionality for users to explore videos created by others.\n\nTo systematically improve the quality of generative AI responses, I will introduce a prompt version control system and build a process to continuously optimize by creating a system to evaluate the quality of results for each prompt.",
+    },
+    roleDetails: [
+      "Spring Boot 기반 백엔드 서버 기본 설정 및 구조 설계",
+      "Docker를 활용한 컨테이너화 및 Docker Compose를 통한 개발 환경 구성",
+      "RabbitMQ 기반 메시지 큐 시스템 구축 및 비동기 작업 처리 구현",
+      "생성형 AI 파이프라인 연동: ChatGPT, Midjourney, LUMA AI API 통합",
+      "생성형 AI 서비스와 Spring 서버 간의 안정적인 통신 레이어 구현",
+      "JWT 기반 토큰 인증 시스템 구현",
+      "소셜 로그인 시스템 구현 (Google OAuth, Kakao OAuth)",
+      "AI 작업 상태 추적 및 재시도 메커니즘 구현",
+      "데드레터 큐를 활용한 실패 작업 처리 및 모니터링",
+      "RESTful API 설계 및 구현",
+    ],
+    technicalHighlights: [
+      {
+        title: "생성형 AI 파이프라인 연동",
+        titleEn: "Generative AI Pipeline Integration",
+        description:
+          "ChatGPT, Midjourney, LUMA AI 등 여러 생성형 AI 서비스를 통합하여 사용자의 꿈 데이터를 자동으로 숏폼 영상으로 변환하는 파이프라인을 구축했습니다. 각 AI 서비스의 API를 안정적으로 호출하고, 응답을 처리하며, 실패 시 재시도 로직을 구현했습니다.",
+        descriptionEn:
+          "Built a pipeline that automatically converts users' dream data into short-form videos by integrating multiple generative AI services including ChatGPT, Midjourney, and LUMA AI. Stably called each AI service's API, processed responses, and implemented retry logic for failures.",
+      },
+      {
+        title: "RabbitMQ 기반 비동기 처리",
+        titleEn: "RabbitMQ-based Asynchronous Processing",
+        description:
+          "생성형 AI 서비스의 긴 처리 시간과 복잡한 호출 체인을 관리하기 위해 RabbitMQ를 활용한 메시지 큐 기반 아키텍처를 구축했습니다. 여러 AI 서비스 간의 작업을 큐에 담아 순차적으로 처리하고, 실패한 작업에 대한 재시도 메커니즘을 구현하여 시스템의 안정성을 높였습니다.",
+        descriptionEn:
+          "Built a message queue-based architecture using RabbitMQ to manage the long processing times and complex call chains of generative AI services. Queued tasks between multiple AI services for sequential processing and implemented retry mechanisms for failed tasks to improve system stability.",
+      },
+      {
+        title: "Docker 컨테이너화",
+        titleEn: "Docker Containerization",
+        description:
+          "마이크로서비스 아키텍처의 각 컴포넌트를 Docker로 컨테이너화하여 개발 환경과 운영 환경의 일관성을 보장했습니다. Docker Compose를 활용하여 로컬 개발 환경을 구성하고, 각 서비스를 독립적으로 관리하고 스케일링할 수 있도록 했습니다.",
+        descriptionEn:
+          "Containerized each component of the microservices architecture using Docker to ensure consistency between development and production environments. Used Docker Compose to configure local development environments and enabled independent management and scaling of each service.",
+      },
+    ],
+    challenges: [
+      {
+        problem: "생성형 AI 서비스의 긴 처리 시간과 불안정한 응답",
+        problemEn: "Long Processing Times and Unstable Responses of Generative AI Services",
+        solution:
+          "RabbitMQ를 활용한 메시지 큐 기반 비동기 처리 아키텍처를 구축하여 AI 서비스 호출을 큐에 담아 순차적으로 처리했습니다. 각 작업의 상태를 추적하고, 타임아웃과 재시도 로직을 구현하여 불안정한 응답을 효과적으로 관리했습니다. 또한 데드레터 큐를 활용하여 반복적으로 실패하는 작업을 별도로 관리하고 모니터링할 수 있도록 했습니다.",
+        solutionEn:
+          "Built a message queue-based asynchronous processing architecture using RabbitMQ to queue AI service calls for sequential processing. Tracked the status of each task and implemented timeout and retry logic to effectively manage unstable responses. Also utilized dead letter queues to separately manage and monitor repeatedly failing tasks.",
+      },
+      {
+        problem: "여러 생성형 AI 서비스 간의 복잡한 호출 체인 관리",
+        problemEn: "Managing Complex Call Chains Between Multiple Generative AI Services",
+        solution:
+          "각 AI 서비스(ChatGPT → Midjourney → LUMA AI) 간의 작업 흐름을 RabbitMQ의 큐와 익스체인지를 통해 체계적으로 관리했습니다. 각 단계별로 별도의 큐를 구성하고, 이전 단계의 결과를 다음 단계의 입력으로 전달하는 이벤트 기반 아키텍처를 설계했습니다. 작업의 실패 시 이전 단계로 롤백하거나 재시도할 수 있는 메커니즘을 구현했습니다.",
+        solutionEn:
+          "Systematically managed the workflow between each AI service (ChatGPT → Midjourney → LUMA AI) through RabbitMQ queues and exchanges. Designed an event-based architecture that configured separate queues for each stage and passed results from previous stages as inputs to next stages. Implemented mechanisms to roll back to previous stages or retry when tasks fail.",
+      },
+      {
+        problem: "JWT 토큰 기반 인증 및 소셜 로그인 구현",
+        problemEn: "JWT Token-based Authentication and Social Login Implementation",
+        solution:
+          "Spring Security를 활용하여 JWT 기반 인증 시스템을 구현하고, Google OAuth와 Kakao OAuth를 통한 소셜 로그인을 지원했습니다. 토큰의 생성, 검증, 갱신 로직을 구현하고, 리프레시 토큰 메커니즘을 추가하여 사용자 경험을 개선했습니다. 각 소셜 로그인 제공자별로 통합된 인터페이스를 설계하여 확장성을 고려했습니다.",
+        solutionEn:
+          "Implemented a JWT-based authentication system using Spring Security and supported social login through Google OAuth and Kakao OAuth. Implemented token generation, validation, and refresh logic, and added a refresh token mechanism to improve user experience. Designed an integrated interface for each social login provider considering scalability.",
+      },
+      {
+        problem: "마이크로서비스 환경에서의 서비스 간 통신 및 상태 관리",
+        problemEn: "Inter-service Communication and State Management in Microservices Environment",
+        solution:
+          "RabbitMQ를 활용한 이벤트 기반 아키텍처로 각 마이크로서비스 간의 느슨한 결합을 구현했습니다. 작업의 상태를 중앙화된 데이터베이스에 저장하고, 각 서비스는 필요한 상태 정보를 조회하여 처리할 수 있도록 설계했습니다. 또한 Redis를 활용하여 작업 상태와 진행 상황을 캐싱하여 빠른 조회가 가능하도록 했습니다.",
+        solutionEn:
+          "Implemented loose coupling between microservices through an event-based architecture using RabbitMQ. Designed the system to store task states in a centralized database and allow each service to query necessary state information for processing. Also utilized Redis to cache task states and progress for fast retrieval.",
+      },
+    ],
+    results: [
+      {
+        metric: "생성형 AI 파이프라인 구축",
+        description:
+          "ChatGPT, Midjourney, LUMA AI를 통합하여 사용자의 꿈 데이터를 자동으로 숏폼 영상으로 변환하는 완전 자동화된 파이프라인을 구축했습니다.",
+        descriptionEn:
+          "Built a fully automated pipeline that converts users' dream data into short-form videos by integrating ChatGPT, Midjourney, and LUMA AI.",
+      },
+      {
+        metric: "안정적인 비동기 처리",
+        description:
+          "RabbitMQ를 활용한 메시지 큐 기반 아키텍처로 생성형 AI의 긴 처리 시간과 불안정한 응답을 효율적으로 관리하며, 실패한 작업에 대한 재시도 메커니즘을 통해 높은 작업 성공률을 달성했습니다.",
+        descriptionEn:
+          "Achieved high task success rates by efficiently managing long processing times and unstable responses of generative AI through a message queue-based architecture using RabbitMQ, with retry mechanisms for failed tasks.",
+      },
+      {
+        metric: "컨테이너화된 마이크로서비스",
+        description:
+          "Docker를 활용하여 각 서비스를 컨테이너화하고, Docker Compose를 통해 개발 환경을 구성하여 개발부터 배포까지 일관된 환경을 제공했습니다.",
+        descriptionEn:
+          "Containerized each service using Docker and configured development environments through Docker Compose, providing consistent environments from development to deployment.",
       },
     ],
   },
