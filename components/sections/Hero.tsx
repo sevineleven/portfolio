@@ -34,15 +34,16 @@ export default function Hero({ locale }: HeroProps) {
             </div>
             {/* 모바일에서 사진을 이름 옆에 배치 */}
             <div className="md:hidden flex-shrink-0">
-              <div className="aspect-square w-24 h-24 rounded-lg bg-gray-200 dark:bg-slate-800/50 overflow-hidden relative">
-                {personalInfo.profileImage ? (
-                  <Image
-                    src={personalInfo.profileImage}
-                    alt={personalInfo.nameEn || personalInfo.name}
-                    fill
-                    className="object-cover rounded-lg"
-                    priority
-                  />
+                  <div className="aspect-square w-24 h-24 rounded-lg bg-gray-200 dark:bg-slate-800/50 overflow-hidden relative">
+                    {personalInfo.profileImage ? (
+                      <Image
+                        src={personalInfo.profileImage}
+                        alt={personalInfo.nameEn || personalInfo.name}
+                        fill
+                        className="object-cover object-top rounded-lg"
+                        style={{ objectPosition: 'center top' }}
+                        priority
+                      />
                 ) : (
                   <div className="flex h-full items-center justify-center text-gray-400 text-xs">
                     Profile
@@ -83,7 +84,8 @@ export default function Hero({ locale }: HeroProps) {
                 src={personalInfo.profileImage}
                 alt={personalInfo.nameEn || personalInfo.name}
                 fill
-                className="object-cover rounded-lg"
+                className="object-cover object-top rounded-lg"
+                style={{ objectPosition: 'center top' }}
                 priority
               />
             ) : (
