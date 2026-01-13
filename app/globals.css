@@ -12,15 +12,101 @@
   --font-mono: var(--font-geist-mono);
 }
 
+.dark {
+  --background: #0c1425;
+  --foreground: #ffffff;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0c1425;
+    --foreground: #ffffff;
+  }
+}
+
+html, body {
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  /* Mobile Safari 최적화 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Safari 스크롤 최적화 */
+  -webkit-overflow-scrolling: touch;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+/* 모든 텍스트 그림자 및 glow 효과 제거 */
+*,
+*::before,
+*::after {
+  text-shadow: none !important;
+}
+
+/* 제목 요소에도 명시적으로 텍스트 그림자 제거 */
+h1, h2, h3, h4, h5, h6,
+h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
+  text-shadow: none !important;
+}
+
+/* 다크모드에서 모든 텍스트를 흰색으로 강제 적용 */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6,
+.dark p, .dark span:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]),
+.dark li, .dark div:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]) {
+  color: #ffffff !important;
+}
+
+
+.card-component {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.dark .card-component {
+  background-color: rgba(26, 35, 50, 1);
+  border-color: rgba(51, 65, 85, 0.6);
+}
+
+/* Mobile Safari 최적화 */
+@supports (-webkit-touch-callout: none) {
+  /* Safari 전용 최적화 */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Safari에서 터치 영역 최적화 */
+  button, a, [role="button"] {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Chrome 최적화 */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* Chrome 전용 최적화가 필요한 경우 여기에 추가 */
 }
