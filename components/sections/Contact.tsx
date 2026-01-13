@@ -15,11 +15,11 @@ export default function Contact({ locale }: ContactProps) {
   return (
     <Section id="contact" variant="default">
       <div className="text-center">
-        <h2 className="mb-3 text-2xl font-bold text-gray-900 dark:!text-white md:text-3xl">
+        <h2 className="mb-3 text-xl font-bold text-gray-900 dark:!text-white md:text-2xl">
           {t('contact.title') || 'Contact'}
         </h2>
         {subtitle ? (
-          <p className="mb-8 text-gray-600 dark:!text-white">
+          <p className="mb-8 text-sm text-gray-600 dark:!text-white">
             {subtitle}
           </p>
         ) : (

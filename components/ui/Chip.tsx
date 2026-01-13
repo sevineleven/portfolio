@@ -6,7 +6,7 @@ interface ChipProps {
 }
 
 export default function Chip({ children, className = '', onClick, active = false }: ChipProps) {
-  const baseClass = 'inline-flex items-center rounded-full px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base font-medium transition-all duration-150';
+  const baseClass = 'inline-flex items-center rounded-full px-2.5 md:px-3 py-1 md:py-1.5 text-xs md:text-sm font-medium transition-all duration-150';
   const activeClass = active
     ? 'bg-black !text-white dark:bg-slate-600 dark:!text-white dark:hover:bg-slate-600'
     : 'bg-gray-100 !text-gray-700 hover:bg-gray-200 hover:opacity-90 dark:bg-slate-700/80 dark:!text-white dark:hover:bg-slate-600 dark:hover:opacity-90';

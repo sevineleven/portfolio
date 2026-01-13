@@ -16,11 +16,11 @@ export default function Experience({ locale }: ExperienceProps) {
   return (
     <Section id="experience" variant="default">
       <div className="mb-12 text-center">
-        <h2 className="mb-3 text-2xl font-bold text-gray-900 dark:!text-white md:text-3xl">
+        <h2 className="mb-3 text-xl font-bold text-gray-900 dark:!text-white md:text-2xl">
           {t('experience.title') || 'Experience'}
         </h2>
         {subtitle ? (
-          <p className="text-gray-600 dark:!text-white">
+          <p className="text-sm text-gray-600 dark:!text-white">
             {subtitle}
           </p>
         ) : null}
@@ -33,17 +33,17 @@ export default function Experience({ locale }: ExperienceProps) {
 
           const descriptionContent = hasWorkItems ? (
             <div className="space-y-6 mt-3">
-              <p className="text-base text-gray-700 dark:!text-white mb-4">{descriptionText}</p>
+              <p className="text-sm text-gray-700 dark:!text-white mb-4 leading-relaxed">{descriptionText}</p>
               <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3">
                 {exp.workItems.map((category: any, catIdx: number) => (
                   <div key={catIdx} className="space-y-3">
-                    <h4 className="text-xs font-semibold text-gray-700 dark:!text-gray-300 uppercase tracking-wider mb-4">
+                    <h4 className="text-xs font-semibold text-gray-700 dark:!text-gray-300 uppercase tracking-wider mb-3">
                       {locale === 'ko' ? category.title : (category.titleEn || category.title)}
                     </h4>
                     <div className="space-y-3">
                       {category.items.map((item: any, itemIdx: number) => (
-                        <Card key={itemIdx} hover={false} className="p-4 bg-gray-50/50 dark:bg-slate-800/30 border-gray-200 dark:border-slate-700">
-                          <h5 className="text-sm font-semibold text-gray-900 dark:!text-white mb-2">
+                        <Card key={itemIdx} hover={false} className="p-3 bg-gray-50/50 dark:bg-slate-800/30 border-gray-200 dark:border-slate-700">
+                          <h5 className="text-xs md:text-sm font-semibold text-gray-900 dark:!text-white mb-1.5">
                             {locale === 'ko' ? item.name : (item.nameEn || item.name)}
                           </h5>
                           <p className="text-xs text-gray-600 dark:!text-gray-400 leading-relaxed">
@@ -57,19 +57,42 @@ export default function Experience({ locale }: ExperienceProps) {
               </div>
             </div>
           ) : (
-            <p className="text-gray-700 dark:!text-white">{descriptionText}</p>
+            <p className="text-sm text-gray-700 dark:!text-white leading-relaxed">{descriptionText}</p>
           );
 
           const descriptionWithAward = exp.award ? (
             <div>
               <div className="dark:!text-white">{descriptionContent}</div>
               <div className="mt-4 pt-4 border-t border-gray-200 dark:border-slate-700">
-                <p className="text-sm font-medium text-gray-900 dark:!text-white">
-                  {locale === 'ko' ? exp.award.title : (exp.award.titleEn || exp.award.title)}
-                </p>
-                <p className="text-xs text-gray-600 dark:!text-white mt-1">
-                  {locale === 'ko' ? exp.award.organization : (exp.award.organizationEn || exp.award.organization)} • {exp.award.date}
-                </p>
+                <div className="space-y-2">
+                  {(Array.isArray(exp.award) ? exp.award : [exp.award]).map((award: any, awardIdx: number) => (
+                    <div key={awardIdx} className="rounded-lg bg-gray-50/50 dark:bg-slate-800/30 p-3 border border-gray-200/50 dark:border-slate-700/50">
+                      <div className="flex items-start gap-2">
+                        {/* 트로피 아이콘 */}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="h-4 w-4 mt-0.5 text-yellow-500 dark:text-yellow-400 flex-shrink-0"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M5.166 5.144A19.721 19.721 0 0112 4.5c4.85 0 9.18.842 11.834 2.644a3.5 3.5 0 011.483 2.656c0 2.044-1.244 3.937-3.25 4.837a15.324 15.324 0 01-3.48 1.017c-1.222.147-2.39.063-3.447-.008a47.413 47.413 0 01-4.28-.001 15.322 15.322 0 01-3.48-1.017c-2.006-.9-3.25-2.793-3.25-4.837a3.5 3.5 0 011.483-2.656zm8.212 6.453a12.76 12.76 0 01-2.756.116 12.762 12.762 0 01-2.756-.116c-1.54-.185-2.923-.505-4.002-1.007a1.5 1.5 0 01-.635-1.423c.013-.704.241-1.362.586-1.925.345-.563.8-1.034 1.343-1.386A18.136 18.136 0 0112 6c3.687 0 6.977.763 9.446 2.038.544.352.998.823 1.343 1.386.345.563.573 1.22.586 1.925a1.5 1.5 0 01-.635 1.423c-1.079.502-2.462.822-4.002 1.007z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <div className="flex-1">
+                          <p className="text-xs md:text-sm font-medium text-gray-900 dark:!text-white">
+                            {locale === 'ko' ? award.title : (award.titleEn || award.title)}
+                          </p>
+                          <p className="text-xs text-gray-600 dark:!text-white mt-1">
+                            {locale === 'ko' ? award.organization : (award.organizationEn || award.organization)} • {award.date}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ) : (

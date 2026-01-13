@@ -14,10 +14,10 @@ export default function GitHubButton({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium !text-gray-700 transition-all duration-150 hover:bg-gray-50 hover:border-gray-400 hover:opacity-90 dark:border-slate-600 dark:bg-slate-700 dark:!text-white dark:hover:bg-slate-600 dark:hover:border-slate-400 ${className}`}
+      className={`inline-flex items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs md:text-sm font-medium !text-gray-700 transition-all duration-150 hover:bg-gray-50 hover:border-gray-400 hover:opacity-90 dark:border-slate-600 dark:bg-slate-700 dark:!text-white dark:hover:bg-slate-600 dark:hover:border-slate-400 ${className}`}
     >
       <svg
-        className="h-5 w-5 !text-gray-700 dark:!text-white"
+        className="h-3.5 w-3.5 !text-gray-700 dark:!text-white"
         fill="currentColor"
         viewBox="0 0 24 24"
         aria-hidden="true"
@@ -30,7 +30,7 @@ export default function GitHubButton({
       </svg>
       <span className="!text-gray-700 dark:!text-white">{username || "GitHub"}</span>
       <svg
-        className="h-4 w-4 !text-gray-700 dark:!text-white"
+        className="h-3.5 w-3.5 !text-gray-700 dark:!text-white"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

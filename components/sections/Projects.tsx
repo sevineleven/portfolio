@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import Section from '../ui/Section';
-import Card from '../ui/Card';
-import Chip from '../ui/Chip';
-import { projects } from '@/data/portfolio';
-import { Locale } from '@/i18n';
-import { useTranslations } from '@/lib/i18n';
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Section from "../ui/Section";
+import Card from "../ui/Card";
+import Chip from "../ui/Chip";
+import { projects } from "@/data/portfolio";
+import { Locale } from "@/i18n";
+import { useTranslations } from "@/lib/i18n";
 
 interface ProjectsProps {
   locale: Locale;
@@ -16,45 +16,21 @@ interface ProjectsProps {
 
 export default function Projects({ locale }: ProjectsProps) {
   const t = useTranslations(locale);
-  const allLabel = t('projects.all') || 'All';
-  const [selectedTag, setSelectedTag] = useState(allLabel);
-  const subtitle = t('projects.subtitle');
-
-  // 모든 태그 수집
-  const allTags = [allLabel, ...new Set(projects.flatMap((p) => p.tags))];
-
-  const filteredProjects =
-    selectedTag === allLabel
-      ? projects
-      : projects.filter((project) => project.tags.includes(selectedTag));
+  const subtitle = t("projects.subtitle");
 
   return (
     <Section id="projects" variant="default">
       <div className="mb-12 text-center">
-        <h2 className="mb-3 text-2xl font-bold text-gray-900 dark:!text-white md:text-3xl">
-          {t('projects.title') || 'Projects'}
+        <h2 className="mb-3 text-xl font-bold text-gray-900 dark:!text-white md:text-2xl">
+          {t("projects.title") || "Projects"}
         </h2>
         {subtitle ? (
-          <p className="text-gray-600 dark:!text-white">
-            {subtitle}
-          </p>
+          <p className="text-sm text-gray-600 dark:!text-white">{subtitle}</p>
         ) : null}
       </div>
 
-      <div className="mb-8 flex flex-wrap justify-center gap-3">
-        {allTags.map((tag) => (
-          <Chip
-            key={tag}
-            active={selectedTag === tag}
-            onClick={() => setSelectedTag(tag)}
-          >
-            {tag}
-          </Chip>
-        ))}
-      </div>
-
       <div className="grid gap-6 md:grid-cols-2">
-        {filteredProjects.map((project) => (
+        {projects.map((project) => (
           <Link
             key={project.id}
             href={`/${locale}/projects/${project.id}`}
@@ -80,11 +56,11 @@ export default function Projects({ locale }: ProjectsProps) {
                   <Chip key={tag}>{tag}</Chip>
                 ))}
               </div>
-              <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:!text-white transition-colors duration-150 group-hover:text-gray-700 dark:group-hover:text-gray-200">
-                {locale === 'ko' ? project.title : project.titleEn}
+              <h3 className="mb-2 text-base md:text-lg font-semibold text-gray-900 dark:!text-white transition-colors duration-150 group-hover:text-gray-700 dark:group-hover:text-gray-200">
+                {locale === "ko" ? project.title : project.titleEn}
               </h3>
-              <p className="text-gray-600 dark:!text-white">
-                {locale === 'ko' ? project.description : project.descriptionEn}
+              <p className="text-sm text-gray-600 dark:!text-white">
+                {locale === "ko" ? project.description : project.descriptionEn}
               </p>
             </Card>
           </Link>
