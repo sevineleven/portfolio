@@ -4,7 +4,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../globals.css";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { Locale } from "@/i18n";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -116,8 +115,6 @@ export default async function RootLayout({
   params,
 }: RootLayoutProps) {
   const { locale } = await params;
-  const baseUrl = getBaseUrl();
-  const ogImageUrl = `${baseUrl}/portfolio_thumbnail.png`;
 
   return (
     <html lang={locale} suppressHydrationWarning>
