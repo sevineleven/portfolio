@@ -50,7 +50,6 @@ export async function generateMetadata({
       url: currentUrl,
       siteName: "Portfolio - Sevin Park",
       images: [
-        absoluteImageUrl, // 카카오톡 호환을 위해 문자열 형식으로
         {
           url: absoluteImageUrl,
           width: 1200,
@@ -117,7 +116,6 @@ export default async function RootLayout({
   const { locale } = await params;
   const baseUrl = getBaseUrl();
   const ogImageUrl = `${baseUrl}/portfolio_thumbnail.png`;
-  const currentUrl = `${baseUrl}/${locale}`;
 
   return (
     <html lang={locale} suppressHydrationWarning>
