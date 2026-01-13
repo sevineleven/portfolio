@@ -76,13 +76,6 @@ export async function generateMetadata({
     },
     other: {
       "mobile-web-app-capable": "yes",
-      // 카카오톡 호환을 위한 명시적 Open Graph 메타 태그 (절대 URL 필수)
-      "og:url": currentUrl,
-      "og:image": absoluteImageUrl, // 명시적으로 og:image 추가
-      "og:site_name": "Portfolio - Sevin Park",
-      "og:image:width": "1200",
-      "og:image:height": "630",
-      "og:image:type": "image/png",
     },
     // 카카오톡 호환을 위한 추가 메타데이터
     alternates: {
