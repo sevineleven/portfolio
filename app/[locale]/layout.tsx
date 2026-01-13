@@ -36,6 +36,7 @@ export async function generateMetadata({
   const currentUrl = `${baseUrl}/${locale}`;
 
   // 이미지 URL을 명시적으로 절대 URL로 설정 (카카오톡 크롤링 대응)
+  // metadataBase를 사용하더라도 카카오톡은 절대 URL을 명시적으로 요구
   const absoluteImageUrl = ogImageUrl.startsWith('http') 
     ? ogImageUrl 
     : `${baseUrl}${ogImageUrl.startsWith('/') ? '' : '/'}${ogImageUrl}`;
@@ -76,8 +77,9 @@ export async function generateMetadata({
     },
     other: {
       "mobile-web-app-capable": "yes",
-      // 카카오톡 호환을 위한 명시적 Open Graph 메타 태그
+      // 카카오톡 호환을 위한 명시적 Open Graph 메타 태그 (절대 URL 필수)
       "og:url": currentUrl,
+      "og:image": absoluteImageUrl, // 명시적으로 og:image 추가
       "og:site_name": "Portfolio - Sevin Park",
       "og:image:width": "1200",
       "og:image:height": "630",
