@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Locale } from '@/i18n';
 
 interface ImageItem {
@@ -14,6 +14,73 @@ interface ProjectScreenshotsProps {
   images: string[] | ImageItem[];
   title: string;
   locale: Locale;
+}
+
+// GIF 최적화를 위한 컴포넌트
+function OptimizedImage({ 
+  src, 
+  alt, 
+  className,
+  onError 
+}: { 
+  src: string; 
+  alt: string; 
+  className?: string;
+  onError?: () => void;
+}) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const isGif = src.toLowerCase().endsWith('.gif');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '50px' } // 뷰포트 50px 전에 미리 로드
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // GIF는 일반 img 태그 사용 (Next.js Image는 GIF 최적화 불가)
+  if (isGif) {
+    return (
+      <img
+        ref={imgRef}
+        src={isInView ? src : undefined}
+        alt={alt}
+        className={`${className} ${!isLoaded ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+        loading="lazy"
+        onLoad={() => setIsLoaded(true)}
+        onError={onError}
+      />
+    );
+  }
+
+  // 일반 이미지는 Next.js Image 사용
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={375}
+      height={667}
+      className={className}
+      unoptimized={src.startsWith('http')}
+      loading="lazy"
+      onError={onError}
+      placeholder="blur"
+      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+    />
+  );
 }
 
 export default function ProjectScreenshots({
@@ -92,14 +159,11 @@ export default function ProjectScreenshots({
                       {imageTitle}
                     </h4>
                   )}
-                  <div className="aspect-[9/16] w-full max-w-sm mx-auto rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800/50">
-                    <Image
+                  <div className="aspect-[9/16] w-full max-w-sm mx-auto rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800/50 relative">
+                    <OptimizedImage
                       src={imageUrl}
                       alt={imageTitle || `${title} screenshot ${idx + 1}`}
-                      width={375}
-                      height={667}
                       className="w-full h-full object-contain"
-                      unoptimized={imageUrl.startsWith('http')}
                       onError={() => handleImageError(idx)}
                     />
                   </div>
