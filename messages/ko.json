@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "백엔드 개발자",
+    "viewProjects": "프로젝트 보기"
+  },
+  "proofStrip": {
+    "experience": "Experience"
+  },
+  "about": {
+    "title": "About",
+    "subtitle": ""
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": ""
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "",
+    "all": "전체"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": ""
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "",
+    "cta": "이메일 보내기"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "browserOptimization": "이 사이트는 PC Chrome과 Mobile Safari에 최적화되어 있습니다."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "about": "About Me",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "Backend Developer",
+    "viewProjects": "View Projects"
+  },
+  "proofStrip": {
+    "experience": "Experience"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Get to know me"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "My journey so far"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Things I've built",
+    "all": "All"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technologies I work with"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Open to new opportunities",
+    "cta": "Send Email"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "browserOptimization": "This site is optimized for PC Chrome and Mobile Safari."
+  }
+}
