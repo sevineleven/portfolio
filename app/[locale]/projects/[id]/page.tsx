@@ -415,13 +415,13 @@ export default async function ProjectDetailPage({
                           </div>
                         </div>
                       )}
-                      {projectData.teamSize && (
+                      {(projectData.teamComposition || projectData.teamSize) && (
                         <div>
                           <div className="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-gray-500 dark:!text-white mb-1.5 md:mb-2">
                             {t.teamSize}
                           </div>
                           <div className="text-xs font-medium text-gray-900 dark:!text-white">
-                            {projectData.teamSize} {t.people}
+                            {projectData.teamComposition || `${projectData.teamSize} ${t.people}`}
                           </div>
                         </div>
                       )}
