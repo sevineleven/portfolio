@@ -14,6 +14,25 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Portfolio - Sevin Park",
   description: "Backend Developer Portfolio",
+  openGraph: {
+    title: "Portfolio - Sevin Park",
+    description: "Backend Developer Portfolio",
+    images: [
+      {
+        url: "/sevin.jpg",
+        width: 1200,
+        height: 1200,
+        alt: "Sevin Park",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio - Sevin Park",
+    description: "Backend Developer Portfolio",
+    images: ["/sevin.jpg"],
+  },
   other: {
     "mobile-web-app-capable": "yes",
   },

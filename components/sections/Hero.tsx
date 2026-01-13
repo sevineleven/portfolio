@@ -1,4 +1,3 @@
-import Button from "../ui/Button";
 import Section from "../ui/Section";
 import GitHubButton from "../ui/GitHubButton";
 import LinkedInButton from "../ui/LinkedInButton";
@@ -35,10 +34,10 @@ export default function Hero({ locale }: HeroProps) {
                 </p>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="p-1.5 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-colors dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200"
                   aria-label="Send email"
                 >
-                  <span className="text-base">✉️</span>
+                  <span className="text-sm">✉️</span>
                 </a>
               </div>
             </div>
@@ -65,7 +64,7 @@ export default function Hero({ locale }: HeroProps) {
           {/* Philosophy Sections */}
           {personalInfo.philosophy && personalInfo.philosophy.length > 0 && (
             <div className="space-y-6 mb-8">
-              {personalInfo.philosophy.map((item: any, index: number) => (
+              {personalInfo.philosophy.map((item: { title: string; titleEn?: string; description: string; descriptionEn?: string }, index: number) => (
                 <div key={index} className="space-y-2">
                   <h3 className="text-sm md:text-base font-bold text-gray-900 dark:!text-white [text-shadow:none!important]">
                     {locale === "ko" ? item.title : item.titleEn || item.title}
