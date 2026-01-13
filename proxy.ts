@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { defaultLocale, locales } from './i18n';
 
-export function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // 정적 파일과 API 라우트는 무시
