@@ -872,7 +872,7 @@ export const awards = [
 export const skills = [
   {
     category: "Languages",
-    items: ["Java", "Python", "JavaScript", "TypeScript"],
+    items: ["Java", "JavaScript", "TypeScript"],
   },
   {
     category: "Frameworks",
@@ -880,7 +880,7 @@ export const skills = [
   },
   {
     category: "Databases",
-    items: ["MySQL", "PostgreSQL", "Redis", "MongoDB"],
+    items: ["MySQL", "PostgreSQL", "Redis", "DynamoDB"],
   },
   {
     category: "Tools & DevOps",

@@ -28,7 +28,6 @@ export default function Navbar({ locale }: NavbarProps) {
       { id: "experience", label: t("nav.experience") || "Experience" },
       { id: "skills", label: t("nav.skills") || "Skills" },
       { id: "projects", label: t("nav.projects") || "Projects" },
-      { id: "contact", label: t("nav.contact") || "Contact" },
     ],
     [t]
   );
