@@ -14,38 +14,38 @@ export default function MarkdownContent({ content, className = '' }: MarkdownCon
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          p: ({ children }) => <p className="mb-4 last:mb-0 text-base md:text-lg">{children}</p>,
+          p: ({ children }) => <p className="mb-3 last:mb-0 text-xs leading-relaxed">{children}</p>,
           strong: ({ children }) => (
-            <strong className="font-semibold text-gray-900 dark:text-white">{children}</strong>
+            <strong className="font-medium text-gray-800 dark:text-gray-100">{children}</strong>
           ),
           em: ({ children }) => (
-            <em className="italic text-gray-800 dark:text-gray-200">{children}</em>
+            <em className="italic text-gray-700 dark:text-gray-300">{children}</em>
           ),
           ul: ({ children }) => (
-            <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>
+            <ul className="list-disc list-inside mb-3 space-y-1.5">{children}</ul>
           ),
           ol: ({ children }) => (
-            <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>
+            <ol className="list-decimal list-inside mb-3 space-y-1.5">{children}</ol>
           ),
           li: ({ children }) => (
-            <li className="text-base md:text-lg text-gray-700 dark:text-gray-300">{children}</li>
+            <li className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">{children}</li>
           ),
           h1: ({ children }) => (
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{children}</h1>
+            <h1 className="text-base font-semibold text-gray-900 dark:text-white mb-3">{children}</h1>
           ),
           h2: ({ children }) => (
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{children}</h2>
+            <h2 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">{children}</h2>
           ),
           h3: ({ children }) => (
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{children}</h3>
+            <h3 className="text-xs font-medium text-gray-900 dark:text-white mb-2">{children}</h3>
           ),
           code: ({ children }) => (
-            <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm text-gray-900 dark:text-gray-100">
+            <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-[10px] text-gray-800 dark:text-gray-200">
               {children}
             </code>
           ),
           pre: ({ children }) => (
-            <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto mb-4">
+            <pre className="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg overflow-x-auto mb-3 text-xs">
               {children}
             </pre>
           ),
