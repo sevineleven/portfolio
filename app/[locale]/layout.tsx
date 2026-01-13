@@ -33,7 +33,7 @@ export const viewport: Viewport = {
 interface RootLayoutProps {
   children: React.ReactNode;
   params: Promise<{
-    locale: Locale;
+    locale: string;
   }>;
 }
 
