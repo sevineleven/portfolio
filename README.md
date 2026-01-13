@@ -66,6 +66,12 @@ Next.js 기반의 개인 포트폴리오 웹사이트로, 백엔드 개발자로
   - 클라이언트-서버 상호작용 아키텍처
   - 게임 플로우 아키텍처
 
+#### 버그 수정 및 빌드 최적화
+- ✅ TypeScript 타입 에러 수정
+  - ThemeProvider: next-themes 타입 import 경로 수정
+  - RootLayout: params 타입 호환성 개선 (Locale -> string)
+- ✅ 빌드 성공 확인 (프로덕션 빌드 테스트 완료)
+
 #### 커밋 기록
 1. `feat: Pretendard 폰트 적용 및 전역 폰트 시스템 개선`
 2. `style: 전체 섹션 및 UI 컴포넌트 폰트 사이즈 다운사이징`
@@ -73,6 +79,8 @@ Next.js 기반의 개인 포트폴리오 웹사이트로, 백엔드 개발자로
 4. `feat: Footer에 GitHub/LinkedIn 소셜 아이콘 추가`
 5. `feat: 프로젝트 디테일 페이지 가독성 개선`
 6. `feat: 굴 안의 너굴이 프로젝트 아키텍처 이미지 업데이트`
+7. `docs: README 파일 추가 - 버전별 개발 기록 및 향후 계획`
+8. `fix: TypeScript 타입 에러 수정 및 빌드 최적화`
 
 ---
 
