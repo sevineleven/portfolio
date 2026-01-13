@@ -24,32 +24,42 @@ function getBaseUrl() {
   return "https://sevin.dev";
 }
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   const baseUrl = getBaseUrl();
+  // 절대 URL로 이미지 경로 생성 (프로토콜 포함)
   const ogImageUrl = `${baseUrl}/portfolio_thumbnail.png`;
+  const currentUrl = `${baseUrl}/${locale}`;
 
   return {
+    metadataBase: new URL(baseUrl),
     title: "Portfolio - Sevin Park",
     description: "Backend Developer Portfolio",
     openGraph: {
       title: "Portfolio - Sevin Park",
       description: "Backend Developer Portfolio",
-      url: baseUrl,
+      url: currentUrl,
+      siteName: "Portfolio - Sevin Park",
       images: [
         {
-          url: ogImageUrl,
+          url: ogImageUrl, // 절대 URL
           width: 1200,
           height: 1200,
           alt: "Sevin Park",
         },
       ],
       type: "website",
+      locale: locale === 'ko' ? 'ko_KR' : 'en_US',
     },
     twitter: {
       card: "summary_large_image",
       title: "Portfolio - Sevin Park",
       description: "Backend Developer Portfolio",
-      images: [ogImageUrl],
+      images: [ogImageUrl], // 절대 URL
     },
     other: {
       "mobile-web-app-capable": "yes",
