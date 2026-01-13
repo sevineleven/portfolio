@@ -35,9 +35,10 @@ export default function Hero({ locale }: HeroProps) {
                 </p>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="text-xs px-2 py-1 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-colors dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
+                  className="p-1.5 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-colors dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
+                  aria-label="Send email"
                 >
-                  전송
+                  <span className="text-base">✉️</span>
                 </a>
               </div>
             </div>

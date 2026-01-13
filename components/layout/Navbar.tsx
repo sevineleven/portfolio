@@ -25,8 +25,8 @@ export default function Navbar({ locale }: NavbarProps) {
     () => [
       { id: "hero", label: t("nav.about") || "About" },
       { id: "experience", label: t("nav.experience") || "Experience" },
-      { id: "projects", label: t("nav.projects") || "Projects" },
       { id: "skills", label: t("nav.skills") || "Skills" },
+      { id: "projects", label: t("nav.projects") || "Projects" },
       { id: "contact", label: t("nav.contact") || "Contact" },
     ],
     [t]
