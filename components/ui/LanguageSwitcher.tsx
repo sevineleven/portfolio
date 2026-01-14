@@ -7,11 +7,13 @@ import { Locale, locales } from '@/i18n';
 const flagEmojis: Record<Locale, string> = {
   ko: '🇰🇷',
   en: '🇺🇸',
+  zh: '🇨🇳',
 };
 
 const languageLabels: Record<Locale, string> = {
   ko: 'KO',
   en: 'EN',
+  zh: 'ZH',
 };
 
 export default function LanguageSwitcher() {

@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "about": "关于我",
+    "experience": "经历",
+    "projects": "项目",
+    "skills": "技能",
+    "contact": "联系方式"
+  },
+  "hero": {
+    "role": "后端、服务器开发人员",
+    "viewProjects": "查看项目"
+  },
+  "proofStrip": {
+    "experience": "经验"
+  },
+  "about": {
+    "title": "关于我",
+    "subtitle": "了解我"
+  },
+  "experience": {
+    "title": "经历",
+    "subtitle": "我的旅程"
+  },
+  "projects": {
+    "title": "项目",
+    "subtitle": "我构建的内容",
+    "all": "全部"
+  },
+  "skills": {
+    "title": "技能",
+    "subtitle": "我使用的技术"
+  },
+  "contact": {
+    "title": "联系我",
+    "subtitle": "欢迎新机会",
+    "cta": "发送邮件"
+  },
+  "footer": {
+    "rights": "保留所有权利。",
+    "browserOptimization": "此网站针对PC Chrome和Mobile Safari进行了优化。"
+  }
+}

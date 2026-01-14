@@ -56,14 +56,16 @@ export default function Hero({ locale }: HeroProps) {
           {/* Philosophy Sections */}
           {personalInfo.philosophy && personalInfo.philosophy.length > 0 && (
             <div className="space-y-6 mb-8">
-              {personalInfo.philosophy.map((item: { title: string; titleEn?: string; description: string; descriptionEn?: string }, index: number) => (
+              {personalInfo.philosophy.map((item: { title: string; titleEn?: string; titleZh?: string; description: string; descriptionEn?: string; descriptionZh?: string }, index: number) => (
                 <div key={index} className="space-y-2">
                   <h3 className="text-sm md:text-base font-bold text-gray-900 dark:!text-white [text-shadow:none!important]">
-                    {locale === "ko" ? item.title : item.titleEn || item.title}
+                    {locale === "ko" ? item.title : locale === "zh" ? item.titleZh || item.titleEn || item.title : item.titleEn || item.title}
                   </h3>
                   <p className="text-xs md:text-sm text-gray-700 dark:!text-gray-300 leading-relaxed [text-shadow:none!important]">
                     {locale === "ko"
                       ? item.description
+                      : locale === "zh"
+                      ? item.descriptionZh || item.descriptionEn || item.description
                       : item.descriptionEn || item.description}
                   </p>
                 </div>

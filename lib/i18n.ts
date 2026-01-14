@@ -7,6 +7,7 @@ type Messages = {
 const messages: Record<Locale, Messages> = {
   ko: require('@/messages/ko.json'),
   en: require('@/messages/en.json'),
+  zh: require('@/messages/zh.json'),
 };
 
 export function getMessages(locale: Locale): Messages {

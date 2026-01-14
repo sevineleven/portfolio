@@ -77,9 +77,32 @@ export default async function ProjectDetailPage({
       areasForImprovement: "Problem",
       lessonsLearned: "Try",
     },
+    zh: {
+      backToProjects: "返回项目列表",
+      overview: "项目概述",
+      techStack: "技术栈",
+      projectInfo: "项目信息",
+      projectOrigin: "项目来源",
+      period: "期间",
+      teamSize: "团队规模",
+      myRole: "我的角色",
+      people: "人",
+      keyContributions: "主要贡献",
+      challenges: "技术挑战",
+      results: "项目成果",
+      screenshots: "截图",
+      viewGithub: "在GitHub上查看",
+      viewLive: "查看演示",
+      technologyReasons: "技术选择理由",
+      architecture: "系统架构",
+      retrospection: "KPT回顾",
+      whatWorkedWell: "Keep",
+      areasForImprovement: "Problem",
+      lessonsLearned: "Try",
+    },
   };
 
-  const t = messages[locale];
+  const t = messages[locale] || messages.ko;
   const projectData = project as any;
   const title = locale === "ko" ? project.title : (project.titleEn || project.title);
   const description =
@@ -172,7 +195,11 @@ export default async function ProjectDetailPage({
                         {t.keyContributions}
                       </h2>
                       <ul className="space-y-2.5 md:space-y-3">
-                        {projectData.roleDetails.map(
+                        {(locale === 'zh' && projectData.roleDetailsZh
+                          ? projectData.roleDetailsZh
+                          : locale === 'en' && projectData.roleDetailsEn
+                          ? projectData.roleDetailsEn
+                          : projectData.roleDetails).map(
                           (detail: string, idx: number) => (
                             <li
                               key={idx}
@@ -507,7 +534,7 @@ export default async function ProjectDetailPage({
                     {t.screenshots}
                   </h2>
                   <span className="text-xs text-gray-500 dark:text-gray-400">
-                    ({locale === 'ko' ? '클릭 시 확대됩니다.' : 'Click to enlarge.'})
+                    ({locale === 'ko' ? '클릭 시 확대됩니다.' : locale === 'zh' ? '点击放大。' : 'Click to enlarge.'})
                   </span>
                 </div>
                 <ProjectScreenshots

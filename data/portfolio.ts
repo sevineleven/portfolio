@@ -5,27 +5,36 @@ export const personalInfo = {
   name: "박세빈",
   nameEn: "Sevin Park",
   role: "백엔드, 서버 개발자",
+  roleZh: "后端、服务器开发人员",
   bio: "유학을 통해 다양한 문화와 환경에 빠르게 적응하는 능력을 키웠습니다. 이 경험을 바탕으로 새로운 환경이나 기술에 대한 두려움보다 호기심과 열정을 가지고 적극적으로 도전하는 태도를 갖추게 되었습니다.",
   bioEn:
     "Through studying abroad, I developed the ability to quickly adapt to diverse cultures and environments. Based on this experience, I approach new environments and technologies with curiosity and passion rather than fear, actively taking on challenges.",
+  bioZh:
+    "通过留学，我培养了快速适应不同文化和环境的能力。基于这一经历，我以好奇心和热情而非恐惧来应对新环境和技术，积极接受挑战。",
   philosophy: [
     {
       title: "도전을 두려워하지 않습니다.",
       titleEn: "I don't fear challenges.",
+      titleZh: "我不惧怕挑战。",
       description: "새로운 환경이나 기술에 대한 두려움보다 호기심과 열정을 가지고 적극적으로 도전합니다. 유학을 통해 다양한 문화와 환경에 빠르게 적응하는 능력을 키웠으며, 이를 개발에 접목하여 지속적으로 성장하고 있습니다.",
       descriptionEn: "I approach new environments and technologies with curiosity and passion rather than fear, actively taking on challenges. Through studying abroad, I developed the ability to quickly adapt to diverse cultures and environments, and I apply this to development for continuous growth.",
+      descriptionZh: "我以好奇心和热情而非恐惧来应对新环境和技术，积极接受挑战。通过留学，我培养了快速适应不同文化和环境的能力，并将此应用于开发中以实现持续成长。",
     },
     {
       title: "문서화를 중요시합니다.",
       titleEn: "I value documentation.",
+      titleZh: "我重视文档化。",
       description: "체계적인 개발 프로세스와 명확한 문서화를 통해 유지보수 가능한 시스템을 만듭니다. 코드 품질 검사 도구 등을 적극적으로 활용해 원칙에 어긋나지 않고 누가봐도 이해하기 쉬운 코드를 추구합니다.",
       descriptionEn: "I build maintainable systems through systematic development processes and clear documentation. I actively utilize code quality tools to pursue code that adheres to principles and is easily understandable to anyone.",
+      descriptionZh: "我通过系统的开发过程和清晰的文档化来构建可维护的系统。我积极利用代码质量检查工具，追求符合原则且任何人都能轻松理解的代码。",
     },
     {
       title: "사용자를 생각합니다.",
       titleEn: "I think about users.",
+      titleZh: "我考虑用户。",
       description: "안정적이고 확장 가능한 백엔드 시스템을 구축하여 최종 사용자에게 원활한 서비스를 제공하는 것을 목표로 합니다. 서버 성능과 안정성을 우선시하며, 지속적인 모니터링과 개선을 통해 사용자 경험을 향상시킵니다.",
       descriptionEn: "My goal is to provide seamless services to end users by building stable and scalable backend systems. I prioritize server performance and stability, and continuously improve user experience through ongoing monitoring and optimization.",
+      descriptionZh: "我的目标是通过构建稳定且可扩展的后端系统，为最终用户提供无缝服务。我优先考虑服务器性能和稳定性，通过持续的监控和改进来提升用户体验。",
     },
   ],
   github: "https://github.com/sevin98",
@@ -37,6 +46,7 @@ export const personalInfo = {
 export const proofStrip = {
   role: "백엔드, 서버 개발자",
   roleEn: "Backend, Server Developer",
+  roleZh: "后端、服务器开发人员",
   mainStack: "Spring Boot, Java, MySQL",
   experience: "1+ Years", // 2025.01부터 시작
 };
@@ -314,6 +324,26 @@ export const projects = [
       "맵 축소 전략 및 게임 밸런스 로직 개발",
       "Selenium을 활용한 자동 QA 테스트 구현 (Web 기반 게임의 기능 및 성능 검증)",
     ],
+    roleDetailsEn: [
+      "Introduced Server-authority model to control client requests on the server, maintaining a consistent environment for all players in the same game",
+      "Implemented game lifecycle management (game start, progression, and end management)",
+      "Real-time multiplayer synchronization using WebSocket",
+      "Implemented item effect system: item effect logic, application mechanism, duration management, and priority algorithm development",
+      "Implemented authentication/authorization system",
+      "Developed match history aggregation and statistics system",
+      "Developed map shrinking strategy and game balance logic",
+      "Implemented automated QA testing using Selenium (functional and performance verification for web-based game)",
+    ],
+    roleDetailsZh: [
+      "引入服务器权威模型，在服务器上控制客户端请求，为同一游戏中的所有玩家维持一致的环境",
+      "实现游戏生命周期管理（游戏开始、进行和结束管理）",
+      "使用WebSocket实现实时多人同步",
+      "实现物品效果系统：物品效果逻辑、应用机制、持续时间管理和优先级算法开发",
+      "实现认证/授权系统",
+      "开发比赛历史聚合和统计系统",
+      "开发地图缩小策略和游戏平衡逻辑",
+      "使用Selenium实现自动化QA测试（基于Web的游戏功能和性能验证）",
+    ],
     technicalHighlights: [
       {
         title: "동시성 처리 최적화",
@@ -589,6 +619,26 @@ export const projects = [
       "스마트 컨트랙트와 백엔드 연동 (Web3j 활용)",
       "RESTful API 설계 및 구현",
     ],
+    roleDetailsEn: [
+      "Designed 3-tier architecture and implemented core business logic",
+      "Implemented JWT authentication/authorization system based on Spring Security",
+      "Implemented global exception handler and error handling",
+      "Implemented concurrency control using Redisson-based distributed locks",
+      "Implemented main business logic for concert contracts (musician approval/rejection, contract state management, settlement processing)",
+      "Developed contract state transition logic using state pattern and strategy pattern",
+      "Integrated smart contracts with backend (using Web3j)",
+      "Designed and implemented RESTful API",
+    ],
+    roleDetailsZh: [
+      "设计3层架构并实现核心业务逻辑",
+      "基于Spring Security实现JWT认证/授权系统",
+      "实现全局异常处理器和错误处理",
+      "使用基于Redisson的分布式锁实现并发控制",
+      "实现音乐会合同的主要业务逻辑（音乐家批准/拒绝、合同状态管理、结算处理）",
+      "使用状态模式和策略模式开发合同状态转换逻辑",
+      "将智能合约与后端集成（使用Web3j）",
+      "设计并实现RESTful API",
+    ],
     technicalHighlights: [
       {
         title: "3-tier 아키텍처",
@@ -772,6 +822,30 @@ export const projects = [
       "AI 작업 상태 추적 및 재시도 메커니즘 구현",
       "데드레터 큐를 활용한 실패 작업 처리 및 모니터링",
       "RESTful API 설계 및 구현",
+    ],
+    roleDetailsEn: [
+      "Designed basic configuration and structure of Spring Boot-based backend server",
+      "Configured development environment with containerization using Docker and Docker Compose",
+      "Built message queue system based on RabbitMQ and implemented asynchronous task processing",
+      "Integrated generative AI pipeline: ChatGPT, Midjourney, LUMA AI API integration",
+      "Implemented stable communication layer between generative AI services and Spring server",
+      "Implemented JWT-based token authentication system",
+      "Implemented social login system (Google OAuth, Kakao OAuth)",
+      "Implemented AI task status tracking and retry mechanism",
+      "Implemented failed task processing and monitoring using dead letter queue",
+      "Designed and implemented RESTful API",
+    ],
+    roleDetailsZh: [
+      "设计基于Spring Boot的后端服务器的基本配置和结构",
+      "使用Docker和Docker Compose通过容器化配置开发环境",
+      "基于RabbitMQ构建消息队列系统并实现异步任务处理",
+      "集成生成式AI管道：ChatGPT、Midjourney、LUMA AI API集成",
+      "实现生成式AI服务和Spring服务器之间的稳定通信层",
+      "实现基于JWT的令牌认证系统",
+      "实现社交登录系统（Google OAuth、Kakao OAuth）",
+      "实现AI任务状态跟踪和重试机制",
+      "使用死信队列实现失败任务处理和监控",
+      "设计并实现RESTful API",
     ],
     technicalHighlights: [
       {
