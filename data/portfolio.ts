@@ -911,7 +911,7 @@ export const projects = [
     ],
     image: null,
     images: [],
-    githubUrl: null,
+    githubUrl: "https://github.com/sevin98/DreamsComeTrue",
     liveUrl: null,
     period: "2024.10 - 2024.11",
     teamSize: null,

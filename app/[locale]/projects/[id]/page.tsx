@@ -10,6 +10,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ProjectScreenshots from "@/components/projects/ProjectScreenshots";
 import MarkdownContent from "@/components/ui/MarkdownContent";
+import BackToTop from "@/components/ui/BackToTop";
 import { Locale } from "@/i18n";
 
 interface ProjectDetailPageProps {
@@ -577,6 +578,7 @@ export default async function ProjectDetailPage({
         </Container>
       </main>
       <Footer locale={locale} />
+      <BackToTop />
     </>
   );
 }
