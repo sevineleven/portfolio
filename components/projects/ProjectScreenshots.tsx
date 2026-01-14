@@ -136,7 +136,7 @@ export default function ProjectScreenshots({
   });
 
   return (
-    <div className="space-y-4 md:space-y-6 w-full">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 w-full">
       {Array.from(groupedImages.entries()).map(([groupTitle, groupImages], groupIdx) => {
         // 각 그룹을 2개씩 묶어서 행으로 구성
         const imageRows: Array<Array<{ item: string | ImageItem; idx: number; title: string | null }>> = [];
@@ -147,25 +147,25 @@ export default function ProjectScreenshots({
         return (
           <div
             key={groupIdx}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 md:p-6 border border-gray-200 dark:border-gray-700"
+            className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 border border-gray-200 dark:border-gray-700"
           >
             {/* 카드 제목 - 가운데 정렬 */}
             {groupTitle !== '기타' && (
-              <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center">
+              <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:text-white mb-3 text-center">
                 {groupTitle}
               </h3>
             )}
             
             {/* 이미지 그리드 */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               {imageRows.map((row, rowIdx) => (
-                <div key={rowIdx} className="grid gap-4 grid-cols-1 md:grid-cols-2">
+                <div key={rowIdx} className="grid gap-3 grid-cols-1 sm:grid-cols-2">
                   {row.map(({ item, idx, title: imageTitle }) => {
                     const imageUrl = getImageUrl(item);
 
                     return (
                       <div key={idx} className="flex justify-center">
-                        <div className="aspect-[9/16] w-full max-w-[280px] md:max-w-xs rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-900/50 relative">
+                        <div className="aspect-[9/16] w-full max-w-[200px] rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-900/50 relative">
                           <OptimizedImage
                             src={imageUrl}
                             alt={imageTitle || `${title} screenshot ${idx + 1}`}
