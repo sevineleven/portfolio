@@ -125,56 +125,65 @@ export default function ProjectScreenshots({
     }
   });
 
-  // 전체 이미지를 2개씩 묶어서 행으로 구성
-  const imageRows: Array<Array<{ item: string | ImageItem; idx: number; title: string | null }>> = [];
-  for (let i = 0; i < validImageItems.length; i += 2) {
-    imageRows.push(validImageItems.slice(i, i + 2));
-  }
-
-  // 첫 번째 이미지의 제목을 확인 (같은 제목인 경우 제목 표시)
-  const firstTitle = validImageItems.length > 0 ? validImageItems[0].title : null;
-  // 모든 이미지가 같은 제목을 가지고 있는지 확인 (null도 고려)
-  const allSameTitle = firstTitle !== null && validImageItems.every(img => img.title === firstTitle);
+  // 제목별로 이미지 그룹화
+  const groupedImages: Map<string | null, Array<{ item: string | ImageItem; idx: number; title: string | null }>> = new Map();
+  validImageItems.forEach((imageItem) => {
+    const groupKey = imageItem.title || '기타';
+    if (!groupedImages.has(groupKey)) {
+      groupedImages.set(groupKey, []);
+    }
+    groupedImages.get(groupKey)!.push(imageItem);
+  });
 
   return (
     <div className="space-y-8 w-full">
-      {allSameTitle && firstTitle && (
-        <h3 className="text-lg font-semibold text-gray-900 dark:!text-white mb-6">
-          {firstTitle}
-        </h3>
-      )}
-      <div className="space-y-6">
-        {imageRows.map((row, rowIdx) => (
-          <div key={rowIdx} className="grid gap-6 grid-cols-1 md:grid-cols-2">
-            {row.map(({ item, idx, title: imageTitle }) => {
-              const imageUrl = getImageUrl(item);
-              
-              // 같은 제목이 아닌 경우에만 각 이미지에 제목 표시
-              const showTitle = !allSameTitle && imageTitle;
+      {Array.from(groupedImages.entries()).map(([groupTitle, groupImages], groupIdx) => {
+        // 각 그룹을 2개씩 묶어서 행으로 구성
+        const imageRows: Array<Array<{ item: string | ImageItem; idx: number; title: string | null }>> = [];
+        for (let i = 0; i < groupImages.length; i += 2) {
+          imageRows.push(groupImages.slice(i, i + 2));
+        }
 
-              return (
-                <div key={idx}>
-                  {showTitle && (
-                    <h4 className="text-md font-semibold text-gray-900 dark:!text-white mb-3">
-                      {imageTitle}
-                    </h4>
-                  )}
-                  <div className="aspect-[9/16] w-full max-w-sm mx-auto rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800/50 relative">
-                    <OptimizedImage
-                      src={imageUrl}
-                      alt={imageTitle || `${title} screenshot ${idx + 1}`}
-                      className="w-full h-full object-contain"
-                      onError={() => handleImageError(idx)}
-                    />
-                  </div>
+        return (
+          <div
+            key={groupIdx}
+            className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 md:p-8 border border-gray-200 dark:border-gray-700"
+          >
+            {/* 카드 제목 - 가운데 정렬 */}
+            {groupTitle !== '기타' && (
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-6 text-center">
+                {groupTitle}
+              </h3>
+            )}
+            
+            {/* 이미지 그리드 */}
+            <div className="space-y-6">
+              {imageRows.map((row, rowIdx) => (
+                <div key={rowIdx} className="grid gap-6 grid-cols-1 md:grid-cols-2">
+                  {row.map(({ item, idx, title: imageTitle }) => {
+                    const imageUrl = getImageUrl(item);
+
+                    return (
+                      <div key={idx} className="flex justify-center">
+                        <div className="aspect-[9/16] w-full max-w-sm rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-900/50 relative">
+                          <OptimizedImage
+                            src={imageUrl}
+                            alt={imageTitle || `${title} screenshot ${idx + 1}`}
+                            className="w-full h-full object-contain"
+                            onError={() => handleImageError(idx)}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                  {/* 홀수 개일 경우 빈 공간 채우기 */}
+                  {row.length === 1 && <div></div>}
                 </div>
-              );
-            })}
-            {/* 홀수 개일 경우 빈 공간 채우기 */}
-            {row.length === 1 && <div></div>}
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
+        );
+      })}
     </div>
   );
 }
