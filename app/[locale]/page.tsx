@@ -1,7 +1,6 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ProgressBar from '@/components/ui/ProgressBar';
-import BackToTop from '@/components/ui/BackToTop';
 import HashScrollHandler from '@/components/ui/HashScrollHandler';
 import Hero from '@/components/sections/Hero';
 import ProofStrip from '@/components/sections/ProofStrip';
@@ -38,7 +37,6 @@ export default async function Home({ params }: HomeProps) {
         <Contact locale={locale} />
       </main>
       <Footer locale={locale} />
-      <BackToTop />
     </>
   );
 }

@@ -10,7 +10,6 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ProjectScreenshots from "@/components/projects/ProjectScreenshots";
 import MarkdownContent from "@/components/ui/MarkdownContent";
-import BackToTop from "@/components/ui/BackToTop";
 import { Locale } from "@/i18n";
 
 interface ProjectDetailPageProps {
@@ -50,6 +49,11 @@ export default async function ProjectDetailPage({
       viewLive: "라이브 보기",
       technologyReasons: "기술 선택 이유",
       architecture: "시스템 아키텍처",
+      performanceOptimization: "성능 최적화",
+      databaseOptimization: "데이터베이스 최적화",
+      apiDesign: "API 설계",
+      securityImplementation: "보안 구현",
+      testingStrategy: "테스트 전략",
       retrospection: "KPT 회고",
       whatWorkedWell: "Keep",
       areasForImprovement: "Problem",
@@ -73,6 +77,11 @@ export default async function ProjectDetailPage({
       viewLive: "View Live",
       technologyReasons: "Technology Selection Reasons",
       architecture: "System Architecture",
+      performanceOptimization: "Performance Optimization",
+      databaseOptimization: "Database Optimization",
+      apiDesign: "API Design",
+      securityImplementation: "Security Implementation",
+      testingStrategy: "Testing Strategy",
       retrospection: "KPT Retrospection",
       whatWorkedWell: "Keep",
       areasForImprovement: "Problem",
@@ -96,6 +105,11 @@ export default async function ProjectDetailPage({
       viewLive: "查看演示",
       technologyReasons: "技术选择理由",
       architecture: "系统架构",
+      performanceOptimization: "性能优化",
+      databaseOptimization: "数据库优化",
+      apiDesign: "API设计",
+      securityImplementation: "安全实现",
+      testingStrategy: "测试策略",
       retrospection: "KPT回顾",
       whatWorkedWell: "Keep",
       areasForImprovement: "Problem",
@@ -181,17 +195,19 @@ export default async function ProjectDetailPage({
                     <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
                       {t.overview}
                     </h2>
-                    <div className="text-xs text-gray-700 dark:!text-white">
-                      <MarkdownContent
-                        content={
-                          locale === "ko"
-                            ? projectData.overview
-                            : locale === "zh"
-                            ? (projectData.overviewZh || projectData.overviewEn || projectData.overview)
-                            : (projectData.overviewEn || projectData.overview)
-                        }
-                      />
-                    </div>
+                    <Card hover={false} className="p-4 md:p-5">
+                      <div className="text-xs text-gray-700 dark:!text-white">
+                        <MarkdownContent
+                          content={
+                            locale === "ko"
+                              ? projectData.overview
+                              : locale === "zh"
+                              ? (projectData.overviewZh || projectData.overviewEn || projectData.overview)
+                              : (projectData.overviewEn || projectData.overview)
+                          }
+                        />
+                      </div>
+                    </Card>
                   </section>
                 )}
 
@@ -202,25 +218,27 @@ export default async function ProjectDetailPage({
                       <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
                         {t.keyContributions}
                       </h2>
-                      <ul className="space-y-2.5 md:space-y-3">
-                        {(locale === 'zh' && projectData.roleDetailsZh
-                          ? projectData.roleDetailsZh
-                          : locale === 'en' && projectData.roleDetailsEn
-                          ? projectData.roleDetailsEn
-                          : projectData.roleDetails).map(
-                          (detail: string, idx: number) => (
-                            <li
-                              key={idx}
-                              className="flex items-start gap-2.5 text-xs text-gray-700 dark:!text-white"
-                            >
-                              <span className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full bg-gray-400 dark:bg-slate-400" />
-                              <div className="flex-1">
-                                <MarkdownContent content={detail} />
-                              </div>
-                            </li>
-                          )
-                        )}
-                      </ul>
+                      <Card hover={false} className="p-4 md:p-5">
+                        <ul className="space-y-2.5 md:space-y-3">
+                          {(locale === 'zh' && projectData.roleDetailsZh
+                            ? projectData.roleDetailsZh
+                            : locale === 'en' && projectData.roleDetailsEn
+                            ? projectData.roleDetailsEn
+                            : projectData.roleDetails).map(
+                            (detail: string, idx: number) => (
+                              <li
+                                key={idx}
+                                className="flex items-start gap-2.5 text-xs text-gray-700 dark:!text-white"
+                              >
+                                <span className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full bg-gray-400 dark:bg-slate-400" />
+                                <div className="flex-1">
+                                  <MarkdownContent content={detail} />
+                                </div>
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </Card>
                     </section>
                   )}
 
@@ -371,6 +389,158 @@ export default async function ProjectDetailPage({
                       </div>
                     </section>
                   )}
+
+                {/* Performance Optimization */}
+                {projectData.performanceOptimization &&
+                  projectData.performanceOptimization.length > 0 && (
+                    <section>
+                      <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                        {t.performanceOptimization}
+                      </h2>
+                      <div className="space-y-3 md:space-y-4">
+                        {projectData.performanceOptimization.map(
+                          (opt: any, idx: number) => (
+                            <Card key={idx} hover={false} className="p-4 md:p-5">
+                              <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-2">
+                                {locale === "ko"
+                                  ? opt.title
+                                  : locale === "zh"
+                                  ? (opt.titleZh || opt.titleEn || opt.title)
+                                  : (opt.titleEn || opt.title)}
+                              </h3>
+                              <div className="text-xs text-gray-700 dark:!text-white">
+                                <MarkdownContent
+                                  content={
+                                    locale === "ko"
+                                      ? opt.description
+                                      : locale === "zh"
+                                      ? (opt.descriptionZh || opt.descriptionEn || opt.description)
+                                      : (opt.descriptionEn || opt.description)
+                                  }
+                                />
+                              </div>
+                            </Card>
+                          )
+                        )}
+                      </div>
+                    </section>
+                  )}
+
+                {/* Database Optimization */}
+                {projectData.databaseOptimization &&
+                  projectData.databaseOptimization.length > 0 && (
+                    <section>
+                      <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                        {t.databaseOptimization}
+                      </h2>
+                      <div className="space-y-3 md:space-y-4">
+                        {projectData.databaseOptimization.map(
+                          (db: any, idx: number) => (
+                            <Card key={idx} hover={false} className="p-4 md:p-5">
+                              <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-2">
+                                {locale === "ko"
+                                  ? db.title
+                                  : locale === "zh"
+                                  ? (db.titleZh || db.titleEn || db.title)
+                                  : (db.titleEn || db.title)}
+                              </h3>
+                              <div className="text-xs text-gray-700 dark:!text-white">
+                                <MarkdownContent
+                                  content={
+                                    locale === "ko"
+                                      ? db.description
+                                      : locale === "zh"
+                                      ? (db.descriptionZh || db.descriptionEn || db.description)
+                                      : (db.descriptionEn || db.description)
+                                  }
+                                />
+                              </div>
+                            </Card>
+                          )
+                        )}
+                      </div>
+                    </section>
+                  )}
+
+                {/* API Design */}
+                {projectData.apiDesign && (
+                  <section>
+                    <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                      {t.apiDesign}
+                    </h2>
+                    <Card hover={false} className="p-4 md:p-5">
+                      <div className="text-xs text-gray-700 dark:!text-white">
+                        <MarkdownContent
+                          content={
+                            locale === "ko"
+                              ? projectData.apiDesign
+                              : locale === "zh"
+                              ? (projectData.apiDesignZh || projectData.apiDesignEn || projectData.apiDesign)
+                              : (projectData.apiDesignEn || projectData.apiDesign)
+                          }
+                        />
+                      </div>
+                    </Card>
+                  </section>
+                )}
+
+                {/* Security Implementation */}
+                {projectData.securityImplementation &&
+                  projectData.securityImplementation.length > 0 && (
+                    <section>
+                      <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                        {t.securityImplementation}
+                      </h2>
+                      <div className="space-y-3 md:space-y-4">
+                        {projectData.securityImplementation.map(
+                          (security: any, idx: number) => (
+                            <Card key={idx} hover={false} className="p-4 md:p-5">
+                              <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-2">
+                                {locale === "ko"
+                                  ? security.title
+                                  : locale === "zh"
+                                  ? (security.titleZh || security.titleEn || security.title)
+                                  : (security.titleEn || security.title)}
+                              </h3>
+                              <div className="text-xs text-gray-700 dark:!text-white">
+                                <MarkdownContent
+                                  content={
+                                    locale === "ko"
+                                      ? security.description
+                                      : locale === "zh"
+                                      ? (security.descriptionZh || security.descriptionEn || security.description)
+                                      : (security.descriptionEn || security.description)
+                                  }
+                                />
+                              </div>
+                            </Card>
+                          )
+                        )}
+                      </div>
+                    </section>
+                  )}
+
+                {/* Testing Strategy */}
+                {projectData.testingStrategy && (
+                  <section>
+                    <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                      {t.testingStrategy}
+                    </h2>
+                    <Card hover={false} className="p-4 md:p-5">
+                      <div className="text-xs text-gray-700 dark:!text-white">
+                        <MarkdownContent
+                          content={
+                            locale === "ko"
+                              ? projectData.testingStrategy
+                              : locale === "zh"
+                              ? (projectData.testingStrategyZh || projectData.testingStrategyEn || projectData.testingStrategy)
+                              : (projectData.testingStrategyEn || projectData.testingStrategy)
+                          }
+                        />
+                      </div>
+                    </Card>
+                  </section>
+                )}
 
                 {/* Project Retrospection */}
                 {projectData.retrospection && (
@@ -562,8 +732,8 @@ export default async function ProjectDetailPage({
                   <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white">
                     {t.screenshots}
                   </h2>
-                  <span className="text-xs text-gray-500 dark:text-gray-400">
-                    ({locale === 'ko' ? '클릭 시 확대됩니다.' : locale === 'zh' ? '点击放大。' : 'Click to enlarge.'})
+                  <span className="text-xs text-gray-400 dark:!text-gray-500 italic">
+                    {locale === 'ko' ? '클릭 시 확대됩니다.' : locale === 'zh' ? '点击放大。' : 'Click to enlarge.'}
                   </span>
                 </div>
                 <ProjectScreenshots
@@ -578,7 +748,6 @@ export default async function ProjectDetailPage({
         </Container>
       </main>
       <Footer locale={locale} />
-      <BackToTop />
     </>
   );
 }

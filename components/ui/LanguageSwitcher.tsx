@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Locale, locales } from '@/i18n';
 
 const flagEmojis: Record<Locale, string> = {
@@ -22,6 +22,23 @@ export default function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
   const [shareMenuOpen, setShareMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   // 현재 locale 추출
   const pathLocale = pathname.split('/')[1];
@@ -96,6 +113,30 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex flex-col gap-2 md:gap-3 items-end">
+      {/* Back to Top 버튼 */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-black text-white shadow-lg transition-all duration-150 hover:bg-gray-800 hover:scale-110 dark:bg-indigo-500 dark:text-white dark:hover:bg-indigo-400"
+          aria-label="Back to top"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="h-5 w-5 md:h-6 md:w-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.5 15.75l7.5-7.5 7.5 7.5"
+            />
+          </svg>
+        </button>
+      )}
+
       {/* 메인 버튼 */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -123,7 +164,7 @@ export default function LanguageSwitcher() {
           title="Share"
         >
           {copied ? (
-            <span className="text-xl md:text-2xl">✓</span>
+            <span className="text-lg md:text-xl">✓</span>
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"

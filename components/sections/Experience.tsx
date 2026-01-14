@@ -28,7 +28,10 @@ export default function Experience({ locale }: ExperienceProps) {
 
       <div className="max-w-4xl mx-auto">
         {experiences.map((exp, index) => {
-          const descriptionText = locale === 'ko' ? exp.description : (exp.descriptionEn || exp.description);
+          const descriptionText = 
+            locale === 'ko' ? exp.description 
+            : locale === 'zh' ? ((exp as any).descriptionZh || exp.descriptionEn || exp.description)
+            : (exp.descriptionEn || exp.description);
           const hasWorkItems = 'workItems' in exp && exp.workItems && exp.workItems.length > 0;
 
           const descriptionContent = hasWorkItems ? (
@@ -38,16 +41,22 @@ export default function Experience({ locale }: ExperienceProps) {
                 {exp.workItems.map((category: any, catIdx: number) => (
                   <div key={catIdx} className="space-y-3">
                     <h4 className="text-xs font-semibold text-gray-700 dark:!text-gray-300 uppercase tracking-wider mb-3">
-                      {locale === 'ko' ? category.title : (category.titleEn || category.title)}
+                      {locale === 'ko' ? category.title 
+                       : locale === 'zh' ? (category.titleZh || category.titleEn || category.title)
+                       : (category.titleEn || category.title)}
                     </h4>
                     <div className="space-y-3">
                       {category.items.map((item: any, itemIdx: number) => (
                         <Card key={itemIdx} hover={false} className="p-3 bg-gray-50/50 dark:bg-slate-800/30 border-gray-200 dark:border-slate-700">
                           <h5 className="text-xs md:text-sm font-semibold text-gray-900 dark:!text-white mb-1.5">
-                            {locale === 'ko' ? item.name : (item.nameEn || item.name)}
+                            {locale === 'ko' ? item.name 
+                             : locale === 'zh' ? (item.nameZh || item.nameEn || item.name)
+                             : (item.nameEn || item.name)}
                           </h5>
                           <p className="text-xs text-gray-600 dark:!text-gray-400 leading-relaxed">
-                            {locale === 'ko' ? item.description : (item.descriptionEn || item.description)}
+                            {locale === 'ko' ? item.description 
+                             : locale === 'zh' ? (item.descriptionZh || item.descriptionEn || item.description)
+                             : (item.descriptionEn || item.description)}
                           </p>
                         </Card>
                       ))}
@@ -83,10 +92,14 @@ export default function Experience({ locale }: ExperienceProps) {
                         </svg>
                         <div className="flex-1">
                           <p className="text-xs md:text-sm font-medium text-gray-900 dark:!text-white">
-                            {locale === 'ko' ? award.title : (award.titleEn || award.title)}
+                            {locale === 'ko' ? award.title 
+                             : locale === 'zh' ? (award.titleZh || award.titleEn || award.title)
+                             : (award.titleEn || award.title)}
                           </p>
                           <p className="text-xs text-gray-600 dark:!text-white mt-1">
-                            {locale === 'ko' ? award.organization : (award.organizationEn || award.organization)} • {award.date}
+                            {locale === 'ko' ? award.organization 
+                             : locale === 'zh' ? (award.organizationZh || award.organizationEn || award.organization)
+                             : (award.organizationEn || award.organization)} • {award.date}
                           </p>
                         </div>
                       </div>
@@ -99,8 +112,14 @@ export default function Experience({ locale }: ExperienceProps) {
             descriptionContent
           );
 
-          const titleText = locale === 'ko' ? exp.title : ((exp as any).titleEn || exp.title);
-          const companyText = locale === 'ko' ? exp.company : (exp.companyEn || exp.company);
+          const titleText = 
+            locale === 'ko' ? exp.title 
+            : locale === 'zh' ? ((exp as any).titleZh || (exp as any).titleEn || exp.title)
+            : ((exp as any).titleEn || exp.title);
+          const companyText = 
+            locale === 'ko' ? exp.company 
+            : locale === 'zh' ? (exp.companyZh || exp.companyEn || exp.company)
+            : (exp.companyEn || exp.company);
 
           return (
             <TimelineItem

@@ -23,7 +23,11 @@ export default function Hero({ locale }: HeroProps) {
           <div className="mb-8 flex flex-col md:flex-row md:items-start md:gap-6">
             <div className="flex-1">
               <h1 className="mb-2 text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:!text-white [text-shadow:none!important]">
-                {locale === "ko" ? personalInfo.name : personalInfo.nameEn}
+                {locale === "ko" 
+                  ? personalInfo.name 
+                  : locale === "zh" 
+                  ? (personalInfo.nameZh || personalInfo.nameEn)
+                  : personalInfo.nameEn}
               </h1>
               <h2 className="mb-4 text-lg md:text-xl font-medium text-gray-700 dark:!text-gray-300 [text-shadow:none!important]">
                 {t("hero.role") || personalInfo.role}

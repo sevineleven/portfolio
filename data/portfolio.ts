@@ -4,6 +4,7 @@
 export const personalInfo = {
   name: "박세빈",
   nameEn: "Sevin Park",
+  nameZh: "朴世彬",
   role: "백엔드, 서버 개발자",
   roleZh: "后端、服务器开发人员",
   bio: "유학을 통해 다양한 문화와 환경에 빠르게 적응하는 능력을 키웠습니다. 이 경험을 바탕으로 새로운 환경이나 기술에 대한 두려움보다 호기심과 열정을 가지고 적극적으로 도전하는 태도를 갖추게 되었습니다.",
@@ -16,17 +17,17 @@ export const personalInfo = {
       title: "도전을 두려워하지 않습니다.",
       titleEn: "I don't fear challenges.",
       titleZh: "我不惧怕挑战。",
-      description: "새로운 환경이나 기술에 대한 두려움보다 호기심과 열정을 가지고 적극적으로 도전합니다. 유학을 통해 다양한 문화와 환경에 빠르게 적응하는 능력을 키웠으며, 이를 개발에 접목하여 지속적으로 성장하고 있습니다.",
-      descriptionEn: "I approach new environments and technologies with curiosity and passion rather than fear, actively taking on challenges. Through studying abroad, I developed the ability to quickly adapt to diverse cultures and environments, and I apply this to development for continuous growth.",
-      descriptionZh: "我以好奇心和热情而非恐惧来应对新环境和技术，积极接受挑战。通过留学，我培养了快速适应不同文化和环境的能力，并将此应用于开发中以实现持续成长。",
+      description: "중국에서의 유학 경험을 통해 언어, 문화, 교육 시스템이 완전히 다른 환경 속에서도 도전을 두려워하기보다는 그 속에서 성장함을 깨달았습니다. 이러한 경험을 바탕으로 개발자로서도 새로운 기술 스택이나 프로젝트 환경에 대한 두려움보다 호기심과 열정을 가지고 적극적으로 도전하며, 그러한 태도를 유지하고 있습니다.",
+      descriptionEn: "Through studying abroad in China, I learned that rather than fearing challenges in a completely different environment with different language, culture, and education system, I could grow within those challenges. Based on this experience, as a developer, I approach new technology stacks or project environments with curiosity and passion rather than fear, actively taking on challenges and maintaining this attitude.",
+      descriptionZh: "通过在中国的留学经历，我认识到在语言、文化、教育体系完全不同的环境中，与其害怕挑战，不如在挑战中成长。基于这一经历，作为开发人员，我以好奇心和热情而非恐惧来应对新的技术栈或项目环境，积极接受挑战，并保持这种态度。",
     },
     {
       title: "문서화를 중요시합니다.",
       titleEn: "I value documentation.",
       titleZh: "我重视文档化。",
-      description: "체계적인 개발 프로세스와 명확한 문서화를 통해 유지보수 가능한 시스템을 만듭니다. 코드 품질 검사 도구 등을 적극적으로 활용해 원칙에 어긋나지 않고 누가봐도 이해하기 쉬운 코드를 추구합니다.",
-      descriptionEn: "I build maintainable systems through systematic development processes and clear documentation. I actively utilize code quality tools to pursue code that adheres to principles and is easily understandable to anyone.",
-      descriptionZh: "我通过系统的开发过程和清晰的文档化来构建可维护的系统。我积极利用代码质量检查工具，追求符合原则且任何人都能轻松理解的代码。",
+      description: "문서화가 잘되어있다면 팀원 간 지식 공유가 원활해지고, 새로운 팀원의 온보딩 시간을 단축할 수 있습니다. 담당자가 바뀔 때에도 빠르게 맥락을 파악할 수 있으며, 향후 기능 추가나 버그 수정 시에도 문서를 통해 효율적으로 작업할 수 있습니다.",
+      descriptionEn: "Well-documented code enables smooth knowledge sharing among team members and reduces onboarding time for new members. When team members change, they can quickly understand the context, and future feature additions or bug fixes can be handled efficiently through documentation.",
+      descriptionZh: "良好的文档化能够促进团队成员之间的知识共享，缩短新成员的入职时间。负责人变更时能够快速理解上下文，未来的功能添加或错误修复也能够通过文档高效进行。",
     },
     {
       title: "사용자를 생각합니다.",
@@ -73,71 +74,89 @@ export const about = {
 export const experiences = [
   {
     title: "Backend Developer",
+    titleZh: "后端开发人员",
     company: "폴라리스오피스 서버개발팀",
     companyEn: "PolarisOffice Server Development Team",
+    companyZh: "PolarisOffice服务器开发团队",
     period: "Jan 2025 - Present",
     description: "B2C 서비스 운영 및 고도화 프로젝트 참여",
     descriptionEn:
       "Participated in B2C service operations and enhancement projects",
+    descriptionZh: "参与B2C服务运营和增强项目",
     workItems: [
       {
         title: "신규 기능 개발",
         titleEn: "Feature Development",
+        titleZh: "新功能开发",
         items: [
           {
             name: "iOS 다이내믹 아일랜드 Push",
             nameEn: "iOS Dynamic Island Push",
+            nameZh: "iOS动态岛推送",
             description: "iOS 업데이트 대응 실시간 알림 기능 구현",
             descriptionEn:
               "Implemented real-time notification feature for iOS Dynamic Island",
+            descriptionZh: "实现iOS动态岛的实时通知功能",
           },
           {
             name: "NOVA AI 대화 내역 조회",
             nameEn: "NOVA AI Conversation History",
+            nameZh: "NOVA AI对话历史",
             description:
               "AI 대화 내역 저장 및 조회 기능 개발, DynamoDB 성능 최적화",
             descriptionEn:
               "Developed conversation history storage and retrieval with DynamoDB performance optimization",
+            descriptionZh: "开发AI对话历史存储和检索功能，优化DynamoDB性能",
           },
         ],
       },
       {
         title: "개발 생산성 향상",
         titleEn: "Developer Experience",
+        titleZh: "开发体验",
         items: [
           {
             name: "API 문서 자동화",
             nameEn: "API Documentation Automation",
+            nameZh: "API文档自动化",
             description: "Springfox 기반 자동화 도입으로 협업 효율성 향상",
             descriptionEn:
               "Introduced Springfox-based automation to improve collaboration efficiency",
+            descriptionZh: "引入基于Springfox的自动化以提高协作效率",
           },
           {
             name: "Git 전환 및 규칙 정립",
             nameEn: "SVN to Git Migration",
+            nameZh: "SVN到Git迁移",
             description: "SVN→Git 전환, 운영 규칙 및 브랜치 전략 수립",
             descriptionEn:
               "Migrated from SVN to Git, established operations rules and branch strategy",
+            descriptionZh: "从SVN迁移到Git，建立运营规则和分支策略",
           },
         ],
       },
       {
         title: "인프라 개선",
         titleEn: "Infrastructure",
+        titleZh: "基础设施",
         items: [
           {
             name: "Sentry 모니터링 시스템 전환",
             nameEn: "Sentry Monitoring Migration",
+            nameZh: "Sentry监控系统迁移",
             description:
               "레거시 Sentry(8.x) → Self-hosted(25.x) 전환, 장애 분석 효율 개선",
             descriptionEn:
               "Migrated from legacy Sentry 8.x to Self-hosted 25.x, improved incident analysis efficiency",
+            descriptionZh: "从遗留Sentry 8.x迁移到自托管25.x，提高故障分析效率",
           },
           {
             name: "FCM Push 리팩토링",
             nameEn: "FCM Push Refactoring",
+            nameZh: "FCM推送重构",
             description: "레거시 코드 리팩토링 및 라이브러리 업데이트",
             descriptionEn: "Refactored legacy codebase and updated libraries",
+            descriptionZh: "重构遗留代码库并更新库",
           },
         ],
       },
@@ -146,26 +165,33 @@ export const experiences = [
   {
     title: "삼성 청년 SW 아카데미(SSAFY) 11기 수료",
     titleEn: "Completed 11th term of Samsung Youth SW Academy (SSAFY)",
+    titleZh: "完成三星青年SW学院(SSAFY)第11期",
     company: "삼성 청년 SW 아카데미",
     companyEn: "Samsung Software Academy For Youth",
+    companyZh: "三星青年软件学院",
     period: "Jan 2024 - Dec 2024",
     description:
       "삼성 청년 SW 아카데미(SSAFY) 11기 수료. 체계적인 소프트웨어 개발 교육 과정을 통해 백엔드 개발 역량을 습득했습니다.",
     descriptionEn:
       "Completed SSAFY 11th comprehensive software development education program.",
+    descriptionZh: "完成SSAFY第11期综合软件开发教育课程。通过系统的软件开发教育过程，掌握了后端开发能力。",
     award: [
       {
         title: "프로젝트 우수상 (1위)",
         titleEn: "Project Excellence Award (1st Place)",
+        titleZh: "项目优秀奖（第一名）",
         organization: "삼성전자 주식회사",
         organizationEn: "Samsung Electronics",
+        organizationZh: "三星电子株式会社",
         date: "Oct 2024",
       },
       {
-        title: "삼성 SW 알고리즘 역량 테스트 A+ 취득",
-        titleEn: "Samsung SW Algorithm Proficiency Test A+",
+        title: "삼성 SW 알고리즘 역량 테스트 A+ 취득 (Java)",
+        titleEn: "Samsung SW Algorithm Proficiency Test A+ (Java)",
+        titleZh: "获得三星SW算法能力测试A+（Java）",
         organization: "삼성전자 주식회사",
         organizationEn: "Samsung Electronics",
+        organizationZh: "三星电子株式会社",
         date: "May 2024",
       },
     ],
@@ -357,7 +383,7 @@ export const projects = [
       "WebSocket을 활용한 실시간 멀티플레이어 동기화",
       "아이템 효과 시스템 구현: 아이템 효과 로직, 적용 메커니즘, 지속 시간 관리, 우선순위 알고리즘 개발",
       "인증/인가 시스템 구현",
-      "전적 집계 및 통계 시스템 개발",
+      "전적 집계 및 통계 시스템 개발: 쿼리 튜닝 및 인덱스 최적화를 통한 대량 데이터 조회 성능 향상, 커서 기반 페이징으로 offset 기반 페이징의 성능 문제 해결, 배치 작업 최적화를 통한 통계 집계 처리",
       "맵 축소 전략 및 게임 밸런스 로직 개발",
       "Selenium을 활용한 자동 QA 테스트 구현 (Web 기반 게임의 기능 및 성능 검증)",
     ],
@@ -367,7 +393,7 @@ export const projects = [
       "Real-time multiplayer synchronization using WebSocket",
       "Implemented item effect system: item effect logic, application mechanism, duration management, and priority algorithm development",
       "Implemented authentication/authorization system",
-      "Developed match history aggregation and statistics system",
+      "Developed match history aggregation and statistics system: Improved bulk data query performance through query tuning and index optimization, resolved performance issues of offset-based pagination with cursor-based pagination, optimized batch processing for statistics aggregation",
       "Developed map shrinking strategy and game balance logic",
       "Implemented automated QA testing using Selenium (functional and performance verification for web-based game)",
     ],
@@ -377,7 +403,7 @@ export const projects = [
       "使用WebSocket实现实时多人同步",
       "实现物品效果系统：物品效果逻辑、应用机制、持续时间管理和优先级算法开发",
       "实现认证/授权系统",
-      "开发比赛历史聚合和统计系统",
+      "开发比赛历史聚合和统计系统：通过查询调优和索引优化提高大量数据查询性能，使用基于游标的分页解决基于偏移的分页性能问题，优化批处理以进行统计聚合",
       "开发地图缩小策略和游戏平衡逻辑",
       "使用Selenium实现自动化QA测试（基于Web的游戏功能和性能验证）",
     ],
@@ -387,11 +413,11 @@ export const projects = [
         titleEn: "Concurrency Optimization",
         titleZh: "并发处理优化",
         description:
-          "Java의 ConcurrentQueue를 활용하여 비동기 요청 처리 시스템을 구축하여 300명 이상의 동시 접속자를 안정적으로 지원했습니다.",
+          "Java의 ConcurrentQueue를 활용하여 비동기 요청 처리 시스템을 구축하여 300명 이상의 동시 접속자를 안정적으로 지원했습니다. MySQL의 MVCC와 트랜잭션 격리수준을 활용하여 동시 게임 상태 업데이트 시 데이터 일관성을 보장하고, 분산환경에서의 동시성 제어를 위해 낙관적 락과 비관적 락을 적절히 조합하여 구현했습니다.",
         descriptionEn:
-          "Built an asynchronous request processing system using Java's ConcurrentQueue, stably supporting 300+ concurrent users.",
+          "Built an asynchronous request processing system using Java's ConcurrentQueue, stably supporting 300+ concurrent users. Utilized MySQL's MVCC and transaction isolation levels to ensure data consistency during concurrent game state updates, and implemented distributed concurrency control by appropriately combining optimistic and pessimistic locks.",
         descriptionZh:
-          "利用Java的ConcurrentQueue构建异步请求处理系统，稳定支持300+并发用户。",
+          "利用Java的ConcurrentQueue构建异步请求处理系统，稳定支持300+并发用户。利用MySQL的MVCC和事务隔离级别确保并发游戏状态更新时的数据一致性，并通过适当组合乐观锁和悲观锁实现分布式并发控制。",
       },
       {
         title: "Server-Authority 아키텍처",
@@ -422,22 +448,22 @@ export const projects = [
         problemEn: "Handling High Concurrent Users",
         problemZh: "处理高并发用户",
         solution:
-          "ConcurrentQueue를 활용한 비동기 요청 처리 시스템을 구축하고, 스레드 풀을 통해 CPU 자원을 최적화했습니다. 게임 로직과 네트워크 I/O를 분리하여 병목 현상을 해소하고 성능을 향상시켰습니다.",
+          "300명 이상의 동시 접속자를 처리하기 위해 서버 아키텍처를 설계했습니다. 게임 로직과 네트워크 I/O를 분리하여 병목 현상을 해소하고, 비동기 처리와 스레드 풀 최적화를 통해 CPU 자원을 효율적으로 활용했습니다. 또한 동시성 제어 메커니즘을 구현하여 다수의 사용자 요청을 안정적으로 처리할 수 있도록 했습니다.",
         solutionEn:
-          "Built an asynchronous request processing system using ConcurrentQueue and optimized CPU resources with thread pools. Separated game logic from network I/O to eliminate bottlenecks and improve performance.",
+          "Designed server architecture to handle 300+ concurrent users. Separated game logic from network I/O to eliminate bottlenecks and efficiently utilized CPU resources through asynchronous processing and thread pool optimization. Also implemented concurrency control mechanisms to stably handle multiple user requests.",
         solutionZh:
-          "使用ConcurrentQueue构建异步请求处理系统，并通过线程池优化CPU资源。将游戏逻辑与网络I/O分离，消除瓶颈并提高性能。",
+          "设计服务器架构以处理300+并发用户。将游戏逻辑与网络I/O分离以消除瓶颈，并通过异步处理和线程池优化有效利用CPU资源。还实现了并发控制机制，以稳定处理多个用户请求。",
       },
       {
-        problem: "게임 상태 일관성 유지",
-        problemEn: "Maintaining Game State Consistency",
-        problemZh: "维持游戏状态一致性",
+        problem: "게임 상태 일관성 유지 및 치팅 방지",
+        problemEn: "Maintaining Game State Consistency and Preventing Cheating",
+        problemZh: "维持游戏状态一致性和防止作弊",
         solution:
-          "Server-authority 모델을 도입하여 모든 게임 로직을 서버에서 처리하고, 클라이언트는 단순히 입력만 전송하도록 설계했습니다. 이를 통해 클라이언트 조작을 방지하고 모든 플레이어에게 동일한 게임 상태를 보장했습니다.",
+          "여러 클라이언트가 동시에 요청해도 일관된 게임 상태를 유지하기 위해 중앙 집중식 게임 로직 관리 방식을 도입했습니다. 모든 게임 로직을 서버에서 처리하고, 클라이언트는 입력만 전송하도록 설계하여 클라이언트 조작을 방지하고 모든 플레이어에게 동일한 게임 상태를 보장했습니다.",
         solutionEn:
-          "Introduced a Server-authority model where all game logic is processed on the server, and clients only send inputs. This prevented client manipulation and ensured the same game state for all players.",
+          "Introduced centralized game logic management to maintain consistent game states even when multiple clients send simultaneous requests. Designed the system to process all game logic on the server with clients only sending inputs, preventing client manipulation and ensuring the same game state for all players.",
         solutionZh:
-          "引入服务器权威模型，所有游戏逻辑在服务器上处理，客户端仅发送输入。这防止了客户端操作，并确保所有玩家的游戏状态一致。",
+          "引入集中式游戏逻辑管理，即使在多个客户端同时发送请求时也能维持一致的游戏状态。设计系统在服务器上处理所有游戏逻辑，客户端仅发送输入，防止客户端操作并确保所有玩家的游戏状态一致。",
       },
       {
         problem: "실시간 동기화 지연 및 네트워크 부하 최소화",
@@ -505,6 +531,90 @@ export const projects = [
           "实现99.9%服务器稳定性，实现服务器权威架构以防止作弊",
       },
     ],
+    performanceOptimization: [
+      {
+        title: "비동기 요청 처리 최적화",
+        titleEn: "Asynchronous Request Processing Optimization",
+        titleZh: "异步请求处理优化",
+        description:
+          "Java의 ConcurrentQueue와 Thread Pool을 활용하여 비동기 요청 처리 시스템을 구축했습니다. 게임 로직과 네트워크 I/O를 분리하여 병목 현상을 해소하고, 스레드 풀을 통해 CPU 자원을 최적화하여 300명 이상의 동시 접속자를 안정적으로 처리할 수 있었습니다.",
+        descriptionEn:
+          "Built an asynchronous request processing system using Java's ConcurrentQueue and Thread Pool. Separated game logic from network I/O to eliminate bottlenecks and optimized CPU resources through thread pools, enabling stable handling of 300+ concurrent users.",
+        descriptionZh:
+          "使用Java的ConcurrentQueue和Thread Pool构建异步请求处理系统。将游戏逻辑与网络I/O分离以消除瓶颈，并通过线程池优化CPU资源，能够稳定处理300+并发用户。",
+      },
+      {
+        title: "이벤트 기반 브로드캐스팅",
+        titleEn: "Event-based Broadcasting",
+        titleZh: "基于事件的广播",
+        description:
+          "프레임 기반 업데이트 대신 이벤트 기반 업데이트를 채택하여 네트워크 트래픽을 대폭 감소시켰습니다. 게임 상태 변경 시 필요한 플레이어에게만 선택적 브로드캐스트하도록 최적화하여 p95 Latency 50ms를 달성했습니다.",
+        descriptionEn:
+          "Adopted event-based updates instead of frame-based updates, significantly reducing network traffic. Optimized to selectively broadcast only to necessary players on game state changes, achieving p95 latency of 50ms.",
+        descriptionZh:
+          "采用基于事件的更新而非基于帧的更新，显著减少网络流量。优化为在游戏状态更改时仅向必要的玩家进行选择性广播，实现p95延迟50ms。",
+      },
+    ],
+    databaseOptimization: [
+      {
+        title: "쿼리 튜닝 및 인덱스 최적화",
+        titleEn: "Query Tuning and Index Optimization",
+        titleZh: "查询调优和索引优化",
+        description:
+          "전적 집계 및 통계 시스템 개발 시 실행 계획 분석을 통해 쿼리 성능을 최적화했습니다. 적절한 인덱스를 추가하여 대량 데이터 조회 성능을 향상시켰고, 커서 기반 페이징을 적용하여 offset 기반 페이징의 성능 문제를 해결했습니다.",
+        descriptionEn:
+          "Optimized query performance through execution plan analysis when developing match history aggregation and statistics systems. Improved bulk data query performance by adding appropriate indexes and resolved performance issues of offset-based pagination by applying cursor-based pagination.",
+        descriptionZh:
+          "在开发比赛历史聚合和统计系统时，通过执行计划分析优化查询性能。通过添加适当的索引提高大量数据查询性能，并通过应用基于游标的分页解决基于偏移的分页性能问题。",
+      },
+      {
+        title: "동시성 제어 및 트랜잭션 관리",
+        titleEn: "Concurrency Control and Transaction Management",
+        titleZh: "并发控制和事务管理",
+        description:
+          "MySQL의 MVCC(Multi-Version Concurrency Control)와 트랜잭션 격리수준(READ COMMITTED)을 활용하여 동시 게임 상태 업데이트 시 데이터 일관성을 보장했습니다. 낙관적 락과 비관적 락을 적절히 조합하여 분산환경에서의 동시성 제어를 구현했습니다.",
+        descriptionEn:
+          "Utilized MySQL's MVCC (Multi-Version Concurrency Control) and transaction isolation level (READ COMMITTED) to ensure data consistency during concurrent game state updates. Implemented distributed concurrency control by appropriately combining optimistic and pessimistic locks.",
+        descriptionZh:
+          "利用MySQL的MVCC（多版本并发控制）和事务隔离级别（READ COMMITTED）确保并发游戏状态更新时的数据一致性。通过适当组合乐观锁和悲观锁实现分布式并发控制。",
+      },
+    ],
+    apiDesign:
+      "RESTful API 설계 원칙을 준수하여 일관된 API 구조를 설계했습니다. 리소스 중심의 URL 구조와 적절한 HTTP 메서드(GET, POST, PUT, DELETE)를 사용하여 직관적인 API를 제공했습니다. 또한 에러 응답 형식을 표준화하여 클라이언트가 쉽게 에러를 처리할 수 있도록 했습니다.",
+    apiDesignEn:
+      "Designed a consistent API structure following RESTful API design principles. Provided intuitive APIs using resource-centered URL structures and appropriate HTTP methods (GET, POST, PUT, DELETE). Also standardized error response formats to enable clients to easily handle errors.",
+    apiDesignZh:
+      "遵循RESTful API设计原则设计了一致的API结构。使用以资源为中心的URL结构和适当的HTTP方法（GET、POST、PUT、DELETE）提供直观的API。还标准化了错误响应格式，使客户端能够轻松处理错误。",
+    securityImplementation: [
+      {
+        title: "토큰 기반 인증 시스템",
+        titleEn: "Token-based Authentication System",
+        titleZh: "基于令牌的认证系统",
+        description:
+          "JWT(JSON Web Token)를 활용한 토큰 기반 인증 시스템을 구현했습니다. 토큰의 만료 시간과 리프레시 토큰 메커니즘을 추가하여 보안성을 강화했고, STOMP 헤더에 토큰을 포함하여 WebSocket 연결 시에도 인증을 수행하도록 했습니다.",
+        descriptionEn:
+          "Implemented a token-based authentication system using JWT (JSON Web Token). Enhanced security by adding token expiration times and refresh token mechanisms, and performed authentication during WebSocket connections by including tokens in STOMP headers.",
+        descriptionZh:
+          "使用JWT（JSON Web Token）实现基于令牌的认证系统。通过添加令牌过期时间和刷新令牌机制增强安全性，并通过在STOMP标头中包含令牌在WebSocket连接期间执行认证。",
+      },
+      {
+        title: "Server-Authority 아키텍처",
+        titleEn: "Server-Authority Architecture",
+        titleZh: "服务器权威架构",
+        description:
+          "모든 게임 로직을 서버에서 처리하는 Server-Authority 모델을 도입하여 클라이언트 조작을 방지했습니다. 클라이언트는 단순히 입력만 전송하고, 서버에서 모든 게임 상태를 계산하여 모든 플레이어에게 동일한 게임 상태를 보장했습니다.",
+        descriptionEn:
+          "Introduced a Server-Authority model where all game logic is processed on the server to prevent client manipulation. Clients only send inputs, and the server calculates all game states to ensure the same game state for all players.",
+        descriptionZh:
+          "引入服务器权威模型，所有游戏逻辑在服务器上处理，以防止客户端操作。客户端仅发送输入，服务器计算所有游戏状态，确保所有玩家的游戏状态一致。",
+      },
+    ],
+    testingStrategy:
+      "Selenium을 활용한 자동화 QA 테스트를 구현하여 Web 기반 게임의 기능 및 성능을 검증했습니다. 게임 플로우, 로그인/로그아웃, 게임 생성/참여 등 주요 기능에 대한 E2E 테스트를 자동화하여 수동 테스트 시간을 대폭 단축하고 배포 전 품질을 보장했습니다. 또한 Locust를 활용한 부하 테스트를 통해 동시 접속자 처리 능력을 검증했습니다.",
+    testingStrategyEn:
+      "Implemented automated QA testing using Selenium to verify functionality and performance of web-based games. Automated E2E tests for key features such as game flow, login/logout, and game creation/participation, significantly reducing manual testing time and ensuring quality before deployment. Also validated concurrent user handling capabilities through load testing using Locust.",
+    testingStrategyZh:
+      "使用Selenium实现自动化QA测试，验证基于Web的游戏的功能和性能。自动化了关键功能的E2E测试，如游戏流程、登录/登出、游戏创建/参与等，大幅缩短手动测试时间并确保部署前的质量。还通过使用Locust进行负载测试验证了并发用户处理能力。",
   },
   {
     id: 2,
@@ -641,11 +751,11 @@ export const projects = [
       {
         technology: "Redis & Redisson",
         reason:
-          "Redisson을 활용하여 분산 락 기반 동시성 제어를 구현했습니다. 동시에 여러 사용자가 같은 좌석을 예매하려고 할 때 발생하는 동시성 문제를 해결하기 위해 Redis 기반 분산 락을 적용하여 좌석 예매의 원자성을 보장하고, 데이터 일관성을 유지합니다. Redisson의 분산 락 기능을 통해 분산 환경에서도 안전하고 신뢰성 있는 좌석 예매 시스템을 구축했습니다.",
+          "Redisson을 활용하여 분산 락 기반 동시성 제어를 구현했습니다. 동시에 여러 사용자가 같은 좌석을 예매하려고 할 때 발생하는 동시성 문제를 해결하기 위해 Redis 기반 분산 락을 적용하여 좌석 예매의 원자성을 보장하고, 데이터 일관성을 유지합니다. Redisson의 분산 락 기능을 통해 분산 환경에서도 안전하고 신뢰성 있는 좌석 예매 시스템을 구축했습니다. 또한 Redis를 캐시로 활용하여 공연 목록, 좌석 정보 등 자주 조회되는 데이터를 캐싱하여 DB 부하를 줄이고 응답 속도를 향상시켰으며, Write-Through 전략과 TTL 기반 캐시 무효화를 통해 캐시와 DB 간의 동기화 문제를 해결했습니다.",
         reasonEn:
-          "Implemented concurrency control using Redisson-based distributed locks. To solve concurrency issues when multiple users try to book the same seat simultaneously, applied Redis-based distributed locks to ensure atomicity of seat reservations and maintain data consistency. Built a safe and reliable seat booking system even in distributed environments through Redisson's distributed lock features.",
+          "Implemented concurrency control using Redisson-based distributed locks. To solve concurrency issues when multiple users try to book the same seat simultaneously, applied Redis-based distributed locks to ensure atomicity of seat reservations and maintain data consistency. Built a safe and reliable seat booking system even in distributed environments through Redisson's distributed lock features. Also utilized Redis as a cache to store frequently accessed data such as concert lists and seat information, reducing DB load and improving response times. Resolved synchronization issues between cache and DB through Write-Through strategy and TTL-based cache invalidation.",
         reasonZh:
-          "使用基于Redisson的分布式锁实现并发控制。为解决多个用户同时尝试预订同一座位时的并发问题，应用基于Redis的分布式锁以确保座位预订的原子性并保持数据一致性。通过Redisson的分布式锁功能，即使在分布式环境中也构建了安全可靠的座位预订系统。",
+          "使用基于Redisson的分布式锁实现并发控制。为解决多个用户同时尝试预订同一座位时的并发问题，应用基于Redis的分布式锁以确保座位预订的原子性并保持数据一致性。通过Redisson的分布式锁功能，即使在分布式环境中也构建了安全可靠的座位预订系统。还利用Redis作为缓存存储经常访问的数据（如演出列表和座位信息），减少数据库负载并提高响应速度。通过写穿透策略和基于TTL的缓存失效解决缓存与数据库之间的同步问题。",
       },
       {
         technology: "Solidity & Web3j",
@@ -725,30 +835,30 @@ export const projects = [
         "Before introducing blockchain, I will conduct performance benchmarks in real operational environments and introduce a process to compare and analyze characteristics of various blockchain networks (Ethereum, Polygon, etc.) to select the network optimized for the project.\n\nBefore deploying smart contracts, I will conduct sufficient load testing on testnets and perform analysis to predict operational costs by applying gas optimization techniques.\n\nConsidering the uncertainty that can arise from blockchain characteristics, I would like to try reviewing non-blockchain alternative solutions together and designing a hybrid architecture.",
     },
     roleDetails: [
-      "3-tier 아키텍처 설계 및 핵심 비즈니스 로직 구현",
+      "3-tier 아키텍처 설계 및 핵심 비즈니스 로직 구현: 공연 목록 조회 시 쿼리 튜닝 및 인덱스 최적화를 통한 성능 향상, 실행 계획 분석을 통한 N+1 문제 해결 및 fetch join 최적화, 커서 기반 페이징으로 대량 데이터 조회 성능 개선",
       "Spring Security 기반 JWT 인증/인가 시스템 구현",
       "전역 예외 처리 핸들러 및 에러 핸들링 구현",
-      "Redisson 기반 분산 락을 통한 동시성 제어 구현",
+      "Redisson 기반 분산 락을 통한 분산환경 동시성 제어 구현: 좌석 예매 시 동시성 문제 해결을 위해 분산 락 적용, MySQL 트랜잭션 격리수준(REPEATABLE READ)과 분산 락을 조합하여 데이터 일관성 보장",
       "공연 계약 주요 비즈니스 로직 구현 (뮤지션 승인/거절, 계약 상태 관리, 정산 처리)",
       "상태 패턴 및 전략 패턴을 활용한 계약 상태 전이 로직 개발",
       "스마트 컨트랙트와 백엔드 연동 (Web3j 활용)",
       "RESTful API 설계 및 구현",
     ],
     roleDetailsEn: [
-      "Designed 3-tier architecture and implemented core business logic",
+      "Designed 3-tier architecture and implemented core business logic: Improved performance through query tuning and index optimization for concert list queries, resolved N+1 problems and optimized fetch joins through execution plan analysis, improved bulk data query performance with cursor-based pagination",
       "Implemented JWT authentication/authorization system based on Spring Security",
       "Implemented global exception handler and error handling",
-      "Implemented concurrency control using Redisson-based distributed locks",
+      "Implemented distributed concurrency control using Redisson-based distributed locks: Applied distributed locks to resolve concurrency issues during seat reservations, ensured data consistency by combining MySQL transaction isolation level (REPEATABLE READ) with distributed locks",
       "Implemented main business logic for concert contracts (musician approval/rejection, contract state management, settlement processing)",
       "Developed contract state transition logic using state pattern and strategy pattern",
       "Integrated smart contracts with backend (using Web3j)",
       "Designed and implemented RESTful API",
     ],
     roleDetailsZh: [
-      "设计3层架构并实现核心业务逻辑",
+      "设计3层架构并实现核心业务逻辑：通过查询调优和索引优化提高演出列表查询性能，通过执行计划分析解决N+1问题并优化fetch join，使用基于游标的分页改善大量数据查询性能",
       "基于Spring Security实现JWT认证/授权系统",
       "实现全局异常处理器和错误处理",
-      "使用基于Redisson的分布式锁实现并发控制",
+      "使用基于Redisson的分布式锁实现分布式环境并发控制：应用分布式锁解决座位预订时的并发问题，通过组合MySQL事务隔离级别（REPEATABLE READ）和分布式锁确保数据一致性",
       "实现音乐会合同的主要业务逻辑（音乐家批准/拒绝、合同状态管理、结算处理）",
       "使用状态模式和策略模式开发合同状态转换逻辑",
       "将智能合约与后端集成（使用Web3j）",
@@ -756,15 +866,15 @@ export const projects = [
     ],
     technicalHighlights: [
       {
-        title: "3-tier 아키텍처",
-        titleEn: "3-tier Architecture",
-        titleZh: "3层架构",
+        title: "3-tier 아키텍처 및 DB 최적화",
+        titleEn: "3-tier Architecture and DB Optimization",
+        titleZh: "3层架构和数据库优化",
         description:
-          "프레젠테이션, 비즈니스, 데이터 레이어를 명확히 분리하여 유지보수성과 확장성을 향상시켰습니다.",
+          "프레젠테이션, 비즈니스, 데이터 레이어를 명확히 분리하여 유지보수성과 확장성을 향상시켰습니다. 공연 목록 조회 시 쿼리 튜닝 및 인덱스 최적화를 통해 성능을 향상시켰고, 실행 계획 분석을 통해 N+1 문제를 해결하고 fetch join을 최적화했습니다. 또한 커서 기반 페이징을 적용하여 대량 데이터 조회 성능을 개선했습니다.",
         descriptionEn:
-          "Clearly separated presentation, business, and data layers to improve maintainability and scalability.",
+          "Clearly separated presentation, business, and data layers to improve maintainability and scalability. Improved performance through query tuning and index optimization for concert list queries, resolved N+1 problems and optimized fetch joins through execution plan analysis. Also improved bulk data query performance by applying cursor-based pagination.",
         descriptionZh:
-          "清楚地分离表示层、业务层和数据层，提高了可维护性和可扩展性。",
+          "清楚地分离表示层、业务层和数据层，提高了可维护性和可扩展性。通过查询调优和索引优化提高演出列表查询性能，通过执行计划分析解决N+1问题并优化fetch join。还通过应用基于游标的分页改善大量数据查询性能。",
       },
       {
         title: "스마트 컨트랙트 연동",
@@ -806,11 +916,11 @@ export const projects = [
         problemEn: "Blockchain Transaction Processing and Synchronization",
         problemZh: "区块链交易处理和同步",
         solution:
-          "Web3j를 활용하여 스마트 컨트랙트와 백엔드를 연동하고, 트랜잭션 상태를 추적하는 메커니즘을 구현했습니다. 블록체인 트랜잭션이 비동기적으로 처리되는 특성을 고려하여 트랜잭션 해시를 저장하고 주기적으로 상태를 확인하는 방식으로 데이터 일관성을 유지했습니다.",
+          "Web3j를 활용하여 스마트 컨트랙트와 백엔드를 연동하고, 트랜잭션 상태를 추적하는 메커니즘을 구현했습니다. 블록체인 트랜잭션이 비동기적으로 처리되는 특성을 고려하여 트랜잭션 해시를 저장하고 주기적으로 상태를 확인하는 방식으로 데이터 일관성을 유지했습니다. 트랜잭션 실패 시 보상트랜잭션(Compensating Transaction) 패턴을 적용하여 DB 상태를 롤백하고, 이벤트 기반 아키텍처를 통해 블록체인과 DB 간의 동기화 문제를 해결했습니다.",
         solutionEn:
-          "Integrated smart contracts with backend using Web3j and implemented a mechanism to track transaction status. Considering that blockchain transactions are processed asynchronously, maintained data consistency by storing transaction hashes and periodically checking status.",
+          "Integrated smart contracts with backend using Web3j and implemented a mechanism to track transaction status. Considering that blockchain transactions are processed asynchronously, maintained data consistency by storing transaction hashes and periodically checking status. Applied Compensating Transaction pattern to rollback DB state when transactions fail, and resolved synchronization issues between blockchain and DB through event-based architecture.",
         solutionZh:
-          "使用Web3j将智能合约与后端集成，并实现了跟踪交易状态的机制。考虑到区块链交易是异步处理的特性，通过存储交易哈希并定期检查状态来保持数据一致性。",
+          "使用Web3j将智能合约与后端集成，并实现了跟踪交易状态的机制。考虑到区块链交易是异步处理的特性，通过存储交易哈希并定期检查状态来保持数据一致性。应用补偿事务模式在交易失败时回滚数据库状态，并通过基于事件的架构解决区块链与数据库之间的同步问题。",
       },
       {
         problem: "전역 예외 처리 및 에러 응답 표준화",
@@ -883,6 +993,90 @@ export const projects = [
           "允许观众创建NFT照片卡来纪念他们参加的演出，并可以包含他们最喜欢的乐队的签名以创建个性化回忆。使用IPFS分布式存储永久保存。",
       },
     ],
+    performanceOptimization: [
+      {
+        title: "쿼리 최적화 및 N+1 문제 해결",
+        titleEn: "Query Optimization and N+1 Problem Resolution",
+        titleZh: "查询优化和N+1问题解决",
+        description:
+          "공연 목록 조회 시 실행 계획 분석을 통해 N+1 문제를 해결하고 fetch join을 최적화했습니다. 불필요한 쿼리 수를 대폭 감소시켜 응답 시간을 개선했고, 적절한 인덱스를 추가하여 조회 성능을 향상시켰습니다.",
+        descriptionEn:
+          "Resolved N+1 problems and optimized fetch joins through execution plan analysis when querying concert lists. Significantly reduced unnecessary queries to improve response times and enhanced query performance by adding appropriate indexes.",
+        descriptionZh:
+          "在查询演出列表时，通过执行计划分析解决N+1问题并优化fetch join。大幅减少不必要的查询以改善响应时间，并通过添加适当的索引提高查询性能。",
+      },
+      {
+        title: "Redis 캐싱 전략",
+        titleEn: "Redis Caching Strategy",
+        titleZh: "Redis缓存策略",
+        description:
+          "Redis를 캐시로 활용하여 공연 목록, 좌석 정보 등 자주 조회되는 데이터를 캐싱하여 DB 부하를 줄이고 응답 속도를 향상시켰습니다. Write-Through 전략과 TTL 기반 캐시 무효화를 통해 캐시와 DB 간의 동기화 문제를 해결했습니다.",
+        descriptionEn:
+          "Utilized Redis as a cache to store frequently accessed data such as concert lists and seat information, reducing DB load and improving response times. Resolved synchronization issues between cache and DB through Write-Through strategy and TTL-based cache invalidation.",
+        descriptionZh:
+          "利用Redis作为缓存存储经常访问的数据（如演出列表和座位信息），减少数据库负载并提高响应速度。通过写穿透策略和基于TTL的缓存失效解决缓存与数据库之间的同步问题。",
+      },
+    ],
+    databaseOptimization: [
+      {
+        title: "커서 기반 페이징",
+        titleEn: "Cursor-based Pagination",
+        titleZh: "基于游标的分页",
+        description:
+          "대량 데이터 조회 시 offset 기반 페이징의 성능 문제를 해결하기 위해 커서 기반 페이징을 적용했습니다. 마지막 조회된 ID를 기준으로 다음 페이지를 조회하는 방식으로 인덱스를 효율적으로 활용하여 성능을 개선했습니다.",
+        descriptionEn:
+          "Applied cursor-based pagination to resolve performance issues of offset-based pagination when querying large amounts of data. Improved performance by efficiently utilizing indexes through a method that queries the next page based on the last queried ID.",
+        descriptionZh:
+          "应用基于游标的分页来解决查询大量数据时基于偏移的分页性能问题。通过基于最后查询的ID查询下一页的方法有效利用索引来提高性能。",
+      },
+      {
+        title: "분산 락을 통한 동시성 제어",
+        titleEn: "Concurrency Control through Distributed Locks",
+        titleZh: "通过分布式锁进行并发控制",
+        description:
+          "Redisson 기반 분산 락을 활용하여 좌석 예매 시 동시성 문제를 해결했습니다. MySQL 트랜잭션 격리수준(REPEATABLE READ)과 분산 락을 조합하여 데이터 일관성을 보장하고, 동시에 여러 사용자가 같은 좌석을 예매하려고 할 때 발생하는 경쟁 조건을 방지했습니다.",
+        descriptionEn:
+          "Resolved concurrency issues during seat reservations using Redisson-based distributed locks. Ensured data consistency by combining MySQL transaction isolation level (REPEATABLE READ) with distributed locks, preventing race conditions when multiple users try to book the same seat simultaneously.",
+        descriptionZh:
+          "使用基于Redisson的分布式锁解决座位预订时的并发问题。通过组合MySQL事务隔离级别（REPEATABLE READ）和分布式锁确保数据一致性，防止多个用户同时尝试预订同一座位时发生竞争条件。",
+      },
+    ],
+    apiDesign:
+      "RESTful API 설계 원칙을 준수하여 일관된 API 구조를 설계했습니다. Springfox를 활용한 API 문서 자동화를 도입하여 협업 효율성을 향상시켰고, 전역 예외 처리 핸들러를 통해 일관된 에러 응답 형식을 제공했습니다. 리소스 중심의 URL 구조와 적절한 HTTP 상태 코드를 사용하여 직관적인 API를 제공했습니다.",
+    apiDesignEn:
+      "Designed a consistent API structure following RESTful API design principles. Introduced API documentation automation using Springfox to improve collaboration efficiency, and provided consistent error response formats through a global exception handler. Provided intuitive APIs using resource-centered URL structures and appropriate HTTP status codes.",
+    apiDesignZh:
+      "遵循RESTful API设计原则设计了一致的API结构。引入使用Springfox的API文档自动化以提高协作效率，并通过全局异常处理处理器提供一致的错误响应格式。使用以资源为中心的URL结构和适当的HTTP状态代码提供直观的API。",
+    securityImplementation: [
+      {
+        title: "Spring Security 기반 JWT 인증/인가",
+        titleEn: "JWT Authentication/Authorization based on Spring Security",
+        titleZh: "基于Spring Security的JWT认证/授权",
+        description:
+          "Spring Security와 JWT를 결합하여 토큰 기반 인증 시스템을 구현했습니다. 역할 기반 접근 제어(RBAC)를 적용하여 사용자 역할(관객, 뮤지션, 공연장 관리자)에 따라 접근 가능한 API를 세밀하게 제어했습니다. 토큰 만료 시간과 리프레시 토큰 메커니즘을 구현하여 보안성을 강화했습니다.",
+        descriptionEn:
+          "Implemented a token-based authentication system by combining Spring Security and JWT. Applied Role-Based Access Control (RBAC) to finely control APIs accessible based on user roles (audience, musician, venue manager). Enhanced security by implementing token expiration times and refresh token mechanisms.",
+        descriptionZh:
+          "结合Spring Security和JWT实现基于令牌的认证系统。应用基于角色的访问控制（RBAC），根据用户角色（观众、音乐家、场地管理者）精细控制可访问的API。通过实现令牌过期时间和刷新令牌机制增强了安全性。",
+      },
+      {
+        title: "전역 예외 처리 및 에러 핸들링",
+        titleEn: "Global Exception Handling and Error Handling",
+        titleZh: "全局异常处理和错误处理",
+        description:
+          "Spring의 @ControllerAdvice를 활용한 전역 예외 처리 핸들러를 구현하여 모든 예외를 일관된 형식으로 처리했습니다. 커스텀 예외 클래스를 정의하고 적절한 HTTP 상태 코드와 에러 메시지를 매핑하여 클라이언트가 쉽게 이해하고 처리할 수 있는 에러 응답을 제공했습니다.",
+        descriptionEn:
+          "Implemented a global exception handler using Spring's @ControllerAdvice to handle all exceptions in a consistent format. Defined custom exception classes and mapped appropriate HTTP status codes and error messages to provide error responses that clients can easily understand and handle.",
+        descriptionZh:
+          "使用Spring的@ControllerAdvice实现全局异常处理处理器，以一致的格式处理所有异常。定义自定义异常类并映射适当的HTTP状态代码和错误消息，提供客户端可以轻松理解和处理的错误响应。",
+      },
+    ],
+    testingStrategy:
+      "단위 테스트와 통합 테스트를 작성하여 핵심 비즈니스 로직의 정확성을 검증했습니다. 특히 공연 계약 상태 전이 로직과 분산 락 동작에 대한 테스트를 중점적으로 작성하여 신뢰성을 확보했습니다. 또한 API 엔드포인트에 대한 통합 테스트를 통해 전체 플로우를 검증했습니다.",
+    testingStrategyEn:
+      "Wrote unit tests and integration tests to verify the accuracy of core business logic. Particularly focused on testing concert contract state transition logic and distributed lock behavior to ensure reliability. Also validated the entire flow through integration tests for API endpoints.",
+    testingStrategyZh:
+      "编写单元测试和集成测试以验证核心业务逻辑的准确性。特别关注测试演出合同状态转换逻辑和分布式锁行为以确保可靠性。还通过API端点的集成测试验证了整个流程。",
   },
   {
     id: 3,
@@ -971,7 +1165,7 @@ export const projects = [
     roleDetails: [
       "Spring Boot 기반 백엔드 서버 기본 설정 및 구조 설계",
       "Docker를 활용한 컨테이너화 및 Docker Compose를 통한 개발 환경 구성",
-      "RabbitMQ 기반 메시지 큐 시스템 구축 및 비동기 작업 처리 구현",
+      "RabbitMQ 기반 메시지 큐 시스템 구축 및 비동기 작업 처리 구현: AI 작업을 큐에 담아 비동기 처리하여 응답 시간 단축, 병렬 처리를 통한 여러 AI 작업 동시 실행, 대량 배치 최적화를 통한 작업 처리량 향상",
       "생성형 AI 파이프라인 연동: ChatGPT, Midjourney, LUMA AI API 통합",
       "생성형 AI 서비스와 Spring 서버 간의 안정적인 통신 레이어 구현",
       "JWT 기반 토큰 인증 시스템 구현",
@@ -983,7 +1177,7 @@ export const projects = [
     roleDetailsEn: [
       "Designed basic configuration and structure of Spring Boot-based backend server",
       "Configured development environment with containerization using Docker and Docker Compose",
-      "Built message queue system based on RabbitMQ and implemented asynchronous task processing",
+      "Built message queue system based on RabbitMQ and implemented asynchronous task processing: Reduced response times by queuing AI tasks for asynchronous processing, enabled parallel execution of multiple AI tasks through parallel processing, improved task throughput through bulk batch optimization",
       "Integrated generative AI pipeline: ChatGPT, Midjourney, LUMA AI API integration",
       "Implemented stable communication layer between generative AI services and Spring server",
       "Implemented JWT-based token authentication system",
@@ -995,7 +1189,7 @@ export const projects = [
     roleDetailsZh: [
       "设计基于Spring Boot的后端服务器的基本配置和结构",
       "使用Docker和Docker Compose通过容器化配置开发环境",
-      "基于RabbitMQ构建消息队列系统并实现异步任务处理",
+      "基于RabbitMQ构建消息队列系统并实现异步任务处理：通过将AI任务排队进行异步处理缩短响应时间，通过并行处理实现多个AI任务同时执行，通过批量优化提高任务处理量",
       "集成生成式AI管道：ChatGPT、Midjourney、LUMA AI API集成",
       "实现生成式AI服务和Spring服务器之间的稳定通信层",
       "实现基于JWT的令牌认证系统",
@@ -1120,6 +1314,68 @@ export const projects = [
           "使用Docker将每个服务容器化，并通过Docker Compose配置开发环境，提供从开发到部署的一致环境。",
       },
     ],
+    performanceOptimization: [
+      {
+        title: "메시지 큐 기반 비동기 처리",
+        titleEn: "Message Queue-based Asynchronous Processing",
+        titleZh: "基于消息队列的异步处理",
+        description:
+          "RabbitMQ를 활용한 메시지 큐 기반 아키텍처로 생성형 AI 서비스의 긴 처리 시간을 효율적으로 관리했습니다. 여러 AI 서비스 간의 작업을 큐에 담아 순차적으로 처리하고, 병렬 처리를 통해 여러 AI 작업을 동시에 실행하여 전체 처리 시간을 단축했습니다.",
+        descriptionEn:
+          "Efficiently managed long processing times of generative AI services through a message queue-based architecture using RabbitMQ. Queued tasks between multiple AI services for sequential processing and executed multiple AI tasks simultaneously through parallel processing to reduce overall processing time.",
+        descriptionZh:
+          "通过使用RabbitMQ的基于消息队列的架构有效管理生成式AI服务的长时间处理。将多个AI服务之间的任务排队进行顺序处理，并通过并行处理同时执行多个AI任务以缩短整体处理时间。",
+      },
+      {
+        title: "재시도 메커니즘 및 데드레터 큐",
+        titleEn: "Retry Mechanism and Dead Letter Queue",
+        titleZh: "重试机制和死信队列",
+        description:
+          "생성형 AI 서비스의 불안정한 응답을 처리하기 위해 재시도 메커니즘을 구현했습니다. 실패한 작업은 데드레터 큐로 이동하여 별도로 관리하고 모니터링할 수 있도록 했으며, 이를 통해 시스템의 안정성과 신뢰성을 높였습니다.",
+        descriptionEn:
+          "Implemented retry mechanisms to handle unstable responses from generative AI services. Failed tasks are moved to dead letter queues for separate management and monitoring, improving system stability and reliability.",
+        descriptionZh:
+          "实现重试机制以处理生成式AI服务的不稳定响应。失败的任务被移动到死信队列以进行单独管理和监控，提高了系统稳定性和可靠性。",
+      },
+    ],
+    databaseOptimization: [
+      {
+        title: "작업 상태 추적 및 캐싱",
+        titleEn: "Task Status Tracking and Caching",
+        titleZh: "任务状态跟踪和缓存",
+        description:
+          "Redis를 활용하여 AI 작업 상태와 진행 상황을 캐싱하여 빠른 조회가 가능하도록 했습니다. 작업의 상태를 중앙화된 데이터베이스에 저장하고, 각 서비스는 필요한 상태 정보를 조회하여 처리할 수 있도록 설계했습니다.",
+        descriptionEn:
+          "Utilized Redis to cache AI task states and progress for fast retrieval. Designed the system to store task states in a centralized database and allow each service to query necessary state information for processing.",
+        descriptionZh:
+          "利用Redis缓存AI任务状态和进度以便快速检索。设计系统将任务状态存储在集中式数据库中，并允许每个服务查询必要的状态信息进行处理。",
+      },
+    ],
+    apiDesign:
+      "RESTful API 설계 원칙을 준수하여 일관된 API 구조를 설계했습니다. 마이크로서비스 아키텍처를 고려하여 각 서비스별로 명확한 API 경계를 정의했고, JWT 기반 인증을 통해 보안을 강화했습니다. 또한 비동기 작업의 상태를 조회할 수 있는 엔드포인트를 제공하여 사용자 경험을 개선했습니다.",
+    apiDesignEn:
+      "Designed a consistent API structure following RESTful API design principles. Defined clear API boundaries for each service considering microservices architecture, and enhanced security through JWT-based authentication. Also provided endpoints to query the status of asynchronous tasks to improve user experience.",
+    apiDesignZh:
+      "遵循RESTful API设计原则设计了一致的API结构。考虑微服务架构为每个服务定义了清晰的API边界，并通过基于JWT的认证增强了安全性。还提供了查询异步任务状态的端点以改善用户体验。",
+    securityImplementation: [
+      {
+        title: "JWT 토큰 기반 인증 및 소셜 로그인",
+        titleEn: "JWT Token-based Authentication and Social Login",
+        titleZh: "基于JWT令牌的认证和社交登录",
+        description:
+          "Spring Security를 활용하여 JWT 기반 인증 시스템을 구현하고, Google OAuth와 Kakao OAuth를 통한 소셜 로그인을 지원했습니다. 토큰의 생성, 검증, 갱신 로직을 구현하고, 리프레시 토큰 메커니즘을 추가하여 사용자 경험을 개선했습니다.",
+        descriptionEn:
+          "Implemented a JWT-based authentication system using Spring Security and supported social login through Google OAuth and Kakao OAuth. Implemented token generation, validation, and refresh logic, and added a refresh token mechanism to improve user experience.",
+        descriptionZh:
+          "使用Spring Security实现基于JWT的认证系统，并通过Google OAuth和Kakao OAuth支持社交登录。实现令牌的生成、验证和刷新逻辑，并添加刷新令牌机制以改善用户体验。",
+      },
+    ],
+    testingStrategy:
+      "마이크로서비스 아키텍처의 특성을 고려하여 각 서비스별 단위 테스트와 통합 테스트를 작성했습니다. RabbitMQ를 활용한 비동기 작업 처리 로직에 대한 테스트를 중점적으로 작성하여 메시지 큐 기반 아키텍처의 신뢰성을 확보했습니다. 또한 생성형 AI 서비스 연동에 대한 모킹 테스트를 구현하여 외부 의존성 없이 테스트할 수 있도록 했습니다.",
+    testingStrategyEn:
+      "Wrote unit tests and integration tests for each service considering the characteristics of microservices architecture. Focused on testing asynchronous task processing logic using RabbitMQ to ensure reliability of the message queue-based architecture. Also implemented mocking tests for generative AI service integration to enable testing without external dependencies.",
+    testingStrategyZh:
+      "考虑微服务架构的特性，为每个服务编写单元测试和集成测试。重点测试使用RabbitMQ的异步任务处理逻辑，以确保基于消息队列的架构的可靠性。还实现了生成式AI服务集成的模拟测试，以便在没有外部依赖的情况下进行测试。",
   },
 ];
 
