@@ -92,19 +92,19 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-3 items-end">
+    <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex flex-col gap-2 md:gap-3 items-end">
       {/* 메인 버튼 */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group flex items-center justify-center w-14 h-14 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-400 transition-all duration-200 hover:opacity-90"
+        className="group flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-400 transition-all duration-200 hover:opacity-90"
         aria-label="Switch language"
       >
         {isOpen ? (
-          <span className="text-2xl">🌐</span>
+          <span className="text-xl md:text-2xl">🌐</span>
         ) : (
           <div className="flex flex-col items-center gap-0.5">
-            <span className="text-xl leading-none">{flagEmojis[currentLocale]}</span>
-            <span className="text-[9px] font-bold text-gray-700 dark:text-gray-200 leading-none">
+            <span className="text-base md:text-xl leading-none">{flagEmojis[currentLocale]}</span>
+            <span className="text-[8px] md:text-[9px] font-bold text-gray-700 dark:text-gray-200 leading-none">
               {languageLabels[currentLocale]}
             </span>
           </div>
@@ -115,12 +115,12 @@ export default function LanguageSwitcher() {
       <div className="relative">
         <button
           onClick={() => setShareMenuOpen(!shareMenuOpen)}
-          className="group flex items-center justify-center w-14 h-14 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-400 transition-all duration-200 hover:opacity-90 relative"
+          className="group flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-400 transition-all duration-200 hover:opacity-90 relative"
           aria-label="Share"
           title="Share"
         >
           {copied ? (
-            <span className="text-2xl">✓</span>
+            <span className="text-xl md:text-2xl">✓</span>
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +130,7 @@ export default function LanguageSwitcher() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="w-6 h-6 text-gray-700 dark:text-gray-200"
+              className="w-5 h-5 md:w-6 md:h-6 text-gray-700 dark:text-gray-200"
             >
               <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
               <polyline points="16 6 12 2 8 6" />
@@ -209,15 +209,15 @@ export default function LanguageSwitcher() {
               <button
                 key={locale}
                 onClick={() => switchLanguage(locale)}
-                className={`flex flex-col items-center justify-center w-14 h-14 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 transition-all duration-200 hover:opacity-90 ${
+                className={`flex flex-col items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 transition-all duration-200 hover:opacity-90 ${
                   locale === currentLocale
                     ? 'border-slate-400 dark:border-slate-500'
                     : 'border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
                 }`}
                 aria-label={`Switch to ${locale}`}
               >
-                <span className="text-xl leading-none">{flagEmojis[locale]}</span>
-                <span className="text-[9px] font-bold text-gray-700 dark:text-gray-200 leading-none mt-0.5">
+                <span className="text-base md:text-xl leading-none">{flagEmojis[locale]}</span>
+                <span className="text-[8px] md:text-[9px] font-bold text-gray-700 dark:text-gray-200 leading-none mt-0.5">
                   {languageLabels[locale]}
                 </span>
               </button>

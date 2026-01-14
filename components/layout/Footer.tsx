@@ -12,7 +12,7 @@ export default function Footer({ locale }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-gray-200 bg-gray-50 py-6 md:py-8 dark:border-slate-800 dark:bg-transparent">
+    <footer className="border-t border-gray-200 bg-gray-50 py-6 md:py-8 pb-24 md:pb-8 dark:border-slate-800 dark:bg-transparent">
       <Container>
         <div className="text-center space-y-2">
           <div className="flex items-center justify-center gap-4">
