@@ -17,10 +17,18 @@ export default function Navbar({ locale }: NavbarProps) {
   const [activeSection, setActiveSection] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMainPage, setIsMainPage] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    // 메인 페이지인지 확인
+    const currentPath = window.location.pathname;
+    setIsMainPage(
+      currentPath === `/${locale}` ||
+        currentPath === `/${locale}/` ||
+        currentPath === "/"
+    );
+  }, [locale]);
 
   const navItems = useMemo(
     () => [

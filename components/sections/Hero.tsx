@@ -80,7 +80,7 @@ export default function Hero({ locale }: HeroProps) {
         </div>
         {/* 데스크톱에서만 사진을 오른쪽에 배치 */}
         <div className="hidden md:block flex-1">
-          <div className="aspect-square w-full max-w-md mx-auto rounded-lg bg-gray-200 dark:bg-slate-800/50 overflow-hidden relative">
+          <div className="aspect-square w-full max-w-sm mx-auto rounded-lg bg-gray-200 dark:bg-slate-800/50 overflow-hidden relative">
             {personalInfo.profileImage ? (
               <Image
                 src={personalInfo.profileImage}
