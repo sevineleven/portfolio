@@ -4,7 +4,7 @@
 export const personalInfo = {
   name: "박세빈",
   nameEn: "Sevin Park",
-  role: "Backend Developer",
+  role: "백엔드, 서버 개발자",
   bio: "유학을 통해 다양한 문화와 환경에 빠르게 적응하는 능력을 키웠습니다. 이 경험을 바탕으로 새로운 환경이나 기술에 대한 두려움보다 호기심과 열정을 가지고 적극적으로 도전하는 태도를 갖추게 되었습니다.",
   bioEn:
     "Through studying abroad, I developed the ability to quickly adapt to diverse cultures and environments. Based on this experience, I approach new environments and technologies with curiosity and passion rather than fear, actively taking on challenges.",
@@ -35,7 +35,8 @@ export const personalInfo = {
 };
 
 export const proofStrip = {
-  role: "Backend Developer",
+  role: "백엔드, 서버 개발자",
+  roleEn: "Backend, Server Developer",
   mainStack: "Spring Boot, Java, MySQL",
   experience: "1+ Years", // 2025.01부터 시작
 };

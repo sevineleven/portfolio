@@ -19,7 +19,7 @@ export default function ProofStrip({ locale }: ProofStripProps) {
               Role
             </h3>
             <p className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white">
-              {proofStrip.role}
+              {locale === "ko" ? proofStrip.role : proofStrip.roleEn}
             </p>
           </div>
           <div className="text-center">
