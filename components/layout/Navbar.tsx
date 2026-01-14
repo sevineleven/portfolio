@@ -44,6 +44,13 @@ export default function Navbar({ locale }: NavbarProps) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
+      // 메인 페이지인지 확인
+      const currentPath = window.location.pathname;
+      const isMainPage = 
+        currentPath === `/${locale}` ||
+        currentPath === `/${locale}/` ||
+        currentPath === "/";
+
       // Scroll spy logic
       const sections = navItems
         .map((item) => {
@@ -68,6 +75,20 @@ export default function Navbar({ locale }: NavbarProps) {
 
       if (current) {
         setActiveSection(current.id);
+        
+        // 메인 페이지일 때만 URL 해시 업데이트
+        if (isMainPage) {
+          const newHash = `#${current.id}`;
+          // 현재 해시와 다를 때만 업데이트 (무한 루프 방지)
+          if (window.location.hash !== newHash) {
+            // history.replaceState를 사용하여 페이지 리로드 없이 URL 업데이트
+            window.history.replaceState(
+              null,
+              "",
+              `/${locale}${newHash}`
+            );
+          }
+        }
       }
     };
 
@@ -75,7 +96,7 @@ export default function Navbar({ locale }: NavbarProps) {
     handleScroll(); // Initial check
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [navItems]);
+  }, [navItems, locale]);
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
