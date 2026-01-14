@@ -58,10 +58,10 @@ function OptimizedImage({
       <div ref={containerRef} className="w-full h-full flex items-center justify-center">
         <img
           ref={imgRef}
-          src={isInView ? src : undefined}
+          src={src}
           alt={alt}
-          className={`${className} ${!isLoaded ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300 max-w-full max-h-full w-auto h-auto`}
-          style={{ objectFit: 'contain' }}
+          className={`${className} ${!isLoaded ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+          style={{ objectFit: 'contain', maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }}
           loading="lazy"
           onLoad={() => setIsLoaded(true)}
           onError={onError}
