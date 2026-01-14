@@ -95,9 +95,18 @@ export default function ProjectScreenshots({
   locale,
 }: ProjectScreenshotsProps) {
   const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
+  const [selectedImage, setSelectedImage] = useState<{ url: string; title: string | null } | null>(null);
 
   const handleImageError = (idx: number) => {
     setFailedImages((prev) => new Set(prev).add(idx));
+  };
+
+  const openModal = (url: string, title: string | null) => {
+    setSelectedImage({ url, title });
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
   };
 
   // 이미지 배열이 string[]인지 ImageItem[]인지 확인
@@ -142,42 +151,108 @@ export default function ProjectScreenshots({
   });
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
-      {Array.from(groupedImages.entries()).map(([groupTitle, groupImages], groupIdx) => {
-        return (
-          <div
-            key={groupIdx}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-3 border border-gray-200 dark:border-gray-700"
-          >
-            {/* 카드 제목 - 가운데 정렬 */}
-            {groupTitle !== '기타' && (
-              <h3 className="text-xs md:text-sm font-semibold text-gray-900 dark:text-white mb-2 text-center">
-                {groupTitle}
+    <>
+      <div className="grid grid-cols-2 gap-4 w-full">
+        {Array.from(groupedImages.entries()).map(([groupTitle, groupImages], groupIdx) => {
+          return (
+            <div
+              key={groupIdx}
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-3 border border-gray-200 dark:border-gray-700"
+            >
+              {/* 카드 제목 - 가운데 정렬 */}
+              {groupTitle !== '기타' && (
+                <h3 className="text-xs md:text-sm font-semibold text-gray-900 dark:text-white mb-2 text-center">
+                  {groupTitle}
+                </h3>
+              )}
+              
+              {/* 이미지 그리드 - 1열로 세로 배치 */}
+              <div className="flex flex-col gap-2 items-center">
+                {groupImages.map(({ item, idx, title: imageTitle }) => {
+                  const imageUrl = getImageUrl(item);
+
+                  return (
+                    <div 
+                      key={idx} 
+                      className="w-full flex justify-center cursor-pointer group"
+                      onClick={() => openModal(imageUrl, imageTitle)}
+                    >
+                      <div className="aspect-[9/16] w-full max-w-[160px] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-900/50 relative flex items-center justify-center p-1 group-hover:ring-2 group-hover:ring-blue-500 transition-all">
+                        <OptimizedImage
+                          src={imageUrl}
+                          alt={imageTitle || `${title} screenshot ${idx + 1}`}
+                          className="w-full h-full rounded-xl"
+                          onError={() => handleImageError(idx)}
+                        />
+                        {/* 확대 아이콘 오버레이 */}
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                          <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 dark:bg-gray-800/90 rounded-full p-2">
+                            <svg 
+                              className="w-5 h-5 text-gray-700 dark:text-gray-300" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* 확대 모달 */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={closeModal}
+        >
+          <div className="relative max-w-4xl w-full h-full flex flex-col items-center justify-center">
+            {/* 닫기 버튼 */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 rounded-full p-2 hover:bg-white dark:hover:bg-gray-800 transition-colors z-10"
+            >
+              <svg 
+                className="w-6 h-6 text-gray-700 dark:text-gray-300" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* 이미지 제목 */}
+            {selectedImage.title && (
+              <h3 className="text-white text-lg md:text-xl font-semibold mb-4 text-center">
+                {selectedImage.title}
               </h3>
             )}
-            
-            {/* 이미지 그리드 - 1열로 세로 배치 */}
-            <div className="flex flex-col gap-2 items-center">
-              {groupImages.map(({ item, idx, title: imageTitle }) => {
-                const imageUrl = getImageUrl(item);
 
-                return (
-                  <div key={idx} className="w-full flex justify-center">
-                    <div className="aspect-[9/16] w-full max-w-[160px] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-900/50 relative flex items-center justify-center p-1">
-                      <OptimizedImage
-                        src={imageUrl}
-                        alt={imageTitle || `${title} screenshot ${idx + 1}`}
-                        className="w-full h-full rounded-xl"
-                        onError={() => handleImageError(idx)}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
+            {/* 확대된 이미지 */}
+            <div className="flex items-center justify-center max-h-[80vh]">
+              <img
+                src={selectedImage.url}
+                alt={selectedImage.title || '확대 이미지'}
+                className="max-w-full max-h-full object-contain rounded-lg"
+                onClick={(e) => e.stopPropagation()}
+              />
             </div>
+
+            {/* 안내 문구 */}
+            <p className="text-white/80 text-sm mt-4 text-center">
+              클릭하여 닫기
+            </p>
           </div>
-        );
-      })}
-    </div>
+        </div>
+      )}
+    </>
   );
 }
