@@ -18,7 +18,7 @@ export default function Hero({ locale }: HeroProps) {
       className="min-h-[85vh] flex items-center"
       variant="default"
     >
-      <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-16">
+      <div className="flex flex-col gap-8 md:flex-row md:items-center md:gap-16">
         <div className="flex-1">
           <div className="mb-8 flex flex-col md:flex-row md:items-start md:gap-6">
             <div className="flex-1">
@@ -34,16 +34,16 @@ export default function Hero({ locale }: HeroProps) {
             </div>
             {/* 모바일에서 사진을 이름 옆에 배치 */}
             <div className="md:hidden flex-shrink-0">
-                  <div className="aspect-square w-24 h-24 rounded-lg bg-gray-200 dark:bg-slate-800/50 overflow-hidden relative">
-                    {personalInfo.profileImage ? (
-                      <Image
-                        src={personalInfo.profileImage}
-                        alt={personalInfo.nameEn || personalInfo.name}
-                        fill
-                        className="object-cover object-top rounded-lg"
-                        style={{ objectPosition: 'center top' }}
-                        priority
-                      />
+              <div className="aspect-square w-24 h-24 rounded-lg bg-gray-200 dark:bg-slate-800/50 overflow-hidden relative">
+                {personalInfo.profileImage ? (
+                  <Image
+                    src={personalInfo.profileImage}
+                    alt={personalInfo.nameEn || personalInfo.name}
+                    fill
+                    className="object-cover object-top rounded-lg"
+                    style={{ objectPosition: 'center top' }}
+                    priority
+                  />
                 ) : (
                   <div className="flex h-full items-center justify-center text-gray-400 text-xs">
                     Profile
@@ -78,9 +78,9 @@ export default function Hero({ locale }: HeroProps) {
             <LinkedInButton url={personalInfo.linkedin} />
           </div>
         </div>
-        {/* 데스크톱에서만 사진을 오른쪽에 배치 */}
-        <div className="hidden md:block flex-1">
-          <div className="aspect-square w-full max-w-sm mx-auto rounded-lg bg-gray-200 dark:bg-slate-800/50 overflow-hidden relative">
+        {/* 데스크톱에서만 사진을 오른쪽에 배치 - 오른쪽 열의 세로 중앙 정렬 */}
+        <div className="hidden md:flex flex-1 items-center justify-center">
+          <div className="aspect-square w-full max-w-xs rounded-lg bg-gray-200 dark:bg-slate-800/50 overflow-hidden relative">
             {personalInfo.profileImage ? (
               <Image
                 src={personalInfo.profileImage}
