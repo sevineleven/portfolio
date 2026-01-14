@@ -25,8 +25,11 @@ export default function Projects({ locale }: ProjectsProps) {
           {t("projects.title") || "Projects"}
         </h2>
         {subtitle ? (
-          <p className="text-sm text-gray-600 dark:!text-white">{subtitle}</p>
+          <p className="text-sm text-gray-600 dark:!text-white mb-2">{subtitle}</p>
         ) : null}
+        <p className="text-xs text-gray-400 dark:!text-gray-500 italic">
+          {t("projects.clickToView")}
+        </p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">

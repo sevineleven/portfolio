@@ -24,7 +24,8 @@
   "projects": {
     "title": "Projects",
     "subtitle": "",
-    "all": "전체"
+    "all": "전체",
+    "clickToView": "각 프로젝트를 클릭하면 상세 페이지로 이동합니다."
   },
   "skills": {
     "title": "Skills",

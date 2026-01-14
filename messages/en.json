@@ -24,7 +24,8 @@
   "projects": {
     "title": "Projects",
     "subtitle": "Things I've built",
-    "all": "All"
+    "all": "All",
+    "clickToView": "Click on each project to view details"
   },
   "skills": {
     "title": "Skills",
