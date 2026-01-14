@@ -104,9 +104,14 @@ export default async function ProjectDetailPage({
 
   const t = messages[locale] || messages.ko;
   const projectData = project as any;
-  const title = locale === "ko" ? project.title : (project.titleEn || project.title);
+  const title = 
+    locale === "ko" ? project.title 
+    : locale === "zh" ? (projectData.titleZh || project.titleEn || project.title)
+    : (project.titleEn || project.title);
   const description =
-    locale === "ko" ? project.description : (project.descriptionEn || project.description);
+    locale === "ko" ? project.description 
+    : locale === "zh" ? (projectData.descriptionZh || project.descriptionEn || project.description)
+    : (project.descriptionEn || project.description);
 
   return (
     <>
@@ -180,7 +185,9 @@ export default async function ProjectDetailPage({
                         content={
                           locale === "ko"
                             ? projectData.overview
-                            : projectData.overviewEn || projectData.overview
+                            : locale === "zh"
+                            ? (projectData.overviewZh || projectData.overviewEn || projectData.overview)
+                            : (projectData.overviewEn || projectData.overview)
                         }
                       />
                     </div>
@@ -230,14 +237,18 @@ export default async function ProjectDetailPage({
                               <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-2">
                                 {locale === "ko"
                                   ? challenge.problem
-                                  : challenge.problemEn || challenge.problem}
+                                  : locale === "zh"
+                                  ? (challenge.problemZh || challenge.problemEn || challenge.problem)
+                                  : (challenge.problemEn || challenge.problem)}
                               </h3>
                               <div className="text-xs text-gray-600 dark:!text-white">
                                 <MarkdownContent
                                   content={
                                     locale === "ko"
                                       ? challenge.solution
-                                      : challenge.solutionEn || challenge.solution
+                                      : locale === "zh"
+                                      ? (challenge.solutionZh || challenge.solutionEn || challenge.solution)
+                                      : (challenge.solutionEn || challenge.solution)
                                   }
                                 />
                               </div>
@@ -258,14 +269,20 @@ export default async function ProjectDetailPage({
                         {projectData.results.map((result: any, idx: number) => (
                           <Card key={idx} hover={false} className="p-4 md:p-5 flex flex-col">
                             <div className="text-base md:text-lg font-bold text-blue-600 dark:text-blue-400 mb-3">
-                              {result.metric}
+                              {locale === "ko"
+                                ? result.metric
+                                : locale === "zh"
+                                ? (result.metricZh || result.metricEn || result.metric)
+                                : (result.metricEn || result.metric)}
                             </div>
                             <div className="text-xs text-gray-600 dark:!text-gray-300 flex-1">
                               <MarkdownContent
                                 content={
                                   locale === "ko"
                                     ? result.description
-                                    : result.descriptionEn || result.description
+                                    : locale === "zh"
+                                    ? (result.descriptionZh || result.descriptionEn || result.description)
+                                    : (result.descriptionEn || result.description)
                                 }
                               />
                             </div>
@@ -294,7 +311,9 @@ export default async function ProjectDetailPage({
                                   content={
                                     locale === "ko"
                                       ? tech.reason
-                                      : tech.reasonEn || tech.reason
+                                      : locale === "zh"
+                                      ? (tech.reasonZh || tech.reasonEn || tech.reason)
+                                      : (tech.reasonEn || tech.reason)
                                   }
                                 />
                               </div>
@@ -319,7 +338,9 @@ export default async function ProjectDetailPage({
                               <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-2">
                                 {locale === "ko"
                                   ? arch.title
-                                  : arch.titleEn || arch.title}
+                                  : locale === "zh"
+                                  ? (arch.titleZh || arch.titleEn || arch.title)
+                                  : (arch.titleEn || arch.title)}
                               </h3>
                               <div className="mb-3 md:mb-4 aspect-video w-full rounded-lg overflow-hidden bg-gray-200 dark:bg-slate-800/50 relative">
                                 <Image
@@ -327,7 +348,9 @@ export default async function ProjectDetailPage({
                                   alt={
                                     locale === "ko"
                                       ? arch.title
-                                      : arch.titleEn || arch.title
+                                      : locale === "zh"
+                                      ? (arch.titleZh || arch.titleEn || arch.title)
+                                      : (arch.titleEn || arch.title)
                                   }
                                   fill
                                   className="object-contain"
@@ -337,7 +360,9 @@ export default async function ProjectDetailPage({
                               <p className="text-xs text-gray-600 dark:!text-white mt-3 md:mt-4">
                                 {locale === "ko"
                                   ? arch.description
-                                  : arch.descriptionEn || arch.description}
+                                  : locale === "zh"
+                                  ? (arch.descriptionZh || arch.descriptionEn || arch.description)
+                                  : (arch.descriptionEn || arch.description)}
                               </p>
                             </Card>
                           )
@@ -363,8 +388,9 @@ export default async function ProjectDetailPage({
                                 content={
                                   locale === "ko"
                                     ? projectData.retrospection.whatWorkedWell
-                                    : projectData.retrospection.whatWorkedWellEn ||
-                                      projectData.retrospection.whatWorkedWell
+                                    : locale === "zh"
+                                    ? (projectData.retrospection.whatWorkedWellZh || projectData.retrospection.whatWorkedWellEn || projectData.retrospection.whatWorkedWell)
+                                    : (projectData.retrospection.whatWorkedWellEn || projectData.retrospection.whatWorkedWell)
                                 }
                               />
                             </div>
@@ -380,9 +406,9 @@ export default async function ProjectDetailPage({
                                 content={
                                   locale === "ko"
                                     ? projectData.retrospection.areasForImprovement
-                                    : projectData.retrospection
-                                        .areasForImprovementEn ||
-                                    projectData.retrospection.areasForImprovement
+                                    : locale === "zh"
+                                    ? (projectData.retrospection.areasForImprovementZh || projectData.retrospection.areasForImprovementEn || projectData.retrospection.areasForImprovement)
+                                    : (projectData.retrospection.areasForImprovementEn || projectData.retrospection.areasForImprovement)
                                 }
                               />
                             </div>
@@ -398,8 +424,9 @@ export default async function ProjectDetailPage({
                                 content={
                                   locale === "ko"
                                     ? projectData.retrospection.lessonsLearned
-                                    : projectData.retrospection.lessonsLearnedEn ||
-                                      projectData.retrospection.lessonsLearned
+                                    : locale === "zh"
+                                    ? (projectData.retrospection.lessonsLearnedZh || projectData.retrospection.lessonsLearnedEn || projectData.retrospection.lessonsLearned)
+                                    : (projectData.retrospection.lessonsLearnedEn || projectData.retrospection.lessonsLearned)
                                 }
                               />
                             </div>
@@ -427,8 +454,9 @@ export default async function ProjectDetailPage({
                           <div className="text-xs font-medium text-gray-900 dark:!text-white">
                             {locale === "ko"
                               ? projectData.projectOrigin
-                              : projectData.projectOriginEn ||
-                                projectData.projectOrigin}
+                              : locale === "zh"
+                              ? (projectData.projectOriginZh || projectData.projectOriginEn || projectData.projectOrigin)
+                              : (projectData.projectOriginEn || projectData.projectOrigin)}
                           </div>
                         </div>
                       )}

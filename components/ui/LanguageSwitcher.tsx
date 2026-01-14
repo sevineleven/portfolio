@@ -24,7 +24,8 @@ export default function LanguageSwitcher() {
   const [copied, setCopied] = useState(false);
 
   // 현재 locale 추출
-  const currentLocale = (pathname.split('/')[1] || 'ko') as Locale;
+  const pathLocale = pathname.split('/')[1];
+  const currentLocale: Locale = (locales.includes(pathLocale as Locale) ? pathLocale : 'ko') as Locale;
 
   const switchLanguage = (locale: Locale) => {
     // 현재 경로에서 locale 부분만 변경

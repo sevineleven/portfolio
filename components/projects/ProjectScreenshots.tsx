@@ -124,7 +124,10 @@ export default function ProjectScreenshots({
 
   const getImageTitle = (item: string | ImageItem): string | null => {
     if (typeof item === 'string') return null;
-    const title = locale === 'ko' ? item.title : (item.titleEn || item.title);
+    const title = 
+      locale === 'ko' ? item.title 
+      : locale === 'zh' ? ((item as any).titleZh || item.titleEn || item.title)
+      : (item.titleEn || item.title);
     return title && title.trim() ? title : null;
   };
 

@@ -57,10 +57,14 @@ export default function Projects({ locale }: ProjectsProps) {
                 ))}
               </div>
               <h3 className="mb-2 text-base md:text-lg font-semibold text-gray-900 dark:!text-white transition-colors duration-150 group-hover:text-gray-700 dark:group-hover:text-gray-200">
-                {locale === "ko" ? project.title : project.titleEn}
+                {locale === "ko" ? project.title 
+                  : locale === "zh" ? ((project as any).titleZh || project.titleEn || project.title)
+                  : (project.titleEn || project.title)}
               </h3>
               <p className="text-sm text-gray-600 dark:!text-white">
-                {locale === "ko" ? project.description : project.descriptionEn}
+                {locale === "ko" ? project.description 
+                  : locale === "zh" ? ((project as any).descriptionZh || project.descriptionEn || project.description)
+                  : (project.descriptionEn || project.description)}
               </p>
             </Card>
           </Link>
