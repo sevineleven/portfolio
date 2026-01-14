@@ -31,6 +31,7 @@ function OptimizedImage({
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const isGif = src.toLowerCase().endsWith('.gif');
 
   useEffect(() => {
@@ -44,8 +45,8 @@ function OptimizedImage({
       { rootMargin: '50px' } // 뷰포트 50px 전에 미리 로드
     );
 
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
     }
 
     return () => observer.disconnect();
@@ -54,32 +55,37 @@ function OptimizedImage({
   // GIF는 일반 img 태그 사용 (Next.js Image는 GIF 최적화 불가)
   if (isGif) {
     return (
-      <img
-        ref={imgRef}
-        src={isInView ? src : undefined}
-        alt={alt}
-        className={`${className} ${!isLoaded ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
-        loading="lazy"
-        onLoad={() => setIsLoaded(true)}
-        onError={onError}
-      />
+      <div ref={containerRef} className="w-full h-full flex items-center justify-center">
+        <img
+          ref={imgRef}
+          src={isInView ? src : undefined}
+          alt={alt}
+          className={`${className} ${!isLoaded ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300 max-w-full max-h-full w-auto h-auto`}
+          style={{ objectFit: 'contain' }}
+          loading="lazy"
+          onLoad={() => setIsLoaded(true)}
+          onError={onError}
+        />
+      </div>
     );
   }
 
   // 일반 이미지는 Next.js Image 사용
   return (
-    <Image
-      src={src}
-      alt={alt}
-      width={375}
-      height={667}
-      className={className}
-      unoptimized={src.startsWith('http')}
-      loading="lazy"
-      onError={onError}
-      placeholder="blur"
-      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-    />
+    <div ref={containerRef}>
+      <Image
+        src={src}
+        alt={alt}
+        width={375}
+        height={667}
+        className={className}
+        unoptimized={src.startsWith('http')}
+        loading="lazy"
+        onError={onError}
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+      />
+    </div>
   );
 }
 
@@ -136,7 +142,7 @@ export default function ProjectScreenshots({
   });
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 w-full">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
       {Array.from(groupedImages.entries()).map(([groupTitle, groupImages], groupIdx) => {
         return (
           <div
@@ -157,11 +163,11 @@ export default function ProjectScreenshots({
 
                 return (
                   <div key={idx} className="w-full flex justify-center">
-                    <div className="aspect-[9/16] w-full max-w-[160px] rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-900/50 relative">
+                    <div className="aspect-[9/16] w-full max-w-[160px] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-900/50 relative flex items-center justify-center p-1">
                       <OptimizedImage
                         src={imageUrl}
                         alt={imageTitle || `${title} screenshot ${idx + 1}`}
-                        className="w-full h-full object-contain"
+                        className="w-full h-full rounded-xl"
                         onError={() => handleImageError(idx)}
                       />
                     </div>
