@@ -502,11 +502,11 @@ export default async function ProjectDetailPage({
             {/* Screenshots - Full Width */}
             {project.images && project.images.length > 0 && (
               <section className="mt-8 md:mt-12 -mx-4 md:-mx-6 lg:-mx-12 xl:-mx-16 2xl:-mx-20 px-4 md:px-6 lg:px-12 xl:px-16 2xl:px-20">
-                <div className="flex flex-col md:flex-row md:items-baseline gap-2 mb-4 md:mb-6">
+                <div className="flex flex-row items-baseline gap-2 mb-4 md:mb-6">
                   <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white">
                     {t.screenshots}
                   </h2>
-                  <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
                     ({locale === 'ko' ? '클릭 시 확대됩니다.' : 'Click to enlarge.'})
                   </span>
                 </div>
