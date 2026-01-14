@@ -175,6 +175,7 @@ export const projects = [
     projectOriginEn: "Samsung Software Academy For Youth 11th Common Project",
     tags: ["Java", "Spring Boot", "WebSocket", "MySQL", "React", "Phaser.js"],
     image: "/racoon-thumbnail.jpg",
+    screenshotType: "web" as const,
     images: [
       {
         url: "https://github.com/user-attachments/assets/c9d98ea2-2098-412c-b869-09fdc564d990",

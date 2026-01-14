@@ -514,6 +514,7 @@ export default async function ProjectDetailPage({
                   images={project.images}
                   title={title}
                   locale={locale}
+                  screenshotType={project.screenshotType}
                 />
               </section>
             )}

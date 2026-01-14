@@ -14,6 +14,7 @@ interface ProjectScreenshotsProps {
   images: string[] | ImageItem[];
   title: string;
   locale: Locale;
+  screenshotType?: 'mobile' | 'web';
 }
 
 // GIF 최적화를 위한 컴포넌트
@@ -93,9 +94,14 @@ export default function ProjectScreenshots({
   images,
   title,
   locale,
+  screenshotType = 'mobile',
 }: ProjectScreenshotsProps) {
   const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
   const [selectedImage, setSelectedImage] = useState<{ url: string; title: string | null } | null>(null);
+  
+  // 스크린샷 타입에 따른 aspect ratio 결정
+  const aspectRatioClass = screenshotType === 'web' ? 'aspect-[16/9]' : 'aspect-[9/16]';
+  const maxWidthClass = screenshotType === 'web' ? 'max-w-full' : 'max-w-[160px]';
 
   const handleImageError = (idx: number) => {
     setFailedImages((prev) => new Set(prev).add(idx));
@@ -177,7 +183,7 @@ export default function ProjectScreenshots({
                       className="w-full flex justify-center cursor-pointer group"
                       onClick={() => openModal(imageUrl, imageTitle)}
                     >
-                      <div className="aspect-[9/16] w-full max-w-[160px] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-900/50 relative flex items-center justify-center p-1 group-hover:ring-2 group-hover:ring-blue-500 transition-all">
+                      <div className={`${aspectRatioClass} w-full ${maxWidthClass} rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-900/50 relative flex items-center justify-center p-1 group-hover:ring-2 group-hover:ring-blue-500 transition-all`}>
                         <OptimizedImage
                           src={imageUrl}
                           alt={imageTitle || `${title} screenshot ${idx + 1}`}
