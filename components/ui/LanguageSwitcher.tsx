@@ -124,7 +124,12 @@ export default function LanguageSwitcher() {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-black text-white shadow-lg transition-all duration-150 hover:bg-gray-800 hover:scale-110 dark:bg-indigo-600 dark:text-white dark:hover:bg-indigo-500 dark:shadow-indigo-900/50"
+          className="flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full border-2 transition-all duration-300 hover:scale-110 shadow-lg"
+          style={{
+            backgroundColor: mounted && theme === "dark" ? "rgb(30, 41, 59)" : "rgba(255, 255, 255, 0.95)",
+            borderColor: mounted && theme === "dark" ? "rgb(71, 85, 105)" : "rgb(229, 231, 235)",
+            color: mounted && theme === "dark" ? "#ffffff" : "#000000",
+          }}
           aria-label="Back to top"
         >
           <svg
@@ -134,6 +139,9 @@ export default function LanguageSwitcher() {
             strokeWidth={2}
             stroke="currentColor"
             className="h-5 w-5 md:h-6 md:w-6"
+            style={{
+              color: mounted && theme === "dark" ? "#ffffff" : "#000000",
+            }}
           >
             <path
               strokeLinecap="round"
