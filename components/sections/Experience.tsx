@@ -75,7 +75,7 @@ export default function Experience({ locale }: ExperienceProps) {
               <div className="mt-4 pt-4 border-t border-gray-200 dark:border-slate-700">
                 <div className="space-y-2">
                   {(Array.isArray(exp.award) ? exp.award : [exp.award]).map((award: any, awardIdx: number) => (
-                    <div key={awardIdx} className="rounded-lg bg-gray-50/50 dark:bg-slate-800/30 p-3 border border-gray-200/50 dark:border-slate-700/50">
+                    <Card key={awardIdx} hover={false} className="p-3 bg-gray-50/50 dark:bg-slate-800/30 border-gray-200 dark:border-slate-700">
                       <div className="flex items-start gap-2">
                         {/* 트로피 아이콘 */}
                         <svg
@@ -103,7 +103,7 @@ export default function Experience({ locale }: ExperienceProps) {
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </Card>
                   ))}
                 </div>
               </div>

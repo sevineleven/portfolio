@@ -1,7 +1,11 @@
+"use client";
+
 import Container from "../ui/Container";
 import { personalInfo } from "@/data/portfolio";
 import { Locale } from "@/i18n";
 import { useTranslations } from "@/lib/i18n";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 interface FooterProps {
   locale: Locale;
@@ -9,10 +13,22 @@ interface FooterProps {
 
 export default function Footer({ locale }: FooterProps) {
   const t = useTranslations(locale);
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const currentYear = new Date().getFullYear();
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <footer className="border-t border-gray-200 bg-gray-50 py-6 md:py-8 pb-24 md:pb-8 dark:border-slate-700 dark:bg-[#0c1425]">
+    <footer 
+      className="border-t py-6 md:py-8 pb-24 md:pb-8"
+      style={{
+        backgroundColor: mounted && theme === "dark" ? "#0c1425" : "#f9fafb",
+        borderColor: mounted && theme === "dark" ? "rgb(51, 65, 85)" : "rgb(229, 231, 235)",
+      }}
+    >
       <Container>
         <div className="text-center space-y-2">
           <div className="flex items-center justify-center gap-4">

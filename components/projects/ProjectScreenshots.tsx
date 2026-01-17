@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 import { Locale } from '@/i18n';
+import { useTheme } from 'next-themes';
 
 interface ImageItem {
   url: string;
@@ -96,8 +97,14 @@ export default function ProjectScreenshots({
   locale,
   screenshotType = 'mobile',
 }: ProjectScreenshotsProps) {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
   const [selectedImage, setSelectedImage] = useState<{ url: string; title: string | null } | null>(null);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
   // 스크린샷 타입에 따른 aspect ratio 결정
   const aspectRatioClass = screenshotType === 'web' ? 'aspect-[16/9]' : 'aspect-[9/16]';
@@ -166,7 +173,11 @@ export default function ProjectScreenshots({
           return (
             <div
               key={groupIdx}
-              className="bg-white dark:bg-slate-800 rounded-lg shadow-sm p-3 border border-gray-200 dark:border-slate-700"
+              className="rounded-lg shadow-sm p-3 border"
+              style={{
+                backgroundColor: mounted && theme === "dark" ? "rgba(26, 35, 50, 1)" : "#ffffff",
+                borderColor: mounted && theme === "dark" ? "rgba(51, 65, 85, 0.6)" : "rgb(229, 231, 235)",
+              }}
             >
               {/* 카드 제목 - 가운데 정렬 */}
               {groupTitle !== '기타' && (
@@ -186,7 +197,22 @@ export default function ProjectScreenshots({
                       className="w-full flex justify-center cursor-pointer group"
                       onClick={() => openModal(imageUrl, imageTitle)}
                     >
-                      <div className={`${aspectRatioClass} w-full ${maxWidthClass} rounded-xl overflow-hidden bg-gray-100 dark:bg-slate-900/50 relative flex items-center justify-center p-1 group-hover:ring-2 group-hover:ring-blue-500 dark:group-hover:ring-blue-400 transition-all`}>
+                      <div 
+                        className={`${aspectRatioClass} w-full ${maxWidthClass} rounded-xl overflow-hidden relative flex items-center justify-center p-1 group-hover:ring-2 transition-all`}
+                        style={{
+                          backgroundColor: mounted && theme === "dark" ? "rgba(15, 23, 42, 0.5)" : "rgb(243, 244, 246)",
+                        }}
+                        onMouseEnter={(e) => {
+                          if (mounted && theme === "dark") {
+                            e.currentTarget.style.outline = "2px solid rgb(96, 165, 250)";
+                          } else {
+                            e.currentTarget.style.outline = "2px solid rgb(59, 130, 246)";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.outline = "none";
+                        }}
+                      >
                         <OptimizedImage
                           src={imageUrl}
                           alt={imageTitle || `${title} screenshot ${idx + 1}`}

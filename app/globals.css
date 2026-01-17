@@ -92,6 +92,21 @@ h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
   border-color: rgba(51, 65, 85, 0.6);
 }
 
+/* Button outline variant 다크모드 스타일 강제 적용 */
+.dark .button-outline {
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.dark .button-outline * {
+  color: #ffffff !important;
+}
+
+.dark .button-outline svg {
+  fill: currentColor !important;
+  color: #ffffff !important;
+}
+
 /* Mobile Safari 최적화 */
 @supports (-webkit-touch-callout: none) {
   /* Safari 전용 최적화 */
