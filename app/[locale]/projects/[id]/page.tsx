@@ -9,6 +9,7 @@ import Card from "@/components/ui/Card";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ProjectScreenshots from "@/components/projects/ProjectScreenshots";
+import ArchitectureImages from "@/components/projects/ArchitectureImages";
 import MarkdownContent from "@/components/ui/MarkdownContent";
 import { Locale } from "@/i18n";
 
@@ -347,46 +348,18 @@ export default async function ProjectDetailPage({
                 {projectData.architectureImages &&
                   projectData.architectureImages.length > 0 && (
                     <section>
-                      <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
-                        {t.architecture}
-                      </h2>
-                      <div className="space-y-4 md:space-y-6">
-                        {projectData.architectureImages.map(
-                          (arch: any, idx: number) => (
-                            <Card key={idx} hover={false} className="p-4 md:p-5">
-                              <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-2">
-                                {locale === "ko"
-                                  ? arch.title
-                                  : locale === "zh"
-                                  ? (arch.titleZh || arch.titleEn || arch.title)
-                                  : (arch.titleEn || arch.title)}
-                              </h3>
-                              <div className="mb-3 md:mb-4 aspect-video w-full rounded-lg overflow-hidden bg-gray-200 dark:bg-slate-800/50 relative">
-                                <Image
-                                  src={arch.url}
-                                  alt={
-                                    locale === "ko"
-                                      ? arch.title
-                                      : locale === "zh"
-                                      ? (arch.titleZh || arch.titleEn || arch.title)
-                                      : (arch.titleEn || arch.title)
-                                  }
-                                  fill
-                                  className="object-contain"
-                                  unoptimized={arch.url.startsWith('http')}
-                                />
-                              </div>
-                              <p className="text-xs text-gray-600 dark:!text-white mt-3 md:mt-4">
-                                {locale === "ko"
-                                  ? arch.description
-                                  : locale === "zh"
-                                  ? (arch.descriptionZh || arch.descriptionEn || arch.description)
-                                  : (arch.descriptionEn || arch.description)}
-                              </p>
-                            </Card>
-                          )
-                        )}
+                      <div className="flex flex-row items-baseline gap-2 mb-3 md:mb-4">
+                        <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white">
+                          {t.architecture}
+                        </h2>
+                        <span className="text-xs text-gray-400 dark:!text-gray-500 italic">
+                          {locale === 'ko' ? '클릭 시 확대됩니다.' : locale === 'zh' ? '点击放大。' : 'Click to enlarge.'}
+                        </span>
                       </div>
+                      <ArchitectureImages
+                        images={projectData.architectureImages}
+                        locale={locale}
+                      />
                     </section>
                   )}
 

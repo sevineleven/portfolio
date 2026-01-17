@@ -1103,7 +1103,7 @@ export const projects = [
       "MySQL",
       "Redis",
     ],
-    image: null,
+    image: "/DreamsComeTrue_Thumbnail.png",
     images: [],
     githubUrl: "https://github.com/sevin98/DreamsComeTrue",
     liveUrl: null,
@@ -1147,7 +1147,44 @@ export const projects = [
           "Utilizes ChatGPT API to analyze user-input dream data, separate it into scenes, and select appropriate background music. Generates images visualizing the atmosphere and content of dreams through Midjourney, and finally creates short-form videos through LUMA AI. Stably calls each AI service's API, processes responses, and implements retry logic for failures to produce high-quality results.",
       },
     ],
-    architectureImages: [],
+    architectureImages: [
+      {
+        url: "/project3_systemArchitecture.png",
+        title: "시스템 아키텍처",
+        titleEn: "System Architecture",
+        titleZh: "系统架构",
+        description:
+          "PWA 프론트엔드와 백엔드 마이크로서비스 아키텍처: 프론트엔드(PWA), 백엔드 코어 서비스, RabbitMQ 메시지 브로커, 생성형 AI 서비스(ChatGPT, Midjourney, LUMA AI)의 통합 구조",
+        descriptionEn:
+          "PWA frontend and backend microservices architecture: Integrated structure of frontend (PWA), backend core service, RabbitMQ message broker, and generative AI services (ChatGPT, Midjourney, LUMA AI)",
+        descriptionZh:
+          "PWA前端和后端微服务架构：前端（PWA）、后端核心服务、RabbitMQ消息代理和生成式AI服务（ChatGPT、Midjourney、LUMA AI）的集成结构",
+      },
+      {
+        url: "/project3_callChain.png",
+        title: "비동기 처리 아키텍처 (CALL-CHAIN)",
+        titleEn: "Asynchronous Processing Architecture (CALL-CHAIN)",
+        titleZh: "异步处理架构（CALL-CHAIN）",
+        description:
+          "RabbitMQ 기반 메시지 큐를 활용한 비동기 처리 플로우: Node.js 이벤트 루프, 외부 서비스, 프로세스 함수, 체커 함수를 통한 작업 처리 및 피드백 메커니즘",
+        descriptionEn:
+          "Asynchronous processing flow using RabbitMQ-based message queue: Task processing and feedback mechanism through Node.js event loop, external services, process function, and checker function",
+        descriptionZh:
+          "使用基于RabbitMQ的消息队列的异步处理流程：通过Node.js事件循环、外部服务、处理函数和检查器函数进行任务处理和反馈机制",
+      },
+      {
+        url: "/project3_tech_stack.png",
+        title: "기술 스택 (VARIOUS STACK)",
+        titleEn: "Technology Stack (VARIOUS STACK)",
+        titleZh: "技术栈（VARIOUS STACK）",
+        description:
+          "프로젝트에 사용된 다양한 기술 스택: EFFECTIVE (Node.js, Spring Boot, Redis), PRODUCTIVE (Next.js, JavaScript, Express), STABLE (Nginx, TypeScript, Java) 그룹으로 분류된 기술들",
+        descriptionEn:
+          "Various technology stacks used in the project: Technologies classified into EFFECTIVE (Node.js, Spring Boot, Redis), PRODUCTIVE (Next.js, JavaScript, Express), STABLE (Nginx, TypeScript, Java) groups",
+        descriptionZh:
+          "项目中使用的各种技术栈：分为EFFECTIVE（Node.js、Spring Boot、Redis）、PRODUCTIVE（Next.js、JavaScript、Express）、STABLE（Nginx、TypeScript、Java）组的技术",
+      },
+    ],
     retrospection: {
       whatWorkedWell:
         "RabbitMQ를 활용한 메시지 큐 기반 아키텍처로 생성형 AI의 긴 처리 시간과 불안정한 응답을 효과적으로 관리할 수 있었습니다. 실패한 작업에 대한 재시도 메커니즘을 구현하여 시스템 안정성을 크게 향상시켰습니다.\n\nDocker 컨테이너화로 개발과 운영 환경의 일관성을 유지했고, Spring Boot 마이크로서비스 아키텍처로 각 컴포넌트의 책임을 명확히 분리하여 유지보수성을 높였습니다.",

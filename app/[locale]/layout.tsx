@@ -44,6 +44,11 @@ export async function generateMetadata({
     metadataBase: new URL(baseUrl),
     title: "Portfolio - Sevin Park",
     description: "Backend Developer Portfolio",
+    icons: {
+      icon: '/favicon.svg',
+      shortcut: '/favicon.svg',
+      apple: '/favicon.svg',
+    },
     openGraph: {
       title: "Portfolio - Sevin Park",
       description: "Backend Developer Portfolio",
