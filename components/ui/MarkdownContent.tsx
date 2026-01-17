@@ -16,7 +16,7 @@ export default function MarkdownContent({ content, className = '' }: MarkdownCon
         components={{
           p: ({ children }) => <p className="mb-3 last:mb-0 text-xs leading-relaxed">{children}</p>,
           strong: ({ children }) => (
-            <strong className="font-medium text-gray-800 dark:text-gray-100">{children}</strong>
+            <strong className="font-medium text-gray-800 dark:!text-white">{children}</strong>
           ),
           em: ({ children }) => (
             <em className="italic text-gray-700 dark:text-gray-300">{children}</em>

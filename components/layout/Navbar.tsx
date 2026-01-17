@@ -18,6 +18,8 @@ export default function Navbar({ locale }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMainPage, setIsMainPage] = useState(false);
+  const [systemDarkMode, setSystemDarkMode] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -28,7 +30,46 @@ export default function Navbar({ locale }: NavbarProps) {
         currentPath === `/${locale}/` ||
         currentPath === "/"
     );
+    
   }, [locale]);
+  
+  // 시스템 다크모드 감지 및 강제 다크모드 설정
+  useEffect(() => {
+    if (!mounted) return;
+    
+    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const isSystemDark = darkModeQuery.matches;
+    setSystemDarkMode(isSystemDark);
+    
+    // 시스템 다크모드일 때는 강제로 다크모드로 설정
+    if (isSystemDark) {
+      setTheme('dark');
+    }
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setSystemDarkMode(e.matches);
+      // 시스템 다크모드로 변경되면 강제로 다크모드로 설정
+      if (e.matches) {
+        setTheme('dark');
+      }
+    };
+    
+    darkModeQuery.addEventListener('change', handleChange);
+    return () => darkModeQuery.removeEventListener('change', handleChange);
+  }, [mounted, setTheme]);
+  
+  const handleThemeToggle = () => {
+    if (systemDarkMode) {
+      // 시스템 다크모드일 때는 라이트 모드로 전환 불가
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 2000);
+      return;
+    }
+    // 시스템이 라이트 모드일 때만 전환 가능
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const navItems = useMemo(
     () => [
@@ -203,7 +244,7 @@ export default function Navbar({ locale }: NavbarProps) {
               </Link>
             ))}
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={handleThemeToggle}
               className="rounded-md p-2 transition-colors"
               style={{
                 color: !mounted ? "#4b5563" : (theme === "dark" ? "#ffffff" : "#4b5563"),
@@ -257,7 +298,7 @@ export default function Navbar({ locale }: NavbarProps) {
           {/* 모바일: 햄버거 버튼 및 테마 토글 */}
           <div className="flex md:hidden items-center gap-2">
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={handleThemeToggle}
               className="rounded-md p-2 transition-colors"
               style={{
                 color: !mounted ? "#4b5563" : (theme === "dark" ? "#ffffff" : "#4b5563"),
@@ -405,6 +446,26 @@ export default function Navbar({ locale }: NavbarProps) {
           </div>
         )}
       </div>
+      
+      {/* 시스템 다크모드 안내 메시지 */}
+      {showNotification && (
+        <div
+          className="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 px-5 py-3 rounded-lg shadow-lg transition-opacity duration-300 max-w-md"
+          style={{
+            backgroundColor: mounted && theme === "dark" ? "rgb(30, 41, 59)" : "rgb(243, 244, 246)",
+            color: mounted && theme === "dark" ? "#ffffff" : "#111827",
+            border: mounted && theme === "dark" ? "1px solid rgb(51, 65, 85)" : "1px solid rgb(229, 231, 235)",
+          }}
+        >
+          <p className="text-sm leading-relaxed text-center whitespace-pre-line">
+            {locale === "ko" 
+              ? "기기의 설정이 다크모드일 때는 라이트 모드를 이용하실 수 없습니다.\n기기 설정을 변경하거나 시크릿 모드를 이용해주세요." 
+              : locale === "zh"
+              ? "设备设置为暗色模式时无法使用亮色模式。\n请更改设备设置或使用隐私模式。"
+              : "Light mode is not available when your device is set to dark mode.\nPlease change your device settings or use incognito mode."}
+          </p>
+        </div>
+      )}
     </nav>
   );
 }
