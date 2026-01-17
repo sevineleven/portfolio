@@ -450,19 +450,46 @@ export default function Navbar({ locale }: NavbarProps) {
       {/* 시스템 다크모드 안내 메시지 */}
       {showNotification && (
         <div
-          className="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 px-5 py-3 rounded-lg shadow-lg transition-opacity duration-300 max-w-md"
+          className="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 px-4 py-3 rounded-lg shadow-lg transition-opacity duration-300 mx-4"
           style={{
             backgroundColor: mounted && theme === "dark" ? "rgb(30, 41, 59)" : "rgb(243, 244, 246)",
             color: mounted && theme === "dark" ? "#ffffff" : "#111827",
             border: mounted && theme === "dark" ? "1px solid rgb(51, 65, 85)" : "1px solid rgb(229, 231, 235)",
+            maxWidth: "calc(100% - 2rem)",
+            width: "auto",
+            minWidth: "280px",
           }}
         >
-          <p className="text-sm leading-relaxed text-center whitespace-pre-line">
-            {locale === "ko" 
-              ? "기기의 설정이 다크모드일 때는 라이트 모드를 이용하실 수 없습니다.\n기기 설정을 변경하거나 시크릿 모드를 이용해주세요." 
-              : locale === "zh"
-              ? "设备设置为暗色模式时无法使用亮色模式。\n请更改设备设置或使用隐私模式。"
-              : "Light mode is not available when your device is set to dark mode.\nPlease change your device settings or use incognito mode."}
+          <p 
+            className="text-xs md:text-sm leading-relaxed text-center"
+            style={{
+              wordBreak: locale === "ko" ? "keep-all" : "normal",
+              wordWrap: "break-word",
+              hyphens: "auto",
+            }}
+          >
+            {locale === "ko" ? (
+              <>
+                기기의 설정이 다크모드일 때는<br />
+                라이트 모드를 이용하실 수 없습니다.<br />
+                기기 설정을 변경하거나<br />
+                시크릿 모드를 이용해주세요.
+              </>
+            ) : locale === "zh" ? (
+              <>
+                设备设置为暗色模式时<br />
+                无法使用亮色模式。<br />
+                请更改设备设置或<br />
+                使用隐私模式。
+              </>
+            ) : (
+              <>
+                Light mode is not available<br />
+                when your device is set to dark mode.<br />
+                Please change your device settings<br />
+                or use incognito mode.
+              </>
+            )}
           </p>
         </div>
       )}
