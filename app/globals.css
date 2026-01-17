@@ -18,12 +18,6 @@
   --foreground: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0c1425;
-    --foreground: #ffffff;
-  }
-}
 
 html, body {
   min-height: 100%;
