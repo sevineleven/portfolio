@@ -117,7 +117,7 @@ export default function LanguageSwitcher() {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-black text-white shadow-lg transition-all duration-150 hover:bg-gray-800 hover:scale-110 dark:bg-indigo-500 dark:text-white dark:hover:bg-indigo-400"
+          className="flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-black text-white shadow-lg transition-all duration-150 hover:bg-gray-800 hover:scale-110 dark:bg-indigo-600 dark:text-white dark:hover:bg-indigo-500 dark:shadow-indigo-900/50"
           aria-label="Back to top"
         >
           <svg
@@ -140,7 +140,7 @@ export default function LanguageSwitcher() {
       {/* 메인 버튼 */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-400 transition-all duration-200 hover:opacity-90"
+        className="group flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/95 dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-400 transition-all duration-200 hover:opacity-90 shadow-lg dark:shadow-slate-900/50"
         aria-label="Switch language"
       >
         {isOpen ? (
@@ -159,7 +159,7 @@ export default function LanguageSwitcher() {
       <div className="relative">
         <button
           onClick={() => setShareMenuOpen(!shareMenuOpen)}
-          className="group flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-400 transition-all duration-200 hover:opacity-90 relative"
+          className="group flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/95 dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-400 transition-all duration-200 hover:opacity-90 relative shadow-lg dark:shadow-slate-900/50"
           aria-label="Share"
           title="Share"
         >
@@ -253,7 +253,7 @@ export default function LanguageSwitcher() {
               <button
                 key={locale}
                 onClick={() => switchLanguage(locale)}
-                className={`flex flex-col items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/95 dark:bg-slate-800/95 border-2 transition-all duration-200 hover:opacity-90 ${
+                className={`flex flex-col items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/95 dark:bg-slate-800 border-2 transition-all duration-200 hover:opacity-90 shadow-lg dark:shadow-slate-900/50 ${
                   locale === currentLocale
                     ? 'border-slate-400 dark:border-slate-500'
                     : 'border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'

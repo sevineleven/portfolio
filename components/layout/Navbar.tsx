@@ -148,8 +148,8 @@ export default function Navbar({ locale }: NavbarProps) {
 
   return (
     <nav
-      className={`sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 transition-colors duration-150 dark:border-slate-800 dark:bg-[#0c1425] ${
-        scrolled ? "dark:border-slate-700" : ""
+      className={`sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm transition-colors duration-150 dark:border-slate-700 dark:bg-[#0c1425]/95 dark:backdrop-blur-sm ${
+        scrolled ? "shadow-sm" : ""
       }`}
     >
       <div className="mx-auto max-w-[1040px] px-6">

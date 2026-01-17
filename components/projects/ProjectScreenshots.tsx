@@ -166,7 +166,7 @@ export default function ProjectScreenshots({
           return (
             <div
               key={groupIdx}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-3 border border-gray-200 dark:border-gray-700"
+              className="bg-white dark:bg-slate-800 rounded-lg shadow-sm p-3 border border-gray-200 dark:border-slate-700"
             >
               {/* 카드 제목 - 가운데 정렬 */}
               {groupTitle !== '기타' && (
@@ -186,7 +186,7 @@ export default function ProjectScreenshots({
                       className="w-full flex justify-center cursor-pointer group"
                       onClick={() => openModal(imageUrl, imageTitle)}
                     >
-                      <div className={`${aspectRatioClass} w-full ${maxWidthClass} rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-900/50 relative flex items-center justify-center p-1 group-hover:ring-2 group-hover:ring-blue-500 transition-all`}>
+                      <div className={`${aspectRatioClass} w-full ${maxWidthClass} rounded-xl overflow-hidden bg-gray-100 dark:bg-slate-900/50 relative flex items-center justify-center p-1 group-hover:ring-2 group-hover:ring-blue-500 dark:group-hover:ring-blue-400 transition-all`}>
                         <OptimizedImage
                           src={imageUrl}
                           alt={imageTitle || `${title} screenshot ${idx + 1}`}
