@@ -77,8 +77,8 @@ h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
 
 /* 다크모드에서 모든 텍스트를 흰색으로 강제 적용 */
 .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6,
-.dark p, .dark span:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]),
-.dark li, .dark div:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]) {
+.dark p, .dark span:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric"]),
+.dark li, .dark div:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric"]) {
   color: #ffffff !important;
 }
 
@@ -105,6 +105,12 @@ h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
 .dark .button-outline svg {
   fill: currentColor !important;
   color: #ffffff !important;
+}
+
+/* 프로젝트 성과 metric 다크모드 색상 강제 적용 */
+.dark .metric-value,
+.dark div.metric-value {
+  color: rgb(147, 197, 253) !important;
 }
 
 /* Mobile Safari 최적화 */
