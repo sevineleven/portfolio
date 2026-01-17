@@ -3,6 +3,7 @@
 import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Locale, locales } from '@/i18n';
+import { useTheme } from 'next-themes';
 
 const flagEmojis: Record<Locale, string> = {
   ko: '🇰🇷',
@@ -19,10 +20,16 @@ const languageLabels: Record<Locale, string> = {
 export default function LanguageSwitcher() {
   const pathname = usePathname();
   const router = useRouter();
+  const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [shareMenuOpen, setShareMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -140,7 +147,11 @@ export default function LanguageSwitcher() {
       {/* 메인 버튼 */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/95 dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-400 transition-all duration-200 hover:opacity-90 shadow-lg dark:shadow-slate-900/50"
+        className="group flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full border-2 transition-all duration-300 hover:scale-110 shadow-lg"
+        style={{
+          backgroundColor: mounted && theme === "dark" ? "rgb(30, 41, 59)" : "rgba(255, 255, 255, 0.95)",
+          borderColor: mounted && theme === "dark" ? "rgb(71, 85, 105)" : "rgb(229, 231, 235)",
+        }}
         aria-label="Switch language"
       >
         {isOpen ? (
@@ -159,12 +170,21 @@ export default function LanguageSwitcher() {
       <div className="relative">
         <button
           onClick={() => setShareMenuOpen(!shareMenuOpen)}
-          className="group flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/95 dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-400 transition-all duration-200 hover:opacity-90 relative shadow-lg dark:shadow-slate-900/50"
+          className="group flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full border-2 transition-all duration-300 hover:scale-110 relative shadow-lg"
+          style={{
+            backgroundColor: mounted && theme === "dark" ? "rgb(30, 41, 59)" : "rgba(255, 255, 255, 0.95)",
+            borderColor: mounted && theme === "dark" ? "rgb(71, 85, 105)" : "rgb(229, 231, 235)",
+          }}
           aria-label="Share"
           title="Share"
         >
           {copied ? (
-            <span className="text-lg md:text-xl">✓</span>
+            <span 
+              className="text-lg md:text-xl"
+              style={{
+                color: mounted && theme === "dark" ? "#ffffff" : "#000000",
+              }}
+            >✓</span>
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +194,10 @@ export default function LanguageSwitcher() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="w-5 h-5 md:w-6 md:h-6 text-gray-700 dark:text-gray-200"
+              className="w-5 h-5 md:w-6 md:h-6"
+              style={{
+                color: mounted && theme === "dark" ? "#ffffff" : "#374151",
+              }}
             >
               <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
               <polyline points="16 6 12 2 8 6" />
@@ -191,7 +214,13 @@ export default function LanguageSwitcher() {
         {/* 공유 메뉴 */}
         {shareMenuOpen && (
           <>
-            <div className="absolute bottom-full right-0 mb-3 flex flex-col gap-2 bg-white/95 dark:bg-slate-800/95 rounded-lg border-2 border-gray-200 dark:border-slate-600 p-2 shadow-lg min-w-[140px]">
+            <div 
+              className="absolute bottom-full right-0 mb-3 flex flex-col gap-2 rounded-lg border-2 p-2 shadow-lg min-w-[140px]"
+              style={{
+                backgroundColor: mounted && theme === "dark" ? "rgb(30, 41, 59)" : "rgba(255, 255, 255, 0.95)",
+                borderColor: mounted && theme === "dark" ? "rgb(71, 85, 105)" : "rgb(229, 231, 235)",
+              }}
+            >
               <button
                 onClick={copyUrl}
                 className="flex items-center gap-3 px-4 py-2.5 rounded-md hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -253,11 +282,17 @@ export default function LanguageSwitcher() {
               <button
                 key={locale}
                 onClick={() => switchLanguage(locale)}
-                className={`flex flex-col items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/95 dark:bg-slate-800 border-2 transition-all duration-200 hover:opacity-90 shadow-lg dark:shadow-slate-900/50 ${
+                className={`flex flex-col items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full border-2 transition-all duration-300 hover:scale-110 shadow-lg ${
                   locale === currentLocale
-                    ? 'border-slate-400 dark:border-slate-500'
-                    : 'border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                    ? ''
+                    : ''
                 }`}
+                style={{
+                  backgroundColor: mounted && theme === "dark" ? "rgb(30, 41, 59)" : "rgba(255, 255, 255, 0.95)",
+                  borderColor: mounted && theme === "dark" 
+                    ? (locale === currentLocale ? "rgb(100, 116, 139)" : "rgb(71, 85, 105)")
+                    : (locale === currentLocale ? "rgb(156, 163, 175)" : "rgb(229, 231, 235)"),
+                }}
                 aria-label={`Switch to ${locale}`}
               >
                 <span className="text-base md:text-xl leading-none">{flagEmojis[locale]}</span>

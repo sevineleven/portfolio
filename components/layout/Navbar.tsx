@@ -148,16 +148,23 @@ export default function Navbar({ locale }: NavbarProps) {
 
   return (
     <nav
-      className={`sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm transition-colors duration-150 dark:border-slate-700 dark:bg-[#0c1425]/95 dark:backdrop-blur-sm ${
+      className={`sticky top-0 z-50 w-full border-b backdrop-blur-sm transition-colors duration-150 ${
         scrolled ? "shadow-sm" : ""
       }`}
+      style={{
+        backgroundColor: mounted && theme === "dark" ? "#0c1425" : mounted && theme === "light" ? "rgba(255, 255, 255, 0.95)" : "rgba(255, 255, 255, 0.95)",
+        borderColor: mounted && theme === "dark" ? "rgb(51, 65, 85)" : "rgb(229, 231, 235)",
+      }}
     >
       <div className="mx-auto max-w-[1040px] px-6">
         <div className="flex h-16 items-center justify-between">
           <Link
             href={`#hero`}
             onClick={(e) => handleNavClick(e, "hero")}
-            className="text-lg font-semibold text-gray-900 dark:text-white"
+            className="text-lg font-semibold"
+            style={{
+              color: !mounted ? "#111827" : (theme === "dark" ? "#ffffff" : "#111827"),
+            }}
           >
             Portfolio
           </Link>
@@ -168,18 +175,51 @@ export default function Navbar({ locale }: NavbarProps) {
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={(e) => handleNavClick(e, item.id)}
-                className={`text-sm font-medium transition-all duration-150 ${
-                  activeSection === item.id
-                    ? "text-black dark:text-white"
-                    : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                }`}
+                className="text-sm transition-all duration-150"
+                style={{
+                  color: !mounted 
+                    ? (activeSection === item.id ? "#000000" : "#4b5563")
+                    : (theme === "dark" 
+                      ? "#ffffff" 
+                      : activeSection === item.id 
+                        ? "#000000" 
+                        : "#4b5563"),
+                  fontWeight: activeSection === item.id ? "600" : "500",
+                }}
+                onMouseEnter={(e) => {
+                  if (mounted && theme !== "dark" && activeSection !== item.id) {
+                    e.currentTarget.style.color = "#111827";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (mounted && theme !== "dark" && activeSection !== item.id) {
+                    e.currentTarget.style.color = "#4b5563";
+                  } else if (mounted && theme === "dark") {
+                    e.currentTarget.style.color = "#ffffff";
+                  }
+                }}
               >
                 {item.label}
               </Link>
             ))}
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="rounded-md p-2 text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-white dark:hover:bg-slate-700 dark:hover:text-white"
+              className="rounded-md p-2 transition-colors"
+              style={{
+                color: !mounted ? "#4b5563" : (theme === "dark" ? "#ffffff" : "#4b5563"),
+              }}
+              onMouseEnter={(e) => {
+                if (mounted && theme === "dark") {
+                  e.currentTarget.style.backgroundColor = "rgb(51, 65, 85)";
+                } else if (mounted) {
+                  e.currentTarget.style.backgroundColor = "rgb(243, 244, 246)";
+                  e.currentTarget.style.color = "#111827";
+                }
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.color = mounted && theme === "dark" ? "#ffffff" : "#4b5563";
+              }}
               aria-label="Toggle theme"
             >
               {mounted && theme === "dark" ? (
@@ -189,6 +229,9 @@ export default function Navbar({ locale }: NavbarProps) {
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   className="h-5 w-5"
+                  style={{
+                    color: "#ffffff",
+                  }}
                 >
                   <path
                     fillRule="evenodd"
@@ -215,7 +258,22 @@ export default function Navbar({ locale }: NavbarProps) {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="rounded-md p-2 text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-white dark:hover:bg-slate-700 dark:hover:text-white"
+              className="rounded-md p-2 transition-colors"
+              style={{
+                color: !mounted ? "#4b5563" : (theme === "dark" ? "#ffffff" : "#4b5563"),
+              }}
+              onMouseEnter={(e) => {
+                if (mounted && theme === "dark") {
+                  e.currentTarget.style.backgroundColor = "rgb(51, 65, 85)";
+                } else if (mounted) {
+                  e.currentTarget.style.backgroundColor = "rgb(243, 244, 246)";
+                  e.currentTarget.style.color = "#111827";
+                }
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.color = mounted && theme === "dark" ? "#ffffff" : "#4b5563";
+              }}
               aria-label="Toggle theme"
             >
               {mounted && theme === "dark" ? (
@@ -224,6 +282,9 @@ export default function Navbar({ locale }: NavbarProps) {
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   className="h-5 w-5"
+                  style={{
+                    color: "#ffffff",
+                  }}
                 >
                   <path
                     fillRule="evenodd"
@@ -244,7 +305,22 @@ export default function Navbar({ locale }: NavbarProps) {
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="rounded-md p-2 text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-white dark:hover:bg-slate-700 dark:hover:text-white"
+              className="rounded-md p-2 transition-colors"
+              style={{
+                color: !mounted ? "#4b5563" : (theme === "dark" ? "#ffffff" : "#4b5563"),
+              }}
+              onMouseEnter={(e) => {
+                if (mounted && theme === "dark") {
+                  e.currentTarget.style.backgroundColor = "rgb(51, 65, 85)";
+                } else if (mounted) {
+                  e.currentTarget.style.backgroundColor = "rgb(243, 244, 246)";
+                  e.currentTarget.style.color = "#111827";
+                }
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.color = mounted && theme === "dark" ? "#ffffff" : "#4b5563";
+              }}
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
@@ -282,18 +358,45 @@ export default function Navbar({ locale }: NavbarProps) {
 
         {/* 모바일 메뉴 */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 dark:border-slate-800 py-4">
+          <div 
+            className="md:hidden border-t py-4"
+            style={{
+              borderColor: mounted && theme === "dark" ? "rgb(51, 65, 85)" : "rgb(229, 231, 235)",
+            }}
+          >
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <Link
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => handleNavClick(e, item.id)}
-                  className={`px-2 py-2 text-sm font-medium transition-all duration-150 rounded-md ${
-                    activeSection === item.id
-                      ? "text-black bg-gray-100 dark:text-white dark:bg-slate-800"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-slate-800"
-                  }`}
+                  className="px-2 py-2 text-sm transition-all duration-150 rounded-md"
+                  style={{
+                    color: !mounted 
+                      ? (activeSection === item.id ? "#000000" : "#4b5563")
+                      : (theme === "dark" ? "#ffffff" : (activeSection === item.id ? "#000000" : "#4b5563")),
+                    backgroundColor: mounted && theme === "dark" 
+                      ? (activeSection === item.id ? "rgb(30, 41, 59)" : "transparent")
+                      : (activeSection === item.id ? "rgb(243, 244, 246)" : "transparent"),
+                    fontWeight: activeSection === item.id ? "600" : "500",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (mounted && theme === "dark") {
+                      e.currentTarget.style.backgroundColor = "rgb(30, 41, 59)";
+                    } else if (mounted) {
+                      e.currentTarget.style.backgroundColor = "rgb(249, 250, 251)";
+                      e.currentTarget.style.color = "#111827";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (mounted && theme === "dark") {
+                      e.currentTarget.style.backgroundColor = activeSection === item.id ? "rgb(30, 41, 59)" : "transparent";
+                      e.currentTarget.style.color = "#ffffff";
+                    } else if (mounted) {
+                      e.currentTarget.style.backgroundColor = activeSection === item.id ? "rgb(243, 244, 246)" : "transparent";
+                      e.currentTarget.style.color = activeSection === item.id ? "#000000" : "#4b5563";
+                    }
+                  }}
                 >
                   {item.label}
                 </Link>
