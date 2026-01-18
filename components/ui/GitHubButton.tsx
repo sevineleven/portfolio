@@ -14,10 +14,10 @@ export default function GitHubButton({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs md:text-sm font-medium !text-gray-700 transition-all duration-150 hover:bg-gray-50 hover:border-gray-400 hover:opacity-90 dark:border-slate-600 dark:bg-slate-700 dark:!text-white dark:hover:bg-slate-600 dark:hover:border-slate-400 ${className}`}
+      className={`hero-button-github inline-flex items-center justify-center px-4 py-2 text-sm font-medium transition-all duration-150 rounded-md border hover:opacity-90 ${className}`}
     >
       <svg
-        className="h-3.5 w-3.5 !text-gray-700 dark:!text-white"
+        className="h-4 w-4 mr-2"
         fill="currentColor"
         viewBox="0 0 24 24"
         aria-hidden="true"
@@ -28,9 +28,9 @@ export default function GitHubButton({
           clipRule="evenodd"
         />
       </svg>
-      <span className="!text-gray-700 dark:!text-white">{username || "GitHub"}</span>
+      <span>{username || "GitHub"}</span>
       <svg
-        className="h-3.5 w-3.5 !text-gray-700 dark:!text-white"
+        className="h-4 w-4 ml-2"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -38,7 +38,7 @@ export default function GitHubButton({
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth={2}
+          strokeWidth={1.5}
           d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
         />
       </svg>

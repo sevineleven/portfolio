@@ -29,84 +29,1045 @@
   color: #171717 !important;
 }
 
-/* 라이트 모드일 때 모든 텍스트를 어두운 색으로 강제 적용 (시스템 다크모드와 관계없이) */
-.light h1,
-.light h2,
-.light h3,
-.light h4,
-.light h5,
-.light h6,
-.light h1 *,
-.light h2 *,
-.light h3 *,
-.light h4 *,
-.light h5 *,
-.light h6 *,
-.light p,
-.light p *,
-.light span:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric"]),
-.light li,
-.light li *,
-.light div:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric"]),
-.light div:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric"]) *,
-.light strong,
-.light strong *,
-.light em,
-.light em *,
-.light a:not([class*="button"]) {
-  color: #171717 !important;
+/* ============================================
+   메인 페이지 커스텀 클래스 스타일
+   ============================================ */
+
+/* Hero 섹션 - 타이틀 */
+.hero-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 - 거의 검정 */
+}
+.dark .hero-title {
+  color: #ffffff !important;
 }
 
-/* 라이트 모드일 때 text-gray 클래스들이 원래 색상으로 표시되도록 */
-.light .text-gray-900 {
+/* Hero 섹션 - 서브타이틀 */
+.hero-subtitle {
   color: rgb(17, 24, 39) !important; /* gray-900 */
 }
+.dark .hero-subtitle {
+  color: rgb(209, 213, 219) !important; /* gray-300 */
+}
 
-.light .text-gray-800 {
+/* Hero 섹션 - 이메일 */
+.hero-email {
   color: rgb(31, 41, 55) !important; /* gray-800 */
 }
-
-.light .text-gray-700 {
-  color: rgb(55, 65, 81) !important; /* gray-700 */
-}
-
-.light .text-gray-600 {
-  color: rgb(75, 85, 99) !important; /* gray-600 */
-}
-
-.light .text-gray-500 {
-  color: rgb(107, 114, 128) !important; /* gray-500 */
-}
-
-.light .text-gray-400 {
+.dark .hero-email {
   color: rgb(156, 163, 175) !important; /* gray-400 */
 }
 
-.light [class*="text-gray"]:not([class*="bg-"]):not([class*="button"]) {
+/* Hero 섹션 - Philosophy 제목 */
+.hero-philosophy-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .hero-philosophy-title {
+  color: #ffffff !important;
+}
+
+/* Hero 섹션 - Philosophy 텍스트 */
+.hero-philosophy-text {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .hero-philosophy-text {
+  color: rgb(209, 213, 219) !important; /* gray-300 */
+}
+
+/* Hero 섹션 - GitHub 버튼 (흰색 배경, 연한 회색 border) */
+a.hero-button-github {
+  border-color: rgb(229, 231, 235) !important; /* gray-200 - 연한 회색 border */
+  background-color: #ffffff !important; /* 흰색 배경 */
+  color: #000000 !important; /* 검은색 텍스트 */
+}
+a.hero-button-github *,
+a.hero-button-github svg,
+a.hero-button-github span,
+a.hero-button-github path,
+a.hero-button-github svg path {
+  color: #000000 !important; /* 검은색 */
+  fill: #000000 !important; /* SVG fill */
+  stroke: #000000 !important; /* SVG stroke */
+}
+a.hero-button-github:hover {
+  background-color: rgb(249, 250, 251) !important; /* gray-50 - hover 시 연한 회색 배경 */
+  border-color: rgb(209, 213, 219) !important; /* gray-300 */
+  color: #000000 !important; /* 검은색 텍스트 유지 */
+}
+a.hero-button-github:hover *,
+a.hero-button-github:hover svg,
+a.hero-button-github:hover span,
+a.hero-button-github:hover path,
+a.hero-button-github:hover svg path {
+  color: #000000 !important; /* 검은색 유지 */
+  fill: #000000 !important;
+  stroke: #000000 !important;
+}
+.dark a.hero-button-github {
+  border-color: rgb(71, 85, 105) !important; /* slate-600 */
+  background-color: rgb(51, 65, 85) !important; /* slate-700 */
+  color: #ffffff !important; /* 흰색 텍스트 */
+}
+.dark a.hero-button-github *,
+.dark a.hero-button-github svg,
+.dark a.hero-button-github span,
+.dark a.hero-button-github path,
+.dark a.hero-button-github svg path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+.dark a.hero-button-github:hover {
+  background-color: rgb(51, 65, 85) !important; /* slate-600 */
+  border-color: rgb(100, 116, 139) !important; /* slate-400 */
+  color: #ffffff !important; /* 흰색 텍스트 */
+}
+.dark a.hero-button-github:hover *,
+.dark a.hero-button-github:hover svg,
+.dark a.hero-button-github:hover span,
+.dark a.hero-button-github:hover path,
+.dark a.hero-button-github:hover svg path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Hero 섹션 - LinkedIn 버튼 (흰색 배경, 연한 회색 border) */
+a.hero-button-linkedin {
+  border-color: rgb(229, 231, 235) !important; /* gray-200 - 연한 회색 border */
+  background-color: #ffffff !important; /* 흰색 배경 */
+  color: #000000 !important; /* 검은색 텍스트 */
+}
+a.hero-button-linkedin *,
+a.hero-button-linkedin svg,
+a.hero-button-linkedin span,
+a.hero-button-linkedin path,
+a.hero-button-linkedin svg path {
+  color: #000000 !important; /* 검은색 */
+  fill: #000000 !important; /* SVG fill */
+  stroke: #000000 !important; /* SVG stroke */
+}
+a.hero-button-linkedin:hover {
+  background-color: rgb(249, 250, 251) !important; /* gray-50 - hover 시 연한 회색 배경 */
+  border-color: rgb(209, 213, 219) !important; /* gray-300 */
+  color: #000000 !important; /* 검은색 텍스트 유지 */
+}
+a.hero-button-linkedin:hover *,
+a.hero-button-linkedin:hover svg,
+a.hero-button-linkedin:hover span,
+a.hero-button-linkedin:hover path,
+a.hero-button-linkedin:hover svg path {
+  color: #000000 !important; /* 검은색 유지 */
+  fill: #000000 !important;
+  stroke: #000000 !important;
+}
+.dark a.hero-button-linkedin {
+  border-color: rgb(71, 85, 105) !important; /* slate-600 */
+  background-color: rgb(51, 65, 85) !important; /* slate-700 */
+  color: #ffffff !important; /* 흰색 텍스트 */
+}
+.dark a.hero-button-linkedin *,
+.dark a.hero-button-linkedin svg,
+.dark a.hero-button-linkedin span,
+.dark a.hero-button-linkedin path,
+.dark a.hero-button-linkedin svg path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+.dark a.hero-button-linkedin:hover {
+  background-color: rgb(51, 65, 85) !important; /* slate-600 */
+  border-color: rgb(100, 116, 139) !important; /* slate-400 */
+  color: #ffffff !important; /* 흰색 텍스트 */
+}
+.dark a.hero-button-linkedin:hover *,
+.dark a.hero-button-linkedin:hover svg,
+.dark a.hero-button-linkedin:hover span,
+.dark a.hero-button-linkedin:hover path,
+.dark a.hero-button-linkedin:hover svg path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Button 컴포넌트 - Primary */
+.button-primary {
+  color: rgb(55, 65, 81) !important; /* gray-700 */
+  border-color: rgb(209, 213, 219) !important; /* gray-300 */
+  background-color: #ffffff !important;
+}
+.button-primary:hover {
+  background-color: rgb(249, 250, 251) !important; /* gray-50 */
+  border-color: rgb(156, 163, 175) !important; /* gray-400 */
+}
+.dark .button-primary {
+  color: #ffffff !important;
+  border-color: rgb(71, 85, 105) !important; /* slate-600 */
+  background-color: rgb(51, 65, 85) !important; /* slate-700 */
+}
+.dark .button-primary:hover {
+  background-color: rgb(51, 65, 85) !important; /* slate-600 */
+  border-color: rgb(100, 116, 139) !important; /* slate-400 */
+}
+
+/* Button 컴포넌트 - Secondary */
+.button-secondary {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+  background-color: rgb(243, 244, 246) !important; /* gray-100 */
+}
+.button-secondary:hover {
+  background-color: rgb(229, 231, 235) !important; /* gray-200 */
+}
+.dark .button-secondary {
+  color: #ffffff !important;
+  background-color: rgba(30, 41, 59, 0.9) !important; /* slate-800/90 */
+}
+.dark .button-secondary:hover {
+  background-color: rgb(51, 65, 85) !important; /* slate-700 */
+}
+
+/* Button 컴포넌트 - Outline */
+.button-outline {
+  color: #000000 !important;
+  border-color: #000000 !important;
+  background-color: transparent !important;
+}
+.button-outline:hover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+.dark .button-outline {
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  background-color: transparent !important;
+}
+.dark .button-outline:hover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* ============================================
+   섹션 공통 스타일
+   ============================================ */
+
+/* 섹션 타이틀 */
+.section-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .section-title {
+  color: #ffffff !important;
+}
+
+/* 섹션 서브타이틀 */
+.section-subtitle {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .section-subtitle {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   Experience 섹션
+   ============================================ */
+
+.experience-description {
+  color: rgb(55, 65, 81) !important; /* gray-700 */
+}
+.dark .experience-description {
+  color: #ffffff !important;
+}
+
+.experience-category-title {
+  color: rgb(55, 65, 81) !important; /* gray-700 */
+}
+.dark .experience-category-title {
+  color: rgb(209, 213, 219) !important; /* gray-300 */
+}
+
+.experience-item-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .experience-item-title {
+  color: #ffffff !important;
+}
+
+.experience-item-description {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .experience-item-description {
+  color: rgb(156, 163, 175) !important; /* gray-400 */
+}
+
+.experience-award-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .experience-award-title {
+  color: #ffffff !important;
+}
+
+.experience-award-org {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .experience-award-org {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   Skills 섹션
+   ============================================ */
+
+.skills-category-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .skills-category-title {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   Projects 섹션
+   ============================================ */
+
+.projects-hint {
+  color: rgb(156, 163, 175) !important; /* gray-400 */
+}
+.dark .projects-hint {
+  color: rgb(107, 114, 128) !important; /* gray-500 */
+}
+
+.projects-item-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.projects-item-title:hover {
+  color: rgb(55, 65, 81) !important; /* gray-700 */
+}
+.dark .projects-item-title {
+  color: #ffffff !important;
+}
+.dark .projects-item-title:hover {
+  color: rgb(229, 231, 235) !important; /* gray-200 */
+}
+
+.projects-item-description {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .projects-item-description {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   프로젝트 디테일 페이지
+   ============================================ */
+
+.project-back-link {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.project-back-link:hover {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .project-back-link {
+  color: #ffffff !important;
+}
+.dark .project-back-link:hover {
+  color: #ffffff !important;
+}
+
+.project-detail-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .project-detail-title {
+  color: #ffffff !important;
+}
+
+.project-detail-description {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .project-detail-description {
+  color: #ffffff !important;
+}
+
+.project-section-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .project-section-title {
+  color: #ffffff !important;
+}
+
+.project-content-text {
+  color: rgb(55, 65, 81) !important; /* gray-700 */
+}
+.dark .project-content-text {
+  color: #ffffff !important;
+}
+
+.project-content-text-light {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .project-content-text-light {
+  color: #ffffff !important;
+}
+
+.project-list-item {
+  color: rgb(55, 65, 81) !important; /* gray-700 */
+}
+.dark .project-list-item {
+  color: #ffffff !important;
+}
+
+.project-subsection-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+/* 라이트 모드에서 project-subsection-title 색상 강제 적용 */
+html.light .project-subsection-title,
+html.light h3.project-subsection-title,
+.light .project-subsection-title,
+html:not(.dark) .project-subsection-title,
+html:not(.dark) h3.project-subsection-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .project-subsection-title {
+  color: #ffffff !important;
+}
+
+.project-result-description {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .project-result-description {
+  color: rgb(209, 213, 219) !important; /* gray-300 */
+}
+
+.project-sidebar-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .project-sidebar-title {
+  color: #ffffff !important;
+}
+
+.project-info-label {
+  color: rgb(107, 114, 128) !important; /* gray-500 */
+}
+.dark .project-info-label {
+  color: #ffffff !important;
+}
+
+.project-info-value {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .project-info-value {
+  color: #ffffff !important;
+}
+
+.project-hint {
+  color: rgb(156, 163, 175) !important; /* gray-400 */
+}
+.dark .project-hint {
+  color: rgb(107, 114, 128) !important; /* gray-500 */
+}
+
+/* ============================================
+   Card 컴포넌트
+   ============================================ */
+
+.card-component {
+  border-color: rgb(229, 231, 235) !important; /* gray-200 */
+  background-color: #ffffff !important;
+}
+.dark .card-component {
+  border-color: rgb(71, 85, 105) !important; /* slate-600 */
+  background-color: transparent !important;
+}
+
+.card-hover:hover {
+  border-color: rgb(209, 213, 219) !important; /* gray-300 */
+}
+.dark .card-hover:hover {
+  border-color: rgb(100, 116, 139) !important; /* slate-400 */
+}
+
+.group:hover .project-card {
+  border-color: rgb(209, 213, 219) !important; /* gray-300 */
+}
+.dark .group:hover .project-card {
+  border-color: rgb(100, 116, 139) !important; /* slate-400 */
+}
+
+/* ============================================
+   Timeline 컴포넌트
+   ============================================ */
+
+.timeline-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .timeline-title {
+  color: #ffffff !important;
+}
+
+.timeline-subtitle {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .timeline-subtitle {
+  color: #ffffff !important;
+}
+
+.timeline-period {
+  color: rgb(107, 114, 128) !important; /* gray-500 */
+}
+.dark .timeline-period {
+  color: #ffffff !important;
+}
+
+.timeline-description {
+  color: rgb(55, 65, 81) !important; /* gray-700 */
+}
+.dark .timeline-description {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   MarkdownContent 컴포넌트
+   ============================================ */
+
+.markdown-strong {
+  color: rgb(31, 41, 55) !important; /* gray-800 */
+}
+.dark .markdown-strong {
+  color: #ffffff !important;
+}
+
+.markdown-em {
+  color: rgb(55, 65, 81) !important; /* gray-700 */
+}
+.dark .markdown-em {
+  color: rgb(209, 213, 219) !important; /* gray-300 */
+}
+
+.markdown-li {
+  color: rgb(55, 65, 81) !important; /* gray-700 */
+}
+.dark .markdown-li {
+  color: rgb(209, 213, 219) !important; /* gray-300 */
+}
+
+.markdown-h1 {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .markdown-h1 {
+  color: #ffffff !important;
+}
+
+.markdown-h2 {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .markdown-h2 {
+  color: #ffffff !important;
+}
+
+.markdown-h3 {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .markdown-h3 {
+  color: #ffffff !important;
+}
+
+.markdown-code {
+  color: rgb(31, 41, 55) !important; /* gray-800 */
+}
+.dark .markdown-code {
+  color: rgb(229, 231, 235) !important; /* gray-200 */
+}
+
+/* ============================================
+   About 섹션
+   ============================================ */
+
+.about-card-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .about-card-title {
+  color: #ffffff !important;
+}
+
+.about-card-text {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .about-card-text {
+  color: #ffffff !important;
+}
+
+.about-highlight-item {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .about-highlight-item {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   Contact 섹션
+   ============================================ */
+
+.contact-message {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .contact-message {
+  color: rgb(156, 163, 175) !important; /* gray-400 */
+}
+
+/* ============================================
+   Awards 섹션
+   ============================================ */
+
+.awards-item-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .awards-item-title {
+  color: #ffffff !important;
+}
+
+.awards-item-org {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .awards-item-org {
+  color: #ffffff !important;
+}
+
+.awards-item-period {
+  color: rgb(107, 114, 128) !important; /* gray-500 */
+}
+.dark .awards-item-period {
+  color: #ffffff !important;
+}
+
+.awards-item-description {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .awards-item-description {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   Writing 섹션
+   ============================================ */
+
+.writing-item-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .writing-item-title {
+  color: #ffffff !important;
+}
+
+.writing-item-platform {
+  color: rgb(107, 114, 128) !important; /* gray-500 */
+}
+.dark .writing-item-platform {
+  color: #ffffff !important;
+}
+
+.writing-item-description {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .writing-item-description {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   ProofStrip 섹션
+   ============================================ */
+
+.proofstrip-label {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .proofstrip-label {
+  color: #ffffff !important;
+}
+
+.proofstrip-value {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .proofstrip-value {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   프로젝트 관련 컴포넌트
+   ============================================ */
+
+.screenshots-group-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .screenshots-group-title {
+  color: #ffffff !important;
+}
+
+.architecture-title {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+.dark .architecture-title {
+  color: #ffffff !important;
+}
+
+.architecture-description {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+.dark .architecture-description {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   Timeline 컴포넌트
+   ============================================ */
+
+.timeline-marker {
+  border-color: rgb(229, 231, 235) !important; /* gray-200 - 연한 회색 border */
+  background-color: #ffffff !important; /* 흰색 배경 */
+}
+.dark .timeline-marker {
+  border-color: rgb(71, 85, 105) !important; /* slate-600 */
+  background-color: rgba(51, 65, 85, 0.8) !important; /* slate-700/80 */
+}
+
+.timeline-marker-dot {
+  background-color: rgb(209, 213, 219) !important; /* gray-300 - 연한 회색 */
+}
+.dark .timeline-marker-dot {
+  background-color: rgb(99, 102, 241) !important; /* indigo-400 */
+}
+
+.timeline-line {
+  background-color: rgb(229, 231, 235) !important; /* gray-200 - 연한 회색 */
+}
+.dark .timeline-line {
+  background-color: rgb(71, 85, 105) !important; /* slate-600 */
+}
+
+/* ============================================
+   Chip (스킬 버튼) 컴포넌트
+   ============================================ */
+
+.chip-default {
+  background-color: rgb(243, 244, 246) !important; /* gray-100 - 연한 회색 배경 */
+  color: rgb(55, 65, 81) !important; /* gray-700 - 진한 회색 텍스트 */
+}
+.chip-default:hover {
+  background-color: rgb(229, 231, 235) !important; /* gray-200 */
+  opacity: 0.9;
+}
+.dark .chip-default {
+  background-color: rgba(51, 65, 85, 0.8) !important; /* slate-700/80 */
+  color: #ffffff !important; /* 흰색 텍스트 */
+}
+.dark .chip-default:hover {
+  background-color: rgb(71, 85, 105) !important; /* slate-600 */
+  opacity: 0.9;
+}
+
+.chip-active {
+  background-color: #000000 !important; /* 검은색 배경 */
+  color: #ffffff !important; /* 흰색 텍스트 */
+}
+.chip-active:hover {
+  background-color: #000000 !important;
+}
+.dark .chip-active {
+  background-color: rgb(71, 85, 105) !important; /* slate-600 */
+  color: #ffffff !important; /* 흰색 텍스트 */
+}
+.dark .chip-active:hover {
+  background-color: rgb(71, 85, 105) !important;
+}
+
+/* ============================================
+   Experience 섹션 - 카드
+   ============================================ */
+
+.experience-item-card {
+  background-color: rgba(249, 250, 251, 0.5) !important; /* gray-50/50 - 매우 연한 회색 */
+  border-color: rgb(229, 231, 235) !important; /* gray-200 */
+}
+.dark .experience-item-card {
+  background-color: rgba(30, 41, 59, 0.3) !important; /* slate-800/30 */
+  border-color: rgb(51, 65, 85) !important; /* slate-700 */
+}
+
+.experience-award-card {
+  background-color: rgba(249, 250, 251, 0.5) !important; /* gray-50/50 - 매우 연한 회색 */
+  border-color: rgb(229, 231, 235) !important; /* gray-200 */
+}
+.dark .experience-award-card {
+  background-color: rgba(30, 41, 59, 0.3) !important; /* slate-800/30 */
+  border-color: rgb(51, 65, 85) !important; /* slate-700 */
+}
+
+/* ============================================
+   이미지 플레이스홀더
+   ============================================ */
+
+.image-placeholder {
+  background-color: rgb(229, 231, 235) !important; /* gray-200 - 연한 회색 */
+}
+.dark .image-placeholder {
+  background-color: rgba(30, 41, 59, 0.5) !important; /* slate-800/50 */
+}
+
+.image-placeholder-text {
+  color: rgb(156, 163, 175) !important; /* gray-400 */
+}
+.dark .image-placeholder-text {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   Section 컴포넌트
+   ============================================ */
+
+.section-alternate {
+  background-color: rgba(249, 250, 251, 0.5) !important; /* gray-50/50 */
+}
+.dark .section-alternate {
+  background-color: transparent !important;
+}
+
+/* ============================================
+   ProgressBar 컴포넌트
+   ============================================ */
+
+.progress-bar {
+  background-color: rgb(229, 231, 235) !important; /* gray-200 */
+}
+.dark .progress-bar {
+  background-color: rgb(30, 41, 59) !important; /* slate-800 */
+}
+
+/* ============================================
+   섹션 구분선
+   ============================================ */
+
+.section-divider {
+  background-color: rgb(229, 231, 235) !important; /* gray-200 */
+}
+.dark .section-divider {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ============================================
+   프로젝트 성과 Metric
+   ============================================ */
+
+/* 기본 metric 색상 - 라이트 모드 기본값 (다크 모드가 아닐 때) */
+.metric-value,
+div.metric-value,
+[class*="metric-value"] {
+  color: rgb(37, 99, 235) !important; /* blue-600 */
+}
+
+/* 라이트 모드에서 metric 색상 강제 적용 (모든 규칙보다 우선) */
+html.light .metric-value,
+html.light div.metric-value,
+html.light .metric-value *,
+html.light div.metric-value *,
+html.light .text-blue-600.metric-value,
+html.light div.text-blue-600.metric-value,
+html.light [class*="text-blue-600"][class*="metric-value"],
+.light .metric-value,
+.light div.metric-value,
+body.light .metric-value,
+body.light div.metric-value,
+html:not(.dark) .metric-value,
+html:not(.dark) div.metric-value {
+  color: rgb(37, 99, 235) !important; /* blue-600 */
+}
+
+/* 다크 모드일 때만 blue-400 */
+html.dark .metric-value,
+html.dark div.metric-value,
+.dark .metric-value,
+.dark div.metric-value {
+  color: rgb(96, 165, 250) !important; /* blue-400 */
+}
+
+/* 라이트 모드일 때 모든 텍스트를 어두운 색으로 강제 적용 (text-gray 클래스 제외, 낮은 우선순위) */
+html.light h1:not([class*="text-gray"]),
+html.light h2:not([class*="text-gray"]),
+html.light h3:not([class*="text-gray"]),
+html.light h4:not([class*="text-gray"]),
+html.light h5:not([class*="text-gray"]),
+html.light h6:not([class*="text-gray"]),
+html.light h1 *:not([class*="text-gray"]),
+html.light h2 *:not([class*="text-gray"]),
+html.light h3 *:not([class*="text-gray"]),
+html.light h4 *:not([class*="text-gray"]),
+html.light h5 *:not([class*="text-gray"]),
+html.light h6 *:not([class*="text-gray"]),
+html.light p:not([class*="text-gray"]),
+html.light p *:not([class*="text-gray"]),
+html.light span:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="metric"]):not([class*="text-gray"]),
+html.light li:not([class*="text-gray"]),
+html.light li *:not([class*="text-gray"]),
+html.light div:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="metric"]):not([class*="text-gray"]),
+html.light div:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="metric"]):not([class*="text-gray"]) *:not([class*="text-gray"]),
+html.light strong:not([class*="text-gray"]),
+html.light strong *:not([class*="text-gray"]),
+html.light em:not([class*="text-gray"]),
+html.light em *:not([class*="text-gray"]),
+html.light a:not([class*="button"]):not([class*="text-gray"]) {
+  color: #171717 !important;
+}
+
+/* 라이트 모드일 때 text-gray 클래스들이 원래 색상으로 표시되도록 (최우선 적용) */
+html.light .text-gray-900,
+html.light h1.text-gray-900,
+html.light h2.text-gray-900,
+html.light h3.text-gray-900,
+html.light h4.text-gray-900,
+html.light h5.text-gray-900,
+html.light h6.text-gray-900,
+html.light p.text-gray-900,
+html.light span.text-gray-900,
+html.light div.text-gray-900,
+html.light li.text-gray-900,
+html.light body .text-gray-900,
+html.light body h1.text-gray-900,
+html.light body h2.text-gray-900,
+html.light body h3.text-gray-900,
+html.light body h4.text-gray-900,
+html.light body h5.text-gray-900,
+html.light body h6.text-gray-900,
+html.light body p.text-gray-900,
+html.light body span.text-gray-900,
+html.light body div.text-gray-900,
+html.light body li.text-gray-900 {
+  color: rgb(17, 24, 39) !important; /* gray-900 */
+}
+
+html.light .text-gray-800,
+html.light h1.text-gray-800,
+html.light h2.text-gray-800,
+html.light h3.text-gray-800,
+html.light h4.text-gray-800,
+html.light h5.text-gray-800,
+html.light h6.text-gray-800,
+html.light p.text-gray-800,
+html.light span.text-gray-800,
+html.light div.text-gray-800,
+html.light li.text-gray-800,
+html.light body .text-gray-800,
+html.light body h1.text-gray-800,
+html.light body h2.text-gray-800,
+html.light body h3.text-gray-800,
+html.light body h4.text-gray-800,
+html.light body h5.text-gray-800,
+html.light body h6.text-gray-800,
+html.light body p.text-gray-800,
+html.light body span.text-gray-800,
+html.light body div.text-gray-800,
+html.light body li.text-gray-800 {
+  color: rgb(31, 41, 55) !important; /* gray-800 */
+}
+
+html.light .text-gray-700,
+html.light h1.text-gray-700,
+html.light h2.text-gray-700,
+html.light h3.text-gray-700,
+html.light h4.text-gray-700,
+html.light h5.text-gray-700,
+html.light h6.text-gray-700,
+html.light p.text-gray-700,
+html.light span.text-gray-700,
+html.light div.text-gray-700,
+html.light li.text-gray-700,
+html.light body .text-gray-700,
+html.light body h1.text-gray-700,
+html.light body h2.text-gray-700,
+html.light body h3.text-gray-700,
+html.light body h4.text-gray-700,
+html.light body h5.text-gray-700,
+html.light body h6.text-gray-700,
+html.light body p.text-gray-700,
+html.light body span.text-gray-700,
+html.light body div.text-gray-700,
+html.light body li.text-gray-700 {
+  color: rgb(55, 65, 81) !important; /* gray-700 */
+}
+
+html.light .text-gray-600,
+html.light h1.text-gray-600,
+html.light h2.text-gray-600,
+html.light h3.text-gray-600,
+html.light h4.text-gray-600,
+html.light h5.text-gray-600,
+html.light h6.text-gray-600,
+html.light p.text-gray-600,
+html.light span.text-gray-600,
+html.light div.text-gray-600,
+html.light li.text-gray-600,
+html.light body .text-gray-600,
+html.light body h1.text-gray-600,
+html.light body h2.text-gray-600,
+html.light body h3.text-gray-600,
+html.light body h4.text-gray-600,
+html.light body h5.text-gray-600,
+html.light body h6.text-gray-600,
+html.light body p.text-gray-600,
+html.light body span.text-gray-600,
+html.light body div.text-gray-600,
+html.light body li.text-gray-600 {
+  color: rgb(75, 85, 99) !important; /* gray-600 */
+}
+
+html.light .text-gray-500,
+html.light h1.text-gray-500,
+html.light h2.text-gray-500,
+html.light h3.text-gray-500,
+html.light h4.text-gray-500,
+html.light h5.text-gray-500,
+html.light h6.text-gray-500,
+html.light p.text-gray-500,
+html.light span.text-gray-500,
+html.light div.text-gray-500,
+html.light li.text-gray-500,
+html.light body .text-gray-500,
+html.light body h1.text-gray-500,
+html.light body h2.text-gray-500,
+html.light body h3.text-gray-500,
+html.light body h4.text-gray-500,
+html.light body h5.text-gray-500,
+html.light body h6.text-gray-500,
+html.light body p.text-gray-500,
+html.light body span.text-gray-500,
+html.light body div.text-gray-500,
+html.light body li.text-gray-500 {
+  color: rgb(107, 114, 128) !important; /* gray-500 */
+}
+
+html.light .text-gray-400,
+html.light h1.text-gray-400,
+html.light h2.text-gray-400,
+html.light h3.text-gray-400,
+html.light h4.text-gray-400,
+html.light h5.text-gray-400,
+html.light h6.text-gray-400,
+html.light p.text-gray-400,
+html.light span.text-gray-400,
+html.light div.text-gray-400,
+html.light li.text-gray-400,
+html.light body .text-gray-400,
+html.light body h1.text-gray-400,
+html.light body h2.text-gray-400,
+html.light body h3.text-gray-400,
+html.light body h4.text-gray-400,
+html.light body h5.text-gray-400,
+html.light body h6.text-gray-400,
+html.light body p.text-gray-400,
+html.light body span.text-gray-400,
+html.light body div.text-gray-400,
+html.light body li.text-gray-400 {
+  color: rgb(156, 163, 175) !important; /* gray-400 */
+}
+
+html.light [class*="text-gray"]:not([class*="bg-"]):not([class*="button"]),
+html.light body [class*="text-gray"]:not([class*="bg-"]):not([class*="button"]) {
   color: rgb(55, 65, 81) !important; /* 기본값 gray-700 */
 }
 
-/* 라이트 모드일 때 모든 요소에 대해 텍스트 색상 강제 적용 (미디어 쿼리보다 우선순위 높게) */
-.light body *:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric"]):not(svg):not(path):not([class*="icon"]) {
-  color: #171717 !important;
-}
-
-/* 라이트 모드일 때 더 구체적인 선택자로 모든 텍스트 요소 강제 적용 */
-.light h1[class*="text-gray"],
-.light h2[class*="text-gray"],
-.light h3[class*="text-gray"],
-.light p[class*="text-gray"],
-.light span[class*="text-gray"],
-.light div[class*="text-gray"],
-.light li[class*="text-gray"] {
-  color: inherit !important;
-}
-
-/* 라이트 모드일 때 미디어 쿼리의 모든 규칙을 무시하도록 최우선 적용 */
-html.light,
-html.light *:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric"]):not(svg):not(path):not([class*="icon"]) {
-  color: #171717 !important;
-}
+/* 라이트 모드일 때 text-gray 클래스가 없는 요소들만 기본 색상 적용 - 제거됨 (text-gray 규칙이 우선 적용되도록) */
 
 /* 시스템 다크모드 지원 - next-themes가 제어하지만 초기 렌더링을 위해 필요 */
 /* 주의: .light 클래스가 있으면 이 미디어 쿼리의 모든 규칙이 무시됩니다 */
@@ -170,8 +1131,16 @@ html.light *:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not
   }
   
   /* 모든 텍스트 요소에 대한 포괄적인 규칙 (Tailwind 클래스보다 우선순위 높게) */
-  html:not(.light) body *:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric"]):not(svg):not(path):not([class*="icon"]) {
+  /* metric-value 클래스는 명시적으로 제외 */
+  html:not(.light) body *:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="metric"]):not(svg):not(path):not([class*="icon"]):not(.metric-value) {
     color: #ffffff !important;
+  }
+  
+  /* metric-value는 명시적으로 blue 색상 유지 */
+  html:not(.light) .metric-value,
+  html:not(.light) div.metric-value,
+  html:not(.light) [class*="metric-value"] {
+    color: rgb(96, 165, 250) !important; /* blue-400 */
   }
   
   /* 더 구체적인 선택자로 Tailwind 클래스 오버라이드 */
@@ -276,14 +1245,7 @@ h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
 }
 
 
-.card-component {
-  background-color: rgba(255, 255, 255, 1);
-}
-
-.dark .card-component {
-  background-color: rgba(26, 35, 50, 1);
-  border-color: rgba(51, 65, 85, 0.6);
-}
+/* card-component는 위에서 이미 정의됨 */
 
 /* Button outline variant 다크모드 스타일 강제 적용 */
 .dark .button-outline {
@@ -301,6 +1263,10 @@ h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
 }
 
 /* 프로젝트 성과 metric 다크모드 색상 강제 적용 */
+.light .metric-value,
+.light div.metric-value {
+  color: rgb(37, 99, 235) !important; /* blue-600 */
+}
 .dark .metric-value,
 .dark div.metric-value {
   color: rgb(147, 197, 253) !important;
@@ -324,4 +1290,357 @@ h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
 /* Chrome 최적화 */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   /* Chrome 전용 최적화가 필요한 경우 여기에 추가 */
+}
+
+/* ============================================
+   Timeline & Chip 최우선 적용 (파일 끝에 배치하여 최고 우선순위)
+   ============================================ */
+
+/* Timeline 마커 - 라이트 모드: 밝고 깔끔하게 */
+.timeline-marker {
+  border-color: rgb(229, 231, 235) !important; /* gray-200 */
+  background-color: #ffffff !important; /* 흰색 */
+}
+.dark .timeline-marker {
+  border-color: rgb(71, 85, 105) !important; /* slate-600 */
+  background-color: rgba(51, 65, 85, 0.8) !important; /* slate-700/80 */
+}
+
+.timeline-marker-dot {
+  background-color: rgb(209, 213, 219) !important; /* gray-300 */
+}
+.dark .timeline-marker-dot {
+  background-color: rgb(99, 102, 241) !important; /* indigo-400 */
+}
+
+.timeline-line {
+  background-color: rgb(229, 231, 235) !important; /* gray-200 */
+}
+.dark .timeline-line {
+  background-color: rgb(71, 85, 105) !important; /* slate-600 */
+}
+
+/* Chip (스킬 버튼) - 라이트 모드: 연한 회색 배경, 다크 모드: 어두운 배경 */
+.chip-default {
+  background-color: rgb(243, 244, 246) !important; /* gray-100 */
+  color: rgb(55, 65, 81) !important; /* gray-700 */
+}
+.chip-default:hover {
+  background-color: rgb(229, 231, 235) !important; /* gray-200 */
+}
+.dark .chip-default {
+  background-color: rgba(51, 65, 85, 0.8) !important; /* slate-700/80 */
+  color: #ffffff !important;
+}
+.dark .chip-default:hover {
+  background-color: rgb(71, 85, 105) !important; /* slate-600 */
+}
+
+.chip-active {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+.dark .chip-active {
+  background-color: rgb(71, 85, 105) !important; /* slate-600 */
+  color: #ffffff !important;
+}
+
+/* ============================================
+   Hero 버튼 최우선 적용 (파일 끝에 배치하여 최고 우선순위)
+   ============================================ */
+
+/* GitHub 버튼 - 라이트 모드: 검은색, 다크 모드: 흰색 */
+a.hero-button-github,
+a.hero-button-github *,
+a.hero-button-github > *,
+a.hero-button-github svg,
+a.hero-button-github span,
+a.hero-button-github path,
+a.hero-button-github svg path {
+  color: #000000 !important; /* 검은색 */
+  fill: #000000 !important;
+  stroke: #000000 !important;
+}
+
+a.hero-button-github:hover,
+a.hero-button-github:hover *,
+a.hero-button-github:hover > *,
+a.hero-button-github:hover svg,
+a.hero-button-github:hover span,
+a.hero-button-github:hover path,
+a.hero-button-github:hover svg path {
+  color: #000000 !important; /* hover 시에도 검은색 유지 */
+  fill: #000000 !important;
+  stroke: #000000 !important;
+}
+
+.dark a.hero-button-github,
+.dark a.hero-button-github *,
+.dark a.hero-button-github > *,
+.dark a.hero-button-github svg,
+.dark a.hero-button-github span,
+.dark a.hero-button-github path,
+.dark a.hero-button-github svg path {
+  color: #ffffff !important; /* 다크 모드: 흰색 */
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.dark a.hero-button-github:hover,
+.dark a.hero-button-github:hover *,
+.dark a.hero-button-github:hover > *,
+.dark a.hero-button-github:hover svg,
+.dark a.hero-button-github:hover span,
+.dark a.hero-button-github:hover path,
+.dark a.hero-button-github:hover svg path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* LinkedIn 버튼 - 라이트 모드: 검은색, 다크 모드: 흰색 */
+a.hero-button-linkedin,
+a.hero-button-linkedin *,
+a.hero-button-linkedin > *,
+a.hero-button-linkedin svg,
+a.hero-button-linkedin span,
+a.hero-button-linkedin path,
+a.hero-button-linkedin svg path {
+  color: #000000 !important; /* 검은색 */
+  fill: #000000 !important;
+  stroke: #000000 !important;
+}
+
+a.hero-button-linkedin:hover,
+a.hero-button-linkedin:hover *,
+a.hero-button-linkedin:hover > *,
+a.hero-button-linkedin:hover svg,
+a.hero-button-linkedin:hover span,
+a.hero-button-linkedin:hover path,
+a.hero-button-linkedin:hover svg path {
+  color: #000000 !important; /* hover 시에도 검은색 유지 */
+  fill: #000000 !important;
+  stroke: #000000 !important;
+}
+
+.dark a.hero-button-linkedin,
+.dark a.hero-button-linkedin *,
+.dark a.hero-button-linkedin > *,
+.dark a.hero-button-linkedin svg,
+.dark a.hero-button-linkedin span,
+.dark a.hero-button-linkedin path,
+.dark a.hero-button-linkedin svg path {
+  color: #ffffff !important; /* 다크 모드: 흰색 */
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.dark a.hero-button-linkedin:hover,
+.dark a.hero-button-linkedin:hover *,
+.dark a.hero-button-linkedin:hover > *,
+.dark a.hero-button-linkedin:hover svg,
+.dark a.hero-button-linkedin:hover span,
+.dark a.hero-button-linkedin:hover path,
+.dark a.hero-button-linkedin:hover svg path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* ============================================
+   프로젝트 성과 Metric - 최우선 적용 (파일 끝에 배치)
+   ============================================ */
+
+/* 라이트 모드에서 metric 색상 최우선 적용 (Tailwind 클래스와 모든 규칙 오버라이드) */
+/* 시스템 다크모드든 라이트모드든 상관없이 .light 클래스가 있으면 blue-600 */
+html.light .metric-value,
+html.light div.metric-value,
+html.light .metric-value *,
+html.light div.metric-value *,
+html.light .text-blue-600.metric-value,
+html.light div.text-blue-600.metric-value,
+html.light body .metric-value,
+html.light body div.metric-value,
+html.light body .text-blue-600.metric-value,
+html.light body div.text-blue-600.metric-value,
+html.light [class*="metric-value"],
+html.light [class*="text-blue-600"][class*="metric-value"],
+html.light body [class*="metric-value"],
+html.light body div[class*="metric-value"],
+html.light div[class*="metric-value"],
+html.light .text-blue-600[class*="metric-value"],
+html.light div.text-blue-600[class*="metric-value"] {
+  color: rgb(37, 99, 235) !important; /* blue-600 */
+}
+
+/* 미디어 쿼리 내에서도 .light 클래스가 있으면 blue-600 */
+@media (prefers-color-scheme: dark) {
+  html.light .metric-value,
+  html.light div.metric-value,
+  html.light .text-blue-600.metric-value,
+  html.light div.text-blue-600.metric-value,
+  html.light body .metric-value,
+  html.light body div.metric-value,
+  html.light [class*="metric-value"] {
+    color: rgb(37, 99, 235) !important; /* blue-600 */
+  }
+}
+
+/* 다크 모드에서 metric 색상 강제 적용 */
+.dark .metric-value,
+.dark div.metric-value,
+.dark .metric-value *,
+.dark div.metric-value *,
+.dark body .metric-value,
+.dark body div.metric-value,
+.dark [class*="metric-value"],
+html.dark .metric-value,
+html.dark div.metric-value,
+html.dark .text-blue-600.metric-value,
+html.dark div.text-blue-600.metric-value,
+html.dark body .metric-value,
+html.dark body div.metric-value {
+  color: rgb(96, 165, 250) !important; /* blue-400 */
+}
+
+/* 시스템 다크모드일 때 다크 모드로 설정된 경우에도 metric 색상 적용 */
+@media (prefers-color-scheme: dark) {
+  html:not(.light).dark .metric-value,
+  html:not(.light).dark div.metric-value,
+  html:not(.light).dark .text-blue-600.metric-value,
+  html:not(.light).dark div.text-blue-600.metric-value,
+  html:not(.light).dark body .metric-value,
+  html:not(.light).dark body div.metric-value,
+  html:not(.light).dark [class*="metric-value"] {
+    color: rgb(96, 165, 250) !important; /* blue-400 */
+  }
+  
+  html:not(.light).light .metric-value,
+  html:not(.light).light div.metric-value,
+  html:not(.light).light .text-blue-600.metric-value,
+  html:not(.light).light div.text-blue-600.metric-value,
+  html:not(.light).light body .metric-value,
+  html:not(.light).light body div.metric-value,
+  html:not(.light).light [class*="metric-value"] {
+    color: rgb(37, 99, 235) !important; /* blue-600 */
+  }
+}
+
+/* ============================================
+   Metric 색상 최종 최우선 규칙 (파일 최종 끝)
+   ============================================ */
+
+/* 라이트 모드 - 모든 경우 커버 (Tailwind text-blue-600 포함) */
+html.light div.text-blue-600.metric-value,
+html.light div.metric-value.text-blue-600,
+html.light .text-blue-600.metric-value,
+html.light .metric-value.text-blue-600,
+html.light body div.text-blue-600.metric-value,
+html.light body div.metric-value.text-blue-600,
+html.light body .text-blue-600.metric-value,
+html.light body .metric-value.text-blue-600 {
+  color: rgb(37, 99, 235) !important; /* blue-600 */
+}
+
+/* 기본 라이트 모드 (다크 모드가 아닐 때 모두 - 가장 강력한 규칙) */
+html:not(.dark) .metric-value,
+html:not(.dark) div.metric-value,
+html:not(.dark) div.text-blue-600.metric-value,
+html:not(.dark) .text-blue-600.metric-value,
+html:not(.dark) div.metric-value.text-blue-600,
+html:not(.dark) .metric-value.text-blue-600,
+html:not(.dark) body .metric-value,
+html:not(.dark) body div.metric-value,
+html:not(.dark) body div.text-blue-600.metric-value,
+html:not(.dark) body .text-blue-600.metric-value,
+html:not(.dark) body div.metric-value.text-blue-600,
+html:not(.dark) body .metric-value.text-blue-600,
+html:not(.dark) [class*="metric-value"] {
+  color: rgb(37, 99, 235) !important; /* blue-600 */
+}
+
+/* text-base md:text-lg font-bold text-blue-600 metric-value 조합에 대한 명시적 규칙 */
+html:not(.dark) div.text-base.text-blue-600.metric-value,
+html:not(.dark) div[class*="text-lg"].text-blue-600.metric-value,
+html:not(.dark) div.font-bold.text-blue-600.metric-value,
+html:not(.dark) div.text-base[class*="text-blue-600"][class*="metric-value"],
+html:not(.dark) div[class*="text-lg"][class*="text-blue-600"][class*="metric-value"],
+html:not(.dark) div.font-bold[class*="text-blue-600"][class*="metric-value"],
+html.light div.text-base.text-blue-600.metric-value,
+html.light div[class*="text-lg"].text-blue-600.metric-value,
+html.light div.font-bold.text-blue-600.metric-value,
+html.light div.text-base[class*="text-blue-600"][class*="metric-value"],
+html.light div[class*="text-lg"][class*="text-blue-600"][class*="metric-value"],
+html.light div.font-bold[class*="text-blue-600"][class*="metric-value"] {
+  color: rgb(37, 99, 235) !important; /* blue-600 */
+}
+
+/* 다크 모드 - 모든 경우 커버 */
+html.dark div.text-blue-600.metric-value,
+html.dark div.metric-value.text-blue-600,
+html.dark .text-blue-600.metric-value,
+html.dark .metric-value.text-blue-600,
+html.dark div.text-base.text-blue-600.metric-value,
+html.dark div[class*="text-lg"].text-blue-600.metric-value,
+html.dark div.font-bold.text-blue-600.metric-value {
+  color: rgb(96, 165, 250) !important; /* blue-400 */
+}
+
+/* ============================================
+   Metric 색상 최종 최우선 규칙 - Tailwind 오버라이드
+   ============================================ */
+
+/* 라이트 모드 - Tailwind text-blue-600 완전 오버라이드 */
+html.light .text-blue-600.metric-value,
+html.light div.text-blue-600.metric-value,
+html.light .metric-value.text-blue-600,
+html.light div.metric-value.text-blue-600,
+html.light body .text-blue-600.metric-value,
+html.light body div.text-blue-600.metric-value,
+html.light body .metric-value.text-blue-600,
+html.light body div.metric-value.text-blue-600,
+html:not(.dark) .text-blue-600.metric-value,
+html:not(.dark) div.text-blue-600.metric-value,
+html:not(.dark) .metric-value.text-blue-600,
+html:not(.dark) div.metric-value.text-blue-600,
+html:not(.dark) body .text-blue-600.metric-value,
+html:not(.dark) body div.text-blue-600.metric-value,
+html:not(.dark) body .metric-value.text-blue-600,
+html:not(.dark) body div.metric-value.text-blue-600 {
+  color: rgb(37, 99, 235) !important; /* blue-600 - Tailwind보다 우선 */
+}
+
+/* 다크 모드 - Tailwind text-blue-600 완전 오버라이드 */
+html.dark .text-blue-600.metric-value,
+html.dark div.text-blue-600.metric-value,
+html.dark div.text-blue-600.metric-value,
+html.dark .metric-value.text-blue-600,
+html.dark div.metric-value.text-blue-600,
+html.dark body .text-blue-600.metric-value,
+html.dark body div.text-blue-600.metric-value,
+html.dark body .metric-value.text-blue-600,
+html.dark body div.metric-value.text-blue-600 {
+  color: rgb(96, 165, 250) !important; /* blue-400 - Tailwind보다 우선 */
+}
+
+/* 모든 metric-value 요소에 대한 최종 보장 (모든 클래스 조합 커버) */
+[class*="metric-value"][class*="text-blue-600"],
+div[class*="metric-value"][class*="text-blue-600"],
+.text-blue-600[class*="metric-value"],
+div.text-blue-600[class*="metric-value"] {
+  color: rgb(37, 99, 235) !important; /* blue-600 - 기본값 */
+}
+
+html:not(.dark) [class*="metric-value"][class*="text-blue-600"],
+html:not(.dark) div[class*="metric-value"][class*="text-blue-600"],
+html:not(.dark) .text-blue-600[class*="metric-value"],
+html:not(.dark) div.text-blue-600[class*="metric-value"] {
+  color: rgb(37, 99, 235) !important; /* blue-600 */
+}
+
+html.dark [class*="metric-value"][class*="text-blue-600"],
+html.dark div[class*="metric-value"][class*="text-blue-600"],
+html.dark .text-blue-600[class*="metric-value"],
+html.dark div.text-blue-600[class*="metric-value"] {
+  color: rgb(96, 165, 250) !important; /* blue-400 */
 }
