@@ -19,13 +19,20 @@
 }
 
 /* 라이트 모드가 명시적으로 설정된 경우 강제 적용 */
-.light {
+.light,
+html.light {
   --background: #ffffff !important;
   --foreground: #171717 !important;
 }
 
-.light body {
+.light body,
+html.light body {
   background-color: #ffffff !important;
+  color: #171717 !important;
+}
+
+/* 라이트 모드일 때 모든 텍스트 색상 강제 적용 (특수 클래스 제외) */
+html.light *:not([class*="text-gray"]):not([class*="text-blue"]):not([class*="metric-value"]):not([class*="button"]):not([class*="chip"]):not(svg):not(path):not([class*="icon"]) {
   color: #171717 !important;
 }
 
@@ -1725,4 +1732,57 @@ html.dark div.text-blue-600[class*="metric-value"] {
   html.light body > * > *:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="text-gray"]):not(svg):not(path) {
     color: #171717 !important;
   }
+  
+  /* .light 클래스가 있을 때 body의 모든 자식 요소에 대해 강제 적용 */
+  html.light body * {
+    color: #171717 !important;
+  }
+  
+  /* text-gray 클래스가 있는 요소는 원래 색상 유지 */
+  html.light body [class*="text-gray"],
+  html.light body [class*="text-blue"],
+  html.light body [class*="metric-value"] {
+    /* 이전 규칙 유지 */
+  }
+}
+
+/* ============================================
+   미디어 쿼리 밖에서 .light 클래스 최종 강제 적용 (최고 우선순위)
+   ============================================ */
+
+/* 시스템 다크모드든 아니든 상관없이 .light 클래스가 있으면 어두운 텍스트 */
+/* 단, 특수 클래스(button, chip, metric-value, text-blue, text-gray)는 제외 */
+html.light body {
+  color: #171717 !important;
+  background-color: #ffffff !important;
+}
+
+/* 미디어 쿼리 내부 규칙보다 더 높은 우선순위로 강제 적용 */
+html.light body *:not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="text-blue"]):not([class*="text-gray"]):not(svg):not(path):not([class*="icon"]) {
+  color: #171717 !important;
+}
+
+html.light body h1:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body h2:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body h3:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body h4:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body h5:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body h6:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body p:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body span:not([class*="text-gray"]):not([class*="text-blue"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]),
+html.light body div:not([class*="text-gray"]):not([class*="text-blue"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]),
+html.light body li:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body a:not([class*="button"]):not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body strong:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body em:not([class*="text-gray"]):not([class*="text-blue"]) {
+  color: #171717 !important;
+}
+
+/* 더 구체적인 선택자로 미디어 쿼리 내 규칙 오버라이드 */
+html.light body > *:not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="text-blue"]):not([class*="text-gray"]) {
+  color: #171717 !important;
+}
+
+html.light body > * > *:not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="text-blue"]):not([class*="text-gray"]) {
+  color: #171717 !important;
 }
