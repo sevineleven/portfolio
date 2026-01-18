@@ -10,7 +10,7 @@ interface SectionProps {
 
 export default function Section({ id, children, className = '', variant = 'default' }: SectionProps) {
   const bgClass = variant === 'alternate' 
-    ? 'bg-gray-50/50 dark:bg-transparent' 
+    ? 'section-alternate' 
     : '';
   
   return (
@@ -18,7 +18,7 @@ export default function Section({ id, children, className = '', variant = 'defau
       {/* 섹션 구분선 */}
       {id !== 'hero' && (
         <div className="absolute top-0 left-0 right-0 flex justify-center">
-          <div className="w-24 h-px bg-white/20 dark:bg-white/30"></div>
+          <div className="section-divider w-24 h-px"></div>
         </div>
       )}
       <Container>{children}</Container>

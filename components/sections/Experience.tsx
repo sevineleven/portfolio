@@ -16,11 +16,11 @@ export default function Experience({ locale }: ExperienceProps) {
   return (
     <Section id="experience" variant="default">
       <div className="mb-12 text-center">
-        <h2 className="mb-3 text-xl font-bold text-gray-900 dark:!text-white md:text-2xl">
+        <h2 className="section-title mb-3 text-xl font-bold md:text-2xl">
           {t('experience.title') || 'Experience'}
         </h2>
         {subtitle ? (
-          <p className="text-sm text-gray-600 dark:!text-white">
+          <p className="section-subtitle text-sm">
             {subtitle}
           </p>
         ) : null}
@@ -36,24 +36,24 @@ export default function Experience({ locale }: ExperienceProps) {
 
           const descriptionContent = hasWorkItems ? (
             <div className="space-y-6 mt-3">
-              <p className="text-sm text-gray-700 dark:!text-white mb-4 leading-relaxed">{descriptionText}</p>
+              <p className="experience-description text-sm mb-4 leading-relaxed">{descriptionText}</p>
               <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3">
                 {exp.workItems.map((category: any, catIdx: number) => (
                   <div key={catIdx} className="space-y-3">
-                    <h4 className="text-xs font-semibold text-gray-700 dark:!text-gray-300 uppercase tracking-wider mb-3">
+                    <h4 className="experience-category-title text-xs font-semibold uppercase tracking-wider mb-3">
                       {locale === 'ko' ? category.title 
                        : locale === 'zh' ? (category.titleZh || category.titleEn || category.title)
                        : (category.titleEn || category.title)}
                     </h4>
                     <div className="space-y-3">
                       {category.items.map((item: any, itemIdx: number) => (
-                        <Card key={itemIdx} hover={false} className="p-3 bg-gray-50/50 dark:bg-slate-800/30 border-gray-200 dark:border-slate-700">
-                          <h5 className="text-xs md:text-sm font-semibold text-gray-900 dark:!text-white mb-1.5">
+                        <Card key={itemIdx} hover={false} className="experience-item-card p-3">
+                          <h5 className="experience-item-title text-xs md:text-sm font-semibold mb-1.5">
                             {locale === 'ko' ? item.name 
                              : locale === 'zh' ? (item.nameZh || item.nameEn || item.name)
                              : (item.nameEn || item.name)}
                           </h5>
-                          <p className="text-xs text-gray-600 dark:!text-gray-400 leading-relaxed">
+                          <p className="experience-item-description text-xs leading-relaxed">
                             {locale === 'ko' ? item.description 
                              : locale === 'zh' ? (item.descriptionZh || item.descriptionEn || item.description)
                              : (item.descriptionEn || item.description)}
@@ -66,7 +66,7 @@ export default function Experience({ locale }: ExperienceProps) {
               </div>
             </div>
           ) : (
-            <p className="text-sm text-gray-700 dark:!text-white leading-relaxed">{descriptionText}</p>
+            <p className="experience-description text-sm leading-relaxed">{descriptionText}</p>
           );
 
           const descriptionWithAward = exp.award ? (
@@ -75,7 +75,7 @@ export default function Experience({ locale }: ExperienceProps) {
               <div className="mt-4 pt-4 border-t border-gray-200 dark:border-slate-700">
                 <div className="space-y-2">
                   {(Array.isArray(exp.award) ? exp.award : [exp.award]).map((award: any, awardIdx: number) => (
-                    <Card key={awardIdx} hover={false} className="p-3 bg-gray-50/50 dark:bg-slate-800/30 border-gray-200 dark:border-slate-700">
+                    <Card key={awardIdx} hover={false} className="experience-award-card p-3">
                       <div className="flex items-start gap-2">
                         {/* 트로피 아이콘 */}
                         <svg
@@ -91,12 +91,12 @@ export default function Experience({ locale }: ExperienceProps) {
                           />
                         </svg>
                         <div className="flex-1">
-                          <p className="text-xs md:text-sm font-medium text-gray-900 dark:!text-white">
+                          <p className="experience-award-title text-xs md:text-sm font-medium">
                             {locale === 'ko' ? award.title 
                              : locale === 'zh' ? (award.titleZh || award.titleEn || award.title)
                              : (award.titleEn || award.title)}
                           </p>
-                          <p className="text-xs text-gray-600 dark:!text-white mt-1">
+                          <p className="experience-award-org text-xs mt-1">
                             {locale === 'ko' ? award.organization 
                              : locale === 'zh' ? (award.organizationZh || award.organizationEn || award.organization)
                              : (award.organizationEn || award.organization)} • {award.date}

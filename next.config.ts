@@ -22,6 +22,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Windows IPv6 문제 해결을 위한 설정
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
+  },
 };
 
 export default nextConfig;

@@ -21,7 +21,7 @@ export default function ProgressBar() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 z-50 h-1 w-full bg-gray-200 dark:bg-slate-800">
+    <div className="progress-bar fixed top-0 left-0 z-50 h-1 w-full">
       <div
         className="h-full bg-black transition-all duration-150 dark:bg-indigo-400"
         style={{ width: `${progress}%` }}

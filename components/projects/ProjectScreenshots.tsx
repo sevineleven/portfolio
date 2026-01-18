@@ -181,7 +181,7 @@ export default function ProjectScreenshots({
             >
               {/* 카드 제목 - 가운데 정렬 */}
               {groupTitle !== '기타' && (
-                <h3 className="text-xs md:text-sm font-semibold text-gray-900 dark:text-white mb-2 text-center">
+                <h3 className="screenshots-group-title text-xs md:text-sm font-semibold mb-2 text-center">
                   {groupTitle}
                 </h3>
               )}

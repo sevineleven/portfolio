@@ -138,7 +138,7 @@ export default async function ProjectDetailPage({
           <div className="mb-8">
             <Link
               href={`/${locale}#projects`}
-              className="inline-flex items-center gap-2 text-xs font-medium text-gray-600 hover:text-gray-900 dark:!text-white dark:hover:text-white transition-colors duration-200"
+              className="project-back-link inline-flex items-center gap-2 text-xs font-medium transition-colors duration-200"
             >
               <svg
                 className="h-4 w-4"
@@ -165,10 +165,10 @@ export default async function ProjectDetailPage({
                   <Chip key={tag}>{tag}</Chip>
                 ))}
               </div>
-              <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:!text-white mb-4 leading-tight">
+              <h1 className="project-detail-title text-lg md:text-xl lg:text-2xl font-bold mb-4 leading-tight">
                 {title}
               </h1>
-              <p className="text-xs md:text-sm text-gray-600 dark:!text-white leading-relaxed max-w-3xl">
+              <p className="project-detail-description text-xs md:text-sm leading-relaxed max-w-3xl">
                 {description}
               </p>
             </div>
@@ -193,11 +193,11 @@ export default async function ProjectDetailPage({
                 {/* Overview Section */}
                 {projectData.overview && (
                   <section>
-                    <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                    <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                       {t.overview}
                     </h2>
                     <Card hover={false} className="p-4 md:p-5">
-                      <div className="text-xs text-gray-700 dark:!text-white">
+                      <div className="project-content-text text-xs">
                         <MarkdownContent
                           content={
                             locale === "ko"
@@ -216,7 +216,7 @@ export default async function ProjectDetailPage({
                 {projectData.roleDetails &&
                   projectData.roleDetails.length > 0 && (
                     <section>
-                      <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                      <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.keyContributions}
                       </h2>
                       <Card hover={false} className="p-4 md:p-5">
@@ -229,7 +229,7 @@ export default async function ProjectDetailPage({
                             (detail: string, idx: number) => (
                               <li
                                 key={idx}
-                                className="flex items-start gap-2.5 text-xs text-gray-700 dark:!text-white"
+                                className="project-list-item flex items-start gap-2.5 text-xs"
                               >
                                 <span className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full bg-gray-400 dark:bg-slate-400" />
                                 <div className="flex-1">
@@ -247,21 +247,21 @@ export default async function ProjectDetailPage({
                 {projectData.challenges &&
                   projectData.challenges.length > 0 && (
                     <section>
-                      <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                      <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.challenges}
                       </h2>
                       <div className="space-y-3 md:space-y-4">
                         {projectData.challenges.map(
                           (challenge: any, idx: number) => (
                             <Card key={idx} hover={false} className="p-4 md:p-5">
-                              <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-2">
+                              <h3 className="project-subsection-title text-sm md:text-base font-semibold mb-2">
                                 {locale === "ko"
                                   ? challenge.problem
                                   : locale === "zh"
                                   ? (challenge.problemZh || challenge.problemEn || challenge.problem)
                                   : (challenge.problemEn || challenge.problem)}
                               </h3>
-                              <div className="text-xs text-gray-600 dark:!text-white">
+                              <div className="project-content-text-light text-xs">
                                 <MarkdownContent
                                   content={
                                     locale === "ko"
@@ -282,7 +282,7 @@ export default async function ProjectDetailPage({
                 {/* Results */}
                 {projectData.results && projectData.results.length > 0 && (
                     <section>
-                      <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                      <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.results}
                       </h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -295,7 +295,7 @@ export default async function ProjectDetailPage({
                                 ? (result.metricZh || result.metricEn || result.metric)
                                 : (result.metricEn || result.metric)}
                             </div>
-                            <div className="text-xs text-gray-600 dark:!text-gray-300 flex-1">
+                            <div className="project-result-description text-xs flex-1">
                               <MarkdownContent
                                 content={
                                   locale === "ko"
@@ -316,17 +316,17 @@ export default async function ProjectDetailPage({
                 {projectData.technologyReasons &&
                   projectData.technologyReasons.length > 0 && (
                     <section>
-                      <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                      <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.technologyReasons}
                       </h2>
                       <div className="space-y-3 md:space-y-4">
                         {projectData.technologyReasons.map(
                           (tech: any, idx: number) => (
                             <Card key={idx} hover={false} className="p-4 md:p-5">
-                              <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-2">
+                              <h3 className="project-subsection-title text-sm md:text-base font-semibold mb-2">
                                 {tech.technology}
                               </h3>
-                              <div className="text-xs text-gray-700 dark:!text-white">
+                              <div className="project-content-text text-xs">
                                 <MarkdownContent
                                   content={
                                     locale === "ko"
@@ -349,10 +349,10 @@ export default async function ProjectDetailPage({
                   projectData.architectureImages.length > 0 && (
                     <section>
                       <div className="flex flex-row items-baseline gap-2 mb-3 md:mb-4">
-                        <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white">
+                        <h2 className="project-section-title text-lg md:text-xl font-bold">
                           {t.architecture}
                         </h2>
-                        <span className="text-xs text-gray-400 dark:!text-gray-500 italic">
+                        <span className="project-hint text-xs italic">
                           {locale === 'ko' ? '클릭 시 확대됩니다.' : locale === 'zh' ? '点击放大。' : 'Click to enlarge.'}
                         </span>
                       </div>
@@ -367,21 +367,21 @@ export default async function ProjectDetailPage({
                 {projectData.performanceOptimization &&
                   projectData.performanceOptimization.length > 0 && (
                     <section>
-                      <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                      <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.performanceOptimization}
                       </h2>
                       <div className="space-y-3 md:space-y-4">
                         {projectData.performanceOptimization.map(
                           (opt: any, idx: number) => (
                             <Card key={idx} hover={false} className="p-4 md:p-5">
-                              <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-2">
+                              <h3 className="project-subsection-title text-sm md:text-base font-semibold mb-2">
                                 {locale === "ko"
                                   ? opt.title
                                   : locale === "zh"
                                   ? (opt.titleZh || opt.titleEn || opt.title)
                                   : (opt.titleEn || opt.title)}
                               </h3>
-                              <div className="text-xs text-gray-700 dark:!text-white">
+                              <div className="project-content-text text-xs">
                                 <MarkdownContent
                                   content={
                                     locale === "ko"
@@ -403,21 +403,21 @@ export default async function ProjectDetailPage({
                 {projectData.databaseOptimization &&
                   projectData.databaseOptimization.length > 0 && (
                     <section>
-                      <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                      <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.databaseOptimization}
                       </h2>
                       <div className="space-y-3 md:space-y-4">
                         {projectData.databaseOptimization.map(
                           (db: any, idx: number) => (
                             <Card key={idx} hover={false} className="p-4 md:p-5">
-                              <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-2">
+                              <h3 className="project-subsection-title text-sm md:text-base font-semibold mb-2">
                                 {locale === "ko"
                                   ? db.title
                                   : locale === "zh"
                                   ? (db.titleZh || db.titleEn || db.title)
                                   : (db.titleEn || db.title)}
                               </h3>
-                              <div className="text-xs text-gray-700 dark:!text-white">
+                              <div className="project-content-text text-xs">
                                 <MarkdownContent
                                   content={
                                     locale === "ko"
@@ -438,11 +438,11 @@ export default async function ProjectDetailPage({
                 {/* API Design */}
                 {projectData.apiDesign && (
                   <section>
-                    <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                    <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                       {t.apiDesign}
                     </h2>
                     <Card hover={false} className="p-4 md:p-5">
-                      <div className="text-xs text-gray-700 dark:!text-white">
+                      <div className="project-content-text text-xs">
                         <MarkdownContent
                           content={
                             locale === "ko"
@@ -461,21 +461,21 @@ export default async function ProjectDetailPage({
                 {projectData.securityImplementation &&
                   projectData.securityImplementation.length > 0 && (
                     <section>
-                      <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                      <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.securityImplementation}
                       </h2>
                       <div className="space-y-3 md:space-y-4">
                         {projectData.securityImplementation.map(
                           (security: any, idx: number) => (
                             <Card key={idx} hover={false} className="p-4 md:p-5">
-                              <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-2">
+                              <h3 className="project-subsection-title text-sm md:text-base font-semibold mb-2">
                                 {locale === "ko"
                                   ? security.title
                                   : locale === "zh"
                                   ? (security.titleZh || security.titleEn || security.title)
                                   : (security.titleEn || security.title)}
                               </h3>
-                              <div className="text-xs text-gray-700 dark:!text-white">
+                              <div className="project-content-text text-xs">
                                 <MarkdownContent
                                   content={
                                     locale === "ko"
@@ -496,11 +496,11 @@ export default async function ProjectDetailPage({
                 {/* Testing Strategy */}
                 {projectData.testingStrategy && (
                   <section>
-                    <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                    <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                       {t.testingStrategy}
                     </h2>
                     <Card hover={false} className="p-4 md:p-5">
-                      <div className="text-xs text-gray-700 dark:!text-white">
+                      <div className="project-content-text text-xs">
                         <MarkdownContent
                           content={
                             locale === "ko"
@@ -518,16 +518,16 @@ export default async function ProjectDetailPage({
                 {/* Project Retrospection */}
                 {projectData.retrospection && (
                   <section>
-                      <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                      <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.retrospection}
                       </h2>
                       <div className="space-y-3 md:space-y-4">
                         {projectData.retrospection.whatWorkedWell && (
                           <Card hover={false} className="p-4 md:p-5">
-                            <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                            <h3 className="project-subsection-title text-sm md:text-base font-semibold mb-3 md:mb-4">
                               {t.whatWorkedWell}
                             </h3>
-                            <div className="text-xs text-gray-700 dark:!text-white">
+                            <div className="project-content-text text-xs">
                               <MarkdownContent
                                 content={
                                   locale === "ko"
@@ -542,10 +542,10 @@ export default async function ProjectDetailPage({
                       )}
                         {projectData.retrospection.areasForImprovement && (
                           <Card hover={false} className="p-4 md:p-5">
-                            <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                            <h3 className="project-subsection-title text-sm md:text-base font-semibold mb-3 md:mb-4">
                               {t.areasForImprovement}
                             </h3>
-                            <div className="text-xs text-gray-700 dark:!text-white">
+                            <div className="project-content-text text-xs">
                               <MarkdownContent
                                 content={
                                   locale === "ko"
@@ -560,10 +560,10 @@ export default async function ProjectDetailPage({
                       )}
                         {projectData.retrospection.lessonsLearned && (
                           <Card hover={false} className="p-4 md:p-5">
-                            <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                            <h3 className="project-subsection-title text-sm md:text-base font-semibold mb-3 md:mb-4">
                               {t.lessonsLearned}
                             </h3>
-                            <div className="text-xs text-gray-700 dark:!text-white">
+                            <div className="project-content-text text-xs">
                               <MarkdownContent
                                 content={
                                   locale === "ko"
@@ -586,16 +586,16 @@ export default async function ProjectDetailPage({
                 <div className="lg:sticky lg:top-24 space-y-4 md:space-y-6">
                   {/* Project Info Card */}
                   <Card hover={false} className="p-4 md:p-6">
-                    <h3 className="text-xs md:text-sm font-semibold text-gray-900 dark:!text-white mb-4 md:mb-6">
+                    <h3 className="project-sidebar-title text-xs md:text-sm font-semibold mb-4 md:mb-6">
                       {t.projectInfo}
                     </h3>
                     <div className="space-y-4 md:space-y-5">
                       {projectData.projectOrigin && (
                         <div>
-                          <div className="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-gray-500 dark:!text-white mb-1.5 md:mb-2">
+                          <div className="project-info-label text-[10px] md:text-xs font-semibold uppercase tracking-wider mb-1.5 md:mb-2">
                             {t.projectOrigin}
                           </div>
-                          <div className="text-xs font-medium text-gray-900 dark:!text-white">
+                          <div className="project-info-value text-xs font-medium">
                             {locale === "ko"
                               ? projectData.projectOrigin
                               : locale === "zh"
@@ -606,30 +606,30 @@ export default async function ProjectDetailPage({
                       )}
                       {projectData.period && (
                         <div>
-                          <div className="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-gray-500 dark:!text-white mb-1.5 md:mb-2">
+                          <div className="project-info-label text-[10px] md:text-xs font-semibold uppercase tracking-wider mb-1.5 md:mb-2">
                             {t.period}
                           </div>
-                          <div className="text-xs font-medium text-gray-900 dark:!text-white">
+                          <div className="project-info-value text-xs font-medium">
                             {projectData.period}
                           </div>
                         </div>
                       )}
                       {(projectData.teamComposition || projectData.teamSize) && (
                         <div>
-                          <div className="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-gray-500 dark:!text-white mb-1.5 md:mb-2">
+                          <div className="project-info-label text-[10px] md:text-xs font-semibold uppercase tracking-wider mb-1.5 md:mb-2">
                             {t.teamSize}
                           </div>
-                          <div className="text-xs font-medium text-gray-900 dark:!text-white">
+                          <div className="project-info-value text-xs font-medium">
                             {projectData.teamComposition || `${projectData.teamSize} ${t.people}`}
                           </div>
                         </div>
                       )}
                       {projectData.myRole && (
                         <div>
-                          <div className="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-gray-500 dark:!text-white mb-1.5 md:mb-2">
+                          <div className="project-info-label text-[10px] md:text-xs font-semibold uppercase tracking-wider mb-1.5 md:mb-2">
                             {t.myRole}
                           </div>
-                          <div className="text-xs font-medium text-gray-900 dark:!text-white">
+                          <div className="project-info-value text-xs font-medium">
                             {locale === "ko"
                               ? projectData.myRole
                               : "Backend Developer"}
@@ -641,7 +641,7 @@ export default async function ProjectDetailPage({
 
                   {/* Tech Stack Card */}
                   <Card hover={false} className="p-4 md:p-6">
-                    <h3 className="text-xs md:text-sm font-semibold text-gray-900 dark:!text-white mb-3 md:mb-4">
+                    <h3 className="project-sidebar-title text-xs md:text-sm font-semibold mb-3 md:mb-4">
                       {t.techStack}
                     </h3>
                     <div className="flex flex-wrap gap-2">
@@ -702,10 +702,10 @@ export default async function ProjectDetailPage({
             {project.images && project.images.length > 0 && (
               <section className="mt-8 md:mt-12 -mx-4 md:-mx-6 lg:-mx-12 xl:-mx-16 2xl:-mx-20 px-4 md:px-6 lg:px-12 xl:px-16 2xl:px-20">
                 <div className="flex flex-row items-baseline gap-2 mb-4 md:mb-6">
-                  <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:!text-white">
+                  <h2 className="project-section-title text-lg md:text-xl font-bold">
                     {t.screenshots}
                   </h2>
-                  <span className="text-xs text-gray-400 dark:!text-gray-500 italic">
+                  <span className="project-hint text-xs italic">
                     {locale === 'ko' ? '클릭 시 확대됩니다.' : locale === 'zh' ? '点击放大。' : 'Click to enlarge.'}
                   </span>
                 </div>

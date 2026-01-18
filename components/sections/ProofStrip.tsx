@@ -33,26 +33,26 @@ export default function ProofStrip({ locale }: ProofStripProps) {
       <Container>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           <div className="text-center">
-            <h3 className="mb-2 text-xs font-medium text-gray-600 dark:!text-white">
+            <h3 className="proofstrip-label mb-2 text-xs font-medium">
               Role
             </h3>
-            <p className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white">
+            <p className="proofstrip-value text-sm md:text-base font-semibold">
               {locale === "ko" ? proofStrip.role : locale === "zh" ? proofStrip.roleZh : proofStrip.roleEn}
             </p>
           </div>
           <div className="text-center">
-            <h3 className="mb-2 text-xs font-medium text-gray-600 dark:!text-white">
+            <h3 className="proofstrip-label mb-2 text-xs font-medium">
               Main Stack
             </h3>
-            <p className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white">
+            <p className="proofstrip-value text-sm md:text-base font-semibold">
               {proofStrip.mainStack}
             </p>
           </div>
           <div className="text-center">
-            <h3 className="mb-2 text-xs font-medium text-gray-600 dark:!text-white">
+            <h3 className="proofstrip-label mb-2 text-xs font-medium">
               {t('proofStrip.experience')}
             </h3>
-            <p className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white">
+            <p className="proofstrip-value text-sm md:text-base font-semibold">
               {proofStrip.experience}
             </p>
           </div>

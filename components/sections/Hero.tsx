@@ -22,23 +22,23 @@ export default function Hero({ locale }: HeroProps) {
         <div className="flex-1">
           <div className="mb-8 flex flex-col md:flex-row md:items-start md:gap-6">
             <div className="flex-1">
-              <h1 className="mb-2 text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:!text-white [text-shadow:none!important]">
+              <h1 className="hero-title mb-2 text-3xl md:text-4xl font-bold leading-tight [text-shadow:none!important]">
                 {locale === "ko" 
                   ? personalInfo.name 
                   : locale === "zh" 
                   ? (personalInfo.nameZh || personalInfo.nameEn)
                   : personalInfo.nameEn}
               </h1>
-              <h2 className="mb-4 text-lg md:text-xl font-medium text-gray-700 dark:!text-gray-300 [text-shadow:none!important]">
+              <h2 className="hero-subtitle mb-4 text-lg md:text-xl font-medium [text-shadow:none!important]">
                 {t("hero.role") || personalInfo.role}
               </h2>
-              <p className="text-sm text-gray-600 dark:!text-gray-400 [text-shadow:none!important]">
+              <p className="hero-email text-sm [text-shadow:none!important]">
                 {personalInfo.email}
               </p>
             </div>
             {/* 모바일에서 사진을 이름 옆에 배치 */}
             <div className="md:hidden flex-shrink-0">
-              <div className="aspect-square w-24 h-24 rounded-lg bg-gray-200 dark:bg-slate-800/50 overflow-hidden relative">
+              <div className="image-placeholder aspect-square w-24 h-24 rounded-lg overflow-hidden relative">
                 {personalInfo.profileImage ? (
                   <Image
                     src={personalInfo.profileImage}
@@ -49,7 +49,7 @@ export default function Hero({ locale }: HeroProps) {
                     priority
                   />
                 ) : (
-                  <div className="flex h-full items-center justify-center text-gray-400 text-xs">
+                  <div className="image-placeholder-text flex h-full items-center justify-center text-xs">
                     Profile
                   </div>
                 )}
@@ -62,10 +62,10 @@ export default function Hero({ locale }: HeroProps) {
             <div className="space-y-6 mb-8">
               {personalInfo.philosophy.map((item: { title: string; titleEn?: string; titleZh?: string; description: string; descriptionEn?: string; descriptionZh?: string }, index: number) => (
                 <div key={index} className="space-y-2">
-                  <h3 className="text-sm md:text-base font-bold text-gray-900 dark:!text-white [text-shadow:none!important]">
+                  <h3 className="hero-philosophy-title text-sm md:text-base font-bold [text-shadow:none!important]">
                     {locale === "ko" ? item.title : locale === "zh" ? item.titleZh || item.titleEn || item.title : item.titleEn || item.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-gray-700 dark:!text-gray-300 leading-relaxed [text-shadow:none!important]">
+                  <p className="hero-philosophy-text text-xs md:text-sm leading-relaxed [text-shadow:none!important]">
                     {locale === "ko"
                       ? item.description
                       : locale === "zh"
@@ -84,7 +84,7 @@ export default function Hero({ locale }: HeroProps) {
         </div>
         {/* 데스크톱에서만 사진을 오른쪽에 배치 - 오른쪽 열의 세로 중앙 정렬 */}
         <div className="hidden md:flex flex-1 items-center justify-center">
-          <div className="aspect-square w-full max-w-xs rounded-lg bg-gray-200 dark:bg-slate-800/50 overflow-hidden relative">
+          <div className="image-placeholder aspect-square w-full max-w-xs rounded-lg overflow-hidden relative">
             {personalInfo.profileImage ? (
               <Image
                 src={personalInfo.profileImage}
@@ -95,7 +95,7 @@ export default function Hero({ locale }: HeroProps) {
                 priority
               />
             ) : (
-              <div className="flex h-full items-center justify-center text-gray-400">
+              <div className="image-placeholder-text flex h-full items-center justify-center">
                 Profile Image
               </div>
             )}

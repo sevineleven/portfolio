@@ -21,13 +21,13 @@ export default function Projects({ locale }: ProjectsProps) {
   return (
     <Section id="projects" variant="default">
       <div className="mb-12 text-center">
-        <h2 className="mb-3 text-xl font-bold text-gray-900 dark:!text-white md:text-2xl">
+        <h2 className="section-title mb-3 text-xl font-bold md:text-2xl">
           {t("projects.title") || "Projects"}
         </h2>
         {subtitle ? (
-          <p className="text-sm text-gray-600 dark:!text-white mb-2">{subtitle}</p>
+          <p className="section-subtitle text-sm mb-2">{subtitle}</p>
         ) : null}
-        <p className="text-xs text-gray-400 dark:!text-gray-500 italic">
+        <p className="projects-hint text-xs italic">
           {t("projects.clickToView")}
         </p>
       </div>
@@ -39,8 +39,8 @@ export default function Projects({ locale }: ProjectsProps) {
             href={`/${locale}/projects/${project.id}`}
             className="block group"
           >
-            <Card className="h-full cursor-pointer group-hover:border-gray-300 dark:group-hover:border-slate-400">
-              <div className="mb-4 aspect-video w-full overflow-hidden rounded-lg bg-gray-200 dark:bg-slate-800/50 relative">
+            <Card className="project-card h-full cursor-pointer">
+              <div className="image-placeholder mb-4 aspect-video w-full overflow-hidden rounded-lg relative">
                 {project.image ? (
                   <Image
                     src={project.image}
@@ -49,7 +49,7 @@ export default function Projects({ locale }: ProjectsProps) {
                     className="object-cover transition-opacity duration-150 group-hover:opacity-90"
                   />
                 ) : (
-                  <div className="flex h-full items-center justify-center text-gray-400 dark:!text-white">
+                  <div className="image-placeholder-text flex h-full items-center justify-center">
                     {project.title}
                   </div>
                 )}
@@ -59,12 +59,12 @@ export default function Projects({ locale }: ProjectsProps) {
                   <Chip key={tag}>{tag}</Chip>
                 ))}
               </div>
-              <h3 className="mb-2 text-base md:text-lg font-semibold text-gray-900 dark:!text-white transition-colors duration-150 group-hover:text-gray-700 dark:group-hover:text-gray-200">
+              <h3 className="projects-item-title mb-2 text-base md:text-lg font-semibold transition-colors duration-150">
                 {locale === "ko" ? project.title 
                   : locale === "zh" ? ((project as any).titleZh || project.titleEn || project.title)
                   : (project.titleEn || project.title)}
               </h3>
-              <p className="text-sm text-gray-600 dark:!text-white">
+              <p className="projects-item-description text-sm">
                 {locale === "ko" ? project.description 
                   : locale === "zh" ? ((project as any).descriptionZh || project.descriptionEn || project.description)
                   : (project.descriptionEn || project.description)}

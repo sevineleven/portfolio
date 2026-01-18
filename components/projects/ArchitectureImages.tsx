@@ -49,11 +49,11 @@ export default function ArchitectureImages({
 
           return (
             <Card key={idx} hover={false} className="p-4 md:p-5">
-              <h3 className="text-sm md:text-base font-semibold text-gray-900 dark:!text-white mb-2">
+              <h3 className="architecture-title text-sm md:text-base font-semibold mb-2">
                 {title}
               </h3>
               <div
-                className="mb-3 md:mb-4 aspect-video w-full rounded-lg overflow-hidden bg-gray-200 dark:bg-slate-800/50 relative cursor-pointer group"
+                className="image-placeholder mb-3 md:mb-4 aspect-video w-full rounded-lg overflow-hidden relative cursor-pointer group"
                 onClick={() => openModal(arch.url, title)}
               >
                 <Image
@@ -82,7 +82,7 @@ export default function ArchitectureImages({
                   </div>
                 </div>
               </div>
-              <p className="text-xs text-gray-600 dark:!text-white mt-3 md:mt-4">
+              <p className="architecture-description text-xs mt-3 md:mt-4">
                 {locale === "ko"
                   ? arch.description
                   : locale === "zh"

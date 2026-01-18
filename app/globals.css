@@ -1192,44 +1192,60 @@ html.light body [class*="text-gray"]:not([class*="bg-"]):not([class*="button"]) 
     color: #ffffff !important;
   }
   
-  /* 모든 텍스트 요소에 대한 포괄적인 규칙 (Tailwind 클래스보다 우선순위 높게) */
-  /* metric-value 클래스는 명시적으로 제외 */
-  /* .light 클래스가 있으면 적용 안 함 */
-  html:not(.light) body *:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="metric"]):not(svg):not(path):not([class*="icon"]):not(.metric-value) {
-    color: #ffffff !important;
+  /* .light 클래스가 있을 때는 라이트 모드 텍스트 색상 적용 (미디어 쿼리 내에서도 최우선) */
+  /* html:not(.light) 규칙보다 먼저 배치하여 우선순위 확보 */
+  html.light,
+  html.light body,
+  html.light body *:not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="text-blue"]):not([class*="text-gray"]):not(svg):not(path):not([class*="icon"]) {
+    color: #171717 !important; /* 라이트 모드 텍스트 색상 */
   }
   
-  /* .light 클래스가 있을 때는 라이트 모드 텍스트 색상 적용 (미디어 쿼리 내에서도) */
   html.light h1,
   html.light h2,
   html.light h3,
   html.light h4,
   html.light h5,
   html.light h6,
-  html.light h1 *,
-  html.light h2 *,
-  html.light h3 *,
-  html.light h4 *,
-  html.light h5 *,
-  html.light h6 *,
-  html.light p,
-  html.light p *,
-  html.light span:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="metric"]):not([class*="text-gray"]),
-  html.light li,
-  html.light li *,
-  html.light div:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="metric"]):not([class*="text-gray"]),
-  html.light div:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="metric"]):not([class*="text-gray"]) *:not([class*="text-gray"]),
-  html.light strong,
-  html.light strong *,
-  html.light em,
-  html.light em *,
-  html.light a:not([class*="button"]):not([class*="text-gray"]) {
+  html.light h1 *:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light h2 *:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light h3 *:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light h4 *:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light h5 *:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light h6 *:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light p:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light p *:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light span:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="metric"]):not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light li:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light li *:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light div:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="metric"]):not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light div:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="metric"]):not([class*="text-gray"]):not([class*="text-blue"]) *:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light strong:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light strong *:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light em:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light em *:not([class*="text-gray"]):not([class*="text-blue"]),
+  html.light a:not([class*="button"]):not([class*="text-gray"]):not([class*="text-blue"]) {
     color: #171717 !important; /* 라이트 모드 텍스트 색상 */
   }
   
   html.light body {
     background-color: #ffffff !important;
     color: #171717 !important;
+  }
+  
+  /* .light 클래스가 있을 때 body의 모든 자식 요소 강제 적용 */
+  html.light body > *:not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="text-blue"]):not([class*="text-gray"]) {
+    color: #171717 !important;
+  }
+  
+  html.light body > * > *:not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="text-blue"]):not([class*="text-gray"]) {
+    color: #171717 !important;
+  }
+  
+  /* 모든 텍스트 요소에 대한 포괄적인 규칙 (Tailwind 클래스보다 우선순위 높게) */
+  /* metric-value 클래스는 명시적으로 제외 */
+  /* .light 클래스가 있으면 적용 안 함 */
+  html:not(.light) body *:not([class*="bg-"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="metric"]):not(svg):not(path):not([class*="icon"]):not(.metric-value) {
+    color: #ffffff !important;
   }
   
   /* metric-value는 명시적으로 blue 색상 유지 */
@@ -1854,5 +1870,40 @@ html.light body > *:not([class*="button"]):not([class*="chip"]):not([class*="met
 }
 
 html.light body > * > *:not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="text-blue"]):not([class*="text-gray"]) {
+  color: #171717 !important;
+}
+
+/* ============================================
+   최종 최우선 규칙 - 모든 경우를 완벽히 커버
+   ============================================ */
+
+/* .light 클래스가 있을 때 모든 텍스트 요소에 대해 가장 강력한 규칙 */
+html.light body *:not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="text-blue"]):not([class*="text-gray"]):not(svg):not(path):not([class*="icon"]):not([class*="metric"]) {
+  color: #171717 !important;
+}
+
+/* 모든 레벨에서 강제 적용 */
+html.light body * *:not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="text-blue"]):not([class*="text-gray"]):not(svg):not(path):not([class*="icon"]):not([class*="metric"]) {
+  color: #171717 !important;
+}
+
+html.light body * * *:not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="text-blue"]):not([class*="text-gray"]):not(svg):not(path):not([class*="icon"]):not([class*="metric"]) {
+  color: #171717 !important;
+}
+
+/* 모든 HTML 요소 타입별로 강제 적용 */
+html.light body h1:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body h2:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body h3:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body h4:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body h5:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body h6:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body p:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body span:not([class*="text-gray"]):not([class*="text-blue"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]),
+html.light body div:not([class*="text-gray"]):not([class*="text-blue"]):not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]),
+html.light body li:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body a:not([class*="button"]):not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body strong:not([class*="text-gray"]):not([class*="text-blue"]),
+html.light body em:not([class*="text-gray"]):not([class*="text-blue"]) {
   color: #171717 !important;
 }

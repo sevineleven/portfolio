@@ -23,10 +23,10 @@ export default function Writing() {
   return (
     <Section id="writing" variant="default">
       <div className="mb-12 text-center">
-        <h2 className="mb-3 text-3xl font-bold text-gray-900 dark:!text-white">
+        <h2 className="section-title mb-3 text-3xl font-bold">
           Writing
         </h2>
-        <p className="text-gray-600 dark:!text-white">
+        <p className="section-subtitle">
           Recent articles and posts.
         </p>
       </div>
@@ -35,15 +35,15 @@ export default function Writing() {
         {articles.map((article, index) => (
           <Card key={index} hover={false}>
             <div className="flex gap-4">
-              <div className="h-20 w-20 flex-shrink-0 rounded-lg bg-gray-200 dark:bg-slate-800/50" />
+              <div className="image-placeholder h-20 w-20 flex-shrink-0 rounded-lg" />
               <div className="flex-1">
-                <h3 className="mb-1 text-lg font-semibold text-gray-900 dark:!text-white">
+                <h3 className="writing-item-title mb-1 text-lg font-semibold">
                   {article.title}
                 </h3>
-                <p className="mb-2 text-sm text-gray-500 dark:!text-white">
+                <p className="writing-item-platform mb-2 text-sm">
                   {article.platform}
                 </p>
-                <p className="text-gray-600 dark:!text-white">
+                <p className="writing-item-description">
                   {article.description}
                 </p>
               </div>
