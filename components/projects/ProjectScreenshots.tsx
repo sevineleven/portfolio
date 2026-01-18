@@ -175,8 +175,8 @@ export default function ProjectScreenshots({
               key={groupIdx}
               className="rounded-lg shadow-sm p-3 border"
               style={{
-                backgroundColor: mounted && theme === "dark" ? "rgba(26, 35, 50, 1)" : "#ffffff",
-                borderColor: mounted && theme === "dark" ? "rgba(51, 65, 85, 0.6)" : "rgb(229, 231, 235)",
+                backgroundColor: mounted && theme === "dark" ? "rgba(26, 35, 50, 1)" : "rgb(249, 250, 251)",
+                borderColor: mounted && theme === "dark" ? "rgba(51, 65, 85, 0.6)" : "rgb(209, 213, 219)",
               }}
             >
               {/* 카드 제목 - 가운데 정렬 */}
@@ -200,7 +200,7 @@ export default function ProjectScreenshots({
                       <div 
                         className={`${aspectRatioClass} w-full ${maxWidthClass} rounded-xl overflow-hidden relative flex items-center justify-center p-1 group-hover:ring-2 transition-all`}
                         style={{
-                          backgroundColor: mounted && theme === "dark" ? "rgba(15, 23, 42, 0.5)" : "rgb(243, 244, 246)",
+                          backgroundColor: mounted && theme === "dark" ? "rgba(15, 23, 42, 0.5)" : "rgb(229, 231, 235)",
                         }}
                         onMouseEnter={(e) => {
                           if (mounted && theme === "dark") {
@@ -221,7 +221,7 @@ export default function ProjectScreenshots({
                         />
                         {/* 확대 아이콘 오버레이 */}
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                          <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 dark:bg-gray-800/90 rounded-full p-2">
+                          <div className="opacity-0 group-hover:opacity-100 transition-opacity dark:bg-gray-800/90 rounded-full p-2">
                             <svg 
                               className="w-5 h-5 text-gray-700 dark:text-gray-300" 
                               fill="none" 
