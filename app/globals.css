@@ -895,6 +895,17 @@ div.metric-value,
 /* 라이트 모드에서 metric 색상 강제 적용 (모든 규칙보다 우선) */
 html.light .metric-value,
 html.light div.metric-value,
+html.light body .metric-value,
+html.light body div.metric-value,
+html.light body div.metric-value,
+html.light body span.metric-value,
+html.light body h1.metric-value,
+html.light body h2.metric-value,
+html.light body h3.metric-value,
+html.light body h4.metric-value,
+html.light body h5.metric-value,
+html.light body h6.metric-value,
+html.light body p.metric-value,
 html.light .metric-value *,
 html.light div.metric-value *,
 html.light .text-blue-600.metric-value,
@@ -1181,9 +1192,7 @@ html.light body [class*="text-gray"]:not([class*="bg-"]):not([class*="button"]) 
   }
   
   /* Tailwind 클래스가 적용된 요소들도 강제 적용 (더 구체적인 선택자) */
-  :root:not(.light) * {
-    /* 모든 요소에 대해 기본 텍스트 색상을 흰색으로 설정 */
-  }
+  /* :root:not(.light) * 규칙은 위의 규칙들로 대체됨 */
   
   html:not(.light) .text-gray-900,
   html:not(.light) .text-gray-800,
@@ -1204,6 +1213,22 @@ html.light body [class*="text-gray"]:not([class*="bg-"]):not([class*="button"]) 
   html.light body,
   html.light body *:not([class*="button"]):not([class*="chip"]):not([class*="metric-value"]):not([class*="text-blue"]):not([class*="text-gray"]):not(svg):not(path):not([class*="icon"]) {
     color: #171717 !important; /* 라이트 모드 텍스트 색상 */
+  }
+  
+  /* metric-value는 위의 규칙과 관계없이 파란색 유지 (클래스 선택자 사용으로 최고 특이성 확보) */
+  html.light body .metric-value,
+  html.light body div.metric-value,
+  html.light body span.metric-value,
+  html.light body h1.metric-value,
+  html.light body h2.metric-value,
+  html.light body h3.metric-value,
+  html.light body h4.metric-value,
+  html.light body h5.metric-value,
+  html.light body h6.metric-value,
+  html.light body p.metric-value,
+  html.light body [class*="metric-value"],
+  html.light body div[class*="metric-value"] {
+    color: rgb(37, 99, 235) !important; /* blue-600 */
   }
   
   html.light h1,
@@ -1815,11 +1840,7 @@ html.dark div.text-blue-600[class*="metric-value"] {
   }
   
   /* text-gray 클래스가 있는 요소는 원래 색상 유지 */
-  html.light body [class*="text-gray"],
-  html.light body [class*="text-blue"],
-  html.light body [class*="metric-value"] {
-    /* 이전 규칙 유지 */
-  }
+  /* text-gray, text-blue, metric-value는 각각의 전용 규칙에서 처리됨 */
 }
 
 /* ============================================
@@ -1911,4 +1932,30 @@ html.light body a:not([class*="button"]):not([class*="text-gray"]):not([class*="
 html.light body strong:not([class*="text-gray"]):not([class*="text-blue"]),
 html.light body em:not([class*="text-gray"]):not([class*="text-blue"]) {
   color: #171717 !important;
+}
+
+/* ============================================
+   metric-value 최종 우선순위 규칙 (모든 규칙보다 최우선)
+   ============================================ */
+
+/* 라이트 모드에서 metric-value 색상 최종 강제 적용 - 모든 중첩 레벨에서 작동 */
+html.light body .metric-value,
+html.light body div.metric-value,
+html.light body span.metric-value,
+html.light body h1.metric-value,
+html.light body h2.metric-value,
+html.light body h3.metric-value,
+html.light body h4.metric-value,
+html.light body h5.metric-value,
+html.light body h6.metric-value,
+html.light body p.metric-value,
+html.light body [class*="metric-value"],
+html.light body div[class*="metric-value"],
+html.light body * .metric-value,
+html.light body * div.metric-value,
+html.light body * * .metric-value,
+html.light body * * div.metric-value,
+html.light body * * * .metric-value,
+html.light body * * * div.metric-value {
+  color: rgb(37, 99, 235) !important; /* blue-600 */
 }

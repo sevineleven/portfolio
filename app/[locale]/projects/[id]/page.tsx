@@ -288,7 +288,7 @@ export default async function ProjectDetailPage({
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                         {projectData.results.map((result: any, idx: number) => (
                           <Card key={idx} hover={false} className="p-4 md:p-5 flex flex-col">
-                            <div className="text-base md:text-lg font-bold text-blue-600 metric-value mb-3">
+                            <div className="text-base md:text-lg font-bold metric-value mb-3">
                               {locale === "ko"
                                 ? result.metric
                                 : locale === "zh"
