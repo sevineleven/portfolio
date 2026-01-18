@@ -18,8 +18,6 @@ export default function Navbar({ locale }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMainPage, setIsMainPage] = useState(false);
-  const [systemDarkMode, setSystemDarkMode] = useState(false);
-  const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -33,42 +31,10 @@ export default function Navbar({ locale }: NavbarProps) {
     
   }, [locale]);
   
-  // 시스템 다크모드 감지 및 강제 다크모드 설정
-  useEffect(() => {
-    if (!mounted) return;
-    
-    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const isSystemDark = darkModeQuery.matches;
-    setSystemDarkMode(isSystemDark);
-    
-    // 시스템 다크모드일 때는 강제로 다크모드로 설정
-    if (isSystemDark) {
-      setTheme('dark');
-    }
-    
-    const handleChange = (e: MediaQueryListEvent) => {
-      setSystemDarkMode(e.matches);
-      // 시스템 다크모드로 변경되면 강제로 다크모드로 설정
-      if (e.matches) {
-        setTheme('dark');
-      }
-    };
-    
-    darkModeQuery.addEventListener('change', handleChange);
-    return () => darkModeQuery.removeEventListener('change', handleChange);
-  }, [mounted, setTheme]);
-  
   const handleThemeToggle = () => {
-    if (systemDarkMode) {
-      // 시스템 다크모드일 때는 라이트 모드로 전환 불가
-      setShowNotification(true);
-      setTimeout(() => {
-        setShowNotification(false);
-      }, 2000);
-      return;
-    }
-    // 시스템이 라이트 모드일 때만 전환 가능
-    setTheme(theme === "dark" ? "light" : "dark");
+    // 시스템 설정과 관계없이 항상 테마 변경 가능
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
   };
 
   const navItems = useMemo(
@@ -446,53 +412,6 @@ export default function Navbar({ locale }: NavbarProps) {
           </div>
         )}
       </div>
-      
-      {/* 시스템 다크모드 안내 메시지 */}
-      {showNotification && (
-        <div
-          className="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 px-4 py-3 rounded-lg shadow-lg transition-opacity duration-300 mx-4"
-          style={{
-            backgroundColor: mounted && theme === "dark" ? "rgb(30, 41, 59)" : "rgb(243, 244, 246)",
-            color: mounted && theme === "dark" ? "#ffffff" : "#111827",
-            border: mounted && theme === "dark" ? "1px solid rgb(51, 65, 85)" : "1px solid rgb(229, 231, 235)",
-            maxWidth: "calc(100% - 2rem)",
-            width: "auto",
-            minWidth: "280px",
-          }}
-        >
-          <p 
-            className="text-xs md:text-sm leading-relaxed text-center"
-            style={{
-              wordBreak: locale === "ko" ? "keep-all" : "normal",
-              wordWrap: "break-word",
-              hyphens: "auto",
-            }}
-          >
-            {locale === "ko" ? (
-              <>
-                기기의 설정이 다크모드일 때는<br />
-                라이트 모드를 이용하실 수 없습니다.<br />
-                기기 설정을 변경하거나<br />
-                시크릿 모드를 이용해주세요.
-              </>
-            ) : locale === "zh" ? (
-              <>
-                设备设置为暗色模式时<br />
-                无法使用亮色模式。<br />
-                请更改设备设置或<br />
-                使用隐私模式。
-              </>
-            ) : (
-              <>
-                Light mode is not available<br />
-                when your device is set to dark mode.<br />
-                Please change your device settings<br />
-                or use incognito mode.
-              </>
-            )}
-          </p>
-        </div>
-      )}
     </nav>
   );
 }
