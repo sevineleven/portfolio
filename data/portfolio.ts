@@ -41,7 +41,7 @@ export const personalInfo = {
   github: "https://github.com/sevin98",
   linkedin: "https://linkedin.com/in/%EC%84%B8%EB%B9%88-%EB%B0%95-481206367",
   email: "psv980817@naver.com",
-  profileImage: "/sevin.jpg",
+  profileImage: "/profile/sevin.jpg",
 };
 
 export const proofStrip = {
@@ -214,59 +214,53 @@ export const projects = [
     projectOriginEn: "Samsung Software Academy For Youth 11th Common Project",
     projectOriginZh: "三星青年SW学院11期共同项目",
     tags: ["Java", "Spring Boot", "WebSocket", "MySQL", "React", "Phaser.js"],
-    image: "/racoon-thumbnail.jpg",
+    image: "/thumbnails/racoon-thumbnail.jpg",
     screenshotType: "web" as const,
     images: [
       {
-        url: "https://github.com/user-attachments/assets/c9d98ea2-2098-412c-b869-09fdc564d990",
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole-mainScreen.png",
         title: "메인",
         titleEn: "Main",
         titleZh: "主页",
       },
       {
-        url: "https://github.com/user-attachments/assets/2b30bd12-8946-421e-ae98-d85061257c65",
-        title: "로그인 화면",
-        titleEn: "Login Screen",
-        titleZh: "登录界面",
-      },
-      {
-        url: "https://github.com/user-attachments/assets/b7e67ac8-387b-4987-9cf7-7cf08ebe66fb",
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_createRoom.gif",
         title: "방 생성",
         titleEn: "Room Creation",
         titleZh: "创建房间",
       },
       {
-        url: "https://github.com/user-attachments/assets/94556c9e-9bed-4e5b-a7be-d6721e5a78fa",
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_enter_selectRoom.gif",
         title: "선택 방 입장",
         titleEn: "Enter Selected Room",
         titleZh: "进入选择的房间",
       },
       {
-        url: "https://github.com/user-attachments/assets/53fa5266-fa4a-4964-a652-31b5d82bb00f",
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_enter_randomRoom.gif",
         title: "랜덤 방 입장",
         titleEn: "Enter Random Room",
         titleZh: "进入随机房间",
       },
       {
-        url: "https://github.com/user-attachments/assets/2d44393f-ae61-4c09-97bf-9efc5e7cf5e3",
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_item_direction_mushroom.gif",
         title: "아이템(방향버섯 : 숨은 플레이어의 방향을 알려준다.)",
         titleEn: "Item(Direction Mushroom)",
         titleZh: "道具（方向蘑菇：显示隐藏玩家的方向）",
       },
       {
-        url: "https://github.com/user-attachments/assets/9bc255fb-c8e2-44f8-b97a-b87c9862febe",
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_item_banana.gif",
         title: "아이템(바나나 : 5초간 이동속도가 감소함.)",
         titleEn: "Item(Banana)",
         titleZh: "道具（香蕉：5秒内移动速度降低）",
       },
       {
-        url: "https://github.com/user-attachments/assets/88beb265-a25d-4fda-851f-f964a4590fc9",
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_item_beehive.gif",
         title: "아이템(벌통 : 벌통을 발견한 술래는 3초간 움직일 수 없다.)",
         titleEn: "Item(Beehive)",
         titleZh: "道具（蜂巢：发现蜂巢的追捕者3秒内无法移动）",
       },
       {
-        url: "https://github.com/user-attachments/assets/e1708d02-a464-449e-aceb-c1eabee6c625",
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_item_posion_mushroom.gif",
         title: "아이템(독버섯 : 방향키를 반대로 바꾼다.)",
         titleEn: "Item(Poison Mushroom)",
         titleZh: "道具（毒蘑菇：将方向键反向）",
@@ -333,7 +327,7 @@ export const projects = [
     ],
     architectureImages: [
       {
-        url: "/racoon-architecture-1.png",
+        url: "/architecture/racoon-architecture-1.png",
         title: "클라이언트-서버 상호작용 아키텍처",
         titleEn: "Client-Server Interaction Architecture",
         titleZh: "客户端-服务器交互架构",
@@ -345,7 +339,7 @@ export const projects = [
           "从房间参与到游戏开始的客户端-服务器通信流程：通过HTTP进行初始认证和令牌发放，通过STOMP over WebSocket实现实时游戏状态同步",
       },
       {
-        url: "/racoon-architecture-2.png",
+        url: "/architecture/racoon-architecture-2.png",
         title: "게임 플로우 아키텍처",
         titleEn: "Game Flow Architecture",
         titleZh: "游戏流程架构",
@@ -641,77 +635,76 @@ export const projects = [
       "Next.js",
       "TypeScript",
     ],
-    image:
-      "https://raw.githubusercontent.com/allkong/Melodiket/master/assets/melodiket.png",
+    image: "/projects/melodiket/melodiket_thumbnail.png",
     images: [
       {
-        url: "https://github.com/allkong/Melodiket/raw/master/assets/demonstration/screenshots/%EA%B3%B5%EC%97%B0%20%EB%93%B1%EB%A1%9D.jpg",
+        url: "/projects/melodiket/melodiket_regist_concert.jpg",
         title: "공연 등록",
         titleEn: "Concert Registration",
         titleZh: "演出注册",
       },
       {
-        url: "https://github.com/allkong/Melodiket/raw/master/assets/demonstration/recordings/gif/%EA%B3%B5%EC%97%B0%20%EC%8A%B9%EC%9D%B81.gif",
+        url: "/projects/melodiket/melodiket_accept_concert.gif",
         title: "공연 승인",
         titleEn: "Concert Approval",
         titleZh: "演出批准",
       },
       {
-        url: "https://github.com/allkong/Melodiket/raw/master/assets/demonstration/recordings/gif/%EB%82%B4%20%EA%B3%B5%EC%97%B0.gif",
+        url: "/projects/melodiket/melodiket_myConcert.gif",
         title: "내 공연",
         titleEn: "My Concerts",
         titleZh: "我的演出",
       },
       {
-        url: "https://github.com/allkong/Melodiket/raw/master/assets/demonstration/recordings/gif/%EA%B3%B5%EC%97%B0%20%EB%AA%A9%EB%A1%9D.gif",
+        url: "/projects/melodiket/melodiket_concert_catalog.gif",
         title: "공연 목록",
         titleEn: "Concert List",
         titleZh: "演出列表",
       },
       {
-        url: "https://github.com/allkong/Melodiket/raw/master/assets/demonstration/recordings/gif/%EC%B0%9C%20%EB%A6%AC%EC%8A%A4%ED%8A%B8.gif",
+        url: "/projects/melodiket/melodiket_wishlist.gif",
         title: "찜 리스트",
         titleEn: "Wishlist",
         titleZh: "收藏列表",
       },
       {
-        url: "https://github.com/allkong/Melodiket/raw/master/assets/demonstration/recordings/gif/%EA%B3%B5%EC%97%B0%20%EC%98%88%EB%A7%A4-%EC%A2%8C%EC%84%9D2.gif",
+        url: "/projects/melodiket/melodiket_Reservation_concert_seat.gif",
         title: "공연 예매",
         titleEn: "Concert Booking",
         titleZh: "演出预订",
       },
       {
-        url: "https://github.com/allkong/Melodiket/raw/master/assets/demonstration/recordings/gif/%EC%98%88%EB%A7%A4%20%EB%82%B4%EC%97%AD-%EB%AA%A8%EB%B0%94%EC%9D%BC%20%ED%8B%B0%EC%BC%93.gif",
+        url: "/projects/melodiket/melodiket_regist_mobileticket.gif",
         title: "모바일 티켓",
         titleEn: "Mobile Ticket",
         titleZh: "移动票",
       },
       {
-        url: "https://github.com/allkong/Melodiket/raw/master/assets/demonstration/recordings/gif/%EB%AA%A8%EB%B0%94%EC%9D%BC%20%ED%8B%B0%EC%BC%93%20%EC%8A%A4%EC%BA%94.gif",
+        url: "/projects/melodiket/melodiket_scan_mobileTicket.gif",
         title: "티켓 스캔",
         titleEn: "Ticket Scanning",
         titleZh: "票扫描",
       },
       {
-        url: "https://github.com/allkong/Melodiket/raw/master/assets/demonstration/recordings/gif/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98.gif",
+        url: "/projects/melodiket/melodiket_blockChain_transaction.gif",
         title: "트랜잭션",
         titleEn: "Transaction",
         titleZh: "交易",
       },
       {
-        url: "https://github.com/allkong/Melodiket/raw/master/assets/demonstration/recordings/gif/%ED%8F%AC%ED%86%A0%EC%B9%B4%EB%93%9C%20%EC%A0%9C%EC%9E%91-%EC%99%84%EB%A3%8C.gif",
+        url: "/projects/melodiket/melodiket_make_photocard.gif",
         title: "포토카드 제작",
         titleEn: "Photocard Creation",
         titleZh: "照片卡制作",
       },
       {
-        url: "https://github.com/allkong/Melodiket/raw/master/assets/demonstration/recordings/gif/%ED%8F%AC%ED%86%A0%EC%B9%B4%EB%93%9C%20%EA%B3%B5%EC%9C%A0.gif",
+        url: "/projects/melodiket/melodiket_share_photocard.gif",
         title: "포토카드 공유",
         titleEn: "Photocard Sharing",
         titleZh: "照片卡分享",
       },
       {
-        url: "https://github.com/allkong/Melodiket/raw/master/assets/demonstration/recordings/gif/%ED%8F%AC%ED%86%A0%EC%B9%B4%EB%93%9C-%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EA%B3%B5%EC%9C%A0.gif",
+        url: "/projects/melodiket/melodiket_check_photocard_on_kakaotalk.gif",
         title: "포토카드 카카오톡 공유",
         titleEn: "Photocard KakaoTalk Sharing",
         titleZh: "照片卡KakaoTalk分享",
@@ -778,7 +771,7 @@ export const projects = [
     ],
     architectureImages: [
       {
-        url: "https://raw.githubusercontent.com/allkong/Melodiket/master/assets/architecture.jpg",
+        url: "/projects/melodiket/melodiket_distribution-user-flow.png",
         title: "시스템 아키텍처",
         titleEn: "System Architecture",
         titleZh: "系统架构",
@@ -790,10 +783,10 @@ export const projects = [
           "基于3层架构的完整系统结构：前端（Next.js）、后端（Spring Boot）、区块链（Solidity）和分布式存储（IPFS）的集成结构",
       },
       {
-        url: "https://raw.githubusercontent.com/allkong/Melodiket/master/assets/sequence-diagram.png",
-        title: "시퀀스 다이어그램",
-        titleEn: "Sequence Diagram",
-        titleZh: "序列图",
+        url: "/projects/melodiket/melodiket_nft-photocard_distribution.png",
+        title: "NFT 포토카드 분배",
+        titleEn: "NFT Photocard Distribution",
+        titleZh: "NFT照片卡分发",
         description:
           "공연 계약 및 예매 프로세스의 전체 시퀀스: 공연 등록부터 뮤지션 승인, 티케팅, 입장 처리까지의 전체 흐름",
         descriptionEn:
@@ -802,10 +795,10 @@ export const projects = [
           "演出合同和预订流程的完整序列：从演出注册、音乐家批准、票务到入场处理的完整流程",
       },
       {
-        url: "https://raw.githubusercontent.com/allkong/Melodiket/master/assets/erd.png",
-        title: "ERD",
-        titleEn: "Entity Relationship Diagram",
-        titleZh: "实体关系图",
+        url: "/projects/melodiket/featureOfMelodiket.png",
+        title: "주요 기능",
+        titleEn: "Key Features",
+        titleZh: "主要功能",
         description:
           "데이터베이스 엔티티 관계도: 사용자, 공연, 계약, 티켓 등 핵심 엔티티 간의 관계 구조",
         descriptionEn:
@@ -1103,7 +1096,7 @@ export const projects = [
       "MySQL",
       "Redis",
     ],
-    image: "/DreamsComeTrue_Thumbnail.png",
+    image: "/thumbnails/DreamsComeTrue_Thumbnail.png",
     images: [],
     githubUrl: "https://github.com/sevin98/DreamsComeTrue",
     liveUrl: null,
@@ -1149,7 +1142,7 @@ export const projects = [
     ],
     architectureImages: [
       {
-        url: "/project3_systemArchitecture.png",
+        url: "/architecture/project3_systemArchitecture.png",
         title: "시스템 아키텍처",
         titleEn: "System Architecture",
         titleZh: "系统架构",
@@ -1161,7 +1154,7 @@ export const projects = [
           "PWA前端和后端微服务架构：前端（PWA）、后端核心服务、RabbitMQ消息代理和生成式AI服务（ChatGPT、Midjourney、LUMA AI）的集成结构",
       },
       {
-        url: "/project3_callChain.png",
+        url: "/architecture/project3_callChain.png",
         title: "비동기 처리 아키텍처 (CALL-CHAIN)",
         titleEn: "Asynchronous Processing Architecture (CALL-CHAIN)",
         titleZh: "异步处理架构（CALL-CHAIN）",
@@ -1173,7 +1166,7 @@ export const projects = [
           "使用基于RabbitMQ的消息队列的异步处理流程：通过Node.js事件循环、外部服务、处理函数和检查器函数进行任务处理和反馈机制",
       },
       {
-        url: "/project3_tech_stack.png",
+        url: "/architecture/project3_tech_stack.png",
         title: "기술 스택 (VARIOUS STACK)",
         titleEn: "Technology Stack (VARIOUS STACK)",
         titleZh: "技术栈（VARIOUS STACK）",
