@@ -32,11 +32,18 @@ function OptimizedImage({
 }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const isGif = src.toLowerCase().endsWith('.gif');
 
   useEffect(() => {
+    // IntersectionObserver가 지원되지 않는 경우를 대비해 즉시 로드
+    if (!('IntersectionObserver' in window)) {
+      setIsInView(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -44,7 +51,10 @@ function OptimizedImage({
           observer.disconnect();
         }
       },
-      { rootMargin: '50px' } // 뷰포트 50px 전에 미리 로드
+      { 
+        rootMargin: '100px', // 뷰포트 100px 전에 미리 로드 (모바일 대응)
+        threshold: 0.01 // 약간만 보여도 로드
+      }
     );
 
     if (containerRef.current) {
@@ -54,39 +64,70 @@ function OptimizedImage({
     return () => observer.disconnect();
   }, []);
 
+  const handleError = () => {
+    setHasError(true);
+    if (onError) {
+      onError();
+    }
+  };
+
   // GIF는 일반 img 태그 사용 (Next.js Image는 GIF 최적화 불가)
   if (isGif) {
     return (
-      <div ref={containerRef} className="w-full h-full flex items-center justify-center">
-        <img
-          ref={imgRef}
-          src={src}
-          alt={alt}
-          className={`${className} ${!isLoaded ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
-          style={{ objectFit: 'contain', maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }}
-          loading="lazy"
-          onLoad={() => setIsLoaded(true)}
-          onError={onError}
-        />
+      <div ref={containerRef} className="w-full h-full flex items-center justify-center min-h-[100px]">
+        {hasError ? (
+          <div className="text-gray-400 text-xs text-center p-2">
+            이미지를 불러올 수 없습니다
+          </div>
+        ) : isInView ? (
+          <img
+            ref={imgRef}
+            src={src}
+            alt={alt}
+            className={`${className} ${!isLoaded ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+            style={{ 
+              objectFit: 'contain', 
+              maxWidth: '100%', 
+              maxHeight: '100%', 
+              width: 'auto', 
+              height: 'auto',
+              display: 'block' // 모바일에서 이미지가 보이도록 명시적으로 설정
+            }}
+            loading="eager" // 모바일에서 lazy loading 문제 방지를 위해 eager 사용
+            onLoad={() => setIsLoaded(true)}
+            onError={handleError}
+            decoding="async" // 비동기 디코딩으로 성능 개선
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 animate-pulse rounded-xl">
+            <div className="text-gray-400 text-xs">로딩 중...</div>
+          </div>
+        )}
       </div>
     );
   }
 
   // 일반 이미지는 Next.js Image 사용
   return (
-    <div ref={containerRef}>
-      <Image
-        src={src}
-        alt={alt}
-        width={375}
-        height={667}
-        className={className}
-        unoptimized={src.startsWith('http')}
-        loading="lazy"
-        onError={onError}
-        placeholder="blur"
-        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-      />
+    <div ref={containerRef} className="w-full h-full">
+      {isInView ? (
+        <Image
+          src={src}
+          alt={alt}
+          width={375}
+          height={667}
+          className={className}
+          unoptimized={src.startsWith('http')}
+          loading="lazy"
+          onError={onError}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 animate-pulse rounded-xl">
+          <div className="text-gray-400 text-xs">로딩 중...</div>
+        </div>
+      )}
     </div>
   );
 }
