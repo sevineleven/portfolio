@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Locale } from "@/i18n";
 
 interface Section {
@@ -18,33 +18,59 @@ export default function ProjectTableOfContents({
   locale,
 }: ProjectTableOfContentsProps) {
   const [activeSection, setActiveSection] = useState<string>("");
+  const sectionPositionsRef = useRef<Array<{ id: string; top: number }>>([]);
+  const lastActiveSectionRef = useRef<string>("");
+
+  // Cache section positions - only recalculate when sections change or on resize
+  const updateSectionPositions = () => {
+    sectionPositionsRef.current = sections
+      .map((section) => {
+        const element = document.getElementById(section.id);
+        if (element) {
+          return {
+            id: section.id,
+            top: element.offsetTop,
+          };
+        }
+        return null;
+      })
+      .filter(Boolean) as Array<{ id: string; top: number }>;
+  };
+
+  useEffect(() => {
+    // Initial calculation with a small delay to ensure DOM is ready
+    const timeoutId = setTimeout(() => {
+      updateSectionPositions();
+      if (sectionPositionsRef.current.length > 0) {
+        const initialSection = sectionPositionsRef.current[0]?.id || sections[0]?.id || "";
+        setActiveSection(initialSection);
+        lastActiveSectionRef.current = initialSection;
+      }
+    }, 100);
+
+    // Recalculate on window resize
+    const handleResize = () => {
+      updateSectionPositions();
+    };
+
+    window.addEventListener("resize", handleResize, { passive: true });
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [sections]);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 120; // Offset for navbar
 
-      // Get all section positions
-      const sectionPositions = sections
-        .map((section) => {
-          const element = document.getElementById(section.id);
-          if (element) {
-            return {
-              id: section.id,
-              top: element.offsetTop,
-              bottom: element.offsetTop + element.offsetHeight,
-            };
-          }
-          return null;
-        })
-        .filter(Boolean) as Array<{ id: string; top: number; bottom: number }>;
-
+      const sectionPositions = sectionPositionsRef.current;
       if (sectionPositions.length === 0) {
         return;
       }
 
       // Find the last section that we've scrolled past
-      // This means: scrollPosition >= section.top
-      // We want to keep the last section we passed active until we reach the next one
       let currentSection = sections[0]?.id || "";
 
       // Check from bottom to top to find the last section we've passed
@@ -57,11 +83,12 @@ export default function ProjectTableOfContents({
         }
       }
 
-      setActiveSection(currentSection);
+      // Only update state if the section actually changed
+      if (currentSection !== lastActiveSectionRef.current) {
+        lastActiveSectionRef.current = currentSection;
+        setActiveSection(currentSection);
+      }
     };
-
-    // Initial check
-    handleScroll();
 
     // Throttle scroll events for better performance
     let ticking = false;
