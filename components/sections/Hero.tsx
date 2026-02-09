@@ -47,6 +47,7 @@ export default function Hero({ locale }: HeroProps) {
                     className="object-cover object-top rounded-lg"
                     style={{ objectPosition: 'center top' }}
                     priority
+                    sizes="96px"
                   />
                 ) : (
                   <div className="image-placeholder-text flex h-full items-center justify-center text-xs">
@@ -93,6 +94,7 @@ export default function Hero({ locale }: HeroProps) {
                 className="object-cover object-top rounded-lg"
                 style={{ objectPosition: 'center top' }}
                 priority
+                sizes="(max-width: 768px) 96px, 320px"
               />
             ) : (
               <div className="image-placeholder-text flex h-full items-center justify-center">
