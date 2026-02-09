@@ -36,9 +36,9 @@ export default function Hero({ locale }: HeroProps) {
                 {personalInfo.email}
               </p>
             </div>
-            {/* 모바일에서 사진을 이름 옆에 배치 */}
-            <div className="md:hidden flex-shrink-0">
-              <div className="image-placeholder aspect-square w-24 h-24 rounded-lg overflow-hidden relative">
+            {/* 모바일에서 사진을 이름 옆에 배치 - LCP 최적화를 위해 제거 */}
+            {/* <div className="md:hidden flex-shrink-0">
+              <div className="image-placeholder aspect-square w-24 h-24 rounded-lg overflow-hidden relative bg-gray-200 dark:bg-slate-800">
                 {personalInfo.profileImage ? (
                   <Image
                     src={personalInfo.profileImage}
@@ -48,6 +48,9 @@ export default function Hero({ locale }: HeroProps) {
                     style={{ objectPosition: 'center top' }}
                     priority
                     sizes="96px"
+                    quality={75}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   />
                 ) : (
                   <div className="image-placeholder-text flex h-full items-center justify-center text-xs">
@@ -55,7 +58,7 @@ export default function Hero({ locale }: HeroProps) {
                   </div>
                 )}
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Philosophy Sections */}
@@ -83,9 +86,9 @@ export default function Hero({ locale }: HeroProps) {
             <LinkedInButton url={personalInfo.linkedin} />
           </div>
         </div>
-        {/* 데스크톱에서만 사진을 오른쪽에 배치 - 오른쪽 열의 세로 중앙 정렬 */}
-        <div className="hidden md:flex flex-1 items-center justify-center">
-          <div className="image-placeholder aspect-square w-full max-w-xs rounded-lg overflow-hidden relative">
+        {/* 데스크톱에서만 사진을 오른쪽에 배치 - LCP 최적화를 위해 제거 */}
+        {/* <div className="hidden md:flex flex-1 items-center justify-center">
+          <div className="image-placeholder aspect-square w-full max-w-xs rounded-lg overflow-hidden relative bg-gray-200 dark:bg-slate-800">
             {personalInfo.profileImage ? (
               <Image
                 src={personalInfo.profileImage}
@@ -95,6 +98,9 @@ export default function Hero({ locale }: HeroProps) {
                 style={{ objectPosition: 'center top' }}
                 priority
                 sizes="(max-width: 768px) 96px, 320px"
+                quality={75}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
               />
             ) : (
               <div className="image-placeholder-text flex h-full items-center justify-center">
@@ -102,7 +108,7 @@ export default function Hero({ locale }: HeroProps) {
               </div>
             )}
           </div>
-        </div>
+        </div> */}
       </div>
     </Section>
   );
