@@ -11,6 +11,7 @@ import Footer from "@/components/layout/Footer";
 import ProjectScreenshots from "@/components/projects/ProjectScreenshots";
 import ArchitectureImages from "@/components/projects/ArchitectureImages";
 import MarkdownContent from "@/components/ui/MarkdownContent";
+import ProjectTableOfContents from "@/components/projects/ProjectTableOfContents";
 import { Locale } from "@/i18n";
 
 interface ProjectDetailPageProps {
@@ -129,6 +130,48 @@ export default async function ProjectDetailPage({
     : locale === "zh" ? (projectData.descriptionZh || project.descriptionEn || project.description)
     : (project.descriptionEn || project.description);
 
+  // Build table of contents sections
+  const tocSections = [];
+  if (projectData.overview) {
+    tocSections.push({ id: "overview", label: t.overview });
+  }
+  if (projectData.roleDetails && projectData.roleDetails.length > 0) {
+    tocSections.push({ id: "key-contributions", label: t.keyContributions });
+  }
+  if (projectData.challenges && projectData.challenges.length > 0) {
+    tocSections.push({ id: "challenges", label: t.challenges });
+  }
+  if (projectData.results && projectData.results.length > 0) {
+    tocSections.push({ id: "results", label: t.results });
+  }
+  if (projectData.technologyReasons && projectData.technologyReasons.length > 0) {
+    tocSections.push({ id: "technology-reasons", label: t.technologyReasons });
+  }
+  if (projectData.architectureImages && projectData.architectureImages.length > 0) {
+    tocSections.push({ id: "architecture", label: t.architecture });
+  }
+  if (projectData.performanceOptimization && projectData.performanceOptimization.length > 0) {
+    tocSections.push({ id: "performance-optimization", label: t.performanceOptimization });
+  }
+  if (projectData.databaseOptimization && projectData.databaseOptimization.length > 0) {
+    tocSections.push({ id: "database-optimization", label: t.databaseOptimization });
+  }
+  if (projectData.apiDesign) {
+    tocSections.push({ id: "api-design", label: t.apiDesign });
+  }
+  if (projectData.securityImplementation && projectData.securityImplementation.length > 0) {
+    tocSections.push({ id: "security-implementation", label: t.securityImplementation });
+  }
+  if (projectData.testingStrategy) {
+    tocSections.push({ id: "testing-strategy", label: t.testingStrategy });
+  }
+  if (projectData.retrospection) {
+    tocSections.push({ id: "retrospection", label: t.retrospection });
+  }
+  if (project.images && project.images.length > 0) {
+    tocSections.push({ id: "screenshots", label: t.screenshots });
+  }
+
   return (
     <>
       <Navbar locale={locale} />
@@ -192,7 +235,7 @@ export default async function ProjectDetailPage({
               <div className="lg:col-span-2 space-y-6 md:space-y-8">
                 {/* Overview Section */}
                 {projectData.overview && (
-                  <section>
+                  <section id="overview">
                     <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                       {t.overview}
                     </h2>
@@ -215,7 +258,7 @@ export default async function ProjectDetailPage({
                 {/* Key Contributions */}
                 {projectData.roleDetails &&
                   projectData.roleDetails.length > 0 && (
-                    <section>
+                    <section id="key-contributions">
                       <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.keyContributions}
                       </h2>
@@ -246,7 +289,7 @@ export default async function ProjectDetailPage({
                 {/* Technical Challenges */}
                 {projectData.challenges &&
                   projectData.challenges.length > 0 && (
-                    <section>
+                    <section id="challenges">
                       <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.challenges}
                       </h2>
@@ -281,7 +324,7 @@ export default async function ProjectDetailPage({
 
                 {/* Results */}
                 {projectData.results && projectData.results.length > 0 && (
-                    <section>
+                    <section id="results">
                       <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.results}
                       </h2>
@@ -315,7 +358,7 @@ export default async function ProjectDetailPage({
                 {/* Technology Selection Reasons */}
                 {projectData.technologyReasons &&
                   projectData.technologyReasons.length > 0 && (
-                    <section>
+                    <section id="technology-reasons">
                       <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.technologyReasons}
                       </h2>
@@ -347,7 +390,7 @@ export default async function ProjectDetailPage({
                 {/* System Architecture */}
                 {projectData.architectureImages &&
                   projectData.architectureImages.length > 0 && (
-                    <section>
+                    <section id="architecture">
                       <div className="flex flex-row items-baseline gap-2 mb-3 md:mb-4">
                         <h2 className="project-section-title text-lg md:text-xl font-bold">
                           {t.architecture}
@@ -366,7 +409,7 @@ export default async function ProjectDetailPage({
                 {/* Performance Optimization */}
                 {projectData.performanceOptimization &&
                   projectData.performanceOptimization.length > 0 && (
-                    <section>
+                    <section id="performance-optimization">
                       <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.performanceOptimization}
                       </h2>
@@ -402,7 +445,7 @@ export default async function ProjectDetailPage({
                 {/* Database Optimization */}
                 {projectData.databaseOptimization &&
                   projectData.databaseOptimization.length > 0 && (
-                    <section>
+                    <section id="database-optimization">
                       <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.databaseOptimization}
                       </h2>
@@ -437,7 +480,7 @@ export default async function ProjectDetailPage({
 
                 {/* API Design */}
                 {projectData.apiDesign && (
-                  <section>
+                  <section id="api-design">
                     <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                       {t.apiDesign}
                     </h2>
@@ -460,7 +503,7 @@ export default async function ProjectDetailPage({
                 {/* Security Implementation */}
                 {projectData.securityImplementation &&
                   projectData.securityImplementation.length > 0 && (
-                    <section>
+                    <section id="security-implementation">
                       <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.securityImplementation}
                       </h2>
@@ -495,7 +538,7 @@ export default async function ProjectDetailPage({
 
                 {/* Testing Strategy */}
                 {projectData.testingStrategy && (
-                  <section>
+                  <section id="testing-strategy">
                     <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                       {t.testingStrategy}
                     </h2>
@@ -517,7 +560,7 @@ export default async function ProjectDetailPage({
 
                 {/* Project Retrospection */}
                 {projectData.retrospection && (
-                  <section>
+                  <section id="retrospection">
                       <h2 className="project-section-title text-lg md:text-xl font-bold mb-3 md:mb-4">
                         {t.retrospection}
                       </h2>
@@ -584,6 +627,13 @@ export default async function ProjectDetailPage({
               {/* Sidebar */}
               <div className="lg:col-span-1">
                 <div className="lg:sticky lg:top-24 space-y-4 md:space-y-6">
+                  {/* Table of Contents */}
+                  {tocSections.length > 0 && (
+                    <Card hover={false} className="p-4 md:p-6">
+                      <ProjectTableOfContents sections={tocSections} locale={locale} />
+                    </Card>
+                  )}
+
                   {/* Project Info Card */}
                   <Card hover={false} className="p-4 md:p-6">
                     <h3 className="project-sidebar-title text-xs md:text-sm font-semibold mb-4 md:mb-6">
@@ -700,7 +750,7 @@ export default async function ProjectDetailPage({
 
             {/* Screenshots - Full Width */}
             {project.images && project.images.length > 0 && (
-              <section className="mt-8 md:mt-12 -mx-4 md:-mx-6 lg:-mx-12 xl:-mx-16 2xl:-mx-20 px-4 md:px-6 lg:px-12 xl:px-16 2xl:px-20">
+              <section id="screenshots" className="mt-8 md:mt-12 -mx-4 md:-mx-6 lg:-mx-12 xl:-mx-16 2xl:-mx-20 px-4 md:px-6 lg:px-12 xl:px-16 2xl:px-20">
                 <div className="flex flex-row items-baseline gap-2 mb-4 md:mb-6">
                   <h2 className="project-section-title text-lg md:text-xl font-bold">
                     {t.screenshots}
