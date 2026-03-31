@@ -79,84 +79,160 @@ export const experiences = [
     companyEn: "PolarisOffice Server Development Team",
     companyZh: "PolarisOffice服务器开发团队",
     period: "Jan 2025 - Present",
-    description: "B2C 서비스 운영 및 고도화 프로젝트 참여",
+    description:
+      "크로스 플랫폼 오피스 솔루션 및 클라우드 기반 문서 협업 서비스 개발",
     descriptionEn:
-      "Participated in B2C service operations and enhancement projects",
-    descriptionZh: "参与B2C服务运营和增强项目",
+      "Backend development for a global B2C document productivity platform. Focused on large-scale notifications/scheduling, data modeling & performance optimization, and improving operational automation and monitoring.",
+    descriptionZh:
+      "面向全球B2C文档生产力平台的后端开发。重点推进大规模通知/调度、数据建模与性能优化，以及运维自动化与监控体系改进。",
     workItems: [
+      // Row 1: grid 2칸 (메시징 + 실시간 협업)
       {
-        title: "신규 기능 개발",
-        titleEn: "Feature Development",
-        titleZh: "新功能开发",
+        title: "메시징/알림 플랫폼",
+        titleEn: "Messaging & Notifications",
+        titleZh: "消息/通知平台",
         items: [
           {
-            name: "iOS 다이내믹 아일랜드 Push",
-            nameEn: "iOS Dynamic Island Push",
-            nameZh: "iOS动态岛推送",
-            description: "iOS 업데이트 대응 실시간 알림 기능 구현",
-            descriptionEn:
-              "Implemented real-time notification feature for iOS Dynamic Island",
-            descriptionZh: "实现iOS动态岛的实时通知功能",
-          },
-          {
-            name: "NOVA AI 대화 내역 조회",
-            nameEn: "NOVA AI Conversation History",
-            nameZh: "NOVA AI对话历史",
+            name: "iOS Dynamic Island 실시간 알림 지원",
+            nameEn: "Real-time notifications for iOS Dynamic Island",
+            nameZh: "支持iOS动态岛实时通知",
             description:
-              "AI 대화 내역 저장 및 조회 기능 개발, DynamoDB 성능 최적화",
+              "iOS 업데이트 스펙 변화에 대응해 실시간 알림 동작을 재정의하고, 서버 발송/페이로드 구성을 정리하여 사용자 노출 품질을 안정화했습니다.",
             descriptionEn:
-              "Developed conversation history storage and retrieval with DynamoDB performance optimization",
-            descriptionZh: "开发AI对话历史存储和检索功能，优化DynamoDB性能",
+              "Stabilized real-time notifications for iOS Dynamic Island by adapting server-side delivery and payload rules to OS updates and spec changes.",
+            descriptionZh:
+              "为适配iOS更新与规格变化，梳理服务端下发与载荷规则，稳定动态岛实时通知的展示与行为。",
+          },
+          {
+            name: "대규모 Push 발송 성능 개선(비동기/병렬화)",
+            nameEn:
+              "Large-scale push delivery performance (async & parallelization)",
+            nameZh: "大规模Push下发性能提升（异步/并行）",
+            description:
+              "레거시 동기 처리 병목을 분석하고 비동기/Batch 병렬 처리로 발송 파이프라인을 재구성했습니다. Retry Queue 및 Idempotency를 적용해 실패/중복 케이스를 제어하고, 수 천만건의 대량 캠페인 발송 시간을 24시간 → 3~5분 수준으로 단축했습니다.",
+            descriptionEn:
+              "Re-architected the push delivery pipeline from legacy synchronous processing to async, batch-parallel execution. Added retry queues and idempotency controls to handle failures/duplicates, reducing 10M push delivery time from ~24 hours to ~3–5 minutes.",
+            descriptionZh:
+              "分析遗留同步处理瓶颈并改造为异步+批量并行下发。引入重试队列与幂等控制以覆盖失败/重复场景，将千万级Push下发耗时从约24小时降低至约3–5分钟。",
           },
         ],
       },
       {
-        title: "개발 생산성 향상",
-        titleEn: "Developer Experience",
-        titleZh: "开发体验",
+        title: "실시간 협업/동기화",
+        titleEn: "Real-time Collaboration & Sync",
+        titleZh: "实时协作/同步",
         items: [
           {
-            name: "API 문서 자동화",
-            nameEn: "API Documentation Automation",
-            nameZh: "API文档自动化",
-            description: "Springfox 기반 자동화 도입으로 협업 효율성 향상",
+            name: "공동편집 동기화 설계 및 충돌 해결",
+            nameEn: "Collaborative editing sync & conflict resolution",
+            nameZh: "协同编辑同步与冲突解决",
+            description:
+              "실시간 공동편집에서 발생하는 command 역전/인덱스 충돌을 분석하고, 논리적 Identifier 기반 병합 구조로 정합성을 강화했습니다. 지연 환경을 고려해 Optimistic UI + Server Reconciliation 흐름을 적용하고, 이벤트 전파를 비동기 큐 기반으로 안정화했습니다.",
             descriptionEn:
-              "Introduced Springfox-based automation to improve collaboration efficiency",
-            descriptionZh: "引入基于Springfox的自动化以提高协作效率",
+              "Improved consistency for real-time collaborative editing by addressing command reordering and index conflicts with an identifier-based merge model. Applied an optimistic UI + server reconciliation flow and stabilized event propagation with asynchronous queueing.",
+            descriptionZh:
+              "针对实时协作中的指令逆序/索引冲突问题，采用基于逻辑位置标识的合并模型强化一致性；并引入乐观更新+服务端校正流程，通过异步队列稳定事件传播。",
+          },
+        ],
+      },
+      // Row 2: col-span-2 전체 너비 (글로벌 스케줄링) — 앞에 짝수(2)개 grid 아이템이 있어야 빈 칸 없이 렌더링됨
+      {
+        title: "글로벌 PUsh 스케줄링",
+        titleEn: "Global Scheduling",
+        titleZh: "全球调度",
+        layout: "row",
+        items: [
+          {
+            name: "Timezone 기반 캠페인 Push 스케줄링",
+            nameEn: "Timezone-aware campaign push scheduling",
+            nameZh: "基于时区的活动Push调度",
+            description:
+              "GeoIP 기반 Timezone 관리 체계를 구축하고, Timezone 단위 Redis 큐로 작업을 분산 적재/소비하는 구조를 구현했습니다. 사용자 이동에도 발송 시각 정합성을 유지하고, 특정 시간대 집중 발송을 완화했습니다.",
+            descriptionEn:
+              "Built a GeoIP-based timezone management flow and a timezone-partitioned queue model (Redis) for distributing and consuming push jobs. Ensured time accuracy even when users moved across regions and reduced peak-time bursts.",
+            descriptionZh:
+              "构建基于GeoIP的时区管理流程，并以时区维度（Redis队列）分发/消费Push任务。在用户跨地区移动时保持发送时间准确性，并缓解特定时段集中下发。",
           },
           {
-            name: "Git 전환 및 규칙 정립",
-            nameEn: "SVN to Git Migration",
-            nameZh: "SVN到Git迁移",
-            description: "SVN→Git 전환, 운영 규칙 및 브랜치 전략 수립",
+            name: "피크 트래픽 분산을 위한 Queue/Worker 운영",
+            nameEn: "Queue/worker operations for peak traffic smoothing",
+            nameZh: "用于削峰的Queue/Worker运行机制",
+            description:
+              "Scheduler가 각 Timezone Queue에 Push 작업을 분산 적재하고, Worker는 발송 허용 시간(allow-window) 조건을 만족하는 큐만 Pull하여 소비하는 구조를 구현했습니다. 특정 시간대에 캠페인 트래픽이 집중되는 문제를 완화하고, 발송 허용 시간 이외에는 큐가 쌓이기만 하다가 조건 충족 시 순차 소비되도록 제어하여 서버 부하를 평탄화했습니다.",
             descriptionEn:
-              "Migrated from SVN to Git, established operations rules and branch strategy",
-            descriptionZh: "从SVN迁移到Git，建立运营规则和分支策略",
+              "Implemented a structure where the scheduler distributes push jobs across per-timezone queues, and workers pull only from queues that satisfy the allow-window condition. This flattened server load by preventing traffic spikes during peak hours — jobs accumulate in their respective queues and are consumed sequentially once the delivery window opens.",
+            descriptionZh:
+              "实现调度器向各时区队列分散写入Push任务，Worker仅Pull满足允许时间窗口条件的队列。通过让任务在队列中积压，待时间窗口开启后顺序消费，有效平滑了特定时段的流量峰值，降低服务端压力。",
+          },
+        ],
+      },
+      // Row 3: grid 2칸 (데이터 모델링 + 개발 생산성)
+      {
+        title: "데이터 모델링/성능 최적화",
+        titleEn: "Data Modeling & Performance",
+        titleZh: "数据建模与性能优化",
+        items: [
+          {
+            name: "NOVA AI 대화 내역 저장/조회 구조 개선(DynamoDB)",
+            nameEn: "NOVA AI conversation storage & retrieval (DynamoDB)",
+            nameZh: "NOVA AI对话存储/查询优化（DynamoDB）",
+            description:
+              "Item Size 초과 및 조회 지연 이슈를 해결하기 위해 대화 데이터를 Chunk 단위로 분리하고, PK/SK 기반 접근 패턴에 맞춰 테이블 구조를 재설계했습니다. Hot Partition을 완화하는 분산 키 전략을 적용해 저장/조회 안정성을 확보했습니다.",
+            descriptionEn:
+              "Resolved item-size limits and query latency by chunking conversation data and redesigning the table around PK/SK access patterns. Applied a key distribution strategy to mitigate hot partitions and improve stability.",
+            descriptionZh:
+              "为解决Item大小限制与查询延迟，将对话数据按Chunk拆分，并基于PK/SK访问模式重构表结构；通过分散键策略缓解热点分区，提升存储与查询稳定性。",
+          },
+          {
+            name: "FCM Push 레거시 리팩토링",
+            nameEn: "Refactoring legacy FCM push code",
+            nameZh: "FCM Push遗留代码重构",
+            description:
+              "발송 로직의 책임을 정리하고 라이브러리 업데이트를 수행해 유지보수성과 운영 안정성을 개선했습니다.",
+            descriptionEn:
+              "Improved maintainability and operational stability by restructuring responsibilities in the delivery logic and updating libraries.",
+            descriptionZh:
+              "通过梳理下发逻辑职责并更新依赖库，提升可维护性与运行稳定性。",
           },
         ],
       },
       {
-        title: "인프라 개선",
-        titleEn: "Infrastructure",
-        titleZh: "基础设施",
+        title: "개발 생산성/운영 체계",
+        titleEn: "Developer Productivity & Operations",
+        titleZh: "研发效率与运维体系",
         items: [
+          {
+            name: "API 문서 자동화 및 AI 연동 스펙 제공",
+            nameEn: "API doc automation & AI-ready spec export",
+            nameZh: "API文档自动化与AI工具规格输出",
+            description:
+              "Springfox를 통해 API 명세를 구조화된 JSON 파일로 자동 생성하고, 프론트엔드가 요구하는 스펙 형식에 맞춰 가공하여 제공했습니다. 별도 문서 작성 없이 해당 JSON을 AI 툴(Cursor, Claude 등)에 바로 입력할 수 있도록 구성해 프론트엔드 개발자의 API 파악 속도와 구현 생산성을 높였습니다.",
+            descriptionEn:
+              "Used Springfox to auto-generate structured API spec JSON files, shaped to match the format frontend developers needed. By making the JSON directly usable as context for AI tools (Cursor, Claude, etc.), we eliminated manual documentation overhead and accelerated frontend development speed.",
+            descriptionZh:
+              "通过Springfox自动生成结构化API规格JSON文件，并按前端要求的格式进行加工输出。JSON可直接作为AI工具（Cursor、Claude等）的上下文输入，无需额外编写文档，提升了前端开发人员理解接口与实现功能的效率。",
+          },
+          {
+            name: "SVN → Git 전환 및 운영 규칙/브랜치 전략 정립",
+            nameEn: "SVN → Git migration & branching conventions",
+            nameZh: "SVN→Git迁移与分支规范",
+            description:
+              "SVN에서 Git으로 마이그레이션하고 브랜치 전략 및 운영 규칙을 정립하여 배포/협업 프로세스를 표준화했습니다.",
+            descriptionEn:
+              "Migrated from SVN to Git and standardized branching and operational conventions for a more reliable collaboration/deployment workflow.",
+            descriptionZh:
+              "完成SVN到Git迁移并建立分支策略与运维规范，推进协作与发布流程标准化。",
+          },
           {
             name: "Sentry 모니터링 시스템 전환",
-            nameEn: "Sentry Monitoring Migration",
+            nameEn: "Sentry monitoring migration",
             nameZh: "Sentry监控系统迁移",
             description:
-              "레거시 Sentry(8.x) → Self-hosted(25.x) 전환, 장애 분석 효율 개선",
+              "레거시 Sentry(8.x)에서 Self-hosted Sentry(25.x)로 전환하여 장애 재현/분석 효율을 개선했습니다.",
             descriptionEn:
-              "Migrated from legacy Sentry 8.x to Self-hosted 25.x, improved incident analysis efficiency",
-            descriptionZh: "从遗留Sentry 8.x迁移到自托管25.x，提高故障分析效率",
-          },
-          {
-            name: "FCM Push 리팩토링",
-            nameEn: "FCM Push Refactoring",
-            nameZh: "FCM推送重构",
-            description: "레거시 코드 리팩토링 및 라이브러리 업데이트",
-            descriptionEn: "Refactored legacy codebase and updated libraries",
-            descriptionZh: "重构遗留代码库并更新库",
+              "Migrated from legacy Sentry (8.x) to self-hosted Sentry (25.x), improving incident reproduction and analysis workflows.",
+            descriptionZh:
+              "从遗留Sentry(8.x)迁移至自托管Sentry(25.x)，提升故障复现与分析效率。",
           },
         ],
       },
@@ -201,417 +277,6 @@ export const experiences = [
 export const projects = [
   {
     id: 1,
-    title: "굴 안의 너굴이",
-    titleEn: "RACOON-IN-THE-HOLE",
-    titleZh: "洞中的浣熊",
-    description:
-      "실시간 온라인 멀티플레이 숨바꼭질 게임. 플레이어는 찾는 팀과 숨는 팀으로 나뉘어 제한된 공간에서 술래잡기를 즐길 수 있으며, 다양한 아이템을 활용하여 다이나믹한 숨바꼭질을 즐길 수 있습니다.",
-    descriptionEn:
-      "Real-time online multiplayer hide-and-seek game. Players are divided into seekers and hiders, enjoying tag in a limited space, and can use various items for dynamic hide-and-seek gameplay.",
-    descriptionZh:
-      "实时在线多人捉迷藏游戏。玩家分为寻找者和隐藏者，在有限的空间中享受捉迷藏，可以使用各种道具享受动态的捉迷藏游戏。",
-    projectOrigin: "삼성 청년 SW 아카데미 11기 공통 프로젝트",
-    projectOriginEn: "Samsung Software Academy For Youth 11th Common Project",
-    projectOriginZh: "三星青年SW学院11期共同项目",
-    tags: ["Java", "Spring Boot", "WebSocket", "MySQL", "React", "Phaser.js"],
-    image: "/thumbnails/racoon-thumbnail.jpg",
-    screenshotType: "web" as const,
-    images: [
-      {
-        url: "/projects/racoon-in-the-hole/racoon-in-the-hole-mainScreen.png",
-        title: "메인",
-        titleEn: "Main",
-        titleZh: "主页",
-      },
-      {
-        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_createRoom.gif",
-        title: "방 생성",
-        titleEn: "Room Creation",
-        titleZh: "创建房间",
-      },
-      {
-        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_enter_selectRoom.gif",
-        title: "선택 방 입장",
-        titleEn: "Enter Selected Room",
-        titleZh: "进入选择的房间",
-      },
-      {
-        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_enter_randomRoom.gif",
-        title: "랜덤 방 입장",
-        titleEn: "Enter Random Room",
-        titleZh: "进入随机房间",
-      },
-      {
-        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_item_direction_mushroom.gif",
-        title: "아이템(방향버섯 : 숨은 플레이어의 방향을 알려준다.)",
-        titleEn: "Item(Direction Mushroom)",
-        titleZh: "道具（方向蘑菇：显示隐藏玩家的方向）",
-      },
-      {
-        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_item_banana.gif",
-        title: "아이템(바나나 : 5초간 이동속도가 감소함.)",
-        titleEn: "Item(Banana)",
-        titleZh: "道具（香蕉：5秒内移动速度降低）",
-      },
-      {
-        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_item_beehive.gif",
-        title: "아이템(벌통 : 벌통을 발견한 술래는 3초간 움직일 수 없다.)",
-        titleEn: "Item(Beehive)",
-        titleZh: "道具（蜂巢：发现蜂巢的追捕者3秒内无法移动）",
-      },
-      {
-        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_item_posion_mushroom.gif",
-        title: "아이템(독버섯 : 방향키를 반대로 바꾼다.)",
-        titleEn: "Item(Poison Mushroom)",
-        titleZh: "道具（毒蘑菇：将方向键反向）",
-      },
-    ],
-    githubUrl: "https://github.com/sevin98/RACOON-IN-THE-HOLE",
-    liveUrl: null,
-    period: "2024.07 - 2024.08",
-    teamSize: 5,
-    teamComposition: "3FE 2BE",
-    myRole: "Backend Developer",
-    overview:
-      "학교 컴퓨터실 수업 중 쉬는 시간에 친구들과 함께 즐기던 플래시 게임의 추억을 현대적으로 재현한 실시간 멀티플레이어 게임입니다.\n\n이 프로젝트는 단순한 게임 구현을 넘어서, **300명 이상의 동시 접속자를 안정적으로 처리**하는 서버 아키텍처 설계와 **실시간 동기화를 위한 WebSocket 기반 통신 시스템**을 구축하는 데 초점을 맞췄습니다. 특히 **Server-Authority 모델**을 도입하여 치팅 방지와 게임 상태 일관성을 보장하고, 이벤트 기반 브로드캐스팅을 통해 네트워크 효율성을 극대화했습니다.\n\n백엔드 개발자로서 실시간 멀티플레이어 환경에서의 동시성 제어, 토큰 기반 인증 시스템, 상태 머신을 활용한 게임 라이프사이클 관리 등 서버 사이드 핵심 기술들을 실제로 구현하고 최적화할 수 있었던 소중한 경험이었습니다.",
-    overviewEn:
-      "A real-time multiplayer game that recreates the nostalgic memories of playing flash games with friends during breaks in school computer labs.\n\nBeyond simple game implementation, this project focused on building a **server architecture capable of stably handling 300+ concurrent users** and a **WebSocket-based communication system for real-time synchronization**. By introducing a **Server-Authority model**, we ensured cheat prevention and game state consistency, while maximizing network efficiency through event-based broadcasting.\n\nAs a backend developer, this was a valuable experience implementing and optimizing core server-side technologies such as concurrency control in real-time multiplayer environments, token-based authentication systems, and game lifecycle management using state machines.",
-    overviewZh:
-      "一款实时多人游戏，重现了在学校计算机实验室休息时与朋友一起玩Flash游戏的美好回忆。\n\n除了简单的游戏实现，这个项目专注于构建**能够稳定处理300+并发用户的服务器架构**和**基于WebSocket的实时同步通信系统**。通过引入**服务器权威模型**，我们确保了防作弊和游戏状态一致性，同时通过基于事件的广播最大化网络效率。\n\n作为后端开发人员，这是在实时多人环境中实现和优化核心服务器端技术的宝贵经验，包括并发控制、基于令牌的认证系统，以及使用状态机进行游戏生命周期管理。",
-    technologyReasons: [
-      {
-        technology: "Spring Boot",
-        reason:
-          "엔터프라이즈급 웹 애플리케이션 개발을 위한 검증된 프레임워크로, REST API와 WebSocket/STOMP 지원이 뛰어나며 풍부한 생태계와 안정성을 제공합니다. 특히 Spring Security를 통한 인증/인가 시스템 구현과 스레드 풀 관리 등 동시성 제어에 필요한 기능들을 효율적으로 활용할 수 있습니다.",
-        reasonEn:
-          "A proven framework for enterprise-grade web applications, offering excellent REST API and WebSocket/STOMP support along with a rich ecosystem and stability. Particularly effective for implementing authentication/authorization systems through Spring Security and efficiently managing thread pools for concurrency control.",
-        reasonZh:
-          "一个经过验证的企业级Web应用程序开发框架，提供出色的REST API和WebSocket/STOMP支持，拥有丰富的生态系统和稳定性。特别是在通过Spring Security实现认证/授权系统以及高效管理线程池以实现并发控制方面特别有效。",
-      },
-      {
-        technology: "WebSocket + STOMP",
-        reason:
-          "실시간 양방향 통신이 필수적인 멀티플레이어 게임에서, WebSocket은 낮은 지연시간과 지속적인 연결을 제공합니다. STOMP 프로토콜을 활용하여 토픽 기반 발행-구독 패턴을 구현하고, Room/Game/Player/Team 단위로 세분화된 메시지 브로드캐스팅을 가능하게 했습니다. 토큰 기반 인증을 STOMP 헤더에 적용하여 보안성을 확보했습니다.",
-        reasonEn:
-          "In multiplayer games where real-time bidirectional communication is essential, WebSocket provides low latency and persistent connections. By utilizing the STOMP protocol, we implemented a topic-based pub-sub pattern, enabling granular message broadcasting at Room/Game/Player/Team levels. We secured the system by applying token-based authentication to STOMP headers.",
-        reasonZh:
-          "在实时双向通信至关重要的多人游戏中，WebSocket提供低延迟和持久连接。通过利用STOMP协议，我们实现了基于主题的发布-订阅模式，在房间/游戏/玩家/团队级别实现细化的消息广播。我们通过在STOMP标头中应用基于令牌的认证来确保系统安全。",
-      },
-      {
-        technology: "MySQL",
-        reason:
-          "관계형 데이터베이스로 사용자 정보, 방 정보, 전적 데이터 등 구조화된 데이터를 안정적으로 저장하고 관리합니다. 트랜잭션 지원을 통해 데이터 일관성을 보장하며, 인덱싱을 활용한 빠른 조회 성능을 제공합니다.",
-        reasonEn:
-          "Relational database for reliably storing and managing structured data such as user information, room data, and match history. Ensures data consistency through transaction support and provides fast query performance through indexing.",
-        reasonZh:
-          "用于可靠存储和管理结构化数据（如用户信息、房间数据和比赛历史）的关系型数据库。通过事务支持确保数据一致性，并通过索引提供快速的查询性能。",
-      },
-      {
-        technology: "Java (ConcurrentQueue, Thread Pool)",
-        reason:
-          "Java의 동시성 컬렉션과 Executor 프레임워크를 활용하여 멀티스레드 환경에서 안전하고 효율적인 비동기 요청 처리를 구현했습니다. ConcurrentQueue를 통해 스레드 안전한 작업 큐를 구축하고, Thread Pool을 통해 CPU 자원을 최적화하여 높은 동시성을 달성했습니다.",
-        reasonEn:
-          "Utilized Java's concurrent collections and Executor framework to implement safe and efficient asynchronous request processing in a multithreaded environment. Built a thread-safe task queue using ConcurrentQueue and optimized CPU resources through Thread Pool to achieve high concurrency.",
-        reasonZh:
-          "利用Java的并发集合和Executor框架，在多线程环境中实现安全高效的异步请求处理。通过ConcurrentQueue构建线程安全的任务队列，并通过线程池优化CPU资源，实现高并发。",
-      },
-      {
-        technology: "Phaser.js",
-        reason:
-          "브라우저 기반 게임 개발에 특화된 JavaScript 프레임워크로, 렌더링, 물리 엔진, 입력 처리 등의 복잡한 게임 로직을 간소화합니다. 친근한 도트 그래픽 스타일을 제공하며, WebSocket과 연동하여 서버의 게임 상태를 실시간으로 시각화할 수 있습니다.",
-        reasonEn:
-          "A JavaScript framework specialized for browser-based game development, simplifying complex game logic such as rendering, physics engine, and input handling. Provides friendly pixel art graphics and can be integrated with WebSocket to visualize server game states in real-time.",
-        reasonZh:
-          "一个专门用于基于浏览器的游戏开发的JavaScript框架，简化了渲染、物理引擎和输入处理等复杂的游戏逻辑。提供友好的像素艺术图形，可以与WebSocket集成以实时可视化服务器游戏状态。",
-      },
-    ],
-    architectureImages: [
-      {
-        url: "/architecture/racoon-architecture-1.png",
-        title: "클라이언트-서버 상호작용 아키텍처",
-        titleEn: "Client-Server Interaction Architecture",
-        titleZh: "客户端-服务器交互架构",
-        description:
-          "방 참가부터 게임 시작까지의 클라이언트-서버 통신 플로우: HTTP를 통한 초기 인증 및 토큰 발급, STOMP over WebSocket을 통한 실시간 게임 상태 동기화",
-        descriptionEn:
-          "Client-server communication flow from room entry to game start: Initial authentication and token issuance via HTTP, real-time game state synchronization via STOMP over WebSocket",
-        descriptionZh:
-          "从房间参与到游戏开始的客户端-服务器通信流程：通过HTTP进行初始认证和令牌发放，通过STOMP over WebSocket实现实时游戏状态同步",
-      },
-      {
-        url: "/architecture/racoon-architecture-2.png",
-        title: "게임 플로우 아키텍처",
-        titleEn: "Game Flow Architecture",
-        titleZh: "游戏流程架构",
-        description:
-          "게임의 전체 플로우: 방 생성 및 입장, 레디 상태 관리, 게임 시작 및 진행(숨기/찾기), 승패 판정까지의 게임 라이프사이클",
-        descriptionEn:
-          "Complete game flow: Room creation and entry, ready state management, game start and progression (hide/seek), game lifecycle through win/loss determination",
-        descriptionZh:
-          "完整的游戏流程：房间创建和进入、准备状态管理、游戏开始和进行（隐藏/寻找）、到胜负判定的游戏生命周期",
-      },
-    ],
-    retrospection: {
-      whatWorkedWell:
-        "Server-Authority 모델을 통한 중앙 집중식 게임 로직 관리로 여러 클라이언트가 동시에 요청해도 일관된 게임 상태를 유지할 수 있었습니다. 이벤트 기반 브로드캐스팅과 선택적 메시지 전송을 통해 네트워크 부하를 최소화하고 p95 Latency 50ms를 달성했습니다.\n\n랜덤성 알고리즘, 상태 머신, 토큰 기반 인증, 비동기 처리 등 다양한 기술을 한 프로젝트 안에서 실제로 구현해볼 수 있어서 값진 학습 경험이었습니다.",
-      whatWorkedWellEn:
-        "Centralized game logic management through the Server-Authority model maintained consistent game states even when multiple clients sent simultaneous requests. Achieved p95 latency of 50ms by minimizing network load through event-based broadcasting and selective message delivery.\n\nIt was a valuable learning experience to implement various technologies including randomness algorithms, state machines, token-based authentication, and asynchronous processing within a single project.",
-      whatWorkedWellZh:
-        "通过服务器权威模型进行的集中式游戏逻辑管理，即使在多个客户端同时发送请求时也能保持一致的游戏状态。通过基于事件的广播和选择性消息传递最小化网络负载，实现了p95延迟50ms。\n\n在一个项目中实际实现包括随机算法、状态机、基于令牌的认证和异步处理等各种技术，这是一次宝贵的学习经历。",
-      areasForImprovement:
-        "기술적 구현과 성능 최적화에 집중하는 과정에서 게임 플레이 메커니즘의 독창성이나 사용자 경험의 차별화에 대한 고민이 부족했습니다.\n\n게임의 핵심 재미 요소와 차별화 포인트를 초기에 명확히 정의하지 못했고, 프로젝트 초반부터 사용자 테스트와 피드백을 수집하는 프로세스가 부재했습니다.",
-      areasForImprovementEn:
-        "In the process of focusing on technical implementation and performance optimization, we lacked consideration for the originality of gameplay mechanisms or differentiation of user experience.\n\nWe failed to clearly define the core fun elements and differentiation points of the game early on, and lacked a process to collect user testing and feedback from the beginning of the project.",
-      areasForImprovementZh:
-        "在专注于技术实现和性能优化的过程中，我们对游戏机制原创性或用户体验差异化的考虑不足。\n\n我们未能提前明确定义游戏的核心趣味元素和差异化点，并且缺乏从项目开始就收集用户测试和反馈的流程。",
-      lessonsLearned:
-        "게임 기획 단계에서 '왜 이 게임이 재미있을까?'라는 질문을 던지고, 경쟁사 분석과 게임플레이 루프 설계에 더 많은 시간을 투자하겠습니다.\n\n기술 스택 선택 전에 게임의 핵심 재미 요소를 먼저 정의하고, 그에 맞는 최적의 기술을 선택하는 '게임플레이 중심 개발 방법론'을 적용해보고 싶습니다.\n\n프로토타입 단계에서부터 지인들과 함께 플레이테스트를 진행하고, '재미'를 정량적으로 측정할 수 있는 지표를 도입하여 지속적으로 개선하는 사이클을 만들겠습니다.",
-      lessonsLearnedEn:
-        "In the game planning stage, I will ask 'Why would this game be fun?' and invest more time in competitor analysis and gameplay loop design.\n\nBefore selecting the tech stack, I would like to apply a 'gameplay-centered development methodology' that first defines the core fun elements and then selects optimal technology accordingly.\n\nI will conduct playtests with acquaintances from the prototype stage and create a continuous improvement cycle by introducing metrics to quantitatively measure 'fun'.",
-      lessonsLearnedZh:
-        "在游戏规划阶段，我会问'为什么这个游戏会有趣？'并投入更多时间进行竞争对手分析和游戏循环设计。\n\n在选择技术栈之前，我想应用一种'以游戏玩法为中心的开发方法论'，首先定义核心趣味元素，然后相应地选择最佳技术。\n\n我将从原型阶段开始与熟人进行游戏测试，并通过引入可以定量测量'趣味性'的指标来创建持续改进的循环。",
-    },
-    roleDetails: [
-      "Server-authority 모델 도입으로 한 게임을 같이 즐기는 클라이언트들의 요청을 서버에서 통제하여 일관된 환경 유지",
-      "게임 진행 라이프 사이클 구현 (게임 시작, 진행, 종료 관리)",
-      "WebSocket을 활용한 실시간 멀티플레이어 동기화",
-      "아이템 효과 시스템 구현: 아이템 효과 로직, 적용 메커니즘, 지속 시간 관리, 우선순위 알고리즘 개발",
-      "인증/인가 시스템 구현",
-      "전적 집계 및 통계 시스템 개발: 쿼리 튜닝 및 인덱스 최적화를 통한 대량 데이터 조회 성능 향상, 커서 기반 페이징으로 offset 기반 페이징의 성능 문제 해결, 배치 작업 최적화를 통한 통계 집계 처리",
-      "맵 축소 전략 및 게임 밸런스 로직 개발",
-      "Selenium을 활용한 자동 QA 테스트 구현 (Web 기반 게임의 기능 및 성능 검증)",
-    ],
-    roleDetailsEn: [
-      "Introduced Server-authority model to control client requests on the server, maintaining a consistent environment for all players in the same game",
-      "Implemented game lifecycle management (game start, progression, and end management)",
-      "Real-time multiplayer synchronization using WebSocket",
-      "Implemented item effect system: item effect logic, application mechanism, duration management, and priority algorithm development",
-      "Implemented authentication/authorization system",
-      "Developed match history aggregation and statistics system: Improved bulk data query performance through query tuning and index optimization, resolved performance issues of offset-based pagination with cursor-based pagination, optimized batch processing for statistics aggregation",
-      "Developed map shrinking strategy and game balance logic",
-      "Implemented automated QA testing using Selenium (functional and performance verification for web-based game)",
-    ],
-    roleDetailsZh: [
-      "引入服务器权威模型，在服务器上控制客户端请求，为同一游戏中的所有玩家维持一致的环境",
-      "实现游戏生命周期管理（游戏开始、进行和结束管理）",
-      "使用WebSocket实现实时多人同步",
-      "实现物品效果系统：物品效果逻辑、应用机制、持续时间管理和优先级算法开发",
-      "实现认证/授权系统",
-      "开发比赛历史聚合和统计系统：通过查询调优和索引优化提高大量数据查询性能，使用基于游标的分页解决基于偏移的分页性能问题，优化批处理以进行统计聚合",
-      "开发地图缩小策略和游戏平衡逻辑",
-      "使用Selenium实现自动化QA测试（基于Web的游戏功能和性能验证）",
-    ],
-    technicalHighlights: [
-      {
-        title: "동시성 처리 최적화",
-        titleEn: "Concurrency Optimization",
-        titleZh: "并发处理优化",
-        description:
-          "Java의 ConcurrentQueue를 활용하여 비동기 요청 처리 시스템을 구축하여 300명 이상의 동시 접속자를 안정적으로 지원했습니다. MySQL의 MVCC와 트랜잭션 격리수준을 활용하여 동시 게임 상태 업데이트 시 데이터 일관성을 보장하고, 분산환경에서의 동시성 제어를 위해 낙관적 락과 비관적 락을 적절히 조합하여 구현했습니다.",
-        descriptionEn:
-          "Built an asynchronous request processing system using Java's ConcurrentQueue, stably supporting 300+ concurrent users. Utilized MySQL's MVCC and transaction isolation levels to ensure data consistency during concurrent game state updates, and implemented distributed concurrency control by appropriately combining optimistic and pessimistic locks.",
-        descriptionZh:
-          "利用Java的ConcurrentQueue构建异步请求处理系统，稳定支持300+并发用户。利用MySQL的MVCC和事务隔离级别确保并发游戏状态更新时的数据一致性，并通过适当组合乐观锁和悲观锁实现分布式并发控制。",
-      },
-      {
-        title: "Server-Authority 아키텍처",
-        titleEn: "Server-Authority Architecture",
-        titleZh: "服务器权威架构",
-        description:
-          "모든 게임 로직을 서버에서 처리하는 아키텍처로 치팅 방지와 게임 상태 일관성을 보장했습니다.",
-        descriptionEn:
-          "Implemented Server-Authority architecture processing all game logic on the server to prevent cheating and ensure game state consistency.",
-        descriptionZh:
-          "实现服务器权威架构，在服务器上处理所有游戏逻辑，防止作弊并确保游戏状态一致性。",
-      },
-      {
-        title: "WebSocket 실시간 통신",
-        titleEn: "WebSocket Real-time Communication",
-        titleZh: "WebSocket实时通信",
-        description:
-          "WebSocket을 통한 양방향 실시간 통신으로 플레이어 액션과 게임 상태를 즉시 동기화했습니다.",
-        descriptionEn:
-          "Implemented bidirectional real-time communication using WebSocket to instantly synchronize player actions and game state.",
-        descriptionZh:
-          "使用WebSocket实现双向实时通信，立即同步玩家操作和游戏状态。",
-      },
-    ],
-    challenges: [
-      {
-        problem: "높은 동시 접속자 처리",
-        problemEn: "Handling High Concurrent Users",
-        problemZh: "处理高并发用户",
-        solution:
-          "300명 이상의 동시 접속자를 처리하기 위해 서버 아키텍처를 설계했습니다. 게임 로직과 네트워크 I/O를 분리하여 병목 현상을 해소하고, 비동기 처리와 스레드 풀 최적화를 통해 CPU 자원을 효율적으로 활용했습니다. 또한 동시성 제어 메커니즘을 구현하여 다수의 사용자 요청을 안정적으로 처리할 수 있도록 했습니다.",
-        solutionEn:
-          "Designed server architecture to handle 300+ concurrent users. Separated game logic from network I/O to eliminate bottlenecks and efficiently utilized CPU resources through asynchronous processing and thread pool optimization. Also implemented concurrency control mechanisms to stably handle multiple user requests.",
-        solutionZh:
-          "设计服务器架构以处理300+并发用户。将游戏逻辑与网络I/O分离以消除瓶颈，并通过异步处理和线程池优化有效利用CPU资源。还实现了并发控制机制，以稳定处理多个用户请求。",
-      },
-      {
-        problem: "게임 상태 일관성 유지 및 치팅 방지",
-        problemEn: "Maintaining Game State Consistency and Preventing Cheating",
-        problemZh: "维持游戏状态一致性和防止作弊",
-        solution:
-          "여러 클라이언트가 동시에 요청해도 일관된 게임 상태를 유지하기 위해 중앙 집중식 게임 로직 관리 방식을 도입했습니다. 모든 게임 로직을 서버에서 처리하고, 클라이언트는 입력만 전송하도록 설계하여 클라이언트 조작을 방지하고 모든 플레이어에게 동일한 게임 상태를 보장했습니다.",
-        solutionEn:
-          "Introduced centralized game logic management to maintain consistent game states even when multiple clients send simultaneous requests. Designed the system to process all game logic on the server with clients only sending inputs, preventing client manipulation and ensuring the same game state for all players.",
-        solutionZh:
-          "引入集中式游戏逻辑管理，即使在多个客户端同时发送请求时也能维持一致的游戏状态。设计系统在服务器上处理所有游戏逻辑，客户端仅发送输入，防止客户端操作并确保所有玩家的游戏状态一致。",
-      },
-      {
-        problem: "실시간 동기화 지연 및 네트워크 부하 최소화",
-        problemEn: "Minimizing Real-time Sync Latency and Network Load",
-        problemZh: "最小化实时同步延迟和网络负载",
-        solution:
-          "게임 상태 변경 시 필요한 플레이어에게만 선택적 브로드캐스트하도록 최적화했습니다. 프레임 기반 업데이트 대신 이벤트 기반 업데이트를 채택하여 네트워크 트래픽을 대폭 감소시키고 지연 시간을 단축했습니다.",
-        solutionEn:
-          "Optimized to selectively broadcast only to necessary players on game state changes. Adopted event-based updates instead of frame-based updates, significantly reducing network traffic and latency.",
-        solutionZh:
-          "优化为在游戏状态更改时仅向必要的玩家进行选择性广播。采用基于事件的更新而非基于帧的更新，显著减少网络流量和延迟。",
-      },
-      {
-        problem: "아이템 효과 우선순위 및 충돌 처리",
-        problemEn: "Item Effect Priority and Conflict Resolution",
-        problemZh: "物品效果优先级和冲突处理",
-        solution:
-          "여러 아이템 효과가 동시에 적용될 때의 우선순위 알고리즘을 설계했습니다. 아이템 효과 스택 관리, 지속 시간 추적, 효과 적용 순서를 정의하여 일관된 게임 밸런스를 유지했습니다. 동시 발동 시 우선순위에 따라 효과를 적용하고, 중복 효과는 효율적으로 병합하도록 구현했습니다.",
-        solutionEn:
-          "Designed a priority algorithm for when multiple item effects are applied simultaneously. Defined item effect stack management, duration tracking, and application order to maintain consistent game balance. Implemented effect application based on priority when triggered simultaneously, and efficiently merged duplicate effects.",
-        solutionZh:
-          "设计了当多个物品效果同时应用时的优先级算法。定义了物品效果堆栈管理、持续时间追踪和应用顺序，以维持一致的游戏平衡。实现了同时触发时基于优先级的効果应用，并高效合并重复效果。",
-      },
-      {
-        problem: "Web 기반 게임의 QA 효율화",
-        problemEn: "QA Efficiency for Web-based Game",
-        problemZh: "基于Web的游戏QA效率化",
-        solution:
-          "Web 기반 게임의 특성을 활용하여 Selenium을 통한 자동화 테스트를 구현했습니다. 게임 플로우, 로그인/로그아웃, 게임 생성/참여 등 주요 기능에 대한 E2E 테스트를 자동화하여 수동 테스트 시간을 대폭 단축하고 배포 전 품질을 보장했습니다.",
-        solutionEn:
-          "Leveraged web-based game characteristics to implement automated testing using Selenium. Automated E2E tests for key features such as game flow, login/logout, and game creation/participation, significantly reducing manual testing time and ensuring quality before deployment.",
-        solutionZh:
-          "利用基于Web的游戏特性，使用Selenium实现自动化测试。自动化了关键功能的E2E测试，如游戏流程、登录/登出、游戏创建/参与等，大幅缩短手动测试时间并确保部署前的质量。",
-      },
-    ],
-    results: [
-      {
-        metric: "50ms",
-        metricEn: "50ms",
-        metricZh: "50ms",
-        description:
-          "Locust 부하 테스트: 동시 접속자 1000명 시나리오에서 게임 상태 동기화 API p95 Latency 50ms 달성",
-        descriptionEn:
-          "Locust load test: Achieved p95 latency of 50ms for game state synchronization APIs with 1000 concurrent users scenario",
-        descriptionZh:
-          "Locust负载测试：在1000并发用户场景下，游戏状态同步API的p95延迟达到50ms",
-      },
-      {
-        metric: "300명+",
-        metricEn: "300+",
-        metricZh: "300+",
-        description: "실제 동시 접속자 300명 이상 유치",
-        descriptionEn: "Attracted 300+ actual concurrent users",
-        descriptionZh: "吸引了300+实际并发用户",
-      },
-      {
-        metric: "99.9%",
-        metricEn: "99.9%",
-        metricZh: "99.9%",
-        description:
-          "서버 안정성 99.9% 달성, 치팅 방지를 위한 Server-Authority 아키텍처 구현",
-        descriptionEn:
-          "Achieved 99.9% server uptime, implemented Server-Authority architecture to prevent cheating",
-        descriptionZh:
-          "实现99.9%服务器稳定性，实现服务器权威架构以防止作弊",
-      },
-    ],
-    performanceOptimization: [
-      {
-        title: "비동기 요청 처리 최적화",
-        titleEn: "Asynchronous Request Processing Optimization",
-        titleZh: "异步请求处理优化",
-        description:
-          "Java의 ConcurrentQueue와 Thread Pool을 활용하여 비동기 요청 처리 시스템을 구축했습니다. 게임 로직과 네트워크 I/O를 분리하여 병목 현상을 해소하고, 스레드 풀을 통해 CPU 자원을 최적화하여 300명 이상의 동시 접속자를 안정적으로 처리할 수 있었습니다.",
-        descriptionEn:
-          "Built an asynchronous request processing system using Java's ConcurrentQueue and Thread Pool. Separated game logic from network I/O to eliminate bottlenecks and optimized CPU resources through thread pools, enabling stable handling of 300+ concurrent users.",
-        descriptionZh:
-          "使用Java的ConcurrentQueue和Thread Pool构建异步请求处理系统。将游戏逻辑与网络I/O分离以消除瓶颈，并通过线程池优化CPU资源，能够稳定处理300+并发用户。",
-      },
-      {
-        title: "이벤트 기반 브로드캐스팅",
-        titleEn: "Event-based Broadcasting",
-        titleZh: "基于事件的广播",
-        description:
-          "프레임 기반 업데이트 대신 이벤트 기반 업데이트를 채택하여 네트워크 트래픽을 대폭 감소시켰습니다. 게임 상태 변경 시 필요한 플레이어에게만 선택적 브로드캐스트하도록 최적화하여 p95 Latency 50ms를 달성했습니다.",
-        descriptionEn:
-          "Adopted event-based updates instead of frame-based updates, significantly reducing network traffic. Optimized to selectively broadcast only to necessary players on game state changes, achieving p95 latency of 50ms.",
-        descriptionZh:
-          "采用基于事件的更新而非基于帧的更新，显著减少网络流量。优化为在游戏状态更改时仅向必要的玩家进行选择性广播，实现p95延迟50ms。",
-      },
-    ],
-    databaseOptimization: [
-      {
-        title: "쿼리 튜닝 및 인덱스 최적화",
-        titleEn: "Query Tuning and Index Optimization",
-        titleZh: "查询调优和索引优化",
-        description:
-          "전적 집계 및 통계 시스템 개발 시 실행 계획 분석을 통해 쿼리 성능을 최적화했습니다. 적절한 인덱스를 추가하여 대량 데이터 조회 성능을 향상시켰고, 커서 기반 페이징을 적용하여 offset 기반 페이징의 성능 문제를 해결했습니다.",
-        descriptionEn:
-          "Optimized query performance through execution plan analysis when developing match history aggregation and statistics systems. Improved bulk data query performance by adding appropriate indexes and resolved performance issues of offset-based pagination by applying cursor-based pagination.",
-        descriptionZh:
-          "在开发比赛历史聚合和统计系统时，通过执行计划分析优化查询性能。通过添加适当的索引提高大量数据查询性能，并通过应用基于游标的分页解决基于偏移的分页性能问题。",
-      },
-      {
-        title: "동시성 제어 및 트랜잭션 관리",
-        titleEn: "Concurrency Control and Transaction Management",
-        titleZh: "并发控制和事务管理",
-        description:
-          "MySQL의 MVCC(Multi-Version Concurrency Control)와 트랜잭션 격리수준(READ COMMITTED)을 활용하여 동시 게임 상태 업데이트 시 데이터 일관성을 보장했습니다. 낙관적 락과 비관적 락을 적절히 조합하여 분산환경에서의 동시성 제어를 구현했습니다.",
-        descriptionEn:
-          "Utilized MySQL's MVCC (Multi-Version Concurrency Control) and transaction isolation level (READ COMMITTED) to ensure data consistency during concurrent game state updates. Implemented distributed concurrency control by appropriately combining optimistic and pessimistic locks.",
-        descriptionZh:
-          "利用MySQL的MVCC（多版本并发控制）和事务隔离级别（READ COMMITTED）确保并发游戏状态更新时的数据一致性。通过适当组合乐观锁和悲观锁实现分布式并发控制。",
-      },
-    ],
-    apiDesign:
-      "RESTful API 설계 원칙을 준수하여 일관된 API 구조를 설계했습니다. 리소스 중심의 URL 구조와 적절한 HTTP 메서드(GET, POST, PUT, DELETE)를 사용하여 직관적인 API를 제공했습니다. 또한 에러 응답 형식을 표준화하여 클라이언트가 쉽게 에러를 처리할 수 있도록 했습니다.",
-    apiDesignEn:
-      "Designed a consistent API structure following RESTful API design principles. Provided intuitive APIs using resource-centered URL structures and appropriate HTTP methods (GET, POST, PUT, DELETE). Also standardized error response formats to enable clients to easily handle errors.",
-    apiDesignZh:
-      "遵循RESTful API设计原则设计了一致的API结构。使用以资源为中心的URL结构和适当的HTTP方法（GET、POST、PUT、DELETE）提供直观的API。还标准化了错误响应格式，使客户端能够轻松处理错误。",
-    securityImplementation: [
-      {
-        title: "토큰 기반 인증 시스템",
-        titleEn: "Token-based Authentication System",
-        titleZh: "基于令牌的认证系统",
-        description:
-          "JWT(JSON Web Token)를 활용한 토큰 기반 인증 시스템을 구현했습니다. 토큰의 만료 시간과 리프레시 토큰 메커니즘을 추가하여 보안성을 강화했고, STOMP 헤더에 토큰을 포함하여 WebSocket 연결 시에도 인증을 수행하도록 했습니다.",
-        descriptionEn:
-          "Implemented a token-based authentication system using JWT (JSON Web Token). Enhanced security by adding token expiration times and refresh token mechanisms, and performed authentication during WebSocket connections by including tokens in STOMP headers.",
-        descriptionZh:
-          "使用JWT（JSON Web Token）实现基于令牌的认证系统。通过添加令牌过期时间和刷新令牌机制增强安全性，并通过在STOMP标头中包含令牌在WebSocket连接期间执行认证。",
-      },
-      {
-        title: "Server-Authority 아키텍처",
-        titleEn: "Server-Authority Architecture",
-        titleZh: "服务器权威架构",
-        description:
-          "모든 게임 로직을 서버에서 처리하는 Server-Authority 모델을 도입하여 클라이언트 조작을 방지했습니다. 클라이언트는 단순히 입력만 전송하고, 서버에서 모든 게임 상태를 계산하여 모든 플레이어에게 동일한 게임 상태를 보장했습니다.",
-        descriptionEn:
-          "Introduced a Server-Authority model where all game logic is processed on the server to prevent client manipulation. Clients only send inputs, and the server calculates all game states to ensure the same game state for all players.",
-        descriptionZh:
-          "引入服务器权威模型，所有游戏逻辑在服务器上处理，以防止客户端操作。客户端仅发送输入，服务器计算所有游戏状态，确保所有玩家的游戏状态一致。",
-      },
-    ],
-    testingStrategy:
-      "Selenium을 활용한 자동화 QA 테스트를 구현하여 Web 기반 게임의 기능 및 성능을 검증했습니다. 게임 플로우, 로그인/로그아웃, 게임 생성/참여 등 주요 기능에 대한 E2E 테스트를 자동화하여 수동 테스트 시간을 대폭 단축하고 배포 전 품질을 보장했습니다. 또한 Locust를 활용한 부하 테스트를 통해 동시 접속자 처리 능력을 검증했습니다.",
-    testingStrategyEn:
-      "Implemented automated QA testing using Selenium to verify functionality and performance of web-based games. Automated E2E tests for key features such as game flow, login/logout, and game creation/participation, significantly reducing manual testing time and ensuring quality before deployment. Also validated concurrent user handling capabilities through load testing using Locust.",
-    testingStrategyZh:
-      "使用Selenium实现自动化QA测试，验证基于Web的游戏的功能和性能。自动化了关键功能的E2E测试，如游戏流程、登录/登出、游戏创建/参与等，大幅缩短手动测试时间并确保部署前的质量。还通过使用Locust进行负载测试验证了并发用户处理能力。",
-  },
-  {
-    id: 2,
     title: "Melodiket",
     titleEn: "Melodiket",
     titleZh: "Melodiket",
@@ -1070,6 +735,417 @@ export const projects = [
       "Wrote unit tests and integration tests to verify the accuracy of core business logic. Particularly focused on testing concert contract state transition logic and distributed lock behavior to ensure reliability. Also validated the entire flow through integration tests for API endpoints.",
     testingStrategyZh:
       "编写单元测试和集成测试以验证核心业务逻辑的准确性。特别关注测试演出合同状态转换逻辑和分布式锁行为以确保可靠性。还通过API端点的集成测试验证了整个流程。",
+  },
+  {
+    id: 2,
+    title: "굴 안의 너굴이",
+    titleEn: "RACOON-IN-THE-HOLE",
+    titleZh: "洞中的浣熊",
+    description:
+      "실시간 온라인 멀티플레이 숨바꼭질 게임. 플레이어는 찾는 팀과 숨는 팀으로 나뉘어 제한된 공간에서 술래잡기를 즐길 수 있으며, 다양한 아이템을 활용하여 다이나믹한 숨바꼭질을 즐길 수 있습니다.",
+    descriptionEn:
+      "Real-time online multiplayer hide-and-seek game. Players are divided into seekers and hiders, enjoying tag in a limited space, and can use various items for dynamic hide-and-seek gameplay.",
+    descriptionZh:
+      "实时在线多人捉迷藏游戏。玩家分为寻找者和隐藏者，在有限的空间中享受捉迷藏，可以使用各种道具享受动态的捉迷藏游戏。",
+    projectOrigin: "삼성 청년 SW 아카데미 11기 공통 프로젝트",
+    projectOriginEn: "Samsung Software Academy For Youth 11th Common Project",
+    projectOriginZh: "三星青年SW学院11期共同项目",
+    tags: ["Java", "Spring Boot", "WebSocket", "MySQL", "React", "Phaser.js"],
+    image: "/thumbnails/racoon-thumbnail.jpg",
+    screenshotType: "web" as const,
+    images: [
+      {
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole-mainScreen.png",
+        title: "메인",
+        titleEn: "Main",
+        titleZh: "主页",
+      },
+      {
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_createRoom.gif",
+        title: "방 생성",
+        titleEn: "Room Creation",
+        titleZh: "创建房间",
+      },
+      {
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_enter_selectRoom.gif",
+        title: "선택 방 입장",
+        titleEn: "Enter Selected Room",
+        titleZh: "进入选择的房间",
+      },
+      {
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_enter_randomRoom.gif",
+        title: "랜덤 방 입장",
+        titleEn: "Enter Random Room",
+        titleZh: "进入随机房间",
+      },
+      {
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_item_direction_mushroom.gif",
+        title: "아이템(방향버섯 : 숨은 플레이어의 방향을 알려준다.)",
+        titleEn: "Item(Direction Mushroom)",
+        titleZh: "道具（方向蘑菇：显示隐藏玩家的方向）",
+      },
+      {
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_item_banana.gif",
+        title: "아이템(바나나 : 5초간 이동속도가 감소함.)",
+        titleEn: "Item(Banana)",
+        titleZh: "道具（香蕉：5秒内移动速度降低）",
+      },
+      {
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_item_beehive.gif",
+        title: "아이템(벌통 : 벌통을 발견한 술래는 3초간 움직일 수 없다.)",
+        titleEn: "Item(Beehive)",
+        titleZh: "道具（蜂巢：发现蜂巢的追捕者3秒内无法移动）",
+      },
+      {
+        url: "/projects/racoon-in-the-hole/racoon-in-the-hole_item_posion_mushroom.gif",
+        title: "아이템(독버섯 : 방향키를 반대로 바꾼다.)",
+        titleEn: "Item(Poison Mushroom)",
+        titleZh: "道具（毒蘑菇：将方向键反向）",
+      },
+    ],
+    githubUrl: "https://github.com/sevin98/RACOON-IN-THE-HOLE",
+    liveUrl: null,
+    period: "2024.07 - 2024.08",
+    teamSize: 5,
+    teamComposition: "3FE 2BE",
+    myRole: "Backend Developer",
+    overview:
+      "학교 컴퓨터실 수업 중 쉬는 시간에 친구들과 함께 즐기던 플래시 게임의 추억을 현대적으로 재현한 실시간 멀티플레이어 게임입니다.\n\n이 프로젝트는 단순한 게임 구현을 넘어서, **300명 이상의 동시 접속자를 안정적으로 처리**하는 서버 아키텍처 설계와 **실시간 동기화를 위한 WebSocket 기반 통신 시스템**을 구축하는 데 초점을 맞췄습니다. 특히 **Server-Authority 모델**을 도입하여 치팅 방지와 게임 상태 일관성을 보장하고, 이벤트 기반 브로드캐스팅을 통해 네트워크 효율성을 극대화했습니다.\n\n백엔드 개발자로서 실시간 멀티플레이어 환경에서의 동시성 제어, 토큰 기반 인증 시스템, 상태 머신을 활용한 게임 라이프사이클 관리 등 서버 사이드 핵심 기술들을 실제로 구현하고 최적화할 수 있었던 소중한 경험이었습니다.",
+    overviewEn:
+      "A real-time multiplayer game that recreates the nostalgic memories of playing flash games with friends during breaks in school computer labs.\n\nBeyond simple game implementation, this project focused on building a **server architecture capable of stably handling 300+ concurrent users** and a **WebSocket-based communication system for real-time synchronization**. By introducing a **Server-Authority model**, we ensured cheat prevention and game state consistency, while maximizing network efficiency through event-based broadcasting.\n\nAs a backend developer, this was a valuable experience implementing and optimizing core server-side technologies such as concurrency control in real-time multiplayer environments, token-based authentication systems, and game lifecycle management using state machines.",
+    overviewZh:
+      "一款实时多人游戏，重现了在学校计算机实验室休息时与朋友一起玩Flash游戏的美好回忆。\n\n除了简单的游戏实现，这个项目专注于构建**能够稳定处理300+并发用户的服务器架构**和**基于WebSocket的实时同步通信系统**。通过引入**服务器权威模型**，我们确保了防作弊和游戏状态一致性，同时通过基于事件的广播最大化网络效率。\n\n作为后端开发人员，这是在实时多人环境中实现和优化核心服务器端技术的宝贵经验，包括并发控制、基于令牌的认证系统，以及使用状态机进行游戏生命周期管理。",
+    technologyReasons: [
+      {
+        technology: "Spring Boot",
+        reason:
+          "엔터프라이즈급 웹 애플리케이션 개발을 위한 검증된 프레임워크로, REST API와 WebSocket/STOMP 지원이 뛰어나며 풍부한 생태계와 안정성을 제공합니다. 특히 Spring Security를 통한 인증/인가 시스템 구현과 스레드 풀 관리 등 동시성 제어에 필요한 기능들을 효율적으로 활용할 수 있습니다.",
+        reasonEn:
+          "A proven framework for enterprise-grade web applications, offering excellent REST API and WebSocket/STOMP support along with a rich ecosystem and stability. Particularly effective for implementing authentication/authorization systems through Spring Security and efficiently managing thread pools for concurrency control.",
+        reasonZh:
+          "一个经过验证的企业级Web应用程序开发框架，提供出色的REST API和WebSocket/STOMP支持，拥有丰富的生态系统和稳定性。特别是在通过Spring Security实现认证/授权系统以及高效管理线程池以实现并发控制方面特别有效。",
+      },
+      {
+        technology: "WebSocket + STOMP",
+        reason:
+          "실시간 양방향 통신이 필수적인 멀티플레이어 게임에서, WebSocket은 낮은 지연시간과 지속적인 연결을 제공합니다. STOMP 프로토콜을 활용하여 토픽 기반 발행-구독 패턴을 구현하고, Room/Game/Player/Team 단위로 세분화된 메시지 브로드캐스팅을 가능하게 했습니다. 토큰 기반 인증을 STOMP 헤더에 적용하여 보안성을 확보했습니다.",
+        reasonEn:
+          "In multiplayer games where real-time bidirectional communication is essential, WebSocket provides low latency and persistent connections. By utilizing the STOMP protocol, we implemented a topic-based pub-sub pattern, enabling granular message broadcasting at Room/Game/Player/Team levels. We secured the system by applying token-based authentication to STOMP headers.",
+        reasonZh:
+          "在实时双向通信至关重要的多人游戏中，WebSocket提供低延迟和持久连接。通过利用STOMP协议，我们实现了基于主题的发布-订阅模式，在房间/游戏/玩家/团队级别实现细化的消息广播。我们通过在STOMP标头中应用基于令牌的认证来确保系统安全。",
+      },
+      {
+        technology: "MySQL",
+        reason:
+          "관계형 데이터베이스로 사용자 정보, 방 정보, 전적 데이터 등 구조화된 데이터를 안정적으로 저장하고 관리합니다. 트랜잭션 지원을 통해 데이터 일관성을 보장하며, 인덱싱을 활용한 빠른 조회 성능을 제공합니다.",
+        reasonEn:
+          "Relational database for reliably storing and managing structured data such as user information, room data, and match history. Ensures data consistency through transaction support and provides fast query performance through indexing.",
+        reasonZh:
+          "用于可靠存储和管理结构化数据（如用户信息、房间数据和比赛历史）的关系型数据库。通过事务支持确保数据一致性，并通过索引提供快速的查询性能。",
+      },
+      {
+        technology: "Java (ConcurrentQueue, Thread Pool)",
+        reason:
+          "Java의 동시성 컬렉션과 Executor 프레임워크를 활용하여 멀티스레드 환경에서 안전하고 효율적인 비동기 요청 처리를 구현했습니다. ConcurrentQueue를 통해 스레드 안전한 작업 큐를 구축하고, Thread Pool을 통해 CPU 자원을 최적화하여 높은 동시성을 달성했습니다.",
+        reasonEn:
+          "Utilized Java's concurrent collections and Executor framework to implement safe and efficient asynchronous request processing in a multithreaded environment. Built a thread-safe task queue using ConcurrentQueue and optimized CPU resources through Thread Pool to achieve high concurrency.",
+        reasonZh:
+          "利用Java的并发集合和Executor框架，在多线程环境中实现安全高效的异步请求处理。通过ConcurrentQueue构建线程安全的任务队列，并通过线程池优化CPU资源，实现高并发。",
+      },
+      {
+        technology: "Phaser.js",
+        reason:
+          "브라우저 기반 게임 개발에 특화된 JavaScript 프레임워크로, 렌더링, 물리 엔진, 입력 처리 등의 복잡한 게임 로직을 간소화합니다. 친근한 도트 그래픽 스타일을 제공하며, WebSocket과 연동하여 서버의 게임 상태를 실시간으로 시각화할 수 있습니다.",
+        reasonEn:
+          "A JavaScript framework specialized for browser-based game development, simplifying complex game logic such as rendering, physics engine, and input handling. Provides friendly pixel art graphics and can be integrated with WebSocket to visualize server game states in real-time.",
+        reasonZh:
+          "一个专门用于基于浏览器的游戏开发的JavaScript框架，简化了渲染、物理引擎和输入处理等复杂的游戏逻辑。提供友好的像素艺术图形，可以与WebSocket集成以实时可视化服务器游戏状态。",
+      },
+    ],
+    architectureImages: [
+      {
+        url: "/architecture/racoon-architecture-1.png",
+        title: "클라이언트-서버 상호작용 아키텍처",
+        titleEn: "Client-Server Interaction Architecture",
+        titleZh: "客户端-服务器交互架构",
+        description:
+          "방 참가부터 게임 시작까지의 클라이언트-서버 통신 플로우: HTTP를 통한 초기 인증 및 토큰 발급, STOMP over WebSocket을 통한 실시간 게임 상태 동기화",
+        descriptionEn:
+          "Client-server communication flow from room entry to game start: Initial authentication and token issuance via HTTP, real-time game state synchronization via STOMP over WebSocket",
+        descriptionZh:
+          "从房间参与到游戏开始的客户端-服务器通信流程：通过HTTP进行初始认证和令牌发放，通过STOMP over WebSocket实现实时游戏状态同步",
+      },
+      {
+        url: "/architecture/racoon-architecture-2.png",
+        title: "게임 플로우 아키텍처",
+        titleEn: "Game Flow Architecture",
+        titleZh: "游戏流程架构",
+        description:
+          "게임의 전체 플로우: 방 생성 및 입장, 레디 상태 관리, 게임 시작 및 진행(숨기/찾기), 승패 판정까지의 게임 라이프사이클",
+        descriptionEn:
+          "Complete game flow: Room creation and entry, ready state management, game start and progression (hide/seek), game lifecycle through win/loss determination",
+        descriptionZh:
+          "完整的游戏流程：房间创建和进入、准备状态管理、游戏开始和进行（隐藏/寻找）、到胜负判定的游戏生命周期",
+      },
+    ],
+    retrospection: {
+      whatWorkedWell:
+        "Server-Authority 모델을 통한 중앙 집중식 게임 로직 관리로 여러 클라이언트가 동시에 요청해도 일관된 게임 상태를 유지할 수 있었습니다. 이벤트 기반 브로드캐스팅과 선택적 메시지 전송을 통해 네트워크 부하를 최소화하고 p95 Latency 50ms를 달성했습니다.\n\n랜덤성 알고리즘, 상태 머신, 토큰 기반 인증, 비동기 처리 등 다양한 기술을 한 프로젝트 안에서 실제로 구현해볼 수 있어서 값진 학습 경험이었습니다.",
+      whatWorkedWellEn:
+        "Centralized game logic management through the Server-Authority model maintained consistent game states even when multiple clients sent simultaneous requests. Achieved p95 latency of 50ms by minimizing network load through event-based broadcasting and selective message delivery.\n\nIt was a valuable learning experience to implement various technologies including randomness algorithms, state machines, token-based authentication, and asynchronous processing within a single project.",
+      whatWorkedWellZh:
+        "通过服务器权威模型进行的集中式游戏逻辑管理，即使在多个客户端同时发送请求时也能保持一致的游戏状态。通过基于事件的广播和选择性消息传递最小化网络负载，实现了p95延迟50ms。\n\n在一个项目中实际实现包括随机算法、状态机、基于令牌的认证和异步处理等各种技术，这是一次宝贵的学习经历。",
+      areasForImprovement:
+        "기술적 구현과 성능 최적화에 집중하는 과정에서 게임 플레이 메커니즘의 독창성이나 사용자 경험의 차별화에 대한 고민이 부족했습니다.\n\n게임의 핵심 재미 요소와 차별화 포인트를 초기에 명확히 정의하지 못했고, 프로젝트 초반부터 사용자 테스트와 피드백을 수집하는 프로세스가 부재했습니다.",
+      areasForImprovementEn:
+        "In the process of focusing on technical implementation and performance optimization, we lacked consideration for the originality of gameplay mechanisms or differentiation of user experience.\n\nWe failed to clearly define the core fun elements and differentiation points of the game early on, and lacked a process to collect user testing and feedback from the beginning of the project.",
+      areasForImprovementZh:
+        "在专注于技术实现和性能优化的过程中，我们对游戏机制原创性或用户体验差异化的考虑不足。\n\n我们未能提前明确定义游戏的核心趣味元素和差异化点，并且缺乏从项目开始就收集用户测试和反馈的流程。",
+      lessonsLearned:
+        "게임 기획 단계에서 '왜 이 게임이 재미있을까?'라는 질문을 던지고, 경쟁사 분석과 게임플레이 루프 설계에 더 많은 시간을 투자하겠습니다.\n\n기술 스택 선택 전에 게임의 핵심 재미 요소를 먼저 정의하고, 그에 맞는 최적의 기술을 선택하는 '게임플레이 중심 개발 방법론'을 적용해보고 싶습니다.\n\n프로토타입 단계에서부터 지인들과 함께 플레이테스트를 진행하고, '재미'를 정량적으로 측정할 수 있는 지표를 도입하여 지속적으로 개선하는 사이클을 만들겠습니다.",
+      lessonsLearnedEn:
+        "In the game planning stage, I will ask 'Why would this game be fun?' and invest more time in competitor analysis and gameplay loop design.\n\nBefore selecting the tech stack, I would like to apply a 'gameplay-centered development methodology' that first defines the core fun elements and then selects optimal technology accordingly.\n\nI will conduct playtests with acquaintances from the prototype stage and create a continuous improvement cycle by introducing metrics to quantitatively measure 'fun'.",
+      lessonsLearnedZh:
+        "在游戏规划阶段，我会问'为什么这个游戏会有趣？'并投入更多时间进行竞争对手分析和游戏循环设计。\n\n在选择技术栈之前，我想应用一种'以游戏玩法为中心的开发方法论'，首先定义核心趣味元素，然后相应地选择最佳技术。\n\n我将从原型阶段开始与熟人进行游戏测试，并通过引入可以定量测量'趣味性'的指标来创建持续改进的循环。",
+    },
+    roleDetails: [
+      "Server-authority 모델 도입으로 한 게임을 같이 즐기는 클라이언트들의 요청을 서버에서 통제하여 일관된 환경 유지",
+      "게임 진행 라이프 사이클 구현 (게임 시작, 진행, 종료 관리)",
+      "WebSocket을 활용한 실시간 멀티플레이어 동기화",
+      "아이템 효과 시스템 구현: 아이템 효과 로직, 적용 메커니즘, 지속 시간 관리, 우선순위 알고리즘 개발",
+      "인증/인가 시스템 구현",
+      "전적 집계 및 통계 시스템 개발: 쿼리 튜닝 및 인덱스 최적화를 통한 대량 데이터 조회 성능 향상, 커서 기반 페이징으로 offset 기반 페이징의 성능 문제 해결, 배치 작업 최적화를 통한 통계 집계 처리",
+      "맵 축소 전략 및 게임 밸런스 로직 개발",
+      "Selenium을 활용한 자동 QA 테스트 구현 (Web 기반 게임의 기능 및 성능 검증)",
+    ],
+    roleDetailsEn: [
+      "Introduced Server-authority model to control client requests on the server, maintaining a consistent environment for all players in the same game",
+      "Implemented game lifecycle management (game start, progression, and end management)",
+      "Real-time multiplayer synchronization using WebSocket",
+      "Implemented item effect system: item effect logic, application mechanism, duration management, and priority algorithm development",
+      "Implemented authentication/authorization system",
+      "Developed match history aggregation and statistics system: Improved bulk data query performance through query tuning and index optimization, resolved performance issues of offset-based pagination with cursor-based pagination, optimized batch processing for statistics aggregation",
+      "Developed map shrinking strategy and game balance logic",
+      "Implemented automated QA testing using Selenium (functional and performance verification for web-based game)",
+    ],
+    roleDetailsZh: [
+      "引入服务器权威模型，在服务器上控制客户端请求，为同一游戏中的所有玩家维持一致的环境",
+      "实现游戏生命周期管理（游戏开始、进行和结束管理）",
+      "使用WebSocket实现实时多人同步",
+      "实现物品效果系统：物品效果逻辑、应用机制、持续时间管理和优先级算法开发",
+      "实现认证/授权系统",
+      "开发比赛历史聚合和统计系统：通过查询调优和索引优化提高大量数据查询性能，使用基于游标的分页解决基于偏移的分页性能问题，优化批处理以进行统计聚合",
+      "开发地图缩小策略和游戏平衡逻辑",
+      "使用Selenium实现自动化QA测试（基于Web的游戏功能和性能验证）",
+    ],
+    technicalHighlights: [
+      {
+        title: "동시성 처리 최적화",
+        titleEn: "Concurrency Optimization",
+        titleZh: "并发处理优化",
+        description:
+          "Java의 ConcurrentQueue를 활용하여 비동기 요청 처리 시스템을 구축하여 300명 이상의 동시 접속자를 안정적으로 지원했습니다. MySQL의 MVCC와 트랜잭션 격리수준을 활용하여 동시 게임 상태 업데이트 시 데이터 일관성을 보장하고, 분산환경에서의 동시성 제어를 위해 낙관적 락과 비관적 락을 적절히 조합하여 구현했습니다.",
+        descriptionEn:
+          "Built an asynchronous request processing system using Java's ConcurrentQueue, stably supporting 300+ concurrent users. Utilized MySQL's MVCC and transaction isolation levels to ensure data consistency during concurrent game state updates, and implemented distributed concurrency control by appropriately combining optimistic and pessimistic locks.",
+        descriptionZh:
+          "利用Java的ConcurrentQueue构建异步请求处理系统，稳定支持300+并发用户。利用MySQL的MVCC和事务隔离级别确保并发游戏状态更新时的数据一致性，并通过适当组合乐观锁和悲观锁实现分布式并发控制。",
+      },
+      {
+        title: "Server-Authority 아키텍처",
+        titleEn: "Server-Authority Architecture",
+        titleZh: "服务器权威架构",
+        description:
+          "모든 게임 로직을 서버에서 처리하는 아키텍처로 치팅 방지와 게임 상태 일관성을 보장했습니다.",
+        descriptionEn:
+          "Implemented Server-Authority architecture processing all game logic on the server to prevent cheating and ensure game state consistency.",
+        descriptionZh:
+          "实现服务器权威架构，在服务器上处理所有游戏逻辑，防止作弊并确保游戏状态一致性。",
+      },
+      {
+        title: "WebSocket 실시간 통신",
+        titleEn: "WebSocket Real-time Communication",
+        titleZh: "WebSocket实时通信",
+        description:
+          "WebSocket을 통한 양방향 실시간 통신으로 플레이어 액션과 게임 상태를 즉시 동기화했습니다.",
+        descriptionEn:
+          "Implemented bidirectional real-time communication using WebSocket to instantly synchronize player actions and game state.",
+        descriptionZh:
+          "使用WebSocket实现双向实时通信，立即同步玩家操作和游戏状态。",
+      },
+    ],
+    challenges: [
+      {
+        problem: "높은 동시 접속자 처리",
+        problemEn: "Handling High Concurrent Users",
+        problemZh: "处理高并发用户",
+        solution:
+          "300명 이상의 동시 접속자를 처리하기 위해 서버 아키텍처를 설계했습니다. 게임 로직과 네트워크 I/O를 분리하여 병목 현상을 해소하고, 비동기 처리와 스레드 풀 최적화를 통해 CPU 자원을 효율적으로 활용했습니다. 또한 동시성 제어 메커니즘을 구현하여 다수의 사용자 요청을 안정적으로 처리할 수 있도록 했습니다.",
+        solutionEn:
+          "Designed server architecture to handle 300+ concurrent users. Separated game logic from network I/O to eliminate bottlenecks and efficiently utilized CPU resources through asynchronous processing and thread pool optimization. Also implemented concurrency control mechanisms to stably handle multiple user requests.",
+        solutionZh:
+          "设计服务器架构以处理300+并发用户。将游戏逻辑与网络I/O分离以消除瓶颈，并通过异步处理和线程池优化有效利用CPU资源。还实现了并发控制机制，以稳定处理多个用户请求。",
+      },
+      {
+        problem: "게임 상태 일관성 유지 및 치팅 방지",
+        problemEn: "Maintaining Game State Consistency and Preventing Cheating",
+        problemZh: "维持游戏状态一致性和防止作弊",
+        solution:
+          "여러 클라이언트가 동시에 요청해도 일관된 게임 상태를 유지하기 위해 중앙 집중식 게임 로직 관리 방식을 도입했습니다. 모든 게임 로직을 서버에서 처리하고, 클라이언트는 입력만 전송하도록 설계하여 클라이언트 조작을 방지하고 모든 플레이어에게 동일한 게임 상태를 보장했습니다.",
+        solutionEn:
+          "Introduced centralized game logic management to maintain consistent game states even when multiple clients send simultaneous requests. Designed the system to process all game logic on the server with clients only sending inputs, preventing client manipulation and ensuring the same game state for all players.",
+        solutionZh:
+          "引入集中式游戏逻辑管理，即使在多个客户端同时发送请求时也能维持一致的游戏状态。设计系统在服务器上处理所有游戏逻辑，客户端仅发送输入，防止客户端操作并确保所有玩家的游戏状态一致。",
+      },
+      {
+        problem: "실시간 동기화 지연 및 네트워크 부하 최소화",
+        problemEn: "Minimizing Real-time Sync Latency and Network Load",
+        problemZh: "最小化实时同步延迟和网络负载",
+        solution:
+          "게임 상태 변경 시 필요한 플레이어에게만 선택적 브로드캐스트하도록 최적화했습니다. 프레임 기반 업데이트 대신 이벤트 기반 업데이트를 채택하여 네트워크 트래픽을 대폭 감소시키고 지연 시간을 단축했습니다.",
+        solutionEn:
+          "Optimized to selectively broadcast only to necessary players on game state changes. Adopted event-based updates instead of frame-based updates, significantly reducing network traffic and latency.",
+        solutionZh:
+          "优化为在游戏状态更改时仅向必要的玩家进行选择性广播。采用基于事件的更新而非基于帧的更新，显著减少网络流量和延迟。",
+      },
+      {
+        problem: "아이템 효과 우선순위 및 충돌 처리",
+        problemEn: "Item Effect Priority and Conflict Resolution",
+        problemZh: "物品效果优先级和冲突处理",
+        solution:
+          "여러 아이템 효과가 동시에 적용될 때의 우선순위 알고리즘을 설계했습니다. 아이템 효과 스택 관리, 지속 시간 추적, 효과 적용 순서를 정의하여 일관된 게임 밸런스를 유지했습니다. 동시 발동 시 우선순위에 따라 효과를 적용하고, 중복 효과는 효율적으로 병합하도록 구현했습니다.",
+        solutionEn:
+          "Designed a priority algorithm for when multiple item effects are applied simultaneously. Defined item effect stack management, duration tracking, and application order to maintain consistent game balance. Implemented effect application based on priority when triggered simultaneously, and efficiently merged duplicate effects.",
+        solutionZh:
+          "设计了当多个物品效果同时应用时的优先级算法。定义了物品效果堆栈管理、持续时间追踪和应用顺序，以维持一致的游戏平衡。实现了同时触发时基于优先级的効果应用，并高效合并重复效果。",
+      },
+      {
+        problem: "Web 기반 게임의 QA 효율화",
+        problemEn: "QA Efficiency for Web-based Game",
+        problemZh: "基于Web的游戏QA效率化",
+        solution:
+          "Web 기반 게임의 특성을 활용하여 Selenium을 통한 자동화 테스트를 구현했습니다. 게임 플로우, 로그인/로그아웃, 게임 생성/참여 등 주요 기능에 대한 E2E 테스트를 자동화하여 수동 테스트 시간을 대폭 단축하고 배포 전 품질을 보장했습니다.",
+        solutionEn:
+          "Leveraged web-based game characteristics to implement automated testing using Selenium. Automated E2E tests for key features such as game flow, login/logout, and game creation/participation, significantly reducing manual testing time and ensuring quality before deployment.",
+        solutionZh:
+          "利用基于Web的游戏特性，使用Selenium实现自动化测试。自动化了关键功能的E2E测试，如游戏流程、登录/登出、游戏创建/参与等，大幅缩短手动测试时间并确保部署前的质量。",
+      },
+    ],
+    results: [
+      {
+        metric: "50ms",
+        metricEn: "50ms",
+        metricZh: "50ms",
+        description:
+          "Locust 부하 테스트: 동시 접속자 1000명 시나리오에서 게임 상태 동기화 API p95 Latency 50ms 달성",
+        descriptionEn:
+          "Locust load test: Achieved p95 latency of 50ms for game state synchronization APIs with 1000 concurrent users scenario",
+        descriptionZh:
+          "Locust负载测试：在1000并发用户场景下，游戏状态同步API的p95延迟达到50ms",
+      },
+      {
+        metric: "300명+",
+        metricEn: "300+",
+        metricZh: "300+",
+        description: "실제 동시 접속자 300명 이상 유치",
+        descriptionEn: "Attracted 300+ actual concurrent users",
+        descriptionZh: "吸引了300+实际并发用户",
+      },
+      {
+        metric: "99.9%",
+        metricEn: "99.9%",
+        metricZh: "99.9%",
+        description:
+          "서버 안정성 99.9% 달성, 치팅 방지를 위한 Server-Authority 아키텍처 구현",
+        descriptionEn:
+          "Achieved 99.9% server uptime, implemented Server-Authority architecture to prevent cheating",
+        descriptionZh:
+          "实现99.9%服务器稳定性，实现服务器权威架构以防止作弊",
+      },
+    ],
+    performanceOptimization: [
+      {
+        title: "비동기 요청 처리 최적화",
+        titleEn: "Asynchronous Request Processing Optimization",
+        titleZh: "异步请求处理优化",
+        description:
+          "Java의 ConcurrentQueue와 Thread Pool을 활용하여 비동기 요청 처리 시스템을 구축했습니다. 게임 로직과 네트워크 I/O를 분리하여 병목 현상을 해소하고, 스레드 풀을 통해 CPU 자원을 최적화하여 300명 이상의 동시 접속자를 안정적으로 처리할 수 있었습니다.",
+        descriptionEn:
+          "Built an asynchronous request processing system using Java's ConcurrentQueue and Thread Pool. Separated game logic from network I/O to eliminate bottlenecks and optimized CPU resources through thread pools, enabling stable handling of 300+ concurrent users.",
+        descriptionZh:
+          "使用Java的ConcurrentQueue和Thread Pool构建异步请求处理系统。将游戏逻辑与网络I/O分离以消除瓶颈，并通过线程池优化CPU资源，能够稳定处理300+并发用户。",
+      },
+      {
+        title: "이벤트 기반 브로드캐스팅",
+        titleEn: "Event-based Broadcasting",
+        titleZh: "基于事件的广播",
+        description:
+          "프레임 기반 업데이트 대신 이벤트 기반 업데이트를 채택하여 네트워크 트래픽을 대폭 감소시켰습니다. 게임 상태 변경 시 필요한 플레이어에게만 선택적 브로드캐스트하도록 최적화하여 p95 Latency 50ms를 달성했습니다.",
+        descriptionEn:
+          "Adopted event-based updates instead of frame-based updates, significantly reducing network traffic. Optimized to selectively broadcast only to necessary players on game state changes, achieving p95 latency of 50ms.",
+        descriptionZh:
+          "采用基于事件的更新而非基于帧的更新，显著减少网络流量。优化为在游戏状态更改时仅向必要的玩家进行选择性广播，实现p95延迟50ms。",
+      },
+    ],
+    databaseOptimization: [
+      {
+        title: "쿼리 튜닝 및 인덱스 최적화",
+        titleEn: "Query Tuning and Index Optimization",
+        titleZh: "查询调优和索引优化",
+        description:
+          "전적 집계 및 통계 시스템 개발 시 실행 계획 분석을 통해 쿼리 성능을 최적화했습니다. 적절한 인덱스를 추가하여 대량 데이터 조회 성능을 향상시켰고, 커서 기반 페이징을 적용하여 offset 기반 페이징의 성능 문제를 해결했습니다.",
+        descriptionEn:
+          "Optimized query performance through execution plan analysis when developing match history aggregation and statistics systems. Improved bulk data query performance by adding appropriate indexes and resolved performance issues of offset-based pagination by applying cursor-based pagination.",
+        descriptionZh:
+          "在开发比赛历史聚合和统计系统时，通过执行计划分析优化查询性能。通过添加适当的索引提高大量数据查询性能，并通过应用基于游标的分页解决基于偏移的分页性能问题。",
+      },
+      {
+        title: "동시성 제어 및 트랜잭션 관리",
+        titleEn: "Concurrency Control and Transaction Management",
+        titleZh: "并发控制和事务管理",
+        description:
+          "MySQL의 MVCC(Multi-Version Concurrency Control)와 트랜잭션 격리수준(READ COMMITTED)을 활용하여 동시 게임 상태 업데이트 시 데이터 일관성을 보장했습니다. 낙관적 락과 비관적 락을 적절히 조합하여 분산환경에서의 동시성 제어를 구현했습니다.",
+        descriptionEn:
+          "Utilized MySQL's MVCC (Multi-Version Concurrency Control) and transaction isolation level (READ COMMITTED) to ensure data consistency during concurrent game state updates. Implemented distributed concurrency control by appropriately combining optimistic and pessimistic locks.",
+        descriptionZh:
+          "利用MySQL的MVCC（多版本并发控制）和事务隔离级别（READ COMMITTED）确保并发游戏状态更新时的数据一致性。通过适当组合乐观锁和悲观锁实现分布式并发控制。",
+      },
+    ],
+    apiDesign:
+      "RESTful API 설계 원칙을 준수하여 일관된 API 구조를 설계했습니다. 리소스 중심의 URL 구조와 적절한 HTTP 메서드(GET, POST, PUT, DELETE)를 사용하여 직관적인 API를 제공했습니다. 또한 에러 응답 형식을 표준화하여 클라이언트가 쉽게 에러를 처리할 수 있도록 했습니다.",
+    apiDesignEn:
+      "Designed a consistent API structure following RESTful API design principles. Provided intuitive APIs using resource-centered URL structures and appropriate HTTP methods (GET, POST, PUT, DELETE). Also standardized error response formats to enable clients to easily handle errors.",
+    apiDesignZh:
+      "遵循RESTful API设计原则设计了一致的API结构。使用以资源为中心的URL结构和适当的HTTP方法（GET、POST、PUT、DELETE）提供直观的API。还标准化了错误响应格式，使客户端能够轻松处理错误。",
+    securityImplementation: [
+      {
+        title: "토큰 기반 인증 시스템",
+        titleEn: "Token-based Authentication System",
+        titleZh: "基于令牌的认证系统",
+        description:
+          "JWT(JSON Web Token)를 활용한 토큰 기반 인증 시스템을 구현했습니다. 토큰의 만료 시간과 리프레시 토큰 메커니즘을 추가하여 보안성을 강화했고, STOMP 헤더에 토큰을 포함하여 WebSocket 연결 시에도 인증을 수행하도록 했습니다.",
+        descriptionEn:
+          "Implemented a token-based authentication system using JWT (JSON Web Token). Enhanced security by adding token expiration times and refresh token mechanisms, and performed authentication during WebSocket connections by including tokens in STOMP headers.",
+        descriptionZh:
+          "使用JWT（JSON Web Token）实现基于令牌的认证系统。通过添加令牌过期时间和刷新令牌机制增强安全性，并通过在STOMP标头中包含令牌在WebSocket连接期间执行认证。",
+      },
+      {
+        title: "Server-Authority 아키텍처",
+        titleEn: "Server-Authority Architecture",
+        titleZh: "服务器权威架构",
+        description:
+          "모든 게임 로직을 서버에서 처리하는 Server-Authority 모델을 도입하여 클라이언트 조작을 방지했습니다. 클라이언트는 단순히 입력만 전송하고, 서버에서 모든 게임 상태를 계산하여 모든 플레이어에게 동일한 게임 상태를 보장했습니다.",
+        descriptionEn:
+          "Introduced a Server-Authority model where all game logic is processed on the server to prevent client manipulation. Clients only send inputs, and the server calculates all game states to ensure the same game state for all players.",
+        descriptionZh:
+          "引入服务器权威模型，所有游戏逻辑在服务器上处理，以防止客户端操作。客户端仅发送输入，服务器计算所有游戏状态，确保所有玩家的游戏状态一致。",
+      },
+    ],
+    testingStrategy:
+      "Selenium을 활용한 자동화 QA 테스트를 구현하여 Web 기반 게임의 기능 및 성능을 검증했습니다. 게임 플로우, 로그인/로그아웃, 게임 생성/참여 등 주요 기능에 대한 E2E 테스트를 자동화하여 수동 테스트 시간을 대폭 단축하고 배포 전 품질을 보장했습니다. 또한 Locust를 활용한 부하 테스트를 통해 동시 접속자 처리 능력을 검증했습니다.",
+    testingStrategyEn:
+      "Implemented automated QA testing using Selenium to verify functionality and performance of web-based games. Automated E2E tests for key features such as game flow, login/logout, and game creation/participation, significantly reducing manual testing time and ensuring quality before deployment. Also validated concurrent user handling capabilities through load testing using Locust.",
+    testingStrategyZh:
+      "使用Selenium实现自动化QA测试，验证基于Web的游戏的功能和性能。自动化了关键功能的E2E测试，如游戏流程、登录/登出、游戏创建/参与等，大幅缩短手动测试时间并确保部署前的质量。还通过使用Locust进行负载测试验证了并发用户处理能力。",
   },
   {
     id: 3,

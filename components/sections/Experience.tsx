@@ -9,6 +9,62 @@ interface ExperienceProps {
   locale: Locale;
 }
 
+type LocalizedText = {
+  title?: string;
+  titleEn?: string;
+  titleZh?: string;
+  company?: string;
+  companyEn?: string;
+  companyZh?: string;
+  description?: string;
+  descriptionEn?: string;
+  descriptionZh?: string;
+};
+
+type WorkItem = {
+  name: string;
+  nameEn?: string;
+  nameZh?: string;
+  description: string;
+  descriptionEn?: string;
+  descriptionZh?: string;
+};
+
+type WorkCategory = {
+  title: string;
+  titleEn?: string;
+  titleZh?: string;
+  layout?: 'grid' | 'row';
+  items: WorkItem[];
+};
+
+type AwardItem = {
+  title: string;
+  titleEn?: string;
+  titleZh?: string;
+  organization: string;
+  organizationEn?: string;
+  organizationZh?: string;
+  date: string;
+};
+
+type ExperienceItem = LocalizedText & {
+  title: string;
+  company: string;
+  period: string;
+  award?: AwardItem | AwardItem[];
+  workItems?: WorkCategory[];
+};
+
+function pickLocalized(
+  locale: Locale,
+  value: { ko?: string; en?: string; zh?: string; fallback?: string }
+) {
+  if (locale === 'ko') return value.ko ?? value.fallback ?? '';
+  if (locale === 'zh') return value.zh ?? value.en ?? value.ko ?? value.fallback ?? '';
+  return value.en ?? value.ko ?? value.fallback ?? '';
+}
+
 export default function Experience({ locale }: ExperienceProps) {
   const t = useTranslations(locale);
   const subtitle = t('experience.subtitle');
@@ -27,42 +83,67 @@ export default function Experience({ locale }: ExperienceProps) {
       </div>
 
       <div className="max-w-4xl mx-auto">
-        {experiences.map((exp, index) => {
-          const descriptionText = 
-            locale === 'ko' ? exp.description 
-            : locale === 'zh' ? ((exp as any).descriptionZh || exp.descriptionEn || exp.description)
-            : (exp.descriptionEn || exp.description);
-          const hasWorkItems = 'workItems' in exp && exp.workItems && exp.workItems.length > 0;
+        {(experiences as ExperienceItem[]).map((exp, index) => {
+          const descriptionText = pickLocalized(locale, {
+            ko: exp.description,
+            en: exp.descriptionEn,
+            zh: exp.descriptionZh,
+            fallback: exp.description,
+          });
+          const hasWorkItems = Array.isArray(exp.workItems) && exp.workItems.length > 0;
 
           const descriptionContent = hasWorkItems ? (
             <div className="space-y-6 mt-3">
               <p className="experience-description text-sm mb-4 leading-relaxed">{descriptionText}</p>
-              <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3">
-                {exp.workItems.map((category: any, catIdx: number) => (
-                  <div key={catIdx} className="space-y-3">
-                    <h4 className="experience-category-title text-xs font-semibold uppercase tracking-wider mb-3">
-                      {locale === 'ko' ? category.title 
-                       : locale === 'zh' ? (category.titleZh || category.titleEn || category.title)
-                       : (category.titleEn || category.title)}
-                    </h4>
-                    <div className="space-y-3">
-                      {category.items.map((item: any, itemIdx: number) => (
-                        <Card key={itemIdx} hover={false} className="experience-item-card p-3">
-                          <h5 className="experience-item-title text-xs md:text-sm font-semibold mb-1.5">
-                            {locale === 'ko' ? item.name 
-                             : locale === 'zh' ? (item.nameZh || item.nameEn || item.name)
-                             : (item.nameEn || item.name)}
-                          </h5>
-                          <p className="experience-item-description text-xs leading-relaxed">
-                            {locale === 'ko' ? item.description 
-                             : locale === 'zh' ? (item.descriptionZh || item.descriptionEn || item.description)
-                             : (item.descriptionEn || item.description)}
-                          </p>
-                        </Card>
-                      ))}
+              {/* 모든 카테고리를 하나의 2열 그리드에 배치. row 카테고리는 col-span-2로 전체 너비 차지 */}
+              <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 md:grid-flow-dense">
+                {exp.workItems!.map((category, catIdx) => {
+                  const categoryTitle = pickLocalized(locale, {
+                    ko: category.title,
+                    en: category.titleEn,
+                    zh: category.titleZh,
+                    fallback: category.title,
+                  });
+                  const isRow = category.layout === 'row';
+
+                  return (
+                    <div
+                      key={catIdx}
+                      className={`space-y-3 ${isRow ? 'sm:col-span-1 md:col-span-2' : ''}`}
+                    >
+                      <h4 className="experience-category-title text-xs font-semibold uppercase tracking-wider mb-3">
+                        {categoryTitle}
+                      </h4>
+                      {/* row 카테고리: 아이템을 2열 그리드로 가로 배치 */}
+                      <div className={isRow ? 'grid gap-3 sm:grid-cols-1 md:grid-cols-2' : 'space-y-3'}>
+                        {category.items.map((item, itemIdx) => {
+                          const itemName = pickLocalized(locale, {
+                            ko: item.name,
+                            en: item.nameEn,
+                            zh: item.nameZh,
+                            fallback: item.name,
+                          });
+                          const itemDesc = pickLocalized(locale, {
+                            ko: item.description,
+                            en: item.descriptionEn,
+                            zh: item.descriptionZh,
+                            fallback: item.description,
+                          });
+                          return (
+                            <Card key={itemIdx} hover={false} className="experience-item-card p-3">
+                              <h5 className="experience-item-title text-xs md:text-sm font-semibold mb-1.5">
+                                {itemName}
+                              </h5>
+                              <p className="experience-item-description text-xs leading-relaxed">
+                                {itemDesc}
+                              </p>
+                            </Card>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ) : (
@@ -74,7 +155,7 @@ export default function Experience({ locale }: ExperienceProps) {
               <div className="dark:!text-white">{descriptionContent}</div>
               <div className="mt-4 pt-4 border-t border-gray-200 dark:border-slate-700">
                 <div className="space-y-2">
-                  {(Array.isArray(exp.award) ? exp.award : [exp.award]).map((award: any, awardIdx: number) => (
+                  {(Array.isArray(exp.award) ? exp.award : [exp.award]).map((award, awardIdx) => (
                     <Card key={awardIdx} hover={false} className="experience-award-card p-3">
                       <div className="flex items-start gap-2">
                         {/* 트로피 아이콘 */}
@@ -92,14 +173,21 @@ export default function Experience({ locale }: ExperienceProps) {
                         </svg>
                         <div className="flex-1">
                           <p className="experience-award-title text-xs md:text-sm font-medium">
-                            {locale === 'ko' ? award.title 
-                             : locale === 'zh' ? (award.titleZh || award.titleEn || award.title)
-                             : (award.titleEn || award.title)}
+                            {pickLocalized(locale, {
+                              ko: award.title,
+                              en: award.titleEn,
+                              zh: award.titleZh,
+                              fallback: award.title,
+                            })}
                           </p>
                           <p className="experience-award-org text-xs mt-1">
-                            {locale === 'ko' ? award.organization 
-                             : locale === 'zh' ? (award.organizationZh || award.organizationEn || award.organization)
-                             : (award.organizationEn || award.organization)} • {award.date}
+                            {pickLocalized(locale, {
+                              ko: award.organization,
+                              en: award.organizationEn,
+                              zh: award.organizationZh,
+                              fallback: award.organization,
+                            })}{' '}
+                            • {award.date}
                           </p>
                         </div>
                       </div>
@@ -112,14 +200,18 @@ export default function Experience({ locale }: ExperienceProps) {
             descriptionContent
           );
 
-          const titleText = 
-            locale === 'ko' ? exp.title 
-            : locale === 'zh' ? ((exp as any).titleZh || (exp as any).titleEn || exp.title)
-            : ((exp as any).titleEn || exp.title);
-          const companyText = 
-            locale === 'ko' ? exp.company 
-            : locale === 'zh' ? (exp.companyZh || exp.companyEn || exp.company)
-            : (exp.companyEn || exp.company);
+          const titleText = pickLocalized(locale, {
+            ko: exp.title,
+            en: exp.titleEn,
+            zh: exp.titleZh,
+            fallback: exp.title,
+          });
+          const companyText = pickLocalized(locale, {
+            ko: exp.company,
+            en: exp.companyEn,
+            zh: exp.companyZh,
+            fallback: exp.company,
+          });
 
           return (
             <TimelineItem
