@@ -688,5 +688,5 @@ portfolio/
 ## 👤 작성자
 
 **Sevin Park** - Backend Developer
-- GitHub: [@sevin98](https://github.com/sevin98)
+- GitHub: [@sevineleven](https://github.com/sevineleven)
 - LinkedIn: [세빈 박](https://linkedin.com/in/%EC%84%B8%EB%B9%88-%EB%B0%95-481206367)
