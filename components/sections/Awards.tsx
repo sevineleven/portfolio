@@ -25,10 +25,10 @@ export default function Awards() {
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <h3 className="awards-item-title text-lg font-semibold">
-                    {award.titleEn || award.title}
+                    {award.title}
                   </h3>
                   <p className="awards-item-org text-sm">
-                    {award.organizationEn || award.organization}
+                    {award.organization}
                   </p>
                 </div>
                 <span className="awards-item-period text-sm whitespace-nowrap">
