@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { personalInfo, experiences, projects, skills } from '@/data/portfolio';
 import TableOfContents from '@/components/TableOfContents';
@@ -72,10 +73,12 @@ export default function Home() {
             <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--green)' }}>$</span>
             <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--text)' }}>whoami</span>
           </div>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 13, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 32 }}>
+          <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start', marginBottom: 32 }}>
+            <Image src="/me.png" alt="박세빈" width={80} height={80} style={{ borderRadius: '50%', objectFit: 'cover', flexShrink: 0, border: '2px solid var(--border)' }} />
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 13, paddingLeft: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
             <div><span style={{ color: 'var(--blue)', marginRight: 12 }}>name</span><span style={{ color: 'var(--text)' }}>parksevin</span></div>
-            <div><span style={{ color: 'var(--blue)', marginRight: 16 }}>role</span><span style={{ color: 'var(--dim)' }}>backend engineer</span></div>
-            <div><span style={{ color: 'var(--blue)', marginRight: 11 }}>stack</span><span style={{ color: 'var(--dim)' }}>Spring Boot · Java · MySQL</span></div>
+            <div><span style={{ color: 'var(--blue)', marginRight: 16 }}>role</span><span style={{ color: 'var(--text)' }}>backend engineer</span></div>
+            <div><span style={{ color: 'var(--blue)', marginRight: 11 }}>stack</span><span style={{ color: 'var(--text)' }}>Spring Boot · Java · MySQL</span></div>
             <div><span style={{ color: 'var(--blue)', marginRight: 2 }}>github</span>
               <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="whoami-link">github.com/sevineleven</a>
             </div>
@@ -83,12 +86,13 @@ export default function Home() {
               <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="whoami-link" style={{ marginLeft: 4 }}>linkedin.com/in/sevin-park</a>
             </div>
           </div>
+          </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {personalInfo.philosophy.map((p, i) => (
               <div key={i} style={{ paddingLeft: 16, borderLeft: '2px solid var(--border)' }}>
                 <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', marginBottom: 4 }}>{p.title}</div>
-                <div style={{ fontSize: 13, color: 'var(--dim)', lineHeight: 1.7 }}>{p.description}</div>
+                <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.7 }}>{p.description}</div>
               </div>
             ))}
           </div>
@@ -107,7 +111,7 @@ export default function Home() {
                   </div>
                   <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--muted)', whiteSpace: 'nowrap' }}>{exp.period}</span>
                 </div>
-                <p style={{ fontSize: 13, color: 'var(--dim)', marginBottom: 16, lineHeight: 1.7 }}>{exp.description}</p>
+                <p style={{ fontSize: 13, color: 'var(--text)', marginBottom: 16, lineHeight: 1.7 }}>{exp.description}</p>
 
                 {exp.workItems && (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -121,7 +125,7 @@ export default function Home() {
                                 <span style={{ color: 'var(--muted)', marginRight: 6, fontFamily: 'var(--mono)' }}>▸</span>
                                 {item.name}
                               </div>
-                              <div style={{ fontSize: 12, color: 'var(--dim)', lineHeight: 1.7, paddingLeft: 18 }}>{item.description}</div>
+                              <div style={{ fontSize: 12, color: 'var(--text)', lineHeight: 1.7, paddingLeft: 18 }}>{item.description}</div>
                             </li>
                           ))}
                         </ul>
@@ -161,14 +165,14 @@ export default function Home() {
                   </div>
                   <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--muted)' }}>{p.period}</span>
                 </div>
-                <p style={{ fontSize: 13, color: 'var(--dim)', lineHeight: 1.7, marginBottom: 14 }}>{p.description}</p>
+                <p style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.7, marginBottom: 14 }}>{p.description}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                   {p.tags.map((t) => (
                     <span key={t} className="skill-chip">{t}</span>
                   ))}
                 </div>
                 {p.teamComposition && (
-                  <div style={{ marginTop: 12, fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--dim)' }}>
+                  <div style={{ marginTop: 12, fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--text)' }}>
                     {p.teamComposition} · {p.myRole}
                     {p.projectOrigin && <span style={{ marginLeft: 10, color: 'var(--muted)' }}>· {p.projectOrigin}</span>}
                   </div>
@@ -184,7 +188,7 @@ export default function Home() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {skills.map((s) => (
               <div key={s.category} style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
-                <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--blue)', minWidth: 140, paddingTop: 3 }}>{s.category}</span>
+                <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--text)', minWidth: 140, paddingTop: 3 }}>{s.category}</span>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                   {s.items.map((item) => (
                     <span key={item} className="skill-chip">{item}</span>
