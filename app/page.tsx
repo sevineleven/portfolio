@@ -40,7 +40,7 @@ export default function Home() {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, height: 44 }}>
             {[
-              { label: 'cd ~/blog', href: 'https://sevineleven.vercel.app', external: true },
+              { label: 'cd ~/blog', href: 'https://blog.sevin.dev', external: true },
               { label: '#whoami', href: '#whoami' },
               { label: '#experience', href: '#experience' },
               { label: '#projects', href: '#projects' },
