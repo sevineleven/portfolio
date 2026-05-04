@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Portfolio — Sevin Park',
-  description: 'Backend Developer Portfolio',
+  title: '백엔드 개발자 박세빈',
+  description: '백엔드 개발자 박세빈 포트폴리오',
   openGraph: {
-    title: 'Portfolio — Sevin Park',
-    description: 'Backend Developer Portfolio',
+    title: '백엔드 개발자 박세빈',
+    description: '백엔드 개발자 박세빈 포트폴리오',
     url: 'https://sevin.dev',
   },
 };
