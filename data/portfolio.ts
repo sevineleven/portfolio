@@ -30,12 +30,9 @@ export const personalInfo = {
       descriptionZh: "良好的文档化能够促进团队成员之间的知识共享，缩短新成员的入职时间。负责人变更时能够快速理解上下文，未来的功能添加或错误修复也能够通过文档高效进行。",
     },
     {
-      title: "사용자를 생각합니다.",
-      titleEn: "I think about users.",
-      titleZh: "我考虑用户。",
-      description: "안정적이고 확장 가능한 백엔드 시스템을 구축하여 최종 사용자에게 원활한 서비스를 제공하는 것을 목표로 합니다. 서버 성능과 안정성을 우선시하며, 지속적인 모니터링과 개선을 통해 사용자 경험을 향상시킵니다.",
-      descriptionEn: "My goal is to provide seamless services to end users by building stable and scalable backend systems. I prioritize server performance and stability, and continuously improve user experience through ongoing monitoring and optimization.",
-      descriptionZh: "我的目标是通过构建稳定且可扩展的后端系统，为最终用户提供无缝服务。我优先考虑服务器性能和稳定性，通过持续的监控和改进来提升用户体验。",
+      title: "AI 도구의 구조를 탐구합니다.",
+      titleEn: "I explore the internals of AI tooling.",
+      description: "Claude Code의 Skills(슬래시 커맨드)와 MCP(Model Context Protocol)의 client·host·server 구조를 직접 뜯어보며, AI 에이전트를 개발 워크플로우에 통합하는 방법을 탐구하고 있습니다. 단순히 AI 도구를 사용하는 데 그치지 않고, 그 위에서 동작하는 자동화 흐름을 직접 설계하는 것에 관심이 있습니다. 새로운 기술 패러다임이 등장했을 때 가장 먼저 손을 대보는 개발자가 되고 싶습니다.",
     },
   ],
   github: "https://github.com/sevineleven",
@@ -474,7 +471,7 @@ export const projects = [
     ],
     retrospection: {
       whatWorkedWell:
-        "3-tier 아키텍처로 각 레이어의 책임을 명확히 분리하여 유지보수성과 확장성을 크게 향상시킬 수 있었습니다. 전역 예외 처리 핸들러와 Spring Security를 활용한 보안 시스템으로 안정적인 API를 설계했습니다.\n\n공연 계약의 복잡한 비즈니스 로직을 상태 패턴과 전략 패턴으로 깔끔하게 구현했고, 스마트 컨트랙트와 백엔드 연동을 통해 블록체인 기술을 실제 서비스에 적용해볼 수 있었습니다.",
+        "**3-tier 아키텍처**로 각 레이어의 책임을 명확히 분리하여 유지보수성과 확장성을 크게 향상시킬 수 있었습니다. **전역 예외 처리 핸들러**와 **Spring Security**를 활용한 보안 시스템으로 안정적인 API를 설계했습니다.\n\n공연 계약의 복잡한 비즈니스 로직을 **상태 패턴과 전략 패턴**으로 깔끔하게 구현했고, **스마트 컨트랙트**와 백엔드 연동을 통해 블록체인 기술을 실제 서비스에 적용해볼 수 있었습니다.",
       whatWorkedWellEn:
         "Clearly separating responsibilities through 3-tier architecture significantly improved maintainability and scalability. Designed stable APIs with a global exception handler and security system using Spring Security.\n\nCleanly implemented complex business logic for concert contracts using state and strategy patterns, and gained experience applying blockchain technology to actual services through smart contract and backend integration.",
       whatWorkedWellZh:
@@ -493,13 +490,13 @@ export const projects = [
         "Before introducing blockchain, I will conduct performance benchmarks in real operational environments and introduce a process to compare and analyze characteristics of various blockchain networks (Ethereum, Polygon, etc.) to select the network optimized for the project.\n\nBefore deploying smart contracts, I will conduct sufficient load testing on testnets and perform analysis to predict operational costs by applying gas optimization techniques.\n\nConsidering the uncertainty that can arise from blockchain characteristics, I would like to try reviewing non-blockchain alternative solutions together and designing a hybrid architecture.",
     },
     roleDetails: [
-      "3-tier 아키텍처 설계 및 핵심 비즈니스 로직 구현: 공연 목록 조회 시 쿼리 튜닝 및 인덱스 최적화를 통한 성능 향상, 실행 계획 분석을 통한 N+1 문제 해결 및 fetch join 최적화, 커서 기반 페이징으로 대량 데이터 조회 성능 개선",
-      "Spring Security 기반 JWT 인증/인가 시스템 구현",
-      "전역 예외 처리 핸들러 및 에러 핸들링 구현",
-      "Redisson 기반 분산 락을 통한 분산환경 동시성 제어 구현: 좌석 예매 시 동시성 문제 해결을 위해 분산 락 적용, MySQL 트랜잭션 격리수준(REPEATABLE READ)과 분산 락을 조합하여 데이터 일관성 보장",
-      "공연 계약 주요 비즈니스 로직 구현 (뮤지션 승인/거절, 계약 상태 관리, 정산 처리)",
-      "상태 패턴 및 전략 패턴을 활용한 계약 상태 전이 로직 개발",
-      "스마트 컨트랙트와 백엔드 연동 (Web3j 활용)",
+      "**3-tier 아키텍처 설계** 및 핵심 비즈니스 로직 구현: 공연 목록 조회 시 **쿼리 튜닝 및 인덱스 최적화**를 통한 성능 향상, 실행 계획 분석을 통한 **N+1 문제 해결** 및 **fetch join 최적화**, **커서 기반 페이징**으로 대량 데이터 조회 성능 개선",
+      "**Spring Security** 기반 **JWT 인증/인가** 시스템 구현",
+      "**전역 예외 처리 핸들러** 및 에러 핸들링 구현",
+      "**Redisson 기반 분산 락**을 통한 분산환경 동시성 제어 구현: 좌석 예매 시 동시성 문제 해결을 위해 분산 락 적용, **MySQL REPEATABLE READ**와 분산 락을 조합하여 데이터 일관성 보장",
+      "공연 계약 주요 **비즈니스 로직 구현** (뮤지션 승인/거절, 계약 상태 관리, 정산 처리)",
+      "**상태 패턴 및 전략 패턴**을 활용한 계약 상태 전이 로직 개발",
+      "**스마트 컨트랙트**와 백엔드 연동 (**Web3j** 활용)",
       "RESTful API 설계 및 구현",
     ],
     roleDetailsEn: [
@@ -528,7 +525,7 @@ export const projects = [
         titleEn: "3-tier Architecture and DB Optimization",
         titleZh: "3层架构和数据库优化",
         description:
-          "프레젠테이션, 비즈니스, 데이터 레이어를 명확히 분리하여 유지보수성과 확장성을 향상시켰습니다. 공연 목록 조회 시 쿼리 튜닝 및 인덱스 최적화를 통해 성능을 향상시켰고, 실행 계획 분석을 통해 N+1 문제를 해결하고 fetch join을 최적화했습니다. 또한 커서 기반 페이징을 적용하여 대량 데이터 조회 성능을 개선했습니다.",
+          "프레젠테이션, 비즈니스, 데이터 레이어를 명확히 분리하여 유지보수성과 확장성을 향상시켰습니다. 공연 목록 조회 시 **쿼리 튜닝 및 인덱스 최적화**를 통해 성능을 향상시켰고, 실행 계획 분석을 통해 **N+1 문제**를 해결하고 **fetch join**을 최적화했습니다. 또한 **커서 기반 페이징**을 적용하여 대량 데이터 조회 성능을 개선했습니다.",
         descriptionEn:
           "Clearly separated presentation, business, and data layers to improve maintainability and scalability. Improved performance through query tuning and index optimization for concert list queries, resolved N+1 problems and optimized fetch joins through execution plan analysis. Also improved bulk data query performance by applying cursor-based pagination.",
         descriptionZh:
@@ -539,7 +536,7 @@ export const projects = [
         titleEn: "Smart Contract Integration",
         titleZh: "智能合约集成",
         description:
-          "Web3j를 통해 Java 백엔드와 이더리움 블록체인을 연동하여 자동화된 수익 분배 시스템을 구현했습니다.",
+          "**Web3j**를 통해 Java 백엔드와 이더리움 블록체인을 연동하여 **자동화된 수익 분배 시스템**을 구현했습니다.",
         descriptionEn:
           "Integrated Java backend with Ethereum blockchain through Web3j to implement an automated profit distribution system.",
         descriptionZh:
@@ -550,7 +547,7 @@ export const projects = [
         titleEn: "Global Exception Handling",
         titleZh: "全局异常处理",
         description:
-          "일관된 에러 응답 형식을 제공하는 전역 예외 처리 핸들러를 구현하여 개발 및 디버깅 효율성을 향상시켰습니다.",
+          "일관된 에러 응답 형식을 제공하는 **전역 예외 처리 핸들러**를 구현하여 개발 및 디버깅 효율성을 향상시켰습니다.",
         descriptionEn:
           "Implemented a global exception handler providing consistent error response formats to improve development and debugging efficiency.",
         descriptionZh:
@@ -890,7 +887,7 @@ export const projects = [
     ],
     retrospection: {
       whatWorkedWell:
-        "Server-Authority 모델을 통한 중앙 집중식 게임 로직 관리로 여러 클라이언트가 동시에 요청해도 일관된 게임 상태를 유지할 수 있었습니다. 이벤트 기반 브로드캐스팅과 선택적 메시지 전송을 통해 네트워크 부하를 최소화하고 p95 Latency 50ms를 달성했습니다.\n\n랜덤성 알고리즘, 상태 머신, 토큰 기반 인증, 비동기 처리 등 다양한 기술을 한 프로젝트 안에서 실제로 구현해볼 수 있어서 값진 학습 경험이었습니다.",
+        "**Server-Authority 모델**을 통한 중앙 집중식 게임 로직 관리로 여러 클라이언트가 동시에 요청해도 일관된 게임 상태를 유지할 수 있었습니다. **이벤트 기반 브로드캐스팅**과 선택적 메시지 전송을 통해 네트워크 부하를 최소화하고 **p95 Latency 50ms**를 달성했습니다.\n\n**랜덤성 알고리즘, 상태 머신, 토큰 기반 인증, 비동기 처리** 등 다양한 기술을 한 프로젝트 안에서 실제로 구현해볼 수 있어서 값진 학습 경험이었습니다.",
       whatWorkedWellEn:
         "Centralized game logic management through the Server-Authority model maintained consistent game states even when multiple clients sent simultaneous requests. Achieved p95 latency of 50ms by minimizing network load through event-based broadcasting and selective message delivery.\n\nIt was a valuable learning experience to implement various technologies including randomness algorithms, state machines, token-based authentication, and asynchronous processing within a single project.",
       whatWorkedWellZh:
@@ -909,14 +906,14 @@ export const projects = [
         "在游戏规划阶段，我会问'为什么这个游戏会有趣？'并投入更多时间进行竞争对手分析和游戏循环设计。\n\n在选择技术栈之前，我想应用一种'以游戏玩法为中心的开发方法论'，首先定义核心趣味元素，然后相应地选择最佳技术。\n\n我将从原型阶段开始与熟人进行游戏测试，并通过引入可以定量测量'趣味性'的指标来创建持续改进的循环。",
     },
     roleDetails: [
-      "Server-authority 모델 도입으로 한 게임을 같이 즐기는 클라이언트들의 요청을 서버에서 통제하여 일관된 환경 유지",
-      "게임 진행 라이프 사이클 구현 (게임 시작, 진행, 종료 관리)",
-      "WebSocket을 활용한 실시간 멀티플레이어 동기화",
-      "아이템 효과 시스템 구현: 아이템 효과 로직, 적용 메커니즘, 지속 시간 관리, 우선순위 알고리즘 개발",
+      "**Server-authority 모델** 도입으로 한 게임을 같이 즐기는 클라이언트들의 요청을 서버에서 통제하여 일관된 환경 유지",
+      "게임 진행 **라이프 사이클 구현** (게임 시작, 진행, 종료 관리)",
+      "**WebSocket**을 활용한 실시간 멀티플레이어 동기화",
+      "**아이템 효과 시스템** 구현: 아이템 효과 로직, 적용 메커니즘, 지속 시간 관리, **우선순위 알고리즘** 개발",
       "인증/인가 시스템 구현",
-      "전적 집계 및 통계 시스템 개발: 쿼리 튜닝 및 인덱스 최적화를 통한 대량 데이터 조회 성능 향상, 커서 기반 페이징으로 offset 기반 페이징의 성능 문제 해결, 배치 작업 최적화를 통한 통계 집계 처리",
-      "맵 축소 전략 및 게임 밸런스 로직 개발",
-      "Selenium을 활용한 자동 QA 테스트 구현 (Web 기반 게임의 기능 및 성능 검증)",
+      "전적 집계 및 통계 시스템 개발: **쿼리 튜닝 및 인덱스 최적화**를 통한 대량 데이터 조회 성능 향상, **커서 기반 페이징**으로 offset 기반 페이징의 성능 문제 해결, **배치 작업 최적화**를 통한 통계 집계 처리",
+      "**맵 축소 전략** 및 게임 밸런스 로직 개발",
+      "**Selenium**을 활용한 자동 QA 테스트 구현 (Web 기반 게임의 기능 및 성능 검증)",
     ],
     roleDetailsEn: [
       "Introduced Server-authority model to control client requests on the server, maintaining a consistent environment for all players in the same game",
@@ -944,7 +941,7 @@ export const projects = [
         titleEn: "Concurrency Optimization",
         titleZh: "并发处理优化",
         description:
-          "Java의 ConcurrentQueue를 활용하여 비동기 요청 처리 시스템을 구축하여 300명 이상의 동시 접속자를 안정적으로 지원했습니다. MySQL의 MVCC와 트랜잭션 격리수준을 활용하여 동시 게임 상태 업데이트 시 데이터 일관성을 보장하고, 분산환경에서의 동시성 제어를 위해 낙관적 락과 비관적 락을 적절히 조합하여 구현했습니다.",
+          "**Java의 ConcurrentQueue**를 활용하여 비동기 요청 처리 시스템을 구축하여 **300명 이상의 동시 접속자**를 안정적으로 지원했습니다. **MySQL의 MVCC**와 트랜잭션 격리수준을 활용하여 동시 게임 상태 업데이트 시 데이터 일관성을 보장하고, 분산환경에서의 동시성 제어를 위해 **낙관적 락과 비관적 락**을 적절히 조합하여 구현했습니다.",
         descriptionEn:
           "Built an asynchronous request processing system using Java's ConcurrentQueue, stably supporting 300+ concurrent users. Utilized MySQL's MVCC and transaction isolation levels to ensure data consistency during concurrent game state updates, and implemented distributed concurrency control by appropriately combining optimistic and pessimistic locks.",
         descriptionZh:
@@ -955,7 +952,7 @@ export const projects = [
         titleEn: "Server-Authority Architecture",
         titleZh: "服务器权威架构",
         description:
-          "모든 게임 로직을 서버에서 처리하는 아키텍처로 치팅 방지와 게임 상태 일관성을 보장했습니다.",
+          "모든 게임 로직을 서버에서 처리하는 아키텍처로 **치팅 방지**와 **게임 상태 일관성**을 보장했습니다.",
         descriptionEn:
           "Implemented Server-Authority architecture processing all game logic on the server to prevent cheating and ensure game state consistency.",
         descriptionZh:
@@ -966,7 +963,7 @@ export const projects = [
         titleEn: "WebSocket Real-time Communication",
         titleZh: "WebSocket实时通信",
         description:
-          "WebSocket을 통한 양방향 실시간 통신으로 플레이어 액션과 게임 상태를 즉시 동기화했습니다.",
+          "WebSocket을 통한 **양방향 실시간 통신**으로 플레이어 액션과 게임 상태를 즉시 동기화했습니다.",
         descriptionEn:
           "Implemented bidirectional real-time communication using WebSocket to instantly synchronize player actions and game state.",
         descriptionZh:
@@ -1256,7 +1253,7 @@ export const projects = [
     ],
     retrospection: {
       whatWorkedWell:
-        "RabbitMQ를 활용한 메시지 큐 기반 아키텍처로 생성형 AI의 긴 처리 시간과 불안정한 응답을 효과적으로 관리할 수 있었습니다. 실패한 작업에 대한 재시도 메커니즘을 구현하여 시스템 안정성을 크게 향상시켰습니다.\n\nDocker 컨테이너화로 개발과 운영 환경의 일관성을 유지했고, Spring Boot 마이크로서비스 아키텍처로 각 컴포넌트의 책임을 명확히 분리하여 유지보수성을 높였습니다.",
+        "**RabbitMQ**를 활용한 **메시지 큐 기반 아키텍처**로 생성형 AI의 긴 처리 시간과 불안정한 응답을 효과적으로 관리할 수 있었습니다. **실패한 작업에 대한 재시도 메커니즘**을 구현하여 시스템 안정성을 크게 향상시켰습니다.\n\n**Docker 컨테이너화**로 개발과 운영 환경의 일관성을 유지했고, **Spring Boot 마이크로서비스 아키텍처**로 각 컴포넌트의 책임을 명확히 분리하여 유지보수성을 높였습니다.",
       whatWorkedWellEn:
         "The message queue-based architecture using RabbitMQ effectively managed the long processing times and unstable responses of generative AI. Significantly improved system stability by implementing retry mechanisms for failed tasks.\n\nMaintained consistency between development and production environments through Docker containerization, and improved maintainability by clearly separating component responsibilities through Spring Boot microservices architecture.",
       areasForImprovement:
@@ -1270,14 +1267,14 @@ export const projects = [
     },
     roleDetails: [
       "Spring Boot 기반 백엔드 서버 기본 설정 및 구조 설계",
-      "Docker를 활용한 컨테이너화 및 Docker Compose를 통한 개발 환경 구성",
-      "RabbitMQ 기반 메시지 큐 시스템 구축 및 비동기 작업 처리 구현: AI 작업을 큐에 담아 비동기 처리하여 응답 시간 단축, 병렬 처리를 통한 여러 AI 작업 동시 실행, 대량 배치 최적화를 통한 작업 처리량 향상",
-      "생성형 AI 파이프라인 연동: ChatGPT, Midjourney, LUMA AI API 통합",
-      "생성형 AI 서비스와 Spring 서버 간의 안정적인 통신 레이어 구현",
-      "JWT 기반 토큰 인증 시스템 구현",
-      "소셜 로그인 시스템 구현 (Google OAuth, Kakao OAuth)",
-      "AI 작업 상태 추적 및 재시도 메커니즘 구현",
-      "데드레터 큐를 활용한 실패 작업 처리 및 모니터링",
+      "**Docker**를 활용한 컨테이너화 및 **Docker Compose**를 통한 개발 환경 구성",
+      "**RabbitMQ 기반 메시지 큐 시스템** 구축 및 비동기 작업 처리 구현: AI 작업을 큐에 담아 비동기 처리하여 응답 시간 단축, **병렬 처리**를 통한 여러 AI 작업 동시 실행, 대량 배치 최적화를 통한 작업 처리량 향상",
+      "**생성형 AI 파이프라인** 연동: **ChatGPT, Midjourney, LUMA AI** API 통합",
+      "생성형 AI 서비스와 Spring 서버 간의 **안정적인 통신 레이어** 구현",
+      "**JWT 기반 토큰 인증** 시스템 구현",
+      "소셜 로그인 시스템 구현 (**Google OAuth, Kakao OAuth**)",
+      "AI 작업 상태 추적 및 **재시도 메커니즘** 구현",
+      "**데드레터 큐**를 활용한 실패 작업 처리 및 모니터링",
       "RESTful API 설계 및 구현",
     ],
     roleDetailsEn: [
@@ -1310,7 +1307,7 @@ export const projects = [
         titleEn: "Generative AI Pipeline Integration",
         titleZh: "生成式AI管道集成",
         description:
-          "ChatGPT, Midjourney, LUMA AI 등 여러 생성형 AI 서비스를 통합하여 사용자의 꿈 데이터를 자동으로 숏폼 영상으로 변환하는 파이프라인을 구축했습니다. 각 AI 서비스의 API를 안정적으로 호출하고, 응답을 처리하며, 실패 시 재시도 로직을 구현했습니다.",
+          "**ChatGPT, Midjourney, LUMA AI** 등 여러 생성형 AI 서비스를 통합하여 사용자의 꿈 데이터를 자동으로 숏폼 영상으로 변환하는 파이프라인을 구축했습니다. 각 AI 서비스의 API를 안정적으로 호출하고, 응답을 처리하며, **실패 시 재시도 로직**을 구현했습니다.",
         descriptionEn:
           "Built a pipeline that automatically converts users' dream data into short-form videos by integrating multiple generative AI services including ChatGPT, Midjourney, and LUMA AI. Stably called each AI service's API, processed responses, and implemented retry logic for failures.",
         descriptionZh:
@@ -1321,7 +1318,7 @@ export const projects = [
         titleEn: "RabbitMQ-based Asynchronous Processing",
         titleZh: "基于RabbitMQ的异步处理",
         description:
-          "생성형 AI 서비스의 긴 처리 시간과 복잡한 호출 체인을 관리하기 위해 RabbitMQ를 활용한 메시지 큐 기반 아키텍처를 구축했습니다. 여러 AI 서비스 간의 작업을 큐에 담아 순차적으로 처리하고, 실패한 작업에 대한 재시도 메커니즘을 구현하여 시스템의 안정성을 높였습니다.",
+          "생성형 AI 서비스의 긴 처리 시간과 복잡한 호출 체인을 관리하기 위해 **RabbitMQ**를 활용한 **메시지 큐 기반 아키텍처**를 구축했습니다. 여러 AI 서비스 간의 작업을 큐에 담아 순차적으로 처리하고, **실패한 작업에 대한 재시도 메커니즘**을 구현하여 시스템의 안정성을 높였습니다.",
         descriptionEn:
           "Built a message queue-based architecture using RabbitMQ to manage the long processing times and complex call chains of generative AI services. Queued tasks between multiple AI services for sequential processing and implemented retry mechanisms for failed tasks to improve system stability.",
         descriptionZh:
@@ -1332,7 +1329,7 @@ export const projects = [
         titleEn: "Docker Containerization",
         titleZh: "Docker容器化",
         description:
-          "마이크로서비스 아키텍처의 각 컴포넌트를 Docker로 컨테이너화하여 개발 환경과 운영 환경의 일관성을 보장했습니다. Docker Compose를 활용하여 로컬 개발 환경을 구성하고, 각 서비스를 독립적으로 관리하고 스케일링할 수 있도록 했습니다.",
+          "마이크로서비스 아키텍처의 각 컴포넌트를 **Docker로 컨테이너화**하여 개발 환경과 운영 환경의 일관성을 보장했습니다. **Docker Compose**를 활용하여 로컬 개발 환경을 구성하고, 각 서비스를 독립적으로 관리하고 스케일링할 수 있도록 했습니다.",
         descriptionEn:
           "Containerized each component of the microservices architecture using Docker to ensure consistency between development and production environments. Used Docker Compose to configure local development environments and enabled independent management and scaling of each service.",
         descriptionZh:
