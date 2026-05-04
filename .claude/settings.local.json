@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"C:/Users/theo.s.park/Desktop/personal/portfolio\" add data/portfolio.ts README.md)",
+      "Bash(git -C \"C:/Users/theo.s.park/Desktop/personal/portfolio\" commit -m \"chore: update GitHub username from sevin98 to sevineleven\")",
+      "Bash(git -C \"C:/Users/theo.s.park/Desktop/personal/portfolio\" push)",
+      "Bash(git *)"
+    ]
+  }
+}

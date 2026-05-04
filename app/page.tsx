@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { personalInfo, experiences, projects, skills } from '@/data/portfolio';
 import TableOfContents from '@/components/TableOfContents';
@@ -73,9 +72,7 @@ export default function Home() {
             <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--green)' }}>$</span>
             <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--text)' }}>whoami</span>
           </div>
-          <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start', marginBottom: 32 }}>
-            <Image src="/me.png" alt="박세빈" width={80} height={80} style={{ borderRadius: '50%', objectFit: 'cover', flexShrink: 0, border: '2px solid var(--border)' }} />
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 13, paddingLeft: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 13, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 32 }}>
             <div><span style={{ color: 'var(--blue)', marginRight: 12 }}>name</span><span style={{ color: 'var(--text)' }}>parksevin</span></div>
             <div><span style={{ color: 'var(--blue)', marginRight: 16 }}>role</span><span style={{ color: 'var(--text)' }}>backend engineer</span></div>
             <div><span style={{ color: 'var(--blue)', marginRight: 11 }}>stack</span><span style={{ color: 'var(--text)' }}>Spring Boot · Java · MySQL</span></div>
@@ -85,7 +82,6 @@ export default function Home() {
             <div><span style={{ color: 'var(--blue)', marginRight: -1 }}>linkedin</span>
               <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="whoami-link" style={{ marginLeft: 4 }}>linkedin.com/in/sevin-park</a>
             </div>
-          </div>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>

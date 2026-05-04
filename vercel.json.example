@@ -1,0 +1,27 @@
+{
+  "rewrites": [
+    {
+      "source": "/blog/:path*",
+      "destination": "https://blog-api.sevin.dev/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/blog/:path*",
+      "headers": [
+        {
+          "key": "X-Forwarded-Host",
+          "value": "sevin.dev"
+        },
+        {
+          "key": "X-Forwarded-Proto",
+          "value": "https"
+        },
+        {
+          "key": "X-Forwarded-For",
+          "value": "$remote_addr"
+        }
+      ]
+    }
+  ]
+}
