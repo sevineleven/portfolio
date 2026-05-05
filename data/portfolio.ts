@@ -16,7 +16,7 @@ export const personalInfo = {
     },
     {
       title: "AI 도구의 구조를 탐구합니다.",
-      description: "Claude Code의 Skills(슬래시 커맨드)와 MCP(Model Context Protocol)의 client·host·server 구조를 직접 뜯어보며, AI 에이전트를 개발 워크플로우에 통합하는 방법을 탐구하고 있습니다. 단순히 AI 도구를 사용하는 데 그치지 않고, 그 위에서 동작하는 자동화 흐름을 직접 설계하는 것에 관심이 있습니다. 새로운 기술 패러다임이 등장했을 때 가장 먼저 손을 대보는 개발자가 되고 싶습니다.",
+      description: "Claude Code의 Skills와 MCP의 client·host·server 구조를 직접 뜯어보며, AI 에이전트를 개발 워크플로우에 통합하는 방법을 탐구하고 있습니다. 단순히 AI 도구를 사용하는 데 그치지 않고, 그 위에서 동작하는 자동화 흐름을 직접 설계하는 것에 관심이 있습니다. 새로운 기술 패러다임이 등장했을 때 가장 먼저 손을 대보는 개발자가 되고 싶습니다.",
     },
   ],
   github: "https://github.com/sevineleven",
