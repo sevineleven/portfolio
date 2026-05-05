@@ -145,7 +145,7 @@ export const experiences = [
     company: "삼성 청년 SW 아카데미",
     period: "Jan 2024 - Dec 2024",
     description:
-      "삼성 청년 SW 아카데미(SSAFY) 11기 수료. 체계적인 소프트웨어 개발 교육 과정을 통해 백엔드 개발 역량을 습득했습니다.",
+      "삼성 청년 SW 아카데미(SSAFY) 11기 수료. 체계적인 소프트웨어 개발 교육 과정을 통해 개발 역량을 습득했습니다.",
     award: [
       {
         title: "프로젝트 우수상 (1위)",
