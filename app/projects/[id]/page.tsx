@@ -46,7 +46,7 @@ export default async function ProjectPage({
               <span style={{ color: 'var(--green)' }}>sevineleven</span>
               <span style={{ color: 'var(--muted)' }}>@dev</span>
               <span style={{ color: 'var(--muted)', margin: '0 6px' }}>:</span>
-              <span style={{ color: 'var(--blue)' }}>~/portfolio/projects/{project.id}</span>
+              <span style={{ color: 'var(--blue)' }}>~/portfolio/projects/{project.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9가-힣-]/g, '')}</span>
             </span>
             <a href="mailto:psv980817@naver.com" style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--muted)', textDecoration: 'none' }}>
               psv980817@naver.com
