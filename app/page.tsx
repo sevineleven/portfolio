@@ -47,7 +47,7 @@ export default function Home() {
               { label: '#skills', href: '#skills' },
             ].map((item) =>
               item.external ? (
-                <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="nav-link"
+                <a key={item.label} href={item.href} className="nav-link"
                   style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--muted)' }}>
                   {item.label}
                 </a>

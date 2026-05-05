@@ -78,7 +78,7 @@ export const experiences = [
       },
       // Row 2: col-span-2 전체 너비 (글로벌 스케줄링) — 앞에 짝수(2)개 grid 아이템이 있어야 빈 칸 없이 렌더링됨
       {
-        title: "글로벌 PUsh 스케줄링",
+        title: "글로벌 Push 스케줄링",
         layout: "row",
         items: [
           {
