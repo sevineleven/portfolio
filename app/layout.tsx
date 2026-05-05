@@ -3,11 +3,11 @@ import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: '백엔드 개발자 박세빈',
-  description: '백엔드 개발자 박세빈 포트폴리오',
+  title: 'sevin.dev',
+  description: 'sevin.dev — 박세빈 포트폴리오',
   openGraph: {
-    title: '백엔드 개발자 박세빈',
-    description: '백엔드 개발자 박세빈 포트폴리오',
+    title: 'sevin.dev',
+    description: 'sevin.dev — 박세빈 포트폴리오',
     url: 'https://sevin.dev',
   },
 };

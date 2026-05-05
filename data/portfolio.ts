@@ -50,35 +50,9 @@ export const experiences = [
     description:
       "크로스 플랫폼 오피스 솔루션 및 클라우드 기반 문서 협업 서비스 개발",
     workItems: [
-      // Row 1: grid 2칸 (메시징 + 실시간 협업)
+      // Row 1: col-span-2 전체 너비 (B2C 메시징/알림 플랫폼 통합)
       {
-        title: "메시징/알림 플랫폼",
-        items: [
-          {
-            name: "iOS Dynamic Island 실시간 알림 지원",
-            description:
-              "iOS 업데이트 스펙 변화에 대응해 실시간 알림 동작을 재정의하고, 서버 발송/페이로드 구성을 정리하여 사용자 노출 품질을 안정화했습니다.",
-          },
-          {
-            name: "대규모 Push 발송 성능 개선(비동기/병렬화)",
-            description:
-              "레거시 동기 처리 병목을 분석하고 비동기/Batch 병렬 처리로 발송 파이프라인을 재구성했습니다. Retry Queue 및 Idempotency를 적용해 실패/중복 케이스를 제어하고, 수 천만건의 대량 캠페인 발송 시간을 24시간 → 3~5분 수준으로 단축했습니다.",
-          },
-        ],
-      },
-      {
-        title: "실시간 협업/동기화",
-        items: [
-          {
-            name: "공동편집 동기화 설계 및 충돌 해결",
-            description:
-              "실시간 공동편집에서 발생하는 command 역전/인덱스 충돌을 분석하고, 논리적 Identifier 기반 병합 구조로 정합성을 강화했습니다. 지연 환경을 고려해 Optimistic UI + Server Reconciliation 흐름을 적용하고, 이벤트 전파를 비동기 큐 기반으로 안정화했습니다.",
-          },
-        ],
-      },
-      // Row 2: col-span-2 전체 너비 (글로벌 스케줄링) — 앞에 짝수(2)개 grid 아이템이 있어야 빈 칸 없이 렌더링됨
-      {
-        title: "글로벌 Push 스케줄링",
+        title: "B2C 메시징/알림 플랫폼",
         layout: "row",
         items: [
           {
@@ -91,9 +65,34 @@ export const experiences = [
             description:
               "Scheduler가 각 Timezone Queue에 Push 작업을 분산 적재하고, Worker는 발송 허용 시간(allow-window) 조건을 만족하는 큐만 Pull하여 소비하는 구조를 구현했습니다. 특정 시간대에 캠페인 트래픽이 집중되는 문제를 완화하고, 발송 허용 시간 이외에는 큐가 쌓이기만 하다가 조건 충족 시 순차 소비되도록 제어하여 서버 부하를 평탄화했습니다.",
           },
+          {
+            name: "대규모 Push 발송 성능 개선(비동기/병렬화)",
+            description:
+              "레거시 동기 처리 병목을 분석하고 비동기/Batch 병렬 처리로 발송 파이프라인을 재구성했습니다. Retry Queue 및 Idempotency를 적용해 실패/중복 케이스를 제어하고, 수 천만건의 대량 캠페인 발송 시간을 24시간 → 3~5분 수준으로 단축했습니다.",
+          },
+          {
+            name: "iOS Dynamic Island 실시간 알림 지원",
+            description:
+              "iOS 업데이트 스펙 변화에 대응해 실시간 알림 동작을 재정의하고, 서버 발송/페이로드 구성을 정리하여 사용자 노출 품질을 안정화했습니다.",
+          },
+          {
+            name: "FCM Push 레거시 리팩토링",
+            description:
+              "발송 로직의 책임을 정리하고 라이브러리 업데이트를 수행해 유지보수성과 운영 안정성을 개선했습니다.",
+          },
         ],
       },
-      // Row 3: grid 2칸 (데이터 모델링 + 개발 생산성)
+      // Row 2: grid 2칸 (실시간 협업 + 데이터 모델링)
+      {
+        title: "실시간 협업/동기화",
+        items: [
+          {
+            name: "공동편집 동기화 설계 및 충돌 해결",
+            description:
+              "실시간 공동편집에서 발생하는 command 역전/인덱스 충돌을 분석하고, 논리적 Identifier 기반 병합 구조로 정합성을 강화했습니다. 지연 환경을 고려해 Optimistic UI + Server Reconciliation 흐름을 적용하고, 이벤트 전파를 비동기 큐 기반으로 안정화했습니다.",
+          },
+        ],
+      },
       {
         title: "데이터 모델링/성능 최적화",
         items: [
@@ -101,11 +100,6 @@ export const experiences = [
             name: "NOVA AI 대화 내역 저장/조회 구조 개선(DynamoDB)",
             description:
               "Item Size 초과 및 조회 지연 이슈를 해결하기 위해 대화 데이터를 Chunk 단위로 분리하고, PK/SK 기반 접근 패턴에 맞춰 테이블 구조를 재설계했습니다. Hot Partition을 완화하는 분산 키 전략을 적용해 저장/조회 안정성을 확보했습니다.",
-          },
-          {
-            name: "FCM Push 레거시 리팩토링",
-            description:
-              "발송 로직의 책임을 정리하고 라이브러리 업데이트를 수행해 유지보수성과 운영 안정성을 개선했습니다.",
           },
         ],
       },
