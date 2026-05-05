@@ -119,7 +119,22 @@ export const experiences = [
           {
             name: "Sentry SaaS → Self-hosted 전환",
             description:
-              "외부 SaaS 의존에서 벗어나 Self-hosted Sentry(25.x)로 직접 운영 환경을 구축했습니다. 데이터 보존 정책과 알림 규칙을 팀 상황에 맞게 커스터마이징하고, 레거시 8.x 대비 장애 재현·분석 효율을 개선했습니다.",
+              "외부 SaaS 의존에서 벗어나 Self-hosted Sentry(25.x)로 직접 운영 환경을 구축했습니다. 데이터 보존 정책과 알림 규칙을 팀 상황에 맞게 커스터마이징하여 장애 재현·분석 효율을 개선했습니다.",
+          },
+        ],
+      },
+      {
+        title: "AI 탐구 / Tech Enablement",
+        items: [
+          {
+            name: "사내 바이브코딩 멘토링",
+            description:
+              "비개발 직군을 대상으로 AI 코딩 도구(Claude Code, Cursor 등)를 활용한 바이브코딩 멘토링을 진행했습니다. 개발 경험 없이도 프로토타입을 직접 만들 수 있는 워크플로우를 전파하고, 현업 업무에 AI 도구를 접목하는 방법을 함께 탐구했습니다.",
+          },
+          {
+            name: "AI 도구 POC 및 사내 세미나",
+            description:
+              "Claude Code Skills·MCP 등 새로운 AI 개발 도구를 선제적으로 검증하고, 팀 내 도입 가능성을 POC로 확인했습니다. 기술 검증 결과와 활용 사례를 세미나 형태로 공유하며 팀 전반의 AI 활용 역량 향상에 기여했습니다.",
           },
         ],
       },
