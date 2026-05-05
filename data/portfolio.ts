@@ -107,9 +107,9 @@ export const experiences = [
         title: "개발 생산성/운영 체계",
         items: [
           {
-            name: "API 문서 자동화 및 AI 연동 스펙 제공",
+            name: "API 문서 자동화 및 MCP 서버 연동",
             description:
-              "Springfox를 통해 API 명세를 구조화된 JSON 파일로 자동 생성하고, 프론트엔드가 요구하는 스펙 형식에 맞춰 가공하여 제공했습니다. 별도 문서 작성 없이 해당 JSON을 AI 툴(Cursor, Claude 등)에 바로 입력할 수 있도록 구성해 프론트엔드 개발자의 API 파악 속도와 구현 생산성을 높였습니다.",
+              "Springfox로 API 명세를 JSON으로 자동 생성하고, 이를 직접 제공하는 MCP 서버를 구축했습니다. 프론트엔드 개발자가 Cursor·Claude 등 AI 툴에서 MCP 서버를 연결하면 별도 문서 없이 최신 API 스펙을 바로 참조할 수 있어 구현 속도를 높였습니다.",
           },
           {
             name: "SVN → Git 전환 및 운영 규칙/브랜치 전략 정립",
@@ -117,9 +117,9 @@ export const experiences = [
               "SVN에서 Git으로 마이그레이션하고 브랜치 전략 및 운영 규칙을 정립하여 배포/협업 프로세스를 표준화했습니다.",
           },
           {
-            name: "Sentry 모니터링 시스템 전환",
+            name: "Sentry SaaS → Self-hosted 전환",
             description:
-              "레거시 Sentry(8.x)에서 Self-hosted Sentry(25.x)로 전환하여 장애 재현/분석 효율을 개선했습니다.",
+              "외부 SaaS 의존에서 벗어나 Self-hosted Sentry(25.x)로 직접 운영 환경을 구축했습니다. 데이터 보존 정책과 알림 규칙을 팀 상황에 맞게 커스터마이징하고, 레거시 8.x 대비 장애 재현·분석 효율을 개선했습니다.",
           },
         ],
       },
