@@ -23,7 +23,7 @@ export default function Home() {
       {/* Navbar */}
       <nav style={{
         position: 'sticky', top: 0, zIndex: 50,
-        background: 'rgba(15,15,18,0.92)',
+        background: 'var(--nav-bg)',
         backdropFilter: 'blur(20px)',
         borderBottom: '1px solid var(--border)',
       }}>
