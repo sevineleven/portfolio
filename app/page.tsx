@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { personalInfo, experiences, projects, skills } from '@/data/portfolio';
 import TableOfContents from '@/components/TableOfContents';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const CONTAINER = { maxWidth: 720, margin: '0 auto', padding: '0 24px' };
 
@@ -34,9 +35,12 @@ export default function Home() {
               <span style={{ color: 'var(--muted)', margin: '0 6px' }}>:</span>
               <span style={{ color: 'var(--blue)' }}>~/portfolio</span>
             </span>
-            <a href="mailto:psv980817@naver.com" style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--muted)', textDecoration: 'none' }}>
-              psv980817@naver.com
-            </a>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <ThemeToggle />
+              <a href="mailto:psv980817@naver.com" style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--muted)', textDecoration: 'none' }}>
+                psv980817@naver.com
+              </a>
+            </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, height: 44 }}>
             <a href="https://blog.sevin.dev" className="nav-link"
