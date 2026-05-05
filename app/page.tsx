@@ -39,25 +39,20 @@ export default function Home() {
             </a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, height: 44 }}>
-            {[
-              { label: 'cd ~/blog', href: 'https://blog.sevin.dev', external: true },
-              { label: '#whoami', href: '#whoami' },
-              { label: '#experience', href: '#experience' },
-              { label: '#projects', href: '#projects' },
-              { label: '#skills', href: '#skills' },
-            ].map((item) =>
-              item.external ? (
-                <a key={item.label} href={item.href} className="nav-link"
-                  style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--muted)' }}>
-                  {item.label}
-                </a>
-              ) : (
-                <a key={item.label} href={item.href} className="nav-link"
-                  style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--muted)' }}>
-                  {item.label}
-                </a>
-              )
-            )}
+            <a href="https://blog.sevin.dev" className="nav-link"
+              style={{ fontFamily: 'var(--mono)', fontSize: 12, display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+              <span style={{ color: 'var(--green)' }}>$</span>
+              <span style={{ color: 'var(--text)' }}>cd</span>
+              <span style={{ color: 'var(--blue)' }}>~/blog</span>
+            </a>
+            <span style={{ width: 1, height: 14, background: 'var(--border)', flexShrink: 0 }} />
+            {['whoami', 'experience', 'projects', 'skills'].map((section) => (
+              <a key={section} href={`#${section}`} className="nav-link"
+                style={{ fontFamily: 'var(--mono)', fontSize: 12, display: 'inline-flex', alignItems: 'center', gap: 1 }}>
+                <span style={{ color: 'var(--purple)' }}>#</span>
+                <span style={{ color: 'var(--text)' }}>{section}</span>
+              </a>
+            ))}
           </div>
         </div>
       </nav>
